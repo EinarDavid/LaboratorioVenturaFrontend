@@ -1,23 +1,67 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { NavButton } from "../components/Button/NavButton";
+import { NavButtonUnSelect } from "../components/Button/NavButtonUnSelect";
 import Images from "../config/Images";
 
 
 export const MainNavigator = () => {
-    return (<>
-        <NavButton Image={Images.DASH}/>
+    return (
+        <>
+            <NavLink
+                to={'/dashboard'}
+            >
+                {({ isActive }) => (
+                    isActive ? (<NavButton Image={Images.DASHW} />) : (<NavButtonUnSelect Image={Images.DASHB} />)
+                )
+                }
 
-        <div className='spaceVer30'/>
-        <NavButton Image={Images.DASH} />
+            </NavLink>
 
-        <div className='spaceVer30'/>
-        <NavButton Image={Images.DASH}/>
+            <div className='spaceVer30' />
+            <NavLink
+                to={'/newLab'}
+            >
 
-        <div className='spaceVer30'/>
-        <NavButton Image={Images.DASH}/>
-        
-        <div className='spaceVer30'/>
-        <NavButton Image={Images.DASH}/>
+                {({ isActive }) => (
+                    isActive ? (<NavButton Image={Images.REGLABW} />) : (<NavButtonUnSelect Image={Images.REGLABB} />)
+                )
+                }
+            </NavLink>
 
-    </>);
+            <div className='spaceVer30' />
+            <NavLink
+                to={'/gestionUser'}
+            >
+
+                {({ isActive }) => (
+                    isActive ? (<NavButton Image={Images.REGLABW} />) : (<NavButtonUnSelect Image={Images.REGLABB} />)
+                )
+                }
+            </NavLink>
+
+            <div className='spaceVer30' />
+            <NavLink
+                to={'/gesionExample'}
+            >
+
+                {({ isActive }) => (
+                    isActive ? (<NavButton Image={Images.REGLABW} />) : (<NavButtonUnSelect Image={Images.REGLABB} />)
+                )
+                }
+            </NavLink>
+
+            <div className='spaceVer30' />
+            <NavLink
+                to={'/searchLab'}
+            >
+
+                {({ isActive }) => (
+                    isActive ? (<NavButton Image={Images.REGLABW} />) : (<NavButtonUnSelect Image={Images.REGLABB} />)
+                )
+                }
+            </NavLink>
+
+        </>
+    );
 };

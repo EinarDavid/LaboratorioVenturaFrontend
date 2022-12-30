@@ -1,7 +1,7 @@
 import React from 'react'
 
-export const Select = ({ LabelInput, Placeholder, Required, SelectOption }) => {
-    
+export const Select = ({ LabelInput, Placeholder, SelectOption, ErrorInput, Register }) => {
+
 
     return (
         <>
@@ -10,9 +10,9 @@ export const Select = ({ LabelInput, Placeholder, Required, SelectOption }) => {
 
                 <select
                     className='textInput'
-                    required={Required}
+                    {...Register}
                 >
-                    <option value='Default' hidden> {Placeholder}</option>
+                    <option value='' hidden> {Placeholder}</option>
                     {
                         SelectOption.map(({ option, id_option }) => (
                             <option key={id_option}
@@ -21,6 +21,7 @@ export const Select = ({ LabelInput, Placeholder, Required, SelectOption }) => {
                         ))
                     }
                 </select>
+                <label className='labelInputError'>{ErrorInput}</label>
             </div>
         </>
     )

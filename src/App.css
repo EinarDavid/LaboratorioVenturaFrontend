@@ -4,6 +4,14 @@
   font-family: Plus-Jakarta-Sans-Semibold;
   src: url('../public/fonts/PlusJakartaSans-SemiBold.ttf') format('ttf');
 }
+@font-face {
+  font-family: Gotham-Medium;
+  src: url('../public/fonts/GothamMedium.ttf') format('ttf');
+}
+@font-face {
+  font-family: Gotham-Book;
+  src: url('../public/fonts/GothamBook.ttf') format('ttf');
+}
 
 :root {
   --bs-primary: #5C34EC;
@@ -87,14 +95,19 @@
 }
 
 .itemNav {
-
   width: 60px;
   height: 60px;
   border-radius: 10px;
   background-color: var(--bs-primary);
   border: none;
 }
-
+.itemNavUnselect{
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: var(--bs-white);
+  border: none;
+}
 /* Text Input Style */
 .searchContent {
   display: flex;
@@ -111,7 +124,7 @@
 
 .labelInput {
   padding-left: 9px;
-  font-family: 'Gotham';
+  font-family: 'Gotham-Book';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -120,6 +133,19 @@
   align-items: center;
 
   color: var(--bs-labelInput);
+}
+.labelInputError{
+  padding-top: 4px;
+  padding-left: 9px;
+  font-family: 'Gotham-Medium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 12px;
+  display: flex;
+  align-items: center;
+
+  color: var(--bs-danger);
 }
 
 .textInput {
@@ -135,7 +161,7 @@
 }
 
 .textInput::placeholder {
-  font-family: 'Gotham';
+  font-family: 'Gotham-Book';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -188,16 +214,7 @@
 
 }
 
-/* Button Style */
-.buttonAdd {
-  width: 40px;
-  height: 40px;
 
-
-  background: var(--bs-primary);
-  border-radius: 8px;
-  border: none;
-}
 
 /* Space */
 .spaceRow10 {
@@ -257,7 +274,18 @@
   text-align: center;
 }
 
-/* Buttons */
+
+/* Button Style */
+.buttonAdd {
+  width: 40px;
+  height: 40px;
+
+
+  background: var(--bs-primary);
+  border-radius: 8px;
+  border: none;
+}
+
 .ButtonPrimary {
   background: var(--bs-primary);
   width: 32%;
@@ -265,7 +293,7 @@
   border-radius: 30px;
   border: none;
 
-  font-family: 'Gotham';
+  font-family: 'Gotham-Medium';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;

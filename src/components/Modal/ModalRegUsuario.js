@@ -1,15 +1,26 @@
-import { React, useEffect } from "react"
+import { React, useEffect, useRef } from "react"
 import { PasswordInput } from '../Input/PasswordInput';
 import { Select } from '../Input/Select'
 import { TextInput } from '../Input/TextInput'
-import { postAgregarUsuario } from "../../services/usuarioService"
+import { postAgregarUsuario } from "../../services/usuarioService";
+import { useForm } from "react-hook-form";
+import { ErrorMessage } from '@hookform/error-message';
 
 export const RegUsuario = ({ SetModal, modal }) => {
     useEffect(() => {
-        postAgregarUsuario({nombre:"erick"}).then(({ data }) => { console.log(data) })
+        //        postAgregarUsuario({ nombre: "erick" }).then(({ data }) => { console.log(data) })
     }, [])
-    
-    
+
+    const { register, formState: { errors }, handleSubmit } = useForm({
+        mode: 'all'
+    });
+
+
+
+    const onSubmit = data => console.log('data--------', data);
+
+    console.log('Error', errors)
+
     const Sex = [{
         option: 'Masculino',
         id_option: 1
@@ -32,7 +43,9 @@ export const RegUsuario = ({ SetModal, modal }) => {
         <>
             <div className='popup_container'>
                 <div className='popup_itself'>
-                    <form onSubmit={''}>
+                    <form
+                        autoComplete="off"
+                        onSubmit={handleSubmit(onSubmit)} >
                         <div className='popup_button_container'>
                             <h1 className='titleStyle'>Registro de usuarios</h1>
                             <button onClick={() => SetModal(false)}>Cancelar</button>
@@ -42,41 +55,83 @@ export const RegUsuario = ({ SetModal, modal }) => {
                             <TextInput
                                 LabelInput={'Documento de Identidad*'}
                                 Placeholder={'Ej 9456123'}
-                                Required={true}
+                                Register={register("CI", {
+                                    required: 'El campo es requerido',
+
+                                })}
+                                ErrorInput={errors.CI?.message}
                             />
                             <div className='spaceRow25' />
                             <TextInput
                                 LabelInput={'Nombres*'}
                                 Placeholder={'Ej. Einar David'}
-                                Required={true}
+                                Register={register("Nombres", {
+                                    required: 'El campo es requerido',
+                                    pattern: {
+                                        value: /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$/,
+                                        message: 'Solo se permiten letras'
+                                    }
+                                })}
+                                ErrorInput={errors.Nombres?.message}
                             />
                             <div className='spaceRow25' />
                             <TextInput
                                 LabelInput={'Primer Apellido*'}
                                 Placeholder={'Ej Villarroel'}
-                                Required={true}
+
+                                Register={register("PrimerApellido", {
+                                    required: 'El campo es requerido',
+                                    pattern: {
+                                        value: /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$/,
+                                        message: 'Solo se permiten letras'
+                                    }
+                                })}
+                                ErrorInput={errors.PrimerApellido?.message}
                             />
+
                         </div>
                         <div className='spaceVer30' />
                         <div className='row3-Inputs'>
                             <TextInput
                                 LabelInput={'Segundo Apellido'}
                                 Placeholder={'Ej. Vargas'}
+                                Register={register("SegundoApellido", {
+                                    
+                                    pattern: {
+                                        value: /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$/,
+                                        message: 'Solo se permiten letras'
+                                    }
+                                })}
+                                ErrorInput={errors.SegundoApellido?.message}
                             />
                             <div className='spaceRow25' />
                             <TextInput
                                 LabelInput={'Fecha de Nacimiento*'}
                                 Placeholder={'Ej. 06/06/2000'}
-                                Required={true}
+                                Register={register("Fecha_de_Nacimiento", {
+                                    required: 'El campo es requerido',
+                                    pattern: {
+                                        value: /^(?:(?:(?:0?[1-9]|1\d|2[0-8])[/](?:0?[1-9]|1[0-2])|(?:29|30)[/](?:0?[13-9]|1[0-2])|31[/](?:0?[13578]|1[02]))[/](?:0{2,3}[1-9]|0{1,2}[1-9]\d|0?[1-9]\d{2}|[1-9]\d{3})|29[/]0?2[/](?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$/,
+                                        message: 'El formato debe ser DD/MM/AAAA'
+                                    }
+                                    
+                                })}
+                                ErrorInput={errors.Fecha_de_Nacimiento?.message}
                             />
                             <div className='spaceRow25' />
 
                             <Select
-                                LabelInput={'Género'}
+                                LabelInput={'Género*'}
                                 Placeholder={'Selecciona el Género'}
-                                Required={true}
                                 SelectOption={Sex}
+
+                                Register={register("Genero", {
+                                    required: 'El campo es requerido',
+                                })}
+                                ErrorInput={errors.Genero?.message}
+
                             />
+                            
                         </div>
 
                         <div className='spaceVer30' />
@@ -84,12 +139,21 @@ export const RegUsuario = ({ SetModal, modal }) => {
                             <TextInput
                                 LabelInput={'Teléfono*'}
                                 Placeholder={'Ej. 63949159'}
-                                Required={true}
+                                Register={register("Telefono", {
+                                    required: 'El campo es requerido',
+                                    pattern: {
+                                        value: /^[0-9]+$/,
+                                        message: 'Solo se permiten números'
+                                    }
+                                })}
+                                ErrorInput={errors.Telefono?.message}
                             />
                             <div className='spaceRow25' />
                             <TextInput
                                 LabelInput={'Dirección'}
                                 Placeholder={'Ej. Plaza 10 de Febrero / Villa Pagador'}
+                                Register={register("Direccion", )}
+                                ErrorInput={errors.Direccion?.message}
 
                             />
                             <div className='spaceRow25' />
@@ -97,8 +161,11 @@ export const RegUsuario = ({ SetModal, modal }) => {
                             <Select
                                 LabelInput={'Cargo*'}
                                 Placeholder={'Selecciona el Cargo'}
-                                Required={true}
                                 SelectOption={Cargo}
+                                Register={register("Cargo", {
+                                    required: 'El campo es requerido',
+                                })}
+                                ErrorInput={errors.Cargo?.message}
                             />
                         </div>
                         <div className='spaceVer30' />
@@ -106,18 +173,33 @@ export const RegUsuario = ({ SetModal, modal }) => {
                             <TextInput
                                 LabelInput={'Correo electrónico*'}
                                 Placeholder={'Ej. einardavidvillarroel@gmail.com'}
-                                Required={true}
+                                Register={register("Email", {
+                                    required: 'El campo es requerido',
+                                    pattern: {
+                                        value: /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/,
+                                        message: 'Correo electrónico incorrecto'
+                                    }
+                                })}
+                                ErrorInput={errors.Email?.message}
                             />
                             <div className='spaceRow25' />
 
                             <PasswordInput
-                                LabelInput={'Contraseña'}
+                                LabelInput={'Contraseña*'}
                                 Placeholder={'Debe contener 8 caracteres mínimo'}
+                                Register={register("Password", {
+                                    required: 'El campo es requerido',
+                                    pattern: {
+                                        value: /^(?=.*[0-9])(?=.*[!@#$%^&*.,-_])[a-zA-Z0-9!@#$%^&*.,]{6,16}$/,
+                                        message: 'La contraseña debe contener almenos 6 caracteres, entre ellos 1 letra mayuscula, 1 letra minuscula y 1 número.'
+                                    }
+                                })}
+                                ErrorInput={errors.Password?.message}
                             />
                         </div>
                         <div className='spaceVer30' />
                         <div className='container-Button-Modal'>
-                            <button className='ButtonPrimary'>Registrar</button>
+                            <button className='ButtonPrimary' type="submit">Registrar</button>
                         </div>
 
                     </form>
