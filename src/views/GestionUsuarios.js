@@ -15,7 +15,7 @@ export const GestionUsuarios = () => {
             <div className="App">
                 <div className='mainNav'>
                     <MainNavigator></MainNavigator>
-
+                    
                 </div>
                 <div className='container'>
                     <div className='containerHijo'>

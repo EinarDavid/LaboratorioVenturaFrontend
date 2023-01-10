@@ -305,3 +305,41 @@
 
   color: #FFFFFF;
 }
+.button_close{
+  background: none;
+  border: none;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+}
+
+/* NAV */
+.containerNavPadre{
+  height: 90vh;
+  /* background-color: #00CAA7; */
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.containerNav{
+  /* background-color: #000000; */
+  /* position: absolute; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.user{
+  background-color: transparent;
+  border: none;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.imgUser{
+  position: fixed;
+  border-radius: 50px;
+  left: 19px;
+  width: 48px;
+}

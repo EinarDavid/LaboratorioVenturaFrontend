@@ -4,7 +4,7 @@ import { Select } from '../Input/Select'
 import { TextInput } from '../Input/TextInput'
 import { postAgregarUsuario } from "../../services/usuarioService";
 import { useForm } from "react-hook-form";
-import { ErrorMessage } from '@hookform/error-message';
+import Images from "../../config/Images";
 
 export const RegUsuario = ({ SetModal, modal }) => {
     useEffect(() => {
@@ -48,7 +48,9 @@ export const RegUsuario = ({ SetModal, modal }) => {
                         onSubmit={handleSubmit(onSubmit)} >
                         <div className='popup_button_container'>
                             <h1 className='titleStyle'>Registro de usuarios</h1>
-                            <button onClick={() => SetModal(false)}>Cancelar</button>
+                            <button className="button_close" onClick={() => SetModal(false)}>{
+                                <img src={Images.CLOSE} width={30} alt='icon' ></img>
+                            } </button>
                         </div>
                         <div className='spaceVer30' />
                         <div className='row3-Inputs'>
@@ -176,7 +178,7 @@ export const RegUsuario = ({ SetModal, modal }) => {
                                 Register={register("Email", {
                                     required: 'El campo es requerido',
                                     pattern: {
-                                        value: /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/,
+                                        value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                                         message: 'Correo electrónico incorrecto'
                                     }
                                 })}

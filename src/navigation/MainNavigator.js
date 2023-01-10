@@ -8,60 +8,75 @@ import Images from "../config/Images";
 export const MainNavigator = () => {
     return (
         <>
-            <NavLink
-                to={'/dashboard'}
-            >
-                {({ isActive }) => (
-                    isActive ? (<NavButton Image={Images.DASHW} />) : (<NavButtonUnSelect Image={Images.DASHB} />)
-                )
-                }
+            <div className="containerNavPadre">
 
-            </NavLink>
+                <div className="containerNav">
+                    <NavLink
+                        to={'/dashboard'}
+                    >
+                        {({ isActive }) => (
+                            isActive ? (<NavButton Image={Images.DASHW} />) : (<NavButtonUnSelect Image={Images.DASHB} />)
+                        )
+                        }
 
-            <div className='spaceVer30' />
-            <NavLink
-                to={'/newLab'}
-            >
+                    </NavLink>
 
-                {({ isActive }) => (
-                    isActive ? (<NavButton Image={Images.REGLABW} />) : (<NavButtonUnSelect Image={Images.REGLABB} />)
-                )
-                }
-            </NavLink>
+                    <div className='spaceVer30' />
+                    <NavLink
+                        to={'/newLab'}
+                    >
 
-            <div className='spaceVer30' />
-            <NavLink
-                to={'/gestionUser'}
-            >
+                        {({ isActive }) => (
+                            isActive ? (<NavButton Image={Images.REGLABW} />) : (<NavButtonUnSelect Image={Images.REGLABB} />)
+                        )
+                        }
+                    </NavLink>
 
-                {({ isActive }) => (
-                    isActive ? (<NavButton Image={Images.REGLABW} />) : (<NavButtonUnSelect Image={Images.REGLABB} />)
-                )
-                }
-            </NavLink>
+                    <div className='spaceVer30' />
+                    <NavLink
+                        to={'/gestionUser'}
+                    >
 
-            <div className='spaceVer30' />
-            <NavLink
-                to={'/gesionExample'}
-            >
+                        {({ isActive }) => (
+                            isActive ? (<NavButton Image={Images.USERW} />) : (<NavButtonUnSelect Image={Images.USERB} />)
+                        )
+                        }
+                    </NavLink>
 
-                {({ isActive }) => (
-                    isActive ? (<NavButton Image={Images.REGLABW} />) : (<NavButtonUnSelect Image={Images.REGLABB} />)
-                )
-                }
-            </NavLink>
+                    <div className='spaceVer30' />
+                    <NavLink
+                        to={'/gesionExample'}
+                    >
 
-            <div className='spaceVer30' />
-            <NavLink
-                to={'/searchLab'}
-            >
+                        {({ isActive }) => (
+                            isActive ? (<NavButton Image={Images.NEWEXAMPLEW} />) : (<NavButtonUnSelect Image={Images.NEWEXAMPLEB} />)
+                        )
+                        }
+                    </NavLink>
 
-                {({ isActive }) => (
-                    isActive ? (<NavButton Image={Images.REGLABW} />) : (<NavButtonUnSelect Image={Images.REGLABB} />)
-                )
-                }
-            </NavLink>
+                    <div className='spaceVer30' />
+                    <NavLink
+                        to={'/searchLab'}
+                    >
 
+                        {({ isActive }) => (
+                            isActive ? (<NavButton Image={Images.SEARCHW} />) : (<NavButtonUnSelect Image={Images.SEARCHB} />)
+                        )
+                        }
+                    </NavLink>
+                </div>
+
+
+
+                <button className='user'>
+                    <img src={Images.USEROPTIONIN} width={80} alt='icon' >
+
+                    </img>
+                    <img src={Images.IMGUSER} alt='user' className="imgUser"></img>
+
+                </button>
+
+            </div>
         </>
     );
 };
