@@ -2,22 +2,20 @@ import { React, useEffect, useRef } from "react"
 import { PasswordInput } from '../Input/PasswordInput';
 import { Select } from '../Input/Select'
 import { TextInput } from '../Input/TextInput'
-import { postAgregarUsuario } from "../../services/usuarioService";
+import { getUsuarioTodos, postAgregarUsuario } from "../../services/usuarioService";
 import { useForm } from "react-hook-form";
 import Images from "../../config/Images";
 
 export const RegUsuario = ({ SetModal, modal }) => {
     useEffect(() => {
-        //        postAgregarUsuario({ nombre: "erick" }).then(({ data }) => { console.log(data) })
+        //getUsuarioTodos().then(({data})=>console.log(data))
     }, [])
 
     const { register, formState: { errors }, handleSubmit } = useForm({
         mode: 'all'
     });
 
-
-
-    const onSubmit = data => console.log('data--------', data);
+    const onSubmit = data => { postAgregarUsuario(data).then(({ data }) => { console.log(data) }) };
 
     console.log('Error', errors)
 
