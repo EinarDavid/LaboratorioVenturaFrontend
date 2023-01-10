@@ -8,14 +8,17 @@ import Images from "../../config/Images";
 
 export const RegUsuario = ({ SetModal, modal }) => {
     useEffect(() => {
-        //getUsuarioTodos().then(({data})=>console.log(data))
+        getUsuarioTodos().then(({data})=>console.log(data))
     }, [])
 
     const { register, formState: { errors }, handleSubmit } = useForm({
         mode: 'all'
     });
 
-    const onSubmit = data => { postAgregarUsuario(data).then(({ data }) => { console.log(data) }) };
+    const onSubmit = data => { postAgregarUsuario(data).then(({ data }) => { 
+        console.log(data)
+        //limpiar cajas, cerrar modal y avisar que fue añadido con exito
+     }) };
 
     console.log('Error', errors)
 
