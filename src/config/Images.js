@@ -12,6 +12,7 @@ const Images = {
     SEARCHB: require ('../assets/searchB.png'),
     SEARCHW: require('../assets/searchW.png'),
     CLOSE: require('../assets/close.png'),
+    REMOVE: require('../assets/remove.png'),
 
     USEROPTIONIN: require('../assets/userOptionInactive.png'),
     USEROPTIONAC: require('../assets/userOptionActive.png'),

@@ -1,11 +1,16 @@
+
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { NavButton } from "../components/Button/NavButton";
 import { NavButtonUnSelect } from "../components/Button/NavButtonUnSelect";
+import { OptionUser } from "../components/Modal/OptionUser";
+
 import Images from "../config/Images";
 
 
+
 export const MainNavigator = () => {
+
     return (
         <>
             <div className="containerNavPadre">
@@ -45,7 +50,7 @@ export const MainNavigator = () => {
 
                     <div className='spaceVer30' />
                     <NavLink
-                        to={'/gesionExample'}
+                        to={'/gesionTest'}
                     >
 
                         {({ isActive }) => (
@@ -65,17 +70,7 @@ export const MainNavigator = () => {
                         }
                     </NavLink>
                 </div>
-
-
-
-                <button className='user'>
-                    <img src={Images.USEROPTIONIN} width={80} alt='icon' >
-
-                    </img>
-                    <img src={Images.IMGUSER} alt='user' className="imgUser"></img>
-
-                </button>
-
+                <OptionUser/>
             </div>
         </>
     );

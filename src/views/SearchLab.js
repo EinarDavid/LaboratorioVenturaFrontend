@@ -8,7 +8,7 @@ export const SearchLab = () => {
                 <div className='mainNav'>
                     <MainNavigator />
                 </div>
-                <div className='container'>
+                <div className='containerPadre'>
                     <div className='containerHijo'>
                         <h1 className='titleStyle'>Busqueda de Laboratorios</h1>
                         <div className='spaceVer30' />

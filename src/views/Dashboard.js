@@ -8,7 +8,7 @@ export const Dashboard = () => {
                 <div className='mainNav'>
                     <MainNavigator />
                 </div>
-                <div className='container'>
+                <div className='containerPadre'>
                     <div className='containerHijo'>
                         <h1 className='titleStyle'>Dashboard</h1>
                         <div className='spaceVer30' />
