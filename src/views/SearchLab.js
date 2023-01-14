@@ -2,8 +2,8 @@ import React from 'react'
 import { MainNavigator } from '../navigation/MainNavigator'
 
 export const SearchLab = () => {
-  return (
-    <>
+    return (
+        <>
             <div className="App">
                 <div className='mainNav'>
                     <MainNavigator />
@@ -15,6 +15,7 @@ export const SearchLab = () => {
                     </div>
                 </div>
             </div>
+
         </>
-  )
+    )
 }

@@ -8,3 +8,6 @@ export async function postAgregarPaciente(paciente) {
 export async function getUsuarioTodos() {
     return await axios.get(api+"paciente/leertodo");
 }
+export async function getPacientesNombres() {
+    return await axios.get(api+"paciente/leerNombres");
+}

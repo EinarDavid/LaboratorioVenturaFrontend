@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import Images from '../../config/Images';
-import { postAgregarPaciente } from '../../services/pacienteService';
+import { postAgregarExamen } from '../../services/examenService';
 import { Select } from '../Input/Select';
 import { TextInput } from '../Input/TextInput';
 import { TextInputDinamic } from '../Input/TextInputDinamic';
@@ -18,14 +18,13 @@ export const ModalRegTest = ({ SetModal, modal }) => {
     const onSubmit = (data, e) => {
         try {
             data.Campos = detalle;
-            console.log(detalle);
             console.log(data);
-            /*postAgregarPaciente(data).then(({ data }) => {
+            postAgregarExamen(data).then(({ data }) => {
             console.log(data);
             reset();
             SetModal(false);
             //limpiar cajas, cerrar modal y avisar que fue añadido con exito
-            alert(data.mensaje);})*/
+            alert(data.mensaje);})
 
         } catch (error) {
             console.log('----', error)
@@ -75,8 +74,9 @@ export const ModalRegTest = ({ SetModal, modal }) => {
     useEffect(() => {
         setDataDetalle(detalle)
 
-    }, [detalle])
+    }, [detalle]);
 
+    
     return (modal) ? (
         <>
             <div className='popup_container'>
