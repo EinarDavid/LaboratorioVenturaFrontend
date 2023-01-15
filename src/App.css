@@ -244,9 +244,14 @@
 .spaceRow25 {
   min-width: 25px;
 }
-.spaceVer15{
+
+.spaceVer5{
+height: 5px;;
+}
+.spaceVer15 {
   height: 15px;
 }
+
 .spaceVer20 {
   height: 20px;
 }
@@ -368,7 +373,8 @@
   padding: 0 0 0 0;
   margin: 0 0 0 0;
 }
-.buttonRemoveRow{
+
+.buttonRemoveRow {
   margin: 0 0 5px 0;
   padding: 0;
 
@@ -381,12 +387,13 @@
   color: #454545;
   text-align: center;
 }
-.buttonRemoveRow:hover{
+
+.buttonRemoveRow:hover {
   background-color: #f5f5f5;
   box-shadow: 0px 5px 14px -7px #b0b0b0;
 }
 
-.buttonAddForm{
+.buttonAddForm {
   width: 482px;
   height: 30px;
   background: #FFFFFF;
@@ -589,12 +596,13 @@
   border-radius: 15px;
   padding: 15px;
 }
-.containerPac{
+
+.containerPac {
   width: 95%;
   height: 95%;
 }
 
-.information{
+.information {
   /* background: #0078b8; */
   display: flex;
   flex-direction: column;
@@ -605,24 +613,33 @@
 
 .cardBody {
   flex: 1 1 auto;
-  padding: 1rem 1rem;
-  background-color: #0078b8;
-}
-.cardHead{
-
+  padding: 10px;
+  background-color: var(--bs-textInput);
+  border-radius: 13px;
 }
 
-.resultadosSearch{
+.tableContainer {
+  width: 100%;
+}
+
+
+.titleTable{
+  /* display: flex; */
+  text-align: start;
+}
+
+.resultadosSearch {
   background: var(--bs-textInput);
   padding: 5px;
   border-radius: 13px;
-  border-color: var(--bs-black) ;
+  border-color: var(--bs-black);
   display: flex;
   align-items: flex-start;
   width: 93%;
   margin-top: 5px;
 }
-.resultadosLista{
+
+.resultadosLista {
   list-style: none;
   /* background: #0078b8; */
 }

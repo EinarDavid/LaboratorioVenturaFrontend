@@ -19,9 +19,8 @@ export const NewLab = () => {
         getExamenTodos().then(({ data }) => setExamenes(data))
     }, [])
 
-    const _onSubmit = ()=>
-    {
-        
+    const _onSubmit = () => {
+
     }
 
     return (
@@ -82,53 +81,54 @@ export const NewLab = () => {
                                         {examenFinded.map(ex =>
                                             <>
                                                 <li class="resultadosLista">{ex.Nombre}</li>
-                                                <button onClick={() => { if (!exameneSelected.find(a => a._id == ex._id)) setExameneSelected([...exameneSelected, ex]); }}>Añadir examen</button>
+                                                <button onClick={() => { if (!exameneSelected.find(a => a._id === ex._id)) setExameneSelected([...exameneSelected, ex]); }}>Añadir examen</button>
                                             </>
                                         )}
 
                                     </ol>
                                 </div>
                                 <div className='spaceVer15' />
-                                <h1 className='titleStyle'>Table</h1>
-
-                                <div className="card mb-4">
-
-                                    <div className="cardBody">
-                                        <table>
-                                            <thead className='cardHead'>
-                                                <tr>
-                                                    <th>Name</th>
-
-                                                </tr>
-                                            </thead>
-
-                                            <tbody>
-                                                {exameneSelected.map((ex, i) =>
-                                                    <>
-                                                        <tr key={i}>
-                                                            <td>{ex.Nombre}</td>
-                                                            <td>
-                                                                <button onClick={() => {
-                                                                    setExameneSelected(exameneSelected.filter(a => a._id != ex._id));
-                                                                }}>Eliminar</button>
-                                                            </td>
-                                                        </tr>
-                                                    </>
-                                                )}
 
 
 
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                <div className="cardBody">
+                                    <table className='tableContainer'>
+                                        <thead>
+                                            <tr>
+                                                <th className='titleTable'>Nombre del examen</th>
+                                                <th className='titleTable'>Acción</th>
+                                            </tr>
+
+                                        </thead>
+                                        <div className='spaceVer5' />
+                                        <tbody>
+                                            {exameneSelected.map((ex, i) =>
+                                                <>
+                                                    <tr key={i}>
+                                                        <td className='titleTable'>{ex.Nombre}</td>
+                                                        <td className='titleTable'>
+                                                            <button onClick={() => {
+                                                                setExameneSelected(exameneSelected.filter(a => a._id !== ex._id));
+                                                            }}>Eliminar</button>
+                                                        </td>
+                                                    </tr>
+                                                </>
+                                            )}
+
+
+
+                                        </tbody>
+                                    </table>
                                 </div>
-                                <button onClick={_onSubmit}>Guardar</button>
+
+                                <div className='spaceVer15' />
+                                <button onClick={_onSubmit} className='ButtonPrimary' >Guardar</button>
                             </div>
                         </div>
                         <div className='section2Lab'>
                             <div className='containerLab2'>
 
-                                <h1 className='titleStyle'>Nuevo Laboratorio</h1>
+                                <h1 className='titleStyle'>Método de pago</h1>
                                 <div className='spaceVer30' />
 
                             </div>
