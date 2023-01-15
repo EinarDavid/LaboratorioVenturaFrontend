@@ -24,6 +24,7 @@
   --bs-black: #000000;
   --bs-warning: #F9F871;
   --bs-danger: #FF1616;
+  --bs-dangerLigth: #FFCECE;
   --bs-textcolor: #7A7A7A;
   --bs-disabled: #AFAFAF;
   --bs-labelInput: #383838;
@@ -221,6 +222,19 @@
 
 }
 
+.titleStyleH2{
+  font-family: 'Plus-Jakarta-Sans-Semibold';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+
+  color: var(--bs-black);
+  margin: 0 0 0 0;
+}
+
 .parrafoStyle {
   font-family: 'Gotham-Book';
   font-weight: 400;
@@ -245,9 +259,11 @@
   min-width: 25px;
 }
 
-.spaceVer5{
-height: 5px;;
+.spaceVer5 {
+  height: 5px;
+  ;
 }
+
 .spaceVer15 {
   height: 15px;
 }
@@ -320,8 +336,6 @@ height: 5px;;
 .buttonAdd {
   width: 40px;
   height: 40px;
-
-
   background: var(--bs-primary);
   border-radius: 8px;
   border: none;
@@ -407,6 +421,24 @@ height: 5px;;
   line-height: 18px;
   text-align: center;
   color: #0078b8;
+}
+
+.buttonTable {
+  background-color: transparent;
+  border-style: none;
+  margin: 0px;
+  padding: 0px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+    justify-content: center;
+}
+
+.stateStyle{
+  border-radius: 13px;
+  border-style: none;
+  padding: 5px 10px 5px 10px;
 }
 
 /* NAV */
@@ -560,7 +592,7 @@ height: 5px;;
 
 .section2Lab {
 
-  background: var(--bs-textInput);
+  background: var(--bs-backgroudCard);
   width: 30%;
   height: 100%;
   display: flex;
@@ -616,6 +648,14 @@ height: 5px;;
   padding: 10px;
   background-color: var(--bs-textInput);
   border-radius: 13px;
+  height: 25%;
+}
+.cardBodyEvaluation{
+  flex: 1 1 auto;
+  padding: 10px;
+  background-color: var(--bs-textInput);
+  border-radius: 13px;
+  height: 90%;
 }
 
 .tableContainer {
@@ -623,23 +663,39 @@ height: 5px;;
 }
 
 
-.titleTable{
+.titleTable {
   /* display: flex; */
   text-align: start;
 }
 
-.resultadosSearch {
+.containerResultados {
+
   background: var(--bs-textInput);
-  padding: 5px;
+  padding: 5px 10px 5px 10px;
   border-radius: 13px;
   border-color: var(--bs-black);
-  display: flex;
-  align-items: flex-start;
   width: 93%;
   margin-top: 5px;
 }
 
+.resultadosSearch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.olList {
+  padding: 0px;
+  margin: 0px;
+}
+
 .resultadosLista {
   list-style: none;
+  padding: 0px;
+  margin: 0px;
   /* background: #0078b8; */
+}
+
+.pacTable{
+  background: var(--bs-backgroudCard)
 }

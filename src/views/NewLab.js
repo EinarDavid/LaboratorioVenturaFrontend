@@ -5,6 +5,9 @@ import Images from '../config/Images';
 import { MainNavigator } from '../navigation/MainNavigator'
 import { getPacientesNombres } from '../services/pacienteService';
 import { getExamenTodos } from '../services/examenService';
+import { postAgregarLaboratorio } from '../services/laboratorioService';
+
+import { TextInputDinamic } from '../components/Input/TextInputDinamic';
 
 export const NewLab = () => {
     const [pacientes, setPacientes] = useState([]);
@@ -13,6 +16,10 @@ export const NewLab = () => {
     const [examenFinded, setExamenFinded] = useState([]);
     const [exameneSelected, setExameneSelected] = useState([]);
     const [modalShow, setModalShow] = useState(false);
+    const [detalle, setDataDetalle] = useState();
+
+    const [render, setRender] = useState(true);
+
 
     useEffect(() => {
         getPacientesNombres().then(({ data }) => setPacientes(data))
@@ -20,12 +27,42 @@ export const NewLab = () => {
     }, [])
 
     const _onSubmit = () => {
-
+        const fecha = new Date();
+        const a = fecha.getFullYear();
+        const m = fecha.getMonth() + 1;
+        const d = fecha.getDate();
+        const fechaActual = `${d}-${m}-${a}`;
+        if(pacienteFinded && exameneSelected[0])
+        {
+            let laboratorio = {
+                examenes: exameneSelected,
+                paciente: pacienteFinded,
+                motivo: detalle.Motivo,
+                Fecha: fechaActual,
+            }
+            postAgregarLaboratorio(laboratorio).then(({ data }) => {
+                console.log(data);
+                alert(data.mensaje);
+                setRender(!render)
+                setPacienteFinded([])
+                setExamenFinded([])
+                setExameneSelected([])
+                //limpiar cajas, cerrar modal y avisar que fue añadido con exito
+            })
+        }
+        else
+        {
+            alert("Selecciona un paciente y examenes a realizar")
+        }
+    }
+    const handleChangeNombre = (event) => {
+        setDataDetalle({ ...detalle, [event.target.name]: event.target.value })
+        
     }
 
     return (
         <>
-            <div className="App">
+            <div className="App" key={render}>
                 <div className='mainNav'>
                     <MainNavigator />
                 </div>
@@ -63,7 +100,7 @@ export const NewLab = () => {
                                     </div>
                                 </div>
                                 <div className='spaceVer20' />
-                                <h1 className='titleStyle'>Examenes</h1>
+                                <h2 className='titleStyleH2'>Examenes</h2>
                                 <div className='spaceVer15' />
                                 <SearchInput
                                     LabelInput={'Ingresa el nombre del Examen*'}
@@ -76,16 +113,29 @@ export const NewLab = () => {
 
                                 ></SearchInput>
 
-                                <div className='resultadosSearch'>
-                                    <ol >
-                                        {examenFinded.map(ex =>
-                                            <>
-                                                <li class="resultadosLista">{ex.Nombre}</li>
-                                                <button onClick={() => { if (!exameneSelected.find(a => a._id === ex._id)) setExameneSelected([...exameneSelected, ex]); }}>Añadir examen</button>
-                                            </>
-                                        )}
+                                <div className='containerResultados'>
 
-                                    </ol>
+                                    {examenFinded.map((ex, i) =>
+                                        <div className='resultadosSearch' key={i}>
+                                            <ol className='olList'>
+                                                <li className="resultadosLista">{ex.Nombre}</li>
+                                            </ol>
+                                            <ol className='olList'>
+                                                <li className="resultadosLista">{ex.Categoria}</li>
+                                            </ol>
+                                            <ol className='olList'>
+                                                <li className="resultadosLista">{ex.Metodo}</li>
+                                            </ol>
+                                            <ol className='olList'>
+                                                <button className='buttonTable'
+                                                    onClick={() => { if (!exameneSelected.find(a => a._id === ex._id)) setExameneSelected([...exameneSelected, ex]); }}>
+                                                    <img src={Images.ADDBLUE} width={30} height={30}  alt={'icon'}></img>
+                                                </button>
+                                            </ol>
+                                        </div>
+                                    )}
+
+
                                 </div>
                                 <div className='spaceVer15' />
 
@@ -95,21 +145,27 @@ export const NewLab = () => {
                                     <table className='tableContainer'>
                                         <thead>
                                             <tr>
-                                                <th className='titleTable'>Nombre del examen</th>
-                                                <th className='titleTable'>Acción</th>
+                                                <th className='titleTable'>Nombre</th>
+                                                <th className='titleTable'>Categoria</th>
+                                                <th className='titleTable'>Metodo</th>
                                             </tr>
 
                                         </thead>
-                                        <div className='spaceVer5' />
+
                                         <tbody>
                                             {exameneSelected.map((ex, i) =>
                                                 <>
                                                     <tr key={i}>
                                                         <td className='titleTable'>{ex.Nombre}</td>
+                                                        <td className='titleTable'>{ex.Categoria}</td>
+                                                        <td className='titleTable'>{ex.Metodo}</td>
                                                         <td className='titleTable'>
-                                                            <button onClick={() => {
-                                                                setExameneSelected(exameneSelected.filter(a => a._id !== ex._id));
-                                                            }}>Eliminar</button>
+                                                            <button className='buttonTable'
+                                                                onClick={() => {
+                                                                    setExameneSelected(exameneSelected.filter(a => a._id !== ex._id));
+                                                                }}>
+                                                                <img src={Images.DELETE} width={30} height={30} alt={'icon'}></img>
+                                                            </button>
                                                         </td>
                                                     </tr>
                                                 </>
@@ -122,14 +178,21 @@ export const NewLab = () => {
                                 </div>
 
                                 <div className='spaceVer15' />
-                                <button onClick={_onSubmit} className='ButtonPrimary' >Guardar</button>
+                                <button onClick={_onSubmit} className='ButtonPrimary'>Guardar</button>
                             </div>
                         </div>
                         <div className='section2Lab'>
                             <div className='containerLab2'>
 
-                                <h1 className='titleStyle'>Método de pago</h1>
+                                <h2 className='titleStyleH2'>Datos adicionales</h2>
                                 <div className='spaceVer30' />
+                                <TextInputDinamic
+                                    Name={'Motivo'}
+                                    LabelInput={'Motivo'}
+                                    Placeholder={'Ej. Examen anual'}
+                                    OnChange={(e) => handleChangeNombre(e)}
+                                    value={''}
+                                />
 
                             </div>
                         </div>

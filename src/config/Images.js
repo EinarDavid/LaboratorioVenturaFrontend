@@ -3,6 +3,7 @@ const Images = {
     DASHW: require('../assets/dashboardWhite.png'),
     DASHB: require('../assets/dashboardBlack.png'),
     ADD: require('../assets/add.png'),
+    ADDBLUE: require('../assets/addBlue.png'),
     REGLABW: require('../assets/NuevoLaboratorioW.png'),
     REGLABB: require('../assets/NuevoLaboratorioB.png'),
     USERB: require('../assets/UserB.png'),
@@ -13,6 +14,7 @@ const Images = {
     SEARCHW: require('../assets/searchW.png'),
     CLOSE: require('../assets/close.png'),
     REMOVE: require('../assets/remove.png'),
+    DELETE: require('../assets/delete.png') , 
 
     USEROPTIONIN: require('../assets/userOptionInactive.png'),
     USEROPTIONAC: require('../assets/userOptionActive.png'),

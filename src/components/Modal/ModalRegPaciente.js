@@ -7,6 +7,7 @@ import { Select } from '../Input/Select';
 import { TextInput } from '../Input/TextInput';
 
 export const ModalRegPaciente = ({ SetModal, modal }) => {
+    
     const { register, formState, formState: { errors, isSubmitSuccessful }, reset, handleSubmit } = useForm({
         mode: 'all'
     });
@@ -36,7 +37,7 @@ export const ModalRegPaciente = ({ SetModal, modal }) => {
 
     useEffect(() => {
         if (formState.isSubmitSuccessful) {
-            console.log('Entro a reset')
+            // console.log('Entro a reset')
             //reset()
         }
     }, [formState, reset])

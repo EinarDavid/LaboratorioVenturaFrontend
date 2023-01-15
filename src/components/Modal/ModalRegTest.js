@@ -1,30 +1,32 @@
 import React, { useEffect, useState } from 'react'
-import { useForm } from 'react-hook-form';
+
 import Images from '../../config/Images';
 import { postAgregarExamen } from '../../services/examenService';
-import { Select } from '../Input/Select';
-import { TextInput } from '../Input/TextInput';
+import { SelectDinamic } from '../Input/SelectDinamic';
 import { TextInputDinamic } from '../Input/TextInputDinamic';
 
 export const ModalRegTest = ({ SetModal, modal }) => {
+
     const [detalle, setDataDetalle] = useState([
         { Nombre: '', ValorReferencia: '', Concentracion: '' },
     ]);
+    const [cabecera, setCabecera] = useState({})
 
-    const { register, formState, formState: { errors, isSubmitSuccessful }, reset, handleSubmit } = useForm({
-        mode: 'all'
-    });
-
-    const onSubmit = (data, e) => {
+    const onSubmit = () => {
         try {
+            let data = cabecera;
             data.Campos = detalle;
             console.log(data);
             postAgregarExamen(data).then(({ data }) => {
-            console.log(data);
-            reset();
-            SetModal(false);
-            //limpiar cajas, cerrar modal y avisar que fue añadido con exito
-            alert(data.mensaje);})
+                console.log(data);
+                
+                SetModal(false);
+                setDataDetalle([
+                    { Nombre: '', ValorReferencia: '', Concentracion: '' },
+                ])
+                //limpiar cajas, cerrar modal y avisar que fue añadido con exito
+                alert(data.mensaje);
+            })
 
         } catch (error) {
             console.log('----', error)
@@ -51,16 +53,17 @@ export const ModalRegTest = ({ SetModal, modal }) => {
         id_option: 5
     }];
 
+    const handleChangeCabecera = (event) => {
+        setCabecera({ ...cabecera, [event.target.name]: event.target.value })
+        
+    }
+
     const addInputs = (e) => {
         //e.preventDefault();
-
         setDataDetalle([...detalle, { Nombre: '', ValorReferencia: '', Concentracion: '' }]);
-
     }
     const handleChangeNombre = (event, index) => {
-        //detalle[index].Nombre = e.target.value;
-        //setDataDetalle([...detalle]);
-        //console.log(detalle);
+
         let campos = [...detalle]
         campos[index][event.target.name] = event.target.value;
 
@@ -76,14 +79,12 @@ export const ModalRegTest = ({ SetModal, modal }) => {
 
     }, [detalle]);
 
-    
+
     return (modal) ? (
         <>
             <div className='popup_container'>
                 <div className='popup_itself'>
-                    <form
-                        autoComplete="off"
-                        onSubmit={handleSubmit(onSubmit)} >
+                    
                         <div className='popup_button_container'>
                             <h1 className='titleStyle'>Registro de examen</h1>
                             <button className="button_close" onClick={() => SetModal(false)}>{
@@ -93,108 +94,93 @@ export const ModalRegTest = ({ SetModal, modal }) => {
 
                         <div className='spaceVer30' />
                         <div className='row3-Inputs'>
-                            <TextInput
+
+                            <TextInputDinamic
+                                Name={'Nombre'}
                                 LabelInput={'Nombre*'}
                                 Placeholder={'Ej. Hepatitis B'}
-                                Register={register("Nombre", {
-
-                                    pattern: {
-                                        required: 'El campo es requerido',
-                                        value: /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$/,
-                                        message: 'Solo se permiten letras'
-                                    }
-                                })}
-                                ErrorInput={errors.Nombre?.message}
+                                OnChange={(e) => handleChangeCabecera(e)}
+                                
                             />
                             <div className='spaceRow25' />
-                            <Select
-
+                           
+                            <SelectDinamic
+                                Name={'Categoria'}
                                 LabelInput={'Categoría*'}
                                 Placeholder={'Selecciona la Categoría'}
                                 SelectOption={Categoria}
-
-                                Register={register("Categoria", {
-                                    required: 'El campo es requerido',
-                                })}
-                                ErrorInput={errors.Categoria?.message}
-
+                                OnChange={(e) => handleChangeCabecera(e)}
                             />
                             <div className='spaceRow25' />
-                            <TextInput
 
+                            <TextInputDinamic
+                                Name={'Metodo'}
                                 LabelInput={'Método'}
                                 Placeholder={'Ej. Hepatitis B'}
-                                Register={register("Metodo", {
-
-                                    pattern: {
-                                        required: 'El campo es requerido',
-                                        value: /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$/,
-                                        message: 'Solo se permiten letras'
-                                    }
-                                })}
-                                ErrorInput={errors.Metodo?.message}
+                                OnChange={(e) => handleChangeCabecera(e)}
+                               
                             />
                         </div>
+                    
+                    <div className='spaceVer30' />
 
-                        <div className='spaceVer30' />
+                    {
 
-                        {
+                        detalle.map((det, i) => {
+                            return (
+                                < div key={i}>
+                                    <div className='row3-Inputs'>
 
-                            detalle.map((det, i) => {
-                                return (
-                                    < div key={i}>
-                                        <div className='row3-Inputs'>
-
-                                            <TextInputDinamic
-                                                Name={'Nombre'}
-                                                LabelInput={'Nombre'}
-                                                Placeholder={'Ej. Eritrocitos'}
-                                                OnChange={(e) => handleChangeNombre(e, i)}
-                                                value={det.Nombre}
-                                            />
-                                            <div className='spaceRow20' />
-                                            <TextInputDinamic
-                                                Name={'ValorReferencia'}
-                                                LabelInput={'Valor de Referencia'}
-                                                Placeholder={'Ej. 13 - 18'}
-                                                OnChange={(e) => handleChangeNombre(e, i)}
-                                                value={det.ValorReferencia}
-                                            />
-                                            <div className='spaceRow20' />
-                                            <TextInputDinamic
-                                                Name={'Concentracion'}
-                                                LabelInput={'Concentración'}
-                                                Placeholder={'Ej. g/dl'}
-                                                OnChange={(e) => handleChangeNombre(e, i)}
-                                                value={det.Concentracion}
-                                            />
-                                            <button
-                                                className='buttonRemoveRow'
-                                                style={{ marginLeft: '5px' }}
-                                                onClick={() => { handleRemoveInputRol(i) }}
-                                            >
-                                                <img  src={Images.REMOVE} width={26} alt='remove'></img>
-                                            </button>
-                                        </div>
-                                        <div className='spaceVer15' />
+                                        <TextInputDinamic
+                                            Name={'Nombre'}
+                                            LabelInput={'Nombre'}
+                                            Placeholder={'Ej. Eritrocitos'}
+                                            OnChange={(e) => handleChangeNombre(e, i)}
+                                            value={det.Nombre}
+                                        />
+                                        <div className='spaceRow20' />
+                                        <TextInputDinamic
+                                            Name={'ValorReferencia'}
+                                            LabelInput={'Valor de Referencia'}
+                                            Placeholder={'Ej. 13 - 18'}
+                                            OnChange={(e) => handleChangeNombre(e, i)}
+                                            value={det.ValorReferencia}
+                                        />
+                                        <div className='spaceRow20' />
+                                        <TextInputDinamic
+                                            Name={'Concentracion'}
+                                            LabelInput={'Concentración'}
+                                            Placeholder={'Ej. g/dl'}
+                                            OnChange={(e) => handleChangeNombre(e, i)}
+                                            value={det.Concentracion}
+                                        />
+                                        <button
+                                            className='buttonRemoveRow'
+                                            style={{ marginLeft: '5px' }}
+                                            onClick={() => { handleRemoveInputRol(i) }}
+                                        >
+                                            <img src={Images.REMOVE} width={26} alt='remove'></img>
+                                        </button>
                                     </div>
-                                )
-                            })
+                                    <div className='spaceVer15' />
+                                </div>
+                            )
+                        })
 
-                        }
-                        
-                        <div >
-                            <button className='buttonAddForm' onClick={addInputs} >Click aquí para añadir un nuevo rol</button>
-                        </div>
+                    }
+
+                    <div >
+                        <button className='buttonAddForm' onClick={addInputs} >Click aquí para añadir un nuevo rol</button>
+                    </div>
 
 
 
-                        <div className='spaceVer30' />
-                        <div className='container-Button-Modal'>
-                            <button className='ButtonPrimary' type="submit">Registrar</button>
-                        </div>
+                    <div className='spaceVer30' />
+                    <div className='container-Button-Modal'>
+                        <button className='ButtonPrimary' type="submit" onClick={onSubmit}>Registrar</button>
+                    </div>
 
-                    </form>
+
 
                 </div>
             </div>

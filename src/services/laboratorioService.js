@@ -1,10 +1,13 @@
 import axios from "axios";
 const api = process.env.REACT_APP_API;
 
-export async function postAgregarExamen(examen) {
-    console.log(api + "examen/agregar")
-    return await axios.post(api + "examen/agregar", examen);
+export async function postAgregarLaboratorio(laboratorio) {
+    console.log(api + "laboratorio/agregar")
+    return await axios.post(api + "laboratorio/agregar", laboratorio);
 }
-export async function getExamenTodos() {
-    return await axios.get(api + "examen/leertodo");
+export async function getLaboratorioTodos() {
+    return await axios.get(api + "laboratorio/leertodo");
+}
+export async function getLaboratorioUno(id) {
+    return await axios.get(api + "laboratorio/leeruno/"+id);
 }
