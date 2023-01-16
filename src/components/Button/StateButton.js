@@ -13,7 +13,7 @@ export const StateButton = ({ State, Ruta }) => {
     <>
       <button className='stateStyle'
         style={(State === 'Pendiente') ? ({ background: '#FFCECE' }) :
-          (State === 'Autorizado') ? ({ background: '#00CAA7' }) : ({ background: '#F9F871' })}
+          (State === 'Realizado') ? ({ background: '#00CAA7' }) : ({ background: '#F9F871' })}
           onClick={_onClick}
       >{State}</button>
     </>

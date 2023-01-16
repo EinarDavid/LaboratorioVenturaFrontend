@@ -20,7 +20,7 @@ export const SearchLab = () => {
                 <div className='containerPadre'>
                     <div className='containerHijo'>
                         <h1 className='titleStyle'>Evaluación de examenes</h1>
-                        <div className='spaceVer30' />
+                        <div className='spaceVer20' />
                         <div className="cardBodyEvaluation">
                             <table className='tableContainer'>
                                 <thead>

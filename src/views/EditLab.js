@@ -25,22 +25,36 @@ export const EditLab = () => {
             setExamen(data.ExamenesRealizados.find(ex => ex._id === exa))
         })
     }, [])
+    //     useEffect(() => {
+    //         if(examen.Resultados!=undefined)
+    //         {
+    // //            console.log(examen.Resultados)
+    //             let cab = examen.Resultados.map(res => {
+    //                 return {[res._id]:res.Valor}
+    //             })
+    //             setCabecera( cab )
+    //         }
+    //     }, [examen])
+    // useEffect(() => {
+    //     console.log(cabecera)
+    // }, [cabecera])
     // console.log("laboratorio:", laboratorio, "examen:", examen)
 
     const handleChangeCabecera = (event) => {
         setCabecera({ ...cabecera, [event.target.name]: event.target.value })
-        
+
     }
 
     const onSubmit = () => {
 
         console.log('------', cabecera)
-        
+
         try {
             postModificarLaboratorio(labo, exa, cabecera).then(({ data }) => {
                 console.log(data);
                 //limpiar cajas, cerrar modal y avisar que fue añadido con exito
                 alert(data.mensaje);
+                navigate('/searchLab');
             })
         } catch (error) {
             console.log('----', error)
@@ -96,51 +110,57 @@ export const EditLab = () => {
                         <div className='spaceVer20' />
 
 
-                       
 
-                            <div className='popup_button_container'>
-                                <h1 className='titleStyleH2'>Examen</h1>
 
-                                <StateButton
-                                    State={examen.Estado}
-                                />
-                            </div>
+                        <div className='popup_button_container'>
+                            <h1 className='titleStyleH2'>Examen</h1>
+
+                            <StateButton
+                                State={examen.Estado}
+                            />
+                        </div>
+                        {
+                            (examen.Examen) ?
+                                <>
+                                    <p className='labelInput'>Nombre del examen: {examen.Examen.Nombre}</p>
+                                    <p className='labelInput'>Categoria: {examen.Examen.Categoria}</p>
+                                </> : <>
+                                </>
+                        }
+                        <div className='spaceVer20' />
+                        <div className='row-Dinamic'>
                             {
-                                (examen.Examen) ?
-                                    <>
-                                        <p className='labelInput'>Nombre del examen: {examen.Examen.Nombre}</p>
-                                        <p className='labelInput'>Categoria: {examen.Examen.Categoria}</p>
-                                    </> : <>
-                                    </>
+                                (examen.Examen) ? examen.Examen.Campos.map((campo, i) =>
+
+                                    <div key={i} className='containerInputDinamic'>
+                                        <TextInputDinamic
+                                            Name={campo._id}
+                                            LabelInput={campo.Nombre}
+                                            Placeholder={'Valor de referencia: ' + campo.ValorReferencia}
+                                            OnChange={(e) => handleChangeCabecera(e)}
+                                            Value={laboratorio.ExamenesRealizados.find(ab => ab._id === examen._id).Resultados.find(ba => ba.Id_Campo === campo._id)?.Valor}
+                                        />
+                                    </div>
+
+
+
+                                ) : <></>
                             }
-                            <div className='spaceVer20' />
-                            <div className='row-Dinamic'>
-                                {
-                                    (examen.Examen) ? examen.Examen.Campos.map((campo, i) =>
-                                        
-                                            <div key={i} className='containerInputDinamic'>
-                                                <TextInputDinamic
-                                                    Name={campo._id}
-                                                    LabelInput={campo.Nombre}
-                                                    Placeholder={'Valor de referencia: ' + campo.ValorReferencia}
-                                                    OnChange={(e) => handleChangeCabecera(e)}
-                                                />
-                                            </div>
-
-                                            
-                                        
-                                    ) : <></>
-                                }
 
 
-                            </div>
+                        </div>
 
-                            <div className='spaceVer30' />
-                            <div className='container-Button-Modal'>
-                                <button className='ButtonPrimary' onClick={onSubmit}>Registrar</button>
-                            </div>
+                        <div className='spaceVer30' />
 
-                       
+                        <div className='container-Button-Modal'>
+                            {
+                                (examen.Estado === 'Realizado') ? (
+                                    <button className='' disabled>Registrar</button>
+                                ) : (<button className='ButtonPrimary' onClick={onSubmit}>Registrar</button>)
+                            }
+                        </div>
+
+
 
                     </div>
                 </div>
