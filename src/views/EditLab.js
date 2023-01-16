@@ -113,21 +113,23 @@ export const EditLab = () => {
                                     </>
                             }
                             <div className='spaceVer20' />
-                            <div className='row3-Inputs'>
+                            <div className='row-Dinamic'>
                                 {
                                     (examen.Examen) ? examen.Examen.Campos.map(campo =>
                                         <>
-                                            <TextInput
-                                                LabelInput={campo.Nombre}
-                                                Placeholder={'Valor de referencia: ' + campo.ValorReferencia}
-                                                Register={register("Nombres", {
-                                                    required: 'El campo es requerido',
+                                            <div className='containerInputDinamic'>
+                                                <TextInput
+                                                    LabelInput={campo.Nombre}
+                                                    Placeholder={'Valor de referencia: ' + campo.ValorReferencia}
+                                                    Register={register("Nombres", {
+                                                        required: 'El campo es requerido',
 
-                                                })}
-                                                ErrorInput={errors.Nombres?.message}
-                                            />
+                                                    })}
+                                                    ErrorInput={errors.Nombres?.message}
+                                                />
+                                            </div>
+
                                             
-                                            <div className='spaceRow25' />
                                         </>
                                     ) : <></>
                                 }

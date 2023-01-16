@@ -14,7 +14,11 @@ const Images = {
     SEARCHW: require('../assets/searchW.png'),
     CLOSE: require('../assets/close.png'),
     REMOVE: require('../assets/remove.png'),
-    DELETE: require('../assets/delete.png') , 
+    DELETE: require('../assets/delete.png'),
+    EVALUATIONBLACK: require('../assets/evaluationBlack.png'),
+    EVALUATIONWHITE: require('../assets/evaluationWhite.png'),
+    NEWLABBLACK: require('../assets/newLabBlack.png'),
+    NEWLABWHITE: require('../assets/newLabWhite.png'),
 
     USEROPTIONIN: require('../assets/userOptionInactive.png'),
     USEROPTIONAC: require('../assets/userOptionActive.png'),

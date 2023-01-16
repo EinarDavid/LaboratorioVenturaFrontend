@@ -138,6 +138,9 @@
   display: flex;
   align-items: center;
 
+  margin: 3px 0 3px 0;
+
+
   color: var(--bs-labelInput);
 }
 
@@ -205,6 +208,25 @@
   align-items: flex-end;
 }
 
+.row-Dinamic {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.containerInputDinamic {
+  padding: 0;
+  width: 30%;
+  /* background: #0078b8; */
+  margin: 0 0 10px 0;
+  
+}
+
 /* Style the Title Parrafo */
 .titleStyle {
 
@@ -222,7 +244,7 @@
 
 }
 
-.titleStyleH2{
+.titleStyleH2 {
   font-family: 'Plus-Jakarta-Sans-Semibold';
   font-style: normal;
   font-weight: 600;
@@ -432,10 +454,10 @@
   height: 30px;
   display: flex;
   align-items: center;
-    justify-content: center;
+  justify-content: center;
 }
 
-.stateStyle{
+.stateStyle {
   border-radius: 13px;
   border-style: none;
   padding: 5px 10px 5px 10px;
@@ -650,7 +672,8 @@
   border-radius: 13px;
   height: 25%;
 }
-.cardBodyEvaluation{
+
+.cardBodyEvaluation {
   flex: 1 1 auto;
   padding: 10px;
   background-color: var(--bs-textInput);
@@ -696,6 +719,6 @@
   /* background: #0078b8; */
 }
 
-.pacTable{
+.pacTable {
   background: var(--bs-backgroudCard)
 }

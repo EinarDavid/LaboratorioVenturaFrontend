@@ -32,7 +32,7 @@ export const MainNavigator = () => {
                     >
 
                         {({ isActive }) => (
-                            isActive ? (<NavButton Image={Images.REGLABW} />) : (<NavButtonUnSelect Image={Images.REGLABB} />)
+                            isActive ? (<NavButton Image={Images.NEWLABWHITE} />) : (<NavButtonUnSelect Image={Images.NEWLABBLACK} />)
                         )
                         }
                     </NavLink>
@@ -65,7 +65,7 @@ export const MainNavigator = () => {
                     >
 
                         {({ isActive }) => (
-                            isActive ? (<NavButton Image={Images.SEARCHW} />) : (<NavButtonUnSelect Image={Images.SEARCHB} />)
+                            isActive ? (<NavButton Image={Images.EVALUATIONWHITE} />) : (<NavButtonUnSelect Image={Images.EVALUATIONBLACK} />)
                         )
                         }
                     </NavLink>
