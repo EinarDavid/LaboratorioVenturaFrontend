@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import { useForm } from 'react-hook-form';
+
 import { useNavigate, useParams } from 'react-router-dom'
 import { StateButton } from '../components/Button/StateButton';
-import { TextInput } from '../components/Input/TextInput';
+
+import { TextInputDinamic } from '../components/Input/TextInputDinamic';
 import Images from '../config/Images';
-import { getLaboratorioUno } from '../services/laboratorioService';
+import { getLaboratorioUno, postModificarLaboratorio } from '../services/laboratorioService';
+
 
 export const EditLab = () => {
 
     const navigate = useNavigate();
     const [laboratorio, setLaboratorio] = useState({})
     const [examen, setExamen] = useState({})
+    const [cabecera, setCabecera] = useState({})
 
     // 63c4355ee66964fd6f18ca65
     // 63c4355ee66964fd6f18ca66
@@ -19,30 +22,29 @@ export const EditLab = () => {
     useEffect(() => {
         getLaboratorioUno(labo).then(({ data }) => {
             setLaboratorio(data)
-            setExamen(data.ExamenesRealizados.find(ex => ex._id == exa))
+            setExamen(data.ExamenesRealizados.find(ex => ex._id === exa))
         })
-
     }, [])
-    console.log("laboratorio:", laboratorio, "examen:", examen)
+    // console.log("laboratorio:", laboratorio, "examen:", examen)
 
+    const handleChangeCabecera = (event) => {
+        setCabecera({ ...cabecera, [event.target.name]: event.target.value })
+        
+    }
 
-    const { register, formState, formState: { errors, isSubmitSuccessful }, reset, handleSubmit } = useForm({
-        mode: 'all'
-    });
+    const onSubmit = () => {
 
-    const onSubmit = (data, e) => {
-
-        // try {
-        //     postAgregarPaciente(data).then(({ data }) => {
-        //         console.log(data);
-        //         reset();
-        //         SetModal(false);
-        //         //limpiar cajas, cerrar modal y avisar que fue añadido con exito
-        //         alert(data.mensaje);
-        //     })
-        // } catch (error) {
-        //     console.log('----', error)
-        // }
+        console.log('------', cabecera)
+        
+        try {
+            postModificarLaboratorio(labo, exa, cabecera).then(({ data }) => {
+                console.log(data);
+                //limpiar cajas, cerrar modal y avisar que fue añadido con exito
+                alert(data.mensaje);
+            })
+        } catch (error) {
+            console.log('----', error)
+        }
     };
 
     return (
@@ -94,9 +96,8 @@ export const EditLab = () => {
                         <div className='spaceVer20' />
 
 
-                        <form
-                            autoComplete="off"
-                            onSubmit={handleSubmit(onSubmit)} >
+                       
+
                             <div className='popup_button_container'>
                                 <h1 className='titleStyleH2'>Examen</h1>
 
@@ -115,22 +116,19 @@ export const EditLab = () => {
                             <div className='spaceVer20' />
                             <div className='row-Dinamic'>
                                 {
-                                    (examen.Examen) ? examen.Examen.Campos.map(campo =>
-                                        <>
-                                            <div className='containerInputDinamic'>
-                                                <TextInput
+                                    (examen.Examen) ? examen.Examen.Campos.map((campo, i) =>
+                                        
+                                            <div key={i} className='containerInputDinamic'>
+                                                <TextInputDinamic
+                                                    Name={campo._id}
                                                     LabelInput={campo.Nombre}
                                                     Placeholder={'Valor de referencia: ' + campo.ValorReferencia}
-                                                    Register={register("Nombres", {
-                                                        required: 'El campo es requerido',
-
-                                                    })}
-                                                    ErrorInput={errors.Nombres?.message}
+                                                    OnChange={(e) => handleChangeCabecera(e)}
                                                 />
                                             </div>
 
                                             
-                                        </>
+                                        
                                     ) : <></>
                                 }
 
@@ -139,10 +137,10 @@ export const EditLab = () => {
 
                             <div className='spaceVer30' />
                             <div className='container-Button-Modal'>
-                                <button className='ButtonPrimary' type="submit">Registrar</button>
+                                <button className='ButtonPrimary' onClick={onSubmit}>Registrar</button>
                             </div>
 
-                        </form>
+                       
 
                     </div>
                 </div>

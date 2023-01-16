@@ -87,15 +87,36 @@
   align-items: center;
   justify-content: center;
 
+  padding: 30px;
+
 }
 
 .containerHijo {
-  width: 95%;
-  height: 92%;
+  width: 100%;
+  height: 100%;
   /* background-color: #eaeaea; */
   align-items: center;
   justify-content: center;
+  overflow-y: scroll;
 }
+
+.containerHijo::-webkit-scrollbar {
+  width: 12px; 
+  border: none;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  border-radius: 10px;
+  margin-left: 20px;
+  position: absolute;
+
+}
+
+.containerHijo::-webkit-scrollbar-thumb {
+  background-color: #737272;
+  border-radius: 10px;
+
+
+}
+
 
 .itemNav {
   width: 50px;
@@ -224,7 +245,7 @@
   width: 30%;
   /* background: #0078b8; */
   margin: 0 0 10px 0;
-  
+
 }
 
 /* Style the Title Parrafo */
