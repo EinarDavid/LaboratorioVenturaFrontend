@@ -1,28 +1,35 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import Images from '../../config/Images';
 import { postAgregarPaciente } from '../../services/pacienteService';
+import { ButtonPrimary } from '../Button/ButtonPrimary';
 import { PasswordInput } from '../Input/PasswordInput';
 import { Select } from '../Input/Select';
 import { TextInput } from '../Input/TextInput';
 
 export const ModalRegPaciente = ({ SetModal, modal }) => {
-    
+
+    const [disableButton, setDisableButton] = useState(false);
+
     const { register, formState, formState: { errors, isSubmitSuccessful }, reset, handleSubmit } = useForm({
         mode: 'all'
     });
 
     const onSubmit = (data, e) => {
-
+        //Deshabilitas boton
         try {
+            setDisableButton(true)
             postAgregarPaciente(data).then(({ data }) => {
                 console.log(data);
                 reset();
+                //Habilitas boton
+                setDisableButton(false);
                 SetModal(false);
                 //limpiar cajas, cerrar modal y avisar que fue añadido con exito
                 alert(data.mensaje);
             })
         } catch (error) {
+            alert(error)
             console.log('----', error)
         }
     };
@@ -55,7 +62,7 @@ export const ModalRegPaciente = ({ SetModal, modal }) => {
                                 <img src={Images.CLOSE} width={30} alt='icon' ></img>
                             } </button>
                         </div>
-                        <div className='spaceVer30' />
+                        <div className='spaceVer20' />
                         <div className='row3-Inputs'>
                             <TextInput
                                 LabelInput={'Documento de Identidad*'}
@@ -95,7 +102,7 @@ export const ModalRegPaciente = ({ SetModal, modal }) => {
                             />
 
                         </div>
-                        <div className='spaceVer30' />
+                        <div className='spaceVer20' />
                         <div className='row3-Inputs'>
                             <TextInput
                                 LabelInput={'Segundo Apellido'}
@@ -124,7 +131,23 @@ export const ModalRegPaciente = ({ SetModal, modal }) => {
                                 ErrorInput={errors.Fecha_de_Nacimiento?.message}
                             />
                             <div className='spaceRow25' />
+                            <TextInput
+                                LabelInput={'Código'}
+                                Placeholder={'Ej. 0001'}
+                                Register={register("CodigoPaciente", {
 
+                                    pattern: {
+
+                                    }
+                                })}
+                                ErrorInput={errors.CodigoPaciente?.message}
+                            />
+
+
+                        </div>
+
+                        <div className='spaceVer20' />
+                        <div className='row3-Inputs'>
                             <Select
                                 LabelInput={'Género*'}
                                 Placeholder={'Selecciona el Género'}
@@ -136,11 +159,7 @@ export const ModalRegPaciente = ({ SetModal, modal }) => {
                                 ErrorInput={errors.Genero?.message}
 
                             />
-
-                        </div>
-
-                        <div className='spaceVer30' />
-                        <div className='row3-Inputs'>
+                            <div className='spaceRow25' />
                             <TextInput
                                 LabelInput={'Teléfono*'}
                                 Placeholder={'Ej. 63949159'}
@@ -161,7 +180,12 @@ export const ModalRegPaciente = ({ SetModal, modal }) => {
                                 ErrorInput={errors.Direccion?.message}
 
                             />
-                            <div className='spaceRow25' />
+
+
+
+                        </div>
+                        <div className='spaceVer20' />
+                        <div className='row3-Inputs'>
                             <TextInput
                                 LabelInput={'Razon Social'}
                                 Placeholder={'Ej. Villarroel'}
@@ -174,10 +198,7 @@ export const ModalRegPaciente = ({ SetModal, modal }) => {
                                 })}
                                 ErrorInput={errors.RazonSocial?.message}
                             />
-
-                        </div>
-                        <div className='spaceVer30' />
-                        <div className='row3-Inputs'>
+                            <div className='spaceRow25' />
                             <TextInput
                                 LabelInput={'NIT'}
                                 Placeholder={'Ej. 9367493'}
@@ -204,7 +225,10 @@ export const ModalRegPaciente = ({ SetModal, modal }) => {
                                 })}
                                 ErrorInput={errors.Email?.message}
                             />
-                            <div className='spaceRow25' />
+
+                        </div>
+                        <div className='spaceVer20' />
+                        <div>
 
                             <PasswordInput
                                 LabelInput={'Contraseña*'}
@@ -219,10 +243,11 @@ export const ModalRegPaciente = ({ SetModal, modal }) => {
                                 ErrorInput={errors.Password?.message}
                             />
                         </div>
-                        <div className='spaceVer30' />
-                        <div className='container-Button-Modal'>
-                            <button className='ButtonPrimary' type="submit">Registrar</button>
-                        </div>
+                        <div className='spaceVer20' />
+                        
+                        <ButtonPrimary Nombre={'REGISTRAR'} Disabled={disableButton} />
+                            
+                        
 
                     </form>
 
