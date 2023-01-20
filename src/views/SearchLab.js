@@ -6,6 +6,7 @@ import { SelectDinamic } from '../components/Input/SelectDinamic'
 import { SelectFilter } from '../components/Input/SelectFilter'
 import { TextInputDinamic } from '../components/Input/TextInputDinamic'
 import { SectionFilter } from '../components/Section/SectionFilter'
+import Images from '../config/Images'
 import { MainNavigator } from '../navigation/MainNavigator'
 import { calcularEdad } from '../services/calcEdad'
 import { postLaboratorioBuscar, getLaboratorioTodos } from '../services/laboratorioService'
@@ -46,6 +47,9 @@ export const SearchLab = () => {
         id_option: 3
     }];
 
+    const onPrint= (e, pac)=>{
+        console.log('PrintPress', pac)
+    }
     return (
         <>
             <div className="App">
@@ -121,8 +125,8 @@ export const SearchLab = () => {
                                                     <td className='titleTable'>{calcularEdad(labo.Paciente.Fecha_de_Nacimiento)}</td>
                                                     <td className='titleTable'>{labo.Fecha}</td>
                                                     <td className='titleTable'>
-                                                        <button>
-                                                            Imprimir
+                                                        <button className='buttonPrint' onClick={(e)=>onPrint(e, labo.Paciente.NombreCompleto)}>
+                                                            <img src={Images.DOWNLOAD} width={'30'}/>
                                                         </button>
                                                     </td>
                                                 </tr>

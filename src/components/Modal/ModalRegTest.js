@@ -40,11 +40,11 @@ export const ModalRegTest = ({ SetModal, modal }) => {
         id_option: 1
     },
     {
-        option: 'Grupo Sanguineo',
+        option: 'Química Sanguínea',
         id_option: 2
     },
     {
-        option: 'Inmunologia',
+        option: 'InmunologÍa',
         id_option: 3
     },
     {
@@ -52,7 +52,7 @@ export const ModalRegTest = ({ SetModal, modal }) => {
         id_option: 4
     },
     {
-        option: 'Serologia',
+        option: 'SerologÍa',
         id_option: 5
     }];
     const SubCategoria = [{

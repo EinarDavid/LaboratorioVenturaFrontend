@@ -23,6 +23,9 @@ const Images = {
     USEROPTIONIN: require('../assets/userOptionInactive.png'),
     USEROPTIONAC: require('../assets/userOptionActive.png'),
     IMGUSER: require('../assets/imgUser.png'),
-    DASH: require('../assets/dashboard.svg')
+    DASH: require('../assets/dashboard.svg'),
+    DOWNLOAD: require('../assets/download.png'),
+    ARROWDOWN: require('../assets/ArrowDown.png'),
+    ARROWUP: require('../assets/ArrowUp.png')
 }
 export default Images;
