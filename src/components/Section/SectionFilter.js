@@ -79,7 +79,6 @@ export const SectionFilter = ({ SearchCodigoPac, SearchCI, SearchNombre, SearchE
                                 //LabelInput={'Buscar por CI'} 
                                 Placeholder={'Escribe el CI'}
                                 OnChange={(e) => { SearchCI(e) }} />
-
                         </>) : (<></>)
                     }
                 </div>
