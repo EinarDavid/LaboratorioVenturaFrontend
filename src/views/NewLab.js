@@ -11,8 +11,14 @@ import { ModalRegTest } from '../components/Modal/ModalRegTest';
 
 import Images from '../config/Images';
 import { ButtonPrimary } from '../components/Button/ButtonPrimary';
+import { useNavigate } from 'react-router-dom';
+import { calcularEdad } from '../services/calcEdad';
+import { EmptySearch } from '../components/Empty/EmptySearch';
 
 export const NewLab = () => {
+
+    const navigate = useNavigate();
+
     const [disableButton, setDisableButton] = useState(false);
     const [pacientes, setPacientes] = useState([]);
     const [pacienteFinded, setPacienteFinded] = useState({});
@@ -25,10 +31,13 @@ export const NewLab = () => {
 
     const [render, setRender] = useState(true);
 
+    console.log('ex:', exameneSelected)
 
+    const llamarPacientes = () => getPacientesNombres().then(({ data }) => setPacientes(data))
+    const llamarExamenes = () => getExamenTodos().then(({ data }) => setExamenes(data))
     useEffect(() => {
-        getPacientesNombres().then(({ data }) => setPacientes(data))
-        getExamenTodos().then(({ data }) => setExamenes(data))
+        llamarPacientes();
+        llamarExamenes();
     }, [])
 
     const fecha = new Date();
@@ -38,7 +47,7 @@ export const NewLab = () => {
     const fechaActual = `${d}-${m}-${a}`;
 
     const _onSubmit = () => {
-        
+
 
         if (pacienteFinded.CI && exameneSelected[0]) {
             setDisableButton(true)
@@ -56,6 +65,7 @@ export const NewLab = () => {
                 setExamenFinded([])
                 setExameneSelected([])
                 setDisableButton(false);
+
                 //limpiar cajas, cerrar modal y avisar que fue añadido con exito
             })
         }
@@ -94,18 +104,30 @@ export const NewLab = () => {
                                             Key={"CI"}
                                             Find={(finded) => { if (finded[0]) setPacienteFinded(finded[0]); else setPacienteFinded({}) }}
                                         ></SearchInput>
-                                        <section className='information'>
-                                        <p className='labelInput'>Código: {pacienteFinded.CodigoPaciente}</p>
-                                            <p className='labelInput'>CI: {pacienteFinded.CI}</p>
-                                            <p className='labelInput'>Paciente: {pacienteFinded.NombreCompleto}</p>
-                                            <p className='labelInput'>Fecha de Nac: {pacienteFinded.Fecha_de_Nacimiento}</p>
+                                        <div className='spaceVer10' />
+                                        {
+                                            (!pacienteFinded.CI) ? (
+                                                <EmptySearch Image={Images.SEARCHBLUE} Text={'Escribe en número de C.I.'} Width={40}/>
+                                            ) : (
 
-                                        </section>
+                                                <section className='information'>
+                                                    <p className='labelInput'><strong>Código</strong>: {pacienteFinded.CodigoPaciente}</p>
+                                                    <p className='labelInput'><strong>CI</strong>: {pacienteFinded.CI}</p>
+                                                    <p className='labelInput'> <strong>Paciente</strong>: {pacienteFinded.NombreCompleto}</p>
+                                                    <p className='labelInput'><strong>Edad</strong>: {calcularEdad(pacienteFinded.Fecha_de_Nacimiento)}</p>
+
+                                                </section>
+
+                                            )
+
+                                        }
+
 
                                     </div>
                                     <div className='spaceRow20' />
                                     <div className='selectDoc'>
-                                        <h1 className='titleStyle'>Nuevo Laboratorio</h1>
+
+                                        <EmptySearch Image={Images.CONTRUCTION} Text={'Sección en construcción'} Width={60} />
                                     </div>
                                 </div>
                                 <div className='spaceVer20' />
@@ -122,73 +144,87 @@ export const NewLab = () => {
 
                                 ></SearchInput>
 
-                                <div className='containerResultados'>
+                                {examenFinded.length > 0 ?
+                                    <div className='containerResultados'>
 
-                                    {examenFinded.map((ex, i) =>
-                                        <div className='resultadosSearch' key={i}>
-                                            <ol className='olList'>
-                                                <li className="resultadosLista">{ex.Nombre}</li>
-                                            </ol>
-                                            <ol className='olList'>
-                                                <li className="resultadosLista">{ex.Categoria}</li>
-                                            </ol>
-                                            <ol className='olList'>
-                                                <li className="resultadosLista">{ex.Metodo}</li>
-                                            </ol>
-                                            <ol className='olList'>
-                                                <button className='buttonTable'
-                                                    onClick={() => { if (!exameneSelected.find(a => a._id === ex._id)) setExameneSelected([...exameneSelected, ex]); }}>
+                                        {examenFinded.map((ex, i) =>
+                                            <div className='resultadosSearch' key={i}>
+                                                <button
+                                                    className='buttonTable'
+                                                    onClick={() => { if (!exameneSelected.find(a => a._id === ex._id)) setExameneSelected([...exameneSelected, ex]); }}
+                                                >
                                                     <img src={Images.ADDBLUE} width={30} height={30} alt={'icon'}></img>
+
+                                                    <p className="labelInput">Nombre: {ex.Nombre}</p>
+                                                    <div className='spaceRow10' />
+                                                    <p className="labelInput">Categoria: {ex.Categoria}</p>
+                                                    <div className='spaceRow10' />
+                                                    <p className="labelInput">Método: {ex.Metodo}</p>
+                                                    <div className='spaceRow10' />
                                                 </button>
-                                            </ol>
-                                        </div>
-                                    )}
 
 
-                                </div>
+
+                                            </div>
+                                        )}
+                                    </div>
+                                    : <></>
+
+                                }
+
                                 <div className='spaceVer15' />
 
 
 
                                 <div className="cardBody">
-                                    <table className='tableContainer'>
-                                        <thead>
-                                            <tr>
-                                                <th className='titleTable'>Nombre</th>
-                                                <th className='titleTable'>Categoria</th>
-                                                <th className='titleTable'>Metodo</th>
-                                            </tr>
-
-                                        </thead>
-
-                                        <tbody>
-                                            {exameneSelected.map((ex, i) =>
-                                                
-                                                    <tr key={i}>
-                                                        <td className='titleTable'>{ex.Nombre}</td>
-                                                        <td className='titleTable'>{ex.Categoria}</td>
-                                                        <td className='titleTable'>{ex.Metodo}</td>
-                                                        <td className='titleTable'>
-                                                            <button className='buttonTable'
-                                                                onClick={() => {
-                                                                    setExameneSelected(exameneSelected.filter(a => a._id !== ex._id));
-                                                                }}>
-                                                                <img src={Images.DELETE} width={30} height={30} alt={'icon'}></img>
-                                                            </button>
-                                                        </td>
+                                    {
+                                        (exameneSelected.length !== 0) ? (<>
+                                            <table className='tableContainer'>
+                                                <thead>
+                                                    <tr>
+                                                        <th className='titleTable'>Nro</th>
+                                                        <th className='titleTable'>Nombre</th>
+                                                        <th className='titleTable'>Categoria</th>
+                                                        <th className='titleTable'>Metodo</th>
                                                     </tr>
-                                                
-                                            )}
+
+                                                </thead>
+
+                                                <tbody>
+                                                    {exameneSelected.map((ex, i) =>
+
+                                                        <tr key={i} className='trTable'>
+                                                            <td className='containerTable' >{i + 1}</td>
+                                                            <td className='containerTable'>{ex.Nombre}</td>
+                                                            <td className='containerTable'>{ex.Categoria}</td>
+                                                            <td className='containerTable'>{ex.Metodo}</td>
+                                                            <td >
+                                                                <button className='buttonDeleteTable'
+                                                                    onClick={() => {
+                                                                        setExameneSelected(exameneSelected.filter(a => a._id !== ex._id));
+                                                                    }}>
+                                                                    <img src={Images.DELETE} width={30} height={30} alt={'icon'}></img>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+
+                                                    )}
 
 
 
-                                        </tbody>
-                                    </table>
+                                                </tbody>
+                                            </table>
+                                        </>) : (
+                                            <div className='containerEmptyTable'>
+                                                <EmptySearch Image={Images.SEARCHBLUE} Text={'Aquí aparecerán los exámenes que agregues'} Width={80} />
+                                            </div>
+                                        )
+                                    }
                                 </div>
 
                                 <div className='spaceVer15' />
-                                
-                                <ButtonPrimary Nombre={'GUARDAR'} Disabled={disableButton} OnClick={_onSubmit}/>
+
+                                <ButtonPrimary Nombre={'GUARDAR'} Disabled={disableButton} OnClick={_onSubmit} />
 
                             </div>
                         </div>
@@ -196,7 +232,7 @@ export const NewLab = () => {
                             <div className='containerLab2'>
 
                                 <h2 className='titleStyleH2'>Datos adicionales</h2>
-                                <div className='spaceVer30' />
+                                <div className='spaceVer20' />
                                 <TextInputDinamic
                                     Name={'Motivo'}
                                     LabelInput={'Motivo'}
@@ -207,10 +243,10 @@ export const NewLab = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <ModalRegPaciente modal={modalShow} SetModal={setModalShow} ></ModalRegPaciente>
-            <ModalRegTest modal={modalShowRegtest} SetModal={setModalShowRegtest} />
+                </div >
+            </div >
+            <ModalRegPaciente modal={modalShow} SetModal={setModalShow} callback={llamarPacientes} ></ModalRegPaciente>
+            <ModalRegTest modal={modalShowRegtest} SetModal={setModalShowRegtest} callback={llamarExamenes} />
         </>
     )
 }

@@ -7,7 +7,7 @@ import { PasswordInput } from '../Input/PasswordInput';
 import { Select } from '../Input/Select';
 import { TextInput } from '../Input/TextInput';
 
-export const ModalRegPaciente = ({ SetModal, modal }) => {
+export const ModalRegPaciente = ({ SetModal, modal, callback }) => {
 
     const [disableButton, setDisableButton] = useState(false);
 
@@ -25,6 +25,7 @@ export const ModalRegPaciente = ({ SetModal, modal }) => {
                 //Habilitas boton
                 setDisableButton(false);
                 SetModal(false);
+                if(callback) callback()
                 //limpiar cajas, cerrar modal y avisar que fue añadido con exito
                 alert(data.mensaje);
             })

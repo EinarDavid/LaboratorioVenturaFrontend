@@ -16,3 +16,8 @@ export async function postLaboratorioBuscar(filtros) {
 export async function getLaboratorioUno(id) {
     return await axios.get(api + "laboratorio/leeruno/"+id);
 }
+export async function getLaboratorioImprimir(id) {
+    window.open(api + "laboratorio/reporte/" + id, '_blank').focus();
+    return "Reporte enviado"
+    // return await axios.get(api + "laboratorio/reporte/"+id);
+}

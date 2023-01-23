@@ -12,6 +12,7 @@ const Images = {
     NEWEXAMPLEW: require('../assets/newExampleW.png'),
     SEARCHB: require ('../assets/searchB.png'),
     SEARCHW: require('../assets/searchW.png'),
+    SEARCHBLUE: require('../assets/searchBlue.png'),
     CLOSE: require('../assets/close.png'),
     REMOVE: require('../assets/remove.png'),
     DELETE: require('../assets/delete.png'),
@@ -26,6 +27,11 @@ const Images = {
     DASH: require('../assets/dashboard.svg'),
     DOWNLOAD: require('../assets/download.png'),
     ARROWDOWN: require('../assets/ArrowDown.png'),
-    ARROWUP: require('../assets/ArrowUp.png')
+    ARROWUP: require('../assets/ArrowUp.png'),
+    ARROWLEFT: require('../assets/arrowLeft.png'),
+    ARROWRIGHT: require('../assets/arrowRight.png'),
+    CONTRUCTION: require('../assets/contruction.png'),
+    FILTERBLUE: require('../assets/filterBlue.png'),
+    FILTERWHITE: require('../assets/filterWhite.png')
 }
 export default Images;

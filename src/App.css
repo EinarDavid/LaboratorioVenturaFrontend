@@ -30,8 +30,11 @@
   --bs-textInput: #F2F3F7;
   --bs-textInputPlaceholder: #747477;
   --bs-background: #00D4F680;
-  --bs-backgroudCard: #D2F9FC;
+  --bs-backgroudCard: #DED6FB;
   --bs-disabled: #D4D4D4;
+  --bs-hover: #C1FCF5;
+  --bs-scroll: #D6CDE8;
+  --bs-ligth: #D2F9FC;
 }
 
 *,
@@ -87,7 +90,7 @@
   align-items: center;
   justify-content: center;
 
-  padding: 30px;
+  /* padding: 30px; */
 
 }
 
@@ -98,10 +101,11 @@
   align-items: center;
   justify-content: center;
   overflow-y: scroll;
+  padding: 30px 20px 30px 30px;
 }
 
 .containerHijo::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
   border: none;
   /* box-shadow: inset 0 0 6px rgba(0, 0, 0, .3); */
   border-radius: 10px;
@@ -111,7 +115,7 @@
 }
 
 .containerHijo::-webkit-scrollbar-thumb {
-  background-color: #737272;
+  background-color: var(--bs-scroll);
   border-radius: 10px;
 }
 
@@ -153,14 +157,14 @@
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
-  line-height: 11px;
+  line-height: 12px;
   display: flex;
   align-items: center;
 
   margin: 3px 0 3px 0;
 
 
-  color: var(--bs-labelInput);
+  color: var(--bs-textInputPlaceholder);
 }
 
 .labelInputError {
@@ -187,10 +191,18 @@
   border-radius: 13px;
   padding-left: 15px;
   padding-right: 15px;
+
+  font-family: 'Gotham-Book';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 13px;
+  color: var(--bs-black);
 }
 
 .textInput:focus-visible {
   outline: none;
+  padding-right: 0px;
   /* background: #0078b8; */
 }
 
@@ -226,10 +238,7 @@
   padding-right: 15px;
 }
 
-.textInput:focus-visible {
-  outline: none;
 
-}
 
 
 
@@ -318,6 +327,10 @@
 
 
 /* Space */
+.spaceRow5 {
+  min-width: 5px;
+}
+
 .spaceRow10 {
   min-width: 10px;
 }
@@ -389,7 +402,7 @@
 }
 
 .popup_itself::-webkit-scrollbar-thumb {
-  background-color: #737272;
+  background-color: var(--bs-scroll);
   border-radius: 10px;
 }
 
@@ -409,6 +422,15 @@
   align-content: center;
   position: relative;
   /* background-color: rebeccapurple; */
+}
+
+.navTitleContainer {
+  display: flex;
+  justify-content: flex-start;
+
+  align-items: flex-start;
+  align-content: center;
+
 }
 
 .container-Button-Modal {
@@ -490,6 +512,8 @@
   font-size: 14px;
   line-height: 15px;
 
+  display: flex;
+  justify-content: center;
   align-items: center;
   text-align: center;
   text-transform: uppercase;
@@ -511,6 +535,8 @@
   font-size: 14px;
   line-height: 15px;
 
+  display: flex;
+  justify-content: center;
   align-items: center;
   text-align: center;
   text-transform: uppercase;
@@ -543,6 +569,8 @@
   border: none;
   padding: 0 0 0 0;
   margin: 0 0 0 0;
+  display: flex;
+  justify-content: center;
 }
 
 .buttonRemoveRow {
@@ -590,18 +618,50 @@
   background-color: transparent;
   border-style: none;
   margin: 0px;
-  padding: 0px;
-  width: 30px;
-  height: 30px;
+  padding: 5px;
+  width: 100%;
+  height: auto;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+.buttonTable:hover {
+  background-color: var(--bs-hover);
+  border-radius: 10px;
+}
+
+.buttonDeleteTable {
+  background-color: transparent;
+  border-style: none;
+  margin: 0px;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row;
 }
 
 .stateStyle {
   border-radius: 13px;
   border-style: none;
   padding: 5px 10px 5px 10px;
+}
+
+.stateParrafo {
+
+  font-family: 'Gotham-Medium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  margin: 2px 0 2px 0;
+  color: var(--bs-black);
 }
 
 .buttonPrint {
@@ -772,10 +832,11 @@
 }
 
 .containerLab2 {
-  width: 90%;
-  height: 92%;
+  width: 100%;
+  height: 100%;
+  padding: 30px 20px 30px 20px;
   /* background-color: #eaeaea; */
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
 }
 
@@ -797,6 +858,9 @@
   width: 50%;
   border-radius: 15px;
   padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .containerPac {
@@ -815,10 +879,10 @@
 
 .cardBody {
   flex: 1 1 auto;
-  padding: 10px;
+  padding: 10px 0 10px 10px;
   background-color: var(--bs-textInput);
   border-radius: 13px;
-  height: 25%;
+  height: 30vh;
   overflow-y: scroll;
 }
 
@@ -833,7 +897,7 @@
 }
 
 .cardBody::-webkit-scrollbar-thumb {
-  background-color: #737272;
+  background-color: var(--bs-scroll);
   border-radius: 10px;
 }
 
@@ -846,11 +910,12 @@
   max-height: 100%;
   overflow-y: scroll;
 }
+
 .cardBodyEvaluation::-webkit-scrollbar {
   width: 10px;
   border: none;
   /* box-shadow: inset 0 0 6px rgba(0, 0, 0, .3); */
-  background-color: #ECE9F2;
+  /* background-color: #ECE9F2; */
   border-radius: 10px;
   /* scroll-margin-left: 20px; */
   position: absolute;
@@ -876,16 +941,42 @@
 
 .titleTable {
   /* display: flex; */
+  padding-left: 5px;
   text-align: start;
+  font-family: 'Gotham-Medium';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.trTable {
+  margin: 0;
+
+
+}
+
+.containerTable {
+  text-align: start;
+  font-family: 'Gotham-Book';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+
+  height: 30px;
+  margin: 0;
+  padding: 0;
+
 }
 
 .containerResultados {
-
-  background: var(--bs-textInput);
-  padding: 5px 10px 5px 10px;
+  position: absolute;
+  background: var(--bs-white);
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 30%);
+  padding: 10px 10px 10px 10px;
   border-radius: 13px;
   border-color: var(--bs-black);
-  width: 93%;
+  width: auto;
+  height: auto;
   margin-top: 5px;
 }
 
@@ -904,11 +995,13 @@
   list-style: none;
   padding: 0px;
   margin: 0px;
-  /* background: #0078b8; */
+  text-align: start;
+  background: #0078b8;
+  width: auto;
 }
 
 .pacTable {
-  background: var(--bs-backgroudCard)
+  background: var(--bs-ligth)
 }
 
 .containerFiltros {
@@ -947,4 +1040,37 @@
   justify-content: space-between;
   align-items: center;
   margin: 0 5px 0 5px;
+}
+
+/* Empty */
+.emptySearch {
+  text-align: center;
+  justify-content: center;
+}
+
+.textSearch {
+  font-family: 'Gotham-Book';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  color: var(--bs-textInputPlaceholder);
+
+  margin: 0;
+  padding: 0;
+}
+
+.containerEmptyTable {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.containerEmptySection{
+  width: 100%;
+  height: 89%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

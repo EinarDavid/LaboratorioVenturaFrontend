@@ -1,4 +1,5 @@
 import React from 'react'
+import Images from '../../config/Images'
 
 export const ButtonFilter = ({ Active, Nombre, OnClick }) => {
     return (
@@ -6,11 +7,18 @@ export const ButtonFilter = ({ Active, Nombre, OnClick }) => {
             {
                 (Active) ? (
                     <>
-                            <button className='ButtonActiveFilter' type="submit" onClick={OnClick}>{Nombre}</button>
+                        <button className='ButtonActiveFilter' type="submit" onClick={OnClick}>
+                            <img src={Images.FILTERWHITE} width={30}/>
+                            
+                            {Nombre}
+                        </button>
                     </>
                 ) : (
                     <>
-                        <button className='ButtonUnActiveFilter' type="submit" onClick={OnClick}>{Nombre}</button>
+                        <button className='ButtonUnActiveFilter' type="submit" onClick={OnClick}>
+                        <img src={Images.FILTERBLUE} width={30}/>
+                            {Nombre}
+                        </button>
                     </>
                 )
             }

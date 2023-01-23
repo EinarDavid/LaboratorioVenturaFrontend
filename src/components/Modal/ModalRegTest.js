@@ -6,7 +6,7 @@ import { ButtonPrimary } from '../Button/ButtonPrimary';
 import { SelectDinamic } from '../Input/SelectDinamic';
 import { TextInputDinamic } from '../Input/TextInputDinamic';
 
-export const ModalRegTest = ({ SetModal, modal }) => {
+export const ModalRegTest = ({ SetModal, modal, callback }) => {
     const [disableButton, setDisableButton] = useState(false);
 
     const [detalle, setDataDetalle] = useState([
@@ -24,10 +24,12 @@ export const ModalRegTest = ({ SetModal, modal }) => {
                 console.log(data);
                 setDisableButton(false);
                 SetModal(false);
+                if (callback) callback()
                 setDataDetalle([
                     { Nombre: '', ValorReferencia: '', Concentracion: '', SubCategoria: '' },
                 ])
                 //limpiar cajas, cerrar modal y avisar que fue añadido con exito
+                
                 alert(data.mensaje);
             })
 

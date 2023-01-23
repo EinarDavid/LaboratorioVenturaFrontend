@@ -9,7 +9,8 @@ import { SectionFilter } from '../components/Section/SectionFilter'
 import Images from '../config/Images'
 import { MainNavigator } from '../navigation/MainNavigator'
 import { calcularEdad } from '../services/calcEdad'
-import { postLaboratorioBuscar, getLaboratorioTodos } from '../services/laboratorioService'
+import { laboratorioCompletado } from '../services/estadoLabo';
+import { postLaboratorioBuscar, getLaboratorioTodos, getLaboratorioImprimir } from '../services/laboratorioService'
 
 export const SearchLab = () => {
     const [laboratorios, setLaboratorios] = useState([]);
@@ -19,7 +20,7 @@ export const SearchLab = () => {
     
 
     const handleChangeSearch = (event)=>{
-        console.log(event.target.value)
+        //console.log(event.target.value)
         setSearch({ ...search, [event.target.name]: event.target.value })
 
     }
@@ -29,7 +30,7 @@ export const SearchLab = () => {
 
     }, [])
     useEffect(() => {
-        console.log('---', search)
+        //console.log('---', search)
         postLaboratorioBuscar({ ...search }).then(({ data }) => setLaboratorios(data))
 
     }, [search])
@@ -48,7 +49,9 @@ export const SearchLab = () => {
     }];
 
     const onPrint= (e, pac)=>{
+        
         console.log('PrintPress', pac)
+        getLaboratorioImprimir(pac)//.then(({ data }) => console.log(data))
     }
     return (
         <>
@@ -117,18 +120,23 @@ export const SearchLab = () => {
 
                                             <tbody key={i}>
                                                 <tr className='pacTable'>
-                                                    <td className='titleTable'>{i + 1}</td>
-                                                    <td className='titleTable'></td>
-                                                    <td className='titleTable'>{labo.Paciente.CodigoPaciente}</td>
-                                                    <td className='titleTable'>{labo.Paciente.NombreCompleto}</td>
-                                                    <td className='titleTable'>{labo.Paciente.CI}</td>
-                                                    <td className='titleTable'>{calcularEdad(labo.Paciente.Fecha_de_Nacimiento)}</td>
-                                                    <td className='titleTable'>{labo.Fecha}</td>
-                                                    <td className='titleTable'>
-                                                        <button className='buttonPrint' onClick={(e)=>onPrint(e, labo.Paciente.NombreCompleto)}>
-                                                            <img src={Images.DOWNLOAD} width={'30'}/>
-                                                        </button>
-                                                    </td>
+                                                    <td className='containerTable'>{i + 1}</td>
+                                                    <td className='containerTable'></td>
+                                                    <td className='containerTable'>{labo.Paciente.CodigoPaciente}</td>
+                                                    <td className='containerTable'>{labo.Paciente.NombreCompleto}</td>
+                                                    <td className='containerTable'>{labo.Paciente.CI}</td>
+                                                    <td className='containerTable'>{calcularEdad(labo.Paciente.Fecha_de_Nacimiento)}</td>
+                                                    <td className='containerTable'>{labo.Fecha}</td>
+                                                    {
+                                                        (laboratorioCompletado(labo)?
+                                                            <td >
+                                                                <button className='buttonPrint' onClick={(e)=>onPrint(e, labo._id)}>
+                                                                    <img src={Images.DOWNLOAD} width={'30'}/>
+                                                                </button>
+                                                            </td>
+                                                            : <></>
+                                                        )
+                                                    }
                                                 </tr>
 
                                                 {
@@ -137,17 +145,17 @@ export const SearchLab = () => {
 
                                                         //http://83.229.86.168:8080/laboratorio/leertodo
                                                         <tr key={index}>
-                                                            <td className='titleTable'>{index + 1}</td>
-                                                            <td className='titleTable'>
+                                                            <td className='containerTable'>{index + 1}</td>
+                                                            <td className='containerTable'>
 
                                                                 <StateButton
                                                                     State={exa.Estado}
                                                                     Ruta={labo._id + "/" + exa._id}
                                                                 />
                                                             </td>
-                                                            <td className='titleTable'>{exa.Examen.Nombre}</td>
-                                                            <td className='titleTable'></td>
-                                                            <td className='titleTable'></td>
+                                                            <td className='containerTable'>{exa.Examen.Nombre}</td>
+                                                            <td className='containerTable'></td>
+                                                            <td className='containerTable'></td>
                                                         </tr>
 
 
