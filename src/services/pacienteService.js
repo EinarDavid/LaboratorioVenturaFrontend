@@ -11,3 +11,15 @@ export async function getUsuarioTodos() {
 export async function getPacientesNombres() {
     return await axios.get(api+"paciente/leerNombres");
 }
+export async function postPacienteBuscar(filtros) {
+    return await axios.post(api + "paciente/buscar", filtros);
+}
+export async function postPacienteEliminar(id) {
+    return await axios.post(api + "paciente/eliminar", {id});
+}
+export async function postPacienteModificar(id, datos) {
+    return await axios.post(api + "paciente/modificar/" + id, datos);
+}
+export async function getPacienteUno(id) {
+    return await axios.get(api + "paciente/leeruno/" + id);
+}

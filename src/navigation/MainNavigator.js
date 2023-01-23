@@ -48,7 +48,19 @@ export const MainNavigator = () => {
                         }
                     </NavLink>
 
-                    
+
+
+                    <div className='spaceVer30' />
+
+                    <NavLink
+                        to={'/gestionUser'}
+                    >
+
+                        {({ isActive }) => (
+                            isActive ? (<NavButton Image={Images.USERW} />) : (<NavButtonUnSelect Image={Images.USERB} />)
+                        )
+                        }
+                    </NavLink>
 
                     <div className='spaceVer30' />
                     <NavLink
@@ -60,19 +72,8 @@ export const MainNavigator = () => {
                         )
                         }
                     </NavLink>
-
-                    <div className='spaceVer30' />
-                    <NavLink
-                        to={'/gestionUser'}
-                    >
-
-                        {({ isActive }) => (
-                            isActive ? (<NavButton Image={Images.USERW} />) : (<NavButtonUnSelect Image={Images.USERB} />)
-                        )
-                        }
-                    </NavLink>
                 </div>
-                <OptionUser/>
+                <OptionUser />
             </div>
         </>
     );

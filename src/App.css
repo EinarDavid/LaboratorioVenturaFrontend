@@ -520,6 +520,28 @@
 
   color: var(--bs-white);
 }
+.ButtonIcon{
+  background: transparent;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  /* border-color: var(--bs-primary); */
+
+  font-family: 'Gotham-Medium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 15px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: var(--bs-primary);
+}
 
 .ButtonUnActiveFilter {
   background: transparent;
@@ -956,6 +978,7 @@
 }
 
 .containerTable {
+
   text-align: start;
   font-family: 'Gotham-Book';
   font-style: normal;
@@ -964,7 +987,7 @@
 
   height: 30px;
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 5px;
 
 }
 
@@ -1073,4 +1096,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.containerButtonRight{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }

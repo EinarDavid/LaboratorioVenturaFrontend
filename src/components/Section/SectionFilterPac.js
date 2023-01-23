@@ -1,32 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import Images from '../../config/Images';
-import { SelectDinamic } from '../Input/SelectDinamic'
 
-import { TextInputDinamic } from '../Input/TextInputDinamic'
+import { TextInputDinamic } from '../Input/TextInputDinamic';
 
-export const SectionFilter = ({ SearchCodigoPac, SearchCI, SearchNombre, SearchEstado }) => {
+export const SectionFilterPac = ({ SearchCodigoPac, SearchCI, SearchNombre, SearchPrimerApellido, SearchSegundoApellido }) => {
 
     const [searchCodigo, setSearchCodigo] = useState(true);
     const [searchCI, setSearchCI] = useState(false);
     const [searchNombre, setSearchNombre] = useState(false);
-    const [searchState, setSearchState] = useState(false)
-
-
-
-    const Estado = [{
-        option: 'Pendiente',
-        id_option: 1
-    },
-    {
-        option: 'Realizado',
-        id_option: 2
-    },
-    {
-        option: 'Todos',
-        id_option: 3
-    },
-    ];
-
+    const [searchPrimerApellido, setSearchPrimerApellido] = useState(false);
+    const [searchSegundoApellido, setSearchSegundoApellido] = useState(false)
 
     return (
         <>
@@ -39,9 +22,9 @@ export const SectionFilter = ({ SearchCodigoPac, SearchCI, SearchNombre, SearchE
                         <button className='buttonPrint' onClick={() => setSearchCodigo(!searchCodigo)}>
                             {
                                 (searchCodigo) ? (<>
-                                    <img src={Images.ARROWDOWN} width={'25'} alt={'ArrowDown'}/>
+                                    <img src={Images.ARROWDOWN} width={'25'} alt={'ArrowDown'} />
                                 </>) : (<>
-                                    <img src={Images.ARROWUP} width={'25'} alt={'ArrowUp'}/></>)
+                                    <img src={Images.ARROWUP} width={'25'} alt={'ArrowUp'} /></>)
                             }
                         </button>
                     </div>
@@ -91,9 +74,9 @@ export const SectionFilter = ({ SearchCodigoPac, SearchCI, SearchNombre, SearchE
                         <button className='buttonPrint' onClick={() => setSearchNombre(!searchNombre)}>
                             {
                                 (searchNombre) ? (<>
-                                    <img src={Images.ARROWDOWN} width={'25'} alt={'ArrowDown'}/>
+                                    <img src={Images.ARROWDOWN} width={'25'} alt={'ArrowDown'} />
                                 </>) : (<>
-                                    <img src={Images.ARROWUP} width={'25'} alt={'ArrowUp'} /></>)
+                                    <img src={Images.ARROWUP} width={'25'} alt={'ArrowUp'}/></>)
                             }
                         </button>
                     </div>
@@ -114,25 +97,52 @@ export const SectionFilter = ({ SearchCodigoPac, SearchCI, SearchNombre, SearchE
                 <div className='spaceVer5' />
                 <div>
                     <div className='titleFilter'>
-                        <h3 className='titleStyleH3'>ESTADO</h3>
-                        <button className='buttonPrint' onClick={() => setSearchState(!searchState)}>
+                        <h3 className='titleStyleH3'>PRIMER APELLIDO</h3>
+                        <button className='buttonPrint' onClick={() => setSearchPrimerApellido(!searchPrimerApellido)}>
                             {
-                                (searchState) ? (<>
-                                    <img src={Images.ARROWDOWN} width={'25'} alt={'ArrowDown'}/>
+                                (searchPrimerApellido) ? (<>
+                                    <img src={Images.ARROWDOWN} width={'25'} alt={'ArrowDown'} />
                                 </>) : (<>
                                     <img src={Images.ARROWUP} width={'25'} alt={'ArrowUp'}/></>)
                             }
                         </button>
                     </div>
                     {
-                        (searchState) ? (<>
-                            {/* <div className='spaceVer5' /> */}
-                            <SelectDinamic
-                                Name={'Estado'}
-                                //LabelInput={'Estado'}
-                                SelectOption={Estado}
-                                Placeholder={'Selecciona'}
-                                OnChange={(e) => { SearchEstado(e) }} />
+                        (searchPrimerApellido) ? (<>
+                            <TextInputDinamic
+                                Name={'PrimerApellido'}
+                                //LabelInput={'Buscar por Nombre'}
+                                Placeholder={'Escribe el Primer Apellido'}
+                                OnChange={(e) => { SearchPrimerApellido(e) }} />
+
+
+                        </>) : (<></>)
+                    }
+                </div>
+                <div className='spaceVer5' />
+                <hr className='lineFilter' />
+
+                <div className='spaceVer5' />
+                <div>
+                    <div className='titleFilter'>
+                        <h3 className='titleStyleH3'>SEGUNDO APELLIDO</h3>
+                        <button className='buttonPrint' onClick={() => setSearchSegundoApellido(!searchSegundoApellido)}>
+                            {
+                                (searchSegundoApellido) ? (<>
+                                    <img src={Images.ARROWDOWN} width={'25'} alt={'ArrowDown'}/>
+                                </>) : (<>
+                                    <img src={Images.ARROWUP} width={'25'} alt={'ArrowUp'} /></>)
+                            }
+                        </button>
+                    </div>
+                    {
+                        (searchSegundoApellido) ? (<>
+                            <TextInputDinamic
+                                Name={'SegundoApellido'}
+                                //LabelInput={'Buscar por Nombre'}
+                                Placeholder={'Escribe el Segundo Apellido'}
+                                OnChange={(e) => { SearchSegundoApellido(e) }} />
+
 
                         </>) : (<></>)
                     }

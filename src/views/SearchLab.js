@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { ButtonFilter } from '../components/Button/ButtonFilter'
-import { ButtonPrimary } from '../components/Button/ButtonPrimary'
 import { StateButton } from '../components/Button/StateButton'
-import { SelectDinamic } from '../components/Input/SelectDinamic'
 import { SelectFilter } from '../components/Input/SelectFilter'
-import { TextInputDinamic } from '../components/Input/TextInputDinamic'
 import { SectionFilter } from '../components/Section/SectionFilter'
 import Images from '../config/Images'
 import { MainNavigator } from '../navigation/MainNavigator'
@@ -15,18 +12,18 @@ import { postLaboratorioBuscar, getLaboratorioTodos, getLaboratorioImprimir } fr
 export const SearchLab = () => {
     const [laboratorios, setLaboratorios] = useState([]);
     const [activeButton, setActiveButton] = useState(false);
-    const [search, setSearch] = useState({Nombre:"", CI:"", CodigoPaciente:"", Estado:"", ord:""});
+    const [search, setSearch] = useState({ Nombre: "", CI: "", CodigoPaciente: "", Estado: "", ord: "" });
 
-    
 
-    const handleChangeSearch = (event)=>{
+
+    const handleChangeSearch = (event) => {
         //console.log(event.target.value)
         setSearch({ ...search, [event.target.name]: event.target.value })
 
     }
     useEffect(() => {
         getLaboratorioTodos().then(({ data }) => setLaboratorios(data))
-      
+
 
     }, [])
     useEffect(() => {
@@ -34,13 +31,13 @@ export const SearchLab = () => {
         postLaboratorioBuscar({ ...search }).then(({ data }) => setLaboratorios(data))
 
     }, [search])
-    
+
     const FilterOrder = [{
-        option: 'Codigo Ascendiente',
+        option: 'Codigo Ascendente',
         id_option: 1
     },
     {
-        option: 'Codigo Descendiente',
+        option: 'Codigo Descendente',
         id_option: 2
     },
     {
@@ -48,8 +45,8 @@ export const SearchLab = () => {
         id_option: 3
     }];
 
-    const onPrint= (e, pac)=>{
-        
+    const onPrint = (e, pac) => {
+
         console.log('PrintPress', pac)
         getLaboratorioImprimir(pac)//.then(({ data }) => console.log(data))
     }
@@ -128,10 +125,10 @@ export const SearchLab = () => {
                                                     <td className='containerTable'>{calcularEdad(labo.Paciente.Fecha_de_Nacimiento)}</td>
                                                     <td className='containerTable'>{labo.Fecha}</td>
                                                     {
-                                                        (laboratorioCompletado(labo)?
+                                                        (laboratorioCompletado(labo) ?
                                                             <td >
-                                                                <button className='buttonPrint' onClick={(e)=>onPrint(e, labo._id)}>
-                                                                    <img src={Images.DOWNLOAD} width={'30'}/>
+                                                                <button className='buttonPrint' onClick={(e) => onPrint(e, labo._id)}>
+                                                                    <img src={Images.DOWNLOAD} width={'30'} alt={'Print'}/>
                                                                 </button>
                                                             </td>
                                                             : <></>

@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 
 import { useNavigate, useParams } from 'react-router-dom'
 import { ButtonPrimary } from '../components/Button/ButtonPrimary';
-import { StateButton } from '../components/Button/StateButton';
-
 import { TextInputDinamic } from '../components/Input/TextInputDinamic';
 import Images from '../config/Images';
 import { getLaboratorioUno, postModificarLaboratorio } from '../services/laboratorioService';
@@ -33,7 +31,7 @@ export const EditLab = () => {
         getLaboratorioUno(labo).then(({ data }) => {
             setLaboratorio(data)
             setExamen(data.ExamenesRealizados.find(ex => ex._id === exa))
-            console.log("--------------------------------------")
+            //console.log("--------------------------------------")
             let examenAux = data.ExamenesRealizados.find(ab => ab._id === exa)
             let rest = examenAux.Resultados.map(res => {
                 return { [res.Id_Campo]: res.Valor }
@@ -60,20 +58,21 @@ export const EditLab = () => {
 
     }
     useEffect(() => {
-        console.log("cabecera:", cabecera)
+        //console.log("cabecera:", cabecera)
         setSuma(sumaLeucocitaria(cabecera, examen))
-        console.log("suma:", suma)
+        //console.log("suma:", suma)
     }, [cabecera])
+
     useEffect(() => {
-        setDisableButton(!(suma == 100 || suma == 0))
+        setDisableButton(!(suma === 100 || suma === 0))
     }, [suma])
 
     const onSubmit = () => {
-        console.log('------', cabecera)
+        //console.log('------', cabecera)
         try {
             setDisableButton(true)
             postModificarLaboratorio(labo, exa, cabecera).then(({ data }) => {
-                console.log(data);
+                //console.log(data);
                 //limpiar cajas, cerrar modal y avisar que fue añadido con exito
                 alert(data.mensaje);
                 navigate('/searchLab');
@@ -101,7 +100,7 @@ export const EditLab = () => {
                                     <img src={Images.ARROWLEFT} width={30} alt='icon' ></img>
                                 }
                             </button>
-                            <div className='spaceRow25' />
+                            <div className='spaceRow10' />
                             <h1 className='titleStyle'>Resultado de Laboratorio</h1>
                         </div>
 
@@ -197,7 +196,7 @@ export const EditLab = () => {
                         </div>
                         {
                             (suma !== 0) ?
-                                (suma != 100) ?
+                                (suma !== 100) ?
                                     <p style={{ color: 'red' }} > Sumatoria de Formula Leucocitaria: {suma}</p>
                                     :
                                     <p > Sumatoria de Formula Leucocitaria: {suma}</p>

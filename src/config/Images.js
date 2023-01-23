@@ -32,6 +32,7 @@ const Images = {
     ARROWRIGHT: require('../assets/arrowRight.png'),
     CONTRUCTION: require('../assets/contruction.png'),
     FILTERBLUE: require('../assets/filterBlue.png'),
-    FILTERWHITE: require('../assets/filterWhite.png')
+    FILTERWHITE: require('../assets/filterWhite.png'),
+    VIEW: require('../assets/view.png')
 }
 export default Images;

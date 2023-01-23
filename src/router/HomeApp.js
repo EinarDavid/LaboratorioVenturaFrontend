@@ -6,6 +6,7 @@ import { GestionTest } from '../views/GestionTest'
 import { GestionUsuarios } from '../views/GestionUsuarios'
 import { NewLab } from '../views/NewLab'
 import { SearchLab } from '../views/SearchLab'
+import { ViewPac } from '../views/ViewPac'
 
 export const HomeApp = () => {
     return (
@@ -18,6 +19,7 @@ export const HomeApp = () => {
                 <Route path='/gesionTest' element={<GestionTest/>} />
                 <Route path='/searchLab' element={<SearchLab/>} />
                 <Route path='/edit/examen/:labo/:exa' element={<EditLab/> } />
+                <Route path='/view/paciente/:idPaciente' element={<ViewPac/> } />
 
                 <Route path='/*' element={<Navigate to="/dashboard" />} />
             </Routes>
