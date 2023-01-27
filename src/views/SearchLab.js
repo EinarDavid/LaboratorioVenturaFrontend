@@ -23,9 +23,8 @@ export const SearchLab = () => {
     }
     useEffect(() => {
         getLaboratorioTodos().then(({ data }) => setLaboratorios(data))
-
-
     }, [])
+    useEffect(() => { console.log(laboratorios) }, [laboratorios])
     useEffect(() => {
         //console.log('---', search)
         postLaboratorioBuscar({ ...search }).then(({ data }) => setLaboratorios(data))
@@ -114,51 +113,56 @@ export const SearchLab = () => {
 
                                     {
                                         laboratorios.map((labo, i) =>
-
                                             <tbody key={i}>
-                                                <tr className='pacTable'>
-                                                    <td className='containerTable'>{i + 1}</td>
-                                                    <td className='containerTable'></td>
-                                                    <td className='containerTable'>{labo.Paciente.CodigoPaciente}</td>
-                                                    <td className='containerTable'>{labo.Paciente.NombreCompleto}</td>
-                                                    <td className='containerTable'>{labo.Paciente.CI}</td>
-                                                    <td className='containerTable'>{calcularEdad(labo.Paciente.Fecha_de_Nacimiento)}</td>
-                                                    <td className='containerTable'>{labo.Fecha}</td>
-                                                    {
-                                                        (laboratorioCompletado(labo) ?
-                                                            <td >
-                                                                <button className='buttonPrint' onClick={(e) => onPrint(e, labo._id)}>
-                                                                    <img src={Images.DOWNLOAD} width={'30'} alt={'Print'}/>
-                                                                </button>
-                                                            </td>
-                                                            : <></>
-                                                        )
-                                                    }
-                                                </tr>
-
                                                 {
+                                                    (labo.Paciente) ?
+                                                        <>
+                                                            <tr className='pacTable'>
+                                                                <td className='containerTable'>{i + 1}</td>
+                                                                <td className='containerTable'></td>
+                                                                <td className='containerTable'>{labo.Paciente.CodigoPaciente}</td>
+                                                                <td className='containerTable'>{labo.Paciente.NombreCompleto}</td>
+                                                                <td className='containerTable'>{labo.Paciente.CI}</td>
+                                                                <td className='containerTable'>{calcularEdad(labo.Paciente.Fecha_de_Nacimiento)}</td>
+                                                                <td className='containerTable'>{labo.Fecha}</td>
+                                                                {
+                                                                    (laboratorioCompletado(labo) ?
+                                                                        <td >
+                                                                            <button className='buttonPrint' onClick={(e) => onPrint(e, labo._id)}>
+                                                                                <img src={Images.DOWNLOAD} width={'30'} alt={'Print'} />
+                                                                            </button>
+                                                                        </td>
+                                                                        : <></>
+                                                                    )
+                                                                }
+                                                            </tr>
 
-                                                    labo.ExamenesRealizados.map((exa, index) =>
+                                                            {
 
-                                                        //http://83.229.86.168:8080/laboratorio/leertodo
-                                                        <tr key={index}>
-                                                            <td className='containerTable'>{index + 1}</td>
-                                                            <td className='containerTable'>
+                                                                labo.ExamenesRealizados.map((exa, index) =>
 
-                                                                <StateButton
-                                                                    State={exa.Estado}
-                                                                    Ruta={labo._id + "/" + exa._id}
-                                                                />
-                                                            </td>
-                                                            <td className='containerTable'>{exa.Examen.Nombre}</td>
-                                                            <td className='containerTable'></td>
-                                                            <td className='containerTable'></td>
-                                                        </tr>
+                                                                    //http://83.229.86.168:8080/laboratorio/leertodo
+                                                                    <tr key={index}>
+                                                                        <td className='containerTable'>{index + 1}</td>
+                                                                        <td className='containerTable'>
+
+                                                                            <StateButton
+                                                                                State={exa.Estado}
+                                                                                Ruta={labo._id + "/" + exa._id}
+                                                                            />
+                                                                        </td>
+                                                                        <td className='containerTable'>{exa.Examen.Nombre}</td>
+                                                                        <td className='containerTable'></td>
+                                                                        <td className='containerTable'></td>
+                                                                    </tr>
 
 
-                                                    )
+                                                                )
+                                                            }
+
+                                                        </>
+                                                        : <></>
                                                 }
-
                                             </tbody>
                                         )
                                     }

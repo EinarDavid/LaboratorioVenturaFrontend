@@ -77,8 +77,6 @@ export const GestionUsuarios = () => {
                         <div className='spaceVer10' />
                         <ButtonIcon Image={Images.ADDBLUE} Nombre={'Añadir nuevo paciente'} OnClick={() => setModalShow(true)} />
 
-
-
                         <div className='spaceVer15' />
                         <div className='containerFiltro'>
                             <ButtonFilter

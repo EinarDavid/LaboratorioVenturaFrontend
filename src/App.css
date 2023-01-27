@@ -424,13 +424,16 @@
   /* background-color: rebeccapurple; */
 }
 
+.containerHeaderButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
 .navTitleContainer {
   display: flex;
   justify-content: flex-start;
 
-  align-items: flex-start;
-  align-content: center;
-
+  align-items: center;
 }
 
 .container-Button-Modal {
@@ -520,7 +523,8 @@
 
   color: var(--bs-white);
 }
-.ButtonIcon{
+
+.ButtonIcon {
   background: transparent;
   height: 30px;
   margin: 0;
@@ -683,7 +687,8 @@
   display: flex;
   align-items: center;
   margin: 2px 0 2px 0;
-  color: var(--bs-black);
+  color: var(--bs-labelInput);
+  
 }
 
 .buttonPrint {
@@ -1090,7 +1095,8 @@
   align-items: center;
   justify-content: center;
 }
-.containerEmptySection{
+
+.containerEmptySection {
   width: 100%;
   height: 89%;
   display: flex;
@@ -1098,8 +1104,8 @@
   justify-content: center;
 }
 
-.containerButtonRight{
-  width: 100%;
+.containerButtonRight {
   display: flex;
   justify-content: flex-end;
+
 }
