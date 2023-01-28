@@ -3,32 +3,41 @@ import { ButtonFilter } from '../components/Button/ButtonFilter'
 import { StateButton } from '../components/Button/StateButton'
 import { SelectFilter } from '../components/Input/SelectFilter'
 import { SectionFilter } from '../components/Section/SectionFilter'
+import { PaginationTable } from '../components/Table/PaginationTable'
 import Images from '../config/Images'
 import { MainNavigator } from '../navigation/MainNavigator'
 import { calcularEdad } from '../services/calcEdad'
 import { laboratorioCompletado } from '../services/estadoLabo';
 import { postLaboratorioBuscar, getLaboratorioTodos, getLaboratorioImprimir } from '../services/laboratorioService'
 
+const cantidadPagina = 3;
+
 export const SearchLab = () => {
     const [laboratorios, setLaboratorios] = useState([]);
+    const [laboratoriosOriginal, setLaboratoriosOriginal] = useState([]);
     const [activeButton, setActiveButton] = useState(false);
     const [search, setSearch] = useState({ Nombre: "", CI: "", CodigoPaciente: "", Estado: "", ord: "" });
+    const [pag, setPag] = useState(1)
 
-
+    useEffect(() => {
+        getLaboratorioTodos().then(({ data }) => { setLaboratoriosOriginal(data) })
+    }, [])
+    useEffect(() => {
+        if (pag + cantidadPagina <= laboratoriosOriginal.length)
+            setLaboratorios(laboratoriosOriginal.slice((pag - 1) * cantidadPagina,
+                (pag - 1) * cantidadPagina + cantidadPagina));
+        else
+            setLaboratorios(laboratoriosOriginal.slice((pag - 1) * cantidadPagina));
+    }, [laboratoriosOriginal, pag])
 
     const handleChangeSearch = (event) => {
         //console.log(event.target.value)
         setSearch({ ...search, [event.target.name]: event.target.value })
-
     }
-    useEffect(() => {
-        getLaboratorioTodos().then(({ data }) => setLaboratorios(data))
-    }, [])
     useEffect(() => { console.log(laboratorios) }, [laboratorios])
     useEffect(() => {
         //console.log('---', search)
-        postLaboratorioBuscar({ ...search }).then(({ data }) => setLaboratorios(data))
-
+        postLaboratorioBuscar({ ...search }).then(({ data }) => setLaboratoriosOriginal(data))
     }, [search])
 
     const FilterOrder = [{
@@ -43,7 +52,10 @@ export const SearchLab = () => {
         option: 'Mas recientes',
         id_option: 3
     }];
-
+    const paginacion = (pagina) => {
+        console.log(pagina)
+        setPag(pagina)
+    }
     const onPrint = (e, pac) => {
 
         console.log('PrintPress', pac)
@@ -167,8 +179,15 @@ export const SearchLab = () => {
                                         )
                                     }
 
-
                                 </table>
+                                <div className='containerTextInput'>
+
+                                    <PaginationTable
+                                        pag={pag}
+                                        cantidadPagina={cantidadPagina}
+                                        click={paginacion}
+                                    />
+                                </div>
                             </div>
                         </div>
 

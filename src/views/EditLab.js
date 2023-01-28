@@ -6,10 +6,11 @@ import { TextInputDinamic } from '../components/Input/TextInputDinamic';
 import Images from '../config/Images';
 import { getLaboratorioUno, postModificarLaboratorio } from '../services/laboratorioService';
 
-import { valRef } from '../services/valRef';
+import { valRef, esTexto } from '../services/valRef';
 import { calcularEdad } from '../services/calcEdad';
 import { sumaLeucocitaria } from '../services/estadoLabo';
 import { State } from '../components/Label/State';
+import { SelectDinamic } from '../components/Input/SelectDinamic';
 
 
 
@@ -54,8 +55,9 @@ export const EditLab = () => {
         setCabecera({ ...cabecera, [event.target.name]: event.target.value })
         let x = event.target.attributes.getNamedItem('Placeholder').value.split(": ")[1];
         setVal({ ...val, [event.target.name]: valRef(x, event.target.value) })
-        // console.log(valRef(x, event.target.value), x, event.target.value)
-
+    }
+    const handleChangeSelect = (event) => {
+        setCabecera({ ...cabecera, [event.target.name]: event.target.value })
     }
     useEffect(() => {
         //console.log("cabecera:", cabecera)
@@ -148,8 +150,8 @@ export const EditLab = () => {
                         {
                             (examen.Examen) ?
                                 <>
-                                    <p className='labelInput'>Nombre del examen: {examen.Examen.Nombre}</p>
-                                    <p className='labelInput'>Categoria: {examen.Examen.Categoria}</p>
+                                    <p className='labelInput'> <strong>Nombre del examen</strong>: {examen.Examen.Nombre}</p>
+                                    <p className='labelInput'> <strong>Categoria</strong>: {examen.Examen.Categoria}</p>
                                 </> : <>
                                 </>
                         }
@@ -167,7 +169,7 @@ export const EditLab = () => {
                                 </>
                             ) : (<>
 
-                                <p className='labelInput'>Materia: {examen.Materia}</p>
+                                <p className='labelInput'><strong>Materia</strong>: {examen.Materia}</p>
                             </>)
                         }
                         <div className='spaceVer20' />
@@ -176,17 +178,32 @@ export const EditLab = () => {
                             {
                                 (examen.Examen) ? examen.Examen.Campos.map((campo, i) =>
 
-                                    <div key={i} className='containerInputDinamic'>
-                                        <TextInputDinamic
-                                            Name={campo._id}
-                                            State={val[campo._id]}
-                                            LabelInput={campo.Nombre + ' "' + campo.SubCategoria + '"'}
-                                            Placeholder={'Valor de referencia: ' + campo.ValorReferencia}
-                                            OnChange={(e) => handleChangeCabecera(e)}
-                                            Value={laboratorio.ExamenesRealizados.find(ab => ab._id === examen._id).Resultados.find(ba => ba.Id_Campo === campo._id)?.Valor}
-                                        />
-                                        <p className='parrafoStyle'>{campo.ValorReferencia + ' ' + campo.Concentracion}</p>
-                                    </div>
+                                    esTexto(campo.ValorReferencia) ?
+                                        <div key={i} className='containerInputDinamic'>
+                                            <SelectDinamic
+                                                Name={campo._id}
+                                                LabelInput={campo.Nombre + ' "' + campo.SubCategoria + '"'}
+                                                Placeholder={'Selecciona'}
+                                                SelectOption={valRef(campo.ValorReferencia).map((v, i) => ({
+                                                    option: v,
+                                                    id_option: i
+                                                }))}
+                                                OnChange={(e) => handleChangeSelect(e)}
+                                                Value={laboratorio.ExamenesRealizados.find(ab => ab._id === examen._id).Resultados.find(ba => ba.Id_Campo === campo._id)?.Valor}
+
+                                            />
+                                        </div> :
+                                        <div key={i} className='containerInputDinamic'>
+                                            <TextInputDinamic
+                                                Name={campo._id}
+                                                State={val[campo._id]}
+                                                LabelInput={campo.Nombre + ' "' + campo.SubCategoria + '"'}
+                                                Placeholder={'Valor de referencia: ' + campo.ValorReferencia}
+                                                OnChange={(e) => handleChangeCabecera(e)}
+                                                Value={laboratorio.ExamenesRealizados.find(ab => ab._id === examen._id).Resultados.find(ba => ba.Id_Campo === campo._id)?.Valor}
+                                            />
+                                            <p className='parrafoStyle'>{campo.ValorReferencia + ' ' + campo.Concentracion}</p>
+                                        </div>
 
 
 
@@ -197,9 +214,9 @@ export const EditLab = () => {
                         {
                             (suma !== 0) ?
                                 (suma !== 100) ?
-                                    <p style={{ color: 'red' }} > Sumatoria de Formula Leucocitaria: {suma}</p>
+                                    <p className='labelInput' style={{ color: 'red' }} > Sumatoria de Formula Leucocitaria: {suma}</p>
                                     :
-                                    <p > Sumatoria de Formula Leucocitaria: {suma}</p>
+                                    <p className='labelInput'> Sumatoria de Formula Leucocitaria: {suma}</p>
                                 : <></>
                         }
 

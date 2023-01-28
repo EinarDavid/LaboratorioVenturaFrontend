@@ -160,7 +160,7 @@ export const ModalRegTest = ({ SetModal, modal, callback }) => {
                                         <TextInputDinamic
                                             Name={'ValorReferencia'}
                                             LabelInput={'Valor de Referencia'}
-                                            Placeholder={'Ej. 13 - 18 *Separar con -'}
+                                            Placeholder={'*Separar valores con -'}
                                             OnChange={(e) => handleChangeNombre(e, i)}
                                             value={det.ValorReferencia}
                                         />

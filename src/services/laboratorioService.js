@@ -7,6 +7,9 @@ export async function postAgregarLaboratorio(laboratorio) {
 export async function postModificarLaboratorio(labo, exa, laboratorio) {
     return await axios.post(api + "laboratorio/modificar/"+labo+"/"+exa, laboratorio);
 }
+export async function getLaboratorioCant() {
+    return await axios.get(api + "laboratorio/cant");
+}
 export async function getLaboratorioTodos() {
     return await axios.get(api + "laboratorio/leertodo");
 }
