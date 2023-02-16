@@ -12,10 +12,10 @@ export const SelectDinamic = ({ LabelInput, Placeholder, SelectOption, ErrorInpu
                     className='textInput'
                     name={Name}
                     onChange= {OnChange}
-                    
+                    value={Value}    
 
                 >
-                    <option value={Value} hidden> {Placeholder}</option>
+                    <option value={''} hidden> {Placeholder}</option>
                     {
                         SelectOption.map(({ option, id_option }) => (
                             <option key={id_option}

@@ -4,6 +4,7 @@ const Images = {
     DASHB: require('../assets/dashboardBlack.png'),
     ADD: require('../assets/add.png'),
     ADDBLUE: require('../assets/addBlue.png'),
+    ADDBLUE2: require('../assets/addBlue2.png'),
     REGLABW: require('../assets/NuevoLaboratorioW.png'),
     REGLABB: require('../assets/NuevoLaboratorioB.png'),
     USERB: require('../assets/UserB.png'),
@@ -33,6 +34,10 @@ const Images = {
     CONTRUCTION: require('../assets/contruction.png'),
     FILTERBLUE: require('../assets/filterBlue.png'),
     FILTERWHITE: require('../assets/filterWhite.png'),
-    VIEW: require('../assets/view.png')
+    VIEW: require('../assets/view.png'),
+    PAGELEFT: require('../assets/PageLeft.png'),
+    PAGERIGHT: require('../assets/PageRight.png'),
+    FIRSTPAGE: require('../assets/firstPage.png'),
+    LASTPAGE: require('../assets/lastPage.png')
 }
 export default Images;

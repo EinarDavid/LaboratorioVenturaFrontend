@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { PasswordInput } from '../components/Input/PasswordInput';
 import { useForm } from "react-hook-form";
@@ -8,6 +8,7 @@ import { postLogin } from "../services/usuarioService";
 
 export const LoginApp = () => {
     const navigate = useNavigate();
+    const [form, setForm] = useState({});
 
     const onLogin = () => {
         navigate('/*');
@@ -25,6 +26,11 @@ export const LoginApp = () => {
         });
     };
 
+    const handleChangeForm = (event) => {
+        setForm({ ...form, [event.target.name]: event.target.value })
+    }
+
+
     return (
         <>
             <div className='fondoLogin'>
@@ -40,6 +46,7 @@ export const LoginApp = () => {
 
 
                             <TextInput
+                                Name={'CI'}
                                 LabelInput={'Documento de Identidad*'}
                                 Placeholder={'Ej 9456123'}
                                 Register={register("CI", {
@@ -47,22 +54,26 @@ export const LoginApp = () => {
 
                                 })}
                                 ErrorInput={errors.CI?.message}
+                                OnChange={(e) => handleChangeForm(e)}
+                                Value={form.CI || ''}
+
                             />
                             <div className='spaceVer30' />
                             <PasswordInput
+                                Name={'Password'}
                                 LabelInput={'Contraseña*'}
-                                Placeholder={'Debe contener 8 caracteres mínimo'}
+                                Placeholder={'Escribe tu contraseña'}
                                 Register={register("Password", {
                                     required: 'El campo es requerido',
-                                    pattern: {
-                                        value: /^(?=.*[0-9])(?=.*[!@#$%^&*.,-_])[a-zA-Z0-9!@#$%^&*.,]{6,16}$/,
-                                        message: 'La contraseña debe contener almenos 6 caracteres, entre ellos 1 letra mayuscula, 1 letra minuscula y 1 número.'
-                                    }
+                                    
                                 })}
                                 ErrorInput={errors.Password?.message}
+                                Onchange={(e) => handleChangeForm(e)}
+                                Value={form.Password || ""}
+
                             />
                             <div className='spaceVer30' />
-                            <button className='ButtonPrimary100'  type="submit">iniciar sesión</button>
+                            <button className='ButtonPrimary100' type="submit">iniciar sesión</button>
                         </form>
                     </div>
 

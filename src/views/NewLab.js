@@ -107,7 +107,7 @@ export const NewLab = () => {
                                         <div className='spaceVer10' />
                                         {
                                             (!pacienteFinded.CI) ? (
-                                                <EmptySearch Image={Images.SEARCHBLUE} Text={'Escribe en número de C.I.'} Width={40}/>
+                                                <EmptySearch Image={Images.SEARCHBLUE} Text={'Escribe en número de C.I.'} Width={40} />
                                             ) : (
 
                                                 <section className='information'>
@@ -232,7 +232,15 @@ export const NewLab = () => {
                             <div className='containerLab2'>
 
                                 <h2 className='titleStyleH2'>Datos adicionales</h2>
-                                <div className='spaceVer20' />
+                                <div className='spaceVer10' />
+                                <TextInputDinamic
+                                    Name={'FechaDeEntrega'}
+                                    LabelInput={'Fecha de entrega'}
+                                    Placeholder={'Ej. 10/10/2023'}
+                                    OnChange={(e) => handleChangeNombre(e)}
+                                    value={''}
+                                />
+                                <div className='spaceVer10' />
                                 <TextInputDinamic
                                     Name={'Motivo'}
                                     LabelInput={'Motivo'}
@@ -240,6 +248,25 @@ export const NewLab = () => {
                                     OnChange={(e) => handleChangeNombre(e)}
                                     value={''}
                                 />
+                                <div className='spaceVer10' />
+                                <h2 className='titleStyleH2'>Método de pago</h2>
+                                <div className='spaceVer10' />
+                                <h3 className='titleStyleH3'>Datos de facturación</h3>
+                                <div className='spaceVer10' />
+                                {
+                                    <>
+                                        <p className="labelInputSPadding"><strong>Nombre o razón social</strong>: {pacienteFinded.CodigoPaciente}</p>
+                                        <div className='spaceRow10' />
+                                        <p className="labelInputSPadding"><strong>Correo Electrónico</strong>:  {pacienteFinded.CodigoPaciente}</p>
+                                        <div className='spaceRow10' />
+                                        <p className="labelInputSPadding"><strong>NIT</strong>: {pacienteFinded.CodigoPaciente}</p>
+                                        <div className='spaceRow10' />
+
+                                    </>
+
+                                }
+
+
                             </div>
                         </div>
                     </div>

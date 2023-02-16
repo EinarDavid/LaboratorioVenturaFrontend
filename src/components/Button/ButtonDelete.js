@@ -13,14 +13,14 @@ export const ButtonDelete = ({ Disabled, Nombre, OnClick }) => {
                         <p className='stateParrafo'>{Nombre}</p>
                     </button>
                 ) : (
-                    
+
                     <button className='stateStyle'
-                    style={{ background: '#FFCECE' }}
-                    onClick={OnClick}
-                    disabled={Disabled}
-                >
-                    <p className='stateParrafo'>{Nombre}</p>
-                </button>
+                        style={{ background: '#FFCECE' }}
+                        onClick={OnClick}
+                        disabled={Disabled}
+                    >
+                        <p className='stateParrafo'>{Nombre}</p>
+                    </button>
                 )
             }
 

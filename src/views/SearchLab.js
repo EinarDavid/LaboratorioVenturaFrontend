@@ -8,33 +8,34 @@ import Images from '../config/Images'
 import { MainNavigator } from '../navigation/MainNavigator'
 import { calcularEdad } from '../services/calcEdad'
 import { laboratorioCompletado } from '../services/estadoLabo';
-import { postLaboratorioBuscar, getLaboratorioTodos, getLaboratorioImprimir } from '../services/laboratorioService'
+import { postLaboratorioBuscar, getLaboratorioTodos, getLaboratorioImprimir, getLaboratorioCant } from '../services/laboratorioService'
 
-const cantidadPagina = 3;
+const cantidadPagina = 4;
 
 export const SearchLab = () => {
     const [laboratorios, setLaboratorios] = useState([]);
     const [laboratoriosOriginal, setLaboratoriosOriginal] = useState([]);
     const [activeButton, setActiveButton] = useState(false);
     const [search, setSearch] = useState({ Nombre: "", CI: "", CodigoPaciente: "", Estado: "", ord: "" });
-    const [pag, setPag] = useState(1)
+
 
     useEffect(() => {
         getLaboratorioTodos().then(({ data }) => { setLaboratoriosOriginal(data) })
     }, [])
-    useEffect(() => {
-        if (pag + cantidadPagina <= laboratoriosOriginal.length)
-            setLaboratorios(laboratoriosOriginal.slice((pag - 1) * cantidadPagina,
-                (pag - 1) * cantidadPagina + cantidadPagina));
-        else
-            setLaboratorios(laboratoriosOriginal.slice((pag - 1) * cantidadPagina));
-    }, [laboratoriosOriginal, pag])
 
     const handleChangeSearch = (event) => {
         //console.log(event.target.value)
         setSearch({ ...search, [event.target.name]: event.target.value })
     }
+
+    const onPrint = (e, pac) => {
+
+        console.log('PrintPress', pac)
+        getLaboratorioImprimir(pac)//.then(({ data }) => console.log(data))
+    }
+
     useEffect(() => { console.log(laboratorios) }, [laboratorios])
+
     useEffect(() => {
         //console.log('---', search)
         postLaboratorioBuscar({ ...search }).then(({ data }) => setLaboratoriosOriginal(data))
@@ -52,15 +53,7 @@ export const SearchLab = () => {
         option: 'Mas recientes',
         id_option: 3
     }];
-    const paginacion = (pagina) => {
-        console.log(pagina)
-        setPag(pagina)
-    }
-    const onPrint = (e, pac) => {
 
-        console.log('PrintPress', pac)
-        getLaboratorioImprimir(pac)//.then(({ data }) => console.log(data))
-    }
     return (
         <>
             <div className="App">
@@ -109,6 +102,9 @@ export const SearchLab = () => {
                             }
 
                             <div className="cardBodyEvaluation">
+                                <div className='divTable'>
+
+                                
                                 <table className='tableContainer'>
                                     <thead>
                                         <tr>
@@ -180,12 +176,14 @@ export const SearchLab = () => {
                                     }
 
                                 </table>
+                                </div>
                                 <div className='containerTextInput'>
-
+                                    
                                     <PaginationTable
-                                        pag={pag}
+                                        setLaboratorios={setLaboratorios}
+                                        laboratoriosOriginal={laboratoriosOriginal}
                                         cantidadPagina={cantidadPagina}
-                                        click={paginacion}
+                                        getLaboratorioCant={getLaboratorioCant}
                                     />
                                 </div>
                             </div>

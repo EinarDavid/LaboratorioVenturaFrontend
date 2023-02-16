@@ -8,3 +8,12 @@ export async function postAgregarExamen(examen) {
 export async function getExamenTodos() {
     return await axios.get(api+"examen/leertodo");
 }
+export async function getExamenUno(id) {
+    return await axios.get(api + "examen/leeruno/" + id);
+}
+export async function getExamenCant() {
+    return await axios.get(api + "examen/cant");
+}
+export async function postExamenModificar(id, datos) {
+    return await axios.post(api + "examen/modificar/" + id, datos);
+}

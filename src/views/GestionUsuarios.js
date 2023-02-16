@@ -11,10 +11,13 @@ import { SelectFilter } from '../components/Input/SelectFilter';
 import { calcularEdad } from '../services/calcEdad';
 import { ButtonIcon } from '../components/Button/ButtonIcon';
 
-import { getPacientesNombres } from '../services/pacienteService';
+import { getPacienteCant, getPacientesNombres } from '../services/pacienteService';
 import { SectionFilterPac } from '../components/Section/SectionFilterPac';
 import { postPacienteBuscar, postPacienteEliminar } from '../services/pacienteService';
 import { useNavigate } from 'react-router-dom';
+import { PaginationTable } from '../components/Table/PaginationTable';
+import { RowsSelect } from '../components/Input/RowsSelect';
+
 
 
 export const GestionUsuarios = () => {
@@ -22,29 +25,30 @@ export const GestionUsuarios = () => {
     const [modalShow, setModalShow] = useState(false);
     const [activeButton, setActiveButton] = useState(false);
     const [search, setSearch] = useState({ Nombre: "", CI: "", CodigoPaciente: "", PrimerApellido: "", SegundoApellido: "", ord: "" });
-
     const [pacientes, setPacientes] = useState([]);
-    console.log('datos search', search)
-    const llamarPacientes = () => getPacientesNombres().then(({ data }) => setPacientes(data))
+    const [pacientesOriginal, setPacientesOriginal] = useState([])
+    const [cantidadPagina, setCantidadPagina] = useState(5)
+
+
     useEffect(() => {
-        llamarPacientes()
+        getPacientesNombres().then(({ data }) => setPacientesOriginal(data))
     }, [])
 
-    useEffect(() => console.log(pacientes), [pacientes])
+
+
+    useEffect(() => console.log(cantidadPagina), [cantidadPagina])
 
     const handleChangeSearch = (event) => {
         //console.log(event.target.value)
         setSearch({ ...search, [event.target.name]: event.target.value })
     }
+
     useEffect(() => {
-        postPacienteBuscar(search).then(({ data }) => setPacientes(data))
+        postPacienteBuscar(search).then(({ data }) => setPacientesOriginal(data))
     }, [search])
 
-    const eliminarPaciente = (id) => {
-        // postPacienteEliminar(id).then(({data})=>console.log(data));
-        // llamarPacientes()
-        console.log(id)
-    }
+
+
 
     const FilterOrder = [{
         option: 'Codigo Ascendente',
@@ -64,6 +68,19 @@ export const GestionUsuarios = () => {
     }
     ];
 
+    const RowsForPage = [{
+        option: 5,
+        id_option: 1
+    },
+    {
+        option: 10,
+        id_option: 2
+    },
+    {
+        option: 30,
+        id_option: 3
+    }]
+
     return (
         <>
             <div className="App">
@@ -77,7 +94,7 @@ export const GestionUsuarios = () => {
                         <div className='spaceVer10' />
                         <ButtonIcon Image={Images.ADDBLUE} Nombre={'Añadir nuevo paciente'} OnClick={() => setModalShow(true)} />
 
-                        <div className='spaceVer15' />
+                        <div className='spaceVer10' />
                         <div className='containerFiltro'>
                             <ButtonFilter
                                 Nombre={'Filtros'}
@@ -116,51 +133,67 @@ export const GestionUsuarios = () => {
                             }
 
                             <div className="cardBodyEvaluation">
-                                <table className='tableContainer'>
-                                    <thead>
-                                        <tr>
-                                            <th ></th>
-                                            <th className='titleTable'>Nro</th>
-                                            <th className='titleTable'>Codigo</th>
-                                            <th className='titleTable'>C.I.</th>
-                                            <th className='titleTable'>Nombres</th>
-                                            <th className='titleTable'>Primer Apellido</th>
-                                            <th className='titleTable'>Segundo Apellido</th>
-                                            <th className='titleTable'>Edad</th>
-                                        </tr>
-
-                                    </thead>
-                                    {
-                                        pacientes.map((pac, i) =>
-
-                                            <tbody key={i}>
-                                                <tr>
-                                                    <td >
-                                                        <button className='buttonPrint' onClick={() => navigate("/view/paciente/" + pac._id)}>
-                                                            <img src={Images.VIEW} width={'25'} alt={'View'} />
-                                                        </button>
-                                                    </td>
-                                                    <td className='containerTable'>{i + 1}</td>
-                                                    
-                                                    <td className='containerTable'>{pac.CodigoPaciente}</td>
-                                                    <td className='containerTable'>{pac.CI}</td>
-                                                    <td className='containerTable'>{pac.Nombres}</td>
-                                                    <td className='containerTable'>{pac.PrimerApellido}</td>
-                                                    <td className='containerTable'>{pac.SegundoApellido}</td>
-                                                    <td className='containerTable'>{calcularEdad(pac.Fecha_de_Nacimiento)}</td>
-
-                                                </tr>
+                                <div className='divTable'>
 
 
-                                                
-                                            </tbody>
-                                            
-                                        )
-                                    }
+                                    <table className='tableContainer' >
+                                        <thead >
+                                            <tr >
+                                                <th ></th>
+                                                <th className='titleTable'>Nro</th>
+                                                <th className='titleTable'>Codigo</th>
+                                                <th className='titleTable'>C.I.</th>
+                                                <th className='titleTable'>Nombres</th>
+                                                <th className='titleTable'>Primer Apellido</th>
+                                                <th className='titleTable'>Segundo Apellido</th>
+                                                <th className='titleTable'>Edad</th>
+                                            </tr>
 
+                                        </thead>
+                                        {
+                                            pacientes.map((pac, i) =>
 
+                                                <tbody key={i}>
+                                                    <tr >
+                                                        <td >
+                                                            <button className='buttonPrint' onClick={() => navigate("/view/paciente/" + pac._id)}>
+                                                                <img src={Images.VIEW} width={'25'} alt={'View'} />
+                                                            </button>
+                                                        </td>
+                                                        <td className='containerTable'>{i + 1}</td>
 
-                                </table>
+                                                        <td className='containerTable'>{pac.CodigoPaciente}</td>
+                                                        <td className='containerTable'>{pac.CI}</td>
+                                                        <td className='containerTable'>{pac.Nombres}</td>
+                                                        <td className='containerTable'>{pac.PrimerApellido}</td>
+                                                        <td className='containerTable'>{pac.SegundoApellido}</td>
+                                                        <td className='containerTable'>{calcularEdad(pac.Fecha_de_Nacimiento)}</td>
+
+                                                    </tr>
+                                                </tbody>
+
+                                            )
+                                        }
+                                    </table>
+                                </div>
+
+                                <div className='footerTable'>
+                                    <RowsSelect
+                                        Name={'Page'}
+                                        LabelInput={'Filas por pagina'}
+                                        SelectOption={RowsForPage}
+                                        OnChange={(e) => {setCantidadPagina( Number(e.target.value))}}
+                                        Value={cantidadPagina || ""}
+                                    />
+                                    <div className='spaceRow20' />
+                                    <PaginationTable
+                                        setLaboratorios={setPacientes}
+                                        laboratoriosOriginal={pacientesOriginal}
+                                        cantidadPagina={cantidadPagina}
+                                        getLaboratorioCant ={getPacienteCant}
+                                    />
+                                </div>
+
                             </div>
                         </div>
 

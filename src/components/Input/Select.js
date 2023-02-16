@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Select = ({ LabelInput, Placeholder, SelectOption, ErrorInput, Register }) => {
+export const Select = ({ LabelInput, Placeholder, SelectOption, ErrorInput, Register, Name, Onchange, Value }) => {
 
 
     return (
@@ -10,6 +10,9 @@ export const Select = ({ LabelInput, Placeholder, SelectOption, ErrorInput, Regi
 
                 <select
                     className='textInput'
+                    name={Name}
+                    onChange={Onchange}
+                    value={Value}
                     {...Register}
                 >
                     <option value='' hidden> {Placeholder}</option>

@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import Images from '../../config/Images';
 import { postAgregarPaciente } from '../../services/pacienteService';
 import { ButtonPrimary } from '../Button/ButtonPrimary';
+import { RegistroPaciente } from '../Forms/RegistroPaciente';
 import { PasswordInput } from '../Input/PasswordInput';
 import { Select } from '../Input/Select';
 import { TextInput } from '../Input/TextInput';
@@ -10,6 +11,7 @@ import { TextInput } from '../Input/TextInput';
 export const ModalRegPaciente = ({ SetModal, modal, callback }) => {
 
     const [disableButton, setDisableButton] = useState(false);
+    const [paciente, setPaciente] = useState({});
 
     const { register, formState, formState: { errors, isSubmitSuccessful }, reset, handleSubmit } = useForm({
         mode: 'all'
@@ -25,23 +27,20 @@ export const ModalRegPaciente = ({ SetModal, modal, callback }) => {
                 //Habilitas boton
                 setDisableButton(false);
                 SetModal(false);
-                if(callback) callback()
+                if (callback) callback()
                 //limpiar cajas, cerrar modal y avisar que fue añadido con exito
                 alert(data.mensaje);
+                setPaciente({});
             })
         } catch (error) {
             alert(error)
             console.log('----', error)
         }
     };
-    const Sex = [{
-        option: 'Masculino',
-        id_option: 1
-    },
-    {
-        option: 'Femenino',
-        id_option: 2
-    }];
+    
+    const handleChangeForm = (event) => {
+        setPaciente({ ...paciente, [event.target.name]: event.target.value })
+    }   
 
     useEffect(() => {
         if (formState.isSubmitSuccessful) {
@@ -54,16 +53,37 @@ export const ModalRegPaciente = ({ SetModal, modal, callback }) => {
         <>
             <div className='popup_container'>
                 <div className='popup_itself'>
-                    <form
+                    <div className='popup_button_container'>
+                        <h1 className='titleStyle'>Registro de paciente</h1>
+                        <button className="button_close" onClick={() => SetModal(false)}>{
+                            <img src={Images.CLOSE} width={30} alt='icon' ></img>
+                        } </button>
+                    </div>
+                    <div className='spaceVer20' />
+
+                    <RegistroPaciente
+
+                        paciente={paciente}
+                        handleSubmit={handleSubmit}
+                        onSubmit={onSubmit}
+                        register={register}
+                        errors={errors}
+                        disableButton={disableButton}
+                        handleChangeForm={handleChangeForm}
+                    />
+
+                </div>
+            </div>
+        </>
+    ) : ""
+}
+
+/*
+<form
                         autoComplete="off"
                         onSubmit={handleSubmit(onSubmit)} >
-                        <div className='popup_button_container'>
-                            <h1 className='titleStyle'>Registro de paciente</h1>
-                            <button className="button_close" onClick={() => SetModal(false)}>{
-                                <img src={Images.CLOSE} width={30} alt='icon' ></img>
-                            } </button>
-                        </div>
-                        <div className='spaceVer20' />
+                        
+                        
                         <div className='row3-Inputs'>
                             <TextInput
                                 LabelInput={'Documento de Identidad*'}
@@ -251,9 +271,4 @@ export const ModalRegPaciente = ({ SetModal, modal, callback }) => {
                         
 
                     </form>
-
-                </div>
-            </div>
-        </>
-    ) : ""
-}
+*/

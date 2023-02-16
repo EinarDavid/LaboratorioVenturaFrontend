@@ -23,3 +23,6 @@ export async function postPacienteModificar(id, datos) {
 export async function getPacienteUno(id) {
     return await axios.get(api + "paciente/leeruno/" + id);
 }
+export async function getPacienteCant() {
+    return await axios.get(api + "paciente/cant");
+}
