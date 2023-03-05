@@ -17,3 +17,9 @@ export async function getExamenCant() {
 export async function postExamenModificar(id, datos) {
     return await axios.post(api + "examen/modificar/" + id, datos);
 }
+export async function postExamenEliminar(id) {
+    return await axios.post(api + "examen/eliminar/", {id});
+}
+export async function postExamenVerificarUso(id) {
+    return await axios.post(api + "examen/verificarUso/", {id});
+}

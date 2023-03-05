@@ -3,13 +3,13 @@ export function identificar() {
     
 }
 export function esTexto(valRef) {
-    console.log("---------------", valRef); return false;
-    // let rang = valRef.split("-")
-    //     .map(a => a.trim());
-    // if (isNaN(rang[0]))
-    //     return true
-    // else
-    //     return false
+    console.log("---------------", valRef); 
+    let rang = valRef.split("-")
+        .map(a => a.trim());
+    if (isNaN(rang[0]))
+        return true
+    else
+        return false
 }
 export function valRef(valRef, n = 0) {
     console.log("---------------", valRef)

@@ -62,7 +62,7 @@ export const SearchLab = () => {
                 </div>
                 <div className='containerPadre'>
                     <div className='containerHijo'>
-                        <h1 className='titleStyle'>Evaluación de examenes</h1>
+                        <h1 className='titleStyle'>Evaluación de laboratorios</h1>
                         <div className='spaceVer20' />
                         <div className='containerFiltro'>
                             <ButtonFilter

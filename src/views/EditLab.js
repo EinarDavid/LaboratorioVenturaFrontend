@@ -27,12 +27,13 @@ export const EditLab = () => {
     let { labo, exa } = useParams();
     // 63c4355ee66964fd6f18ca65
     // 63c4355ee66964fd6f18ca66
-
+    //console.log('LAB' + laboratorio.Paciente)
+    
     useEffect(() => {
         getLaboratorioUno(labo).then(({ data }) => {
             setLaboratorio(data)
             setExamen(data.ExamenesRealizados.find(ex => ex._id === exa))
-            //console.log("--------------------------------------")
+            console.log("Data-------------------------------------", data)
             let examenAux = data.ExamenesRealizados.find(ab => ab._id === exa)
             let rest = examenAux.Resultados.map(res => {
                 return { [res.Id_Campo]: res.Valor }
@@ -121,6 +122,7 @@ export const EditLab = () => {
                                                 <p className='labelInput'>Paciente: {laboratorio.Paciente.NombreCompleto}</p>
                                                 <p className='labelInput'>Fecha de Nac: {laboratorio.Paciente.Fecha_de_Nacimiento}</p>
                                                 <p className='labelInput'>Edad: {calcularEdad(laboratorio.Paciente.Fecha_de_Nacimiento)}</p>
+                                                <p className='labelInput'>Sexo: {laboratorio.Paciente.Genero}</p>
                                                 <p className='labelInput'>Fecha de solicitud: {laboratorio.Fecha}</p>
 
                                             </> :
@@ -178,13 +180,13 @@ export const EditLab = () => {
                             {
                                 (examen.Examen) ? examen.Examen.Campos.map((campo, i) =>
 
-                                    esTexto(campo.ValorReferencia) ?
+                                    esTexto(campo.ValorReferenciaSeleccionado.ValorReferencia) ?
                                         <div key={i} className='containerInputDinamic'>
                                             <SelectDinamic
                                                 Name={campo._id}
                                                 LabelInput={campo.Nombre + ' "' + campo.SubCategoria + '"'}
                                                 Placeholder={'Selecciona'}
-                                                SelectOption={valRef(campo.ValorReferencia).map((v, i) => ({
+                                                SelectOption={valRef(campo.ValorReferenciaSeleccionado.ValorReferencia).map((v, i) => ({
                                                     option: v,
                                                     id_option: i
                                                 }))}
@@ -198,11 +200,11 @@ export const EditLab = () => {
                                                 Name={campo._id}
                                                 State={val[campo._id]}
                                                 LabelInput={campo.Nombre + ' "' + campo.SubCategoria + '"'}
-                                                Placeholder={'Valor de referencia: ' + 'campo.ValorReferencia'}
+                                                Placeholder={'Valor de referencia: ' + campo.ValorReferenciaSeleccionado.ValorReferencia}
                                                 OnChange={(e) => handleChangeCabecera(e)}
                                                 Value={laboratorio.ExamenesRealizados.find(ab => ab._id === examen._id).Resultados.find(ba => ba.Id_Campo === campo._id)?.Valor}
                                             />
-                                            <p className='parrafoStyle'>{'campo.ValorReferencia' + ' ' + campo.Concentracion}</p>
+                                            <p className='parrafoStyle'>{campo.ValorReferenciaSeleccionado.ValorReferencia + ' ' + campo.ValorReferenciaSeleccionado.Concentracion}</p>
                                         </div>
 
 

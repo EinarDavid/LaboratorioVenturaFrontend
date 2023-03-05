@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ButtonDelete } from '../components/Button/ButtonDelete';
-import { postAgregarExamen, getExamenUno, postExamenModificar } from '../services/examenService';
+import { postAgregarExamen, getExamenUno, postExamenModificar, postExamenVerificarUso, postExamenEliminar } from '../services/examenService';
 
 import Images from '../config/Images';
 import { RegistroExamen2 } from '../components/Forms/RegistroExamen2';
@@ -30,6 +30,8 @@ export const ViewExa = ({ callback }) => {
     ]);
 
     const [cabecera, setCabecera] = useState({});
+    const [disableButtonDelete, setDisableButtonDelete] = useState(false);
+
     const [examen, setExamen] = useState({});
 
     useEffect(() => {
@@ -134,6 +136,31 @@ export const ViewExa = ({ callback }) => {
         setDataDetalle(ndetalle);
     }
 
+    const _handleDelete = () => {
+        setDisableButtonDelete(true);
+        postExamenVerificarUso(idExamen).then(({data})=>{
+            console.log(data);
+            if(data.utilizado==0) postExamenEliminar(idExamen).then(({eliminado})=>{
+                
+                //Rediriges al menu de examens 
+                alert(data.mensaje)
+                navigate('/gesionTest');
+                setDisableButtonDelete(false);
+            })
+            else{
+
+                alert("Este examen no puede ser eliminado por: \n" + data.mensaje)
+                setDisableButtonDelete(false);
+            }
+        })
+        // postPacienteEliminar(idPaciente).then(({ data }) => {
+        //     //console.log(data)
+        //     alert(data.mensaje)
+        //     navigate('/gestionUser');
+        //     setDisableButtonDelete(true);
+        // })
+    }
+
     return (
         <>
             <div className="App">
@@ -155,8 +182,8 @@ export const ViewExa = ({ callback }) => {
                             </div>
                             <div className='containerButtonRight'>
                                 <ButtonDelete Nombre={'ELIMINAR'}
-                                //Disabled={disableButtonDelete} 
-                                //OnClick={_handleDelete}
+                                    Disabled={disableButtonDelete}
+                                    OnClick={_handleDelete}
                                 />
                             </div>
 

@@ -26,13 +26,14 @@ export const NewLab = () => {
     const [examenes, setExamenes] = useState([]);
     const [examenFinded, setExamenFinded] = useState([]);
     const [exameneSelected, setExameneSelected] = useState([]);
+    const [pacienteSelected, setPacienteSelected] = useState([])
     const [modalShow, setModalShow] = useState(false);
     const [modalShowRegtest, setModalShowRegtest] = useState(false);
     const [detalle, setDataDetalle] = useState();
 
     const [render, setRender] = useState(true);
 
-    console.log("ex:", exameneSelected);
+    // console.log("PAC:", pacienteSelected);
 
     const llamarPacientes = () =>
         getPacientesNombres().then(({ data }) => setPacientes(data));
@@ -50,11 +51,11 @@ export const NewLab = () => {
     const fechaActual = `${d}-${m}-${a}`;
 
     const _onSubmit = () => {
-        if (pacienteFinded.CI && exameneSelected[0]) {
+        if (pacienteSelected && exameneSelected[0]) {
             setDisableButton(true);
             let laboratorio = {
                 examenes: exameneSelected,
-                paciente: pacienteFinded,
+                paciente: pacienteSelected,
                 motivo: detalle?.Motivo,
                 Fecha: fechaActual,
             };
@@ -65,6 +66,7 @@ export const NewLab = () => {
                 setPacienteFinded([]);
                 setExamenFinded([]);
                 setExameneSelected([]);
+                setPacienteSelected([]);
                 setDisableButton(false);
 
                 //limpiar cajas, cerrar modal y avisar que fue añadido con exito
@@ -77,20 +79,24 @@ export const NewLab = () => {
         setDataDetalle({ ...detalle, [event.target.name]: event.target.value });
     };
 
-    const FormadePago = [{
-        option: 'Efectivo',
-        id_option: 1
-    },
-    {
-        option: 'Tarjeta Debito/Crédito',
-        id_option: 2
-    }, {
-        option: 'Transferencia',
-        id_option: 3
-    }, {
-        option: 'Cheque',
-        id_option: 4
-    }]
+    const FormadePago = [
+        {
+            option: "Efectivo",
+            id_option: 1,
+        },
+        {
+            option: "Tarjeta Debito/Crédito",
+            id_option: 2,
+        },
+        {
+            option: "Transferencia",
+            id_option: 3,
+        },
+        {
+            option: "Cheque",
+            id_option: 4,
+        },
+    ];
 
     return (
         <>
@@ -113,37 +119,82 @@ export const NewLab = () => {
                                             onClick={() => setModalShow(true)}
                                             Data={pacientes}
                                             Key={"CI"}
+                                            // Find={(finded) => {
+                                            //                           if (finded[0]) setPacienteFinded(finded[0]);
+                                            //                           else setPacienteFinded({});
+                                            //                       }}
+
                                             Find={(finded) => {
-                                                if (finded[0]) setPacienteFinded(finded[0]);
-                                                else setPacienteFinded({});
+                                                setPacienteFinded(finded);
                                             }}
                                         ></SearchInput>
+                                        {pacienteFinded.length > 0 ? (
+                                            <div className="containerResultados">
+                                                {pacienteFinded.map((ex, i) => (
+                                                    <div className="resultadosSearch" key={i}>
+                                                        <button
+                                                            className="buttonTable"
+                                                            onClick={() => {
+                                                                
+                                                              
+                                                                setPacienteSelected(ex);
+                                                                setPacienteFinded([]);
+                                                            
+                                                            }}
+
+                                                        >
+                                                            <img
+                                                                src={Images.ADDBLUE}
+                                                                width={30}
+                                                                height={30}
+                                                                alt={"icon"}
+                                                            ></img>
+
+                                                            <p className="labelInput">Nombre: {ex.NombreCompleto}</p>
+                                                            <div className="spaceRow10" />
+                                                            <p className="labelInput">
+                                                                CI: {ex.CI}
+                                                            </p>
+
+                                                        </button>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        ) : (
+                                            <></>
+                                        )}
                                         <div className="spaceVer10" />
-                                        {!pacienteFinded.CI ? (
+                                        {pacienteSelected.length !== 0 ? (
+
+                                            <section className="information">
+                                                {
+                                                    console.log('pacienteeeeee',pacienteSelected)
+                                                }
+                                                <p className="labelInput">
+                                                    <strong>Código</strong>:{" "}
+                                                    {pacienteSelected.CodigoPaciente}
+                                                </p>
+                                                <p className="labelInput">
+                                                    <strong>CI</strong>: {pacienteSelected.CI}
+                                                </p>
+                                                <p className="labelInput">
+                                                    {" "}
+                                                    <strong>Paciente</strong>:{" "}
+                                                    {pacienteSelected.NombreCompleto}
+                                                </p>
+                                                <p className="labelInput">
+                                                    <strong>Edad</strong>:{" "}
+                                                    {calcularEdad(pacienteSelected.Fecha_de_Nacimiento)}
+                                                </p>
+                                            </section>
+
+
+                                        ) : (
                                             <EmptySearch
                                                 Image={Images.SEARCHBLUE}
                                                 Text={"Escribe en número de C.I."}
                                                 Width={40}
                                             />
-                                        ) : (
-                                            <section className="information">
-                                                <p className="labelInput">
-                                                    <strong>Código</strong>:{" "}
-                                                    {pacienteFinded.CodigoPaciente}
-                                                </p>
-                                                <p className="labelInput">
-                                                    <strong>CI</strong>: {pacienteFinded.CI}
-                                                </p>
-                                                <p className="labelInput">
-                                                    {" "}
-                                                    <strong>Paciente</strong>:{" "}
-                                                    {pacienteFinded.NombreCompleto}
-                                                </p>
-                                                <p className="labelInput">
-                                                    <strong>Edad</strong>:{" "}
-                                                    {calcularEdad(pacienteFinded.Fecha_de_Nacimiento)}
-                                                </p>
-                                            </section>
                                         )}
                                     </div>
                                     <div className="spaceRow20" />
@@ -177,8 +228,10 @@ export const NewLab = () => {
                                                 <button
                                                     className="buttonTable"
                                                     onClick={() => {
-                                                        if (!exameneSelected.find((a) => a._id === ex._id))
+                                                        if (!exameneSelected.find((a) => a._id === ex._id)) {
                                                             setExameneSelected([...exameneSelected, ex]);
+                                                            setExamenFinded([])
+                                                        }
                                                     }}
                                                 >
                                                     <img
@@ -260,8 +313,6 @@ export const NewLab = () => {
                                         </div>
                                     )}
                                 </div>
-
-                                
                             </div>
                         </div>
                         <div className="section2Lab">
@@ -283,12 +334,10 @@ export const NewLab = () => {
                                     OnChange={(e) => handleChangeNombre(e)}
                                     value={""}
                                 />
-
-
                             </div>
 
                             <div className="spaceVer10" />
-                            <hr className='lineFilterWhite' />
+                            <hr className="lineFilterWhite" />
                             <div className="spaceVer10" />
 
                             <div className="containerLab2">
@@ -300,16 +349,16 @@ export const NewLab = () => {
                                     <>
                                         <p className="labelInputSPadding">
                                             <strong>Razón social</strong>:{" "}
-                                            {pacienteFinded.RazonSocial}
+                                            {pacienteSelected.RazonSocial}
                                         </p>
                                         <div className="spaceVer5" />
                                         <p className="labelInputSPadding">
-                                            <strong>Correo Electrónico</strong>:{" "}
-                                            {pacienteFinded.Email}
+                                            <strong>Email</strong>:{" "}
+                                            {pacienteSelected.Email}
                                         </p>
                                         <div className="spaceVer5" />
                                         <p className="labelInputSPadding">
-                                            <strong>NIT</strong>: {pacienteFinded.NIT}
+                                            <strong>NIT</strong>: {pacienteSelected.NIT}
                                         </p>
                                     </>
                                 }
@@ -320,9 +369,9 @@ export const NewLab = () => {
                                 </div>
                                 <div className="spaceVer10" />
                                 <SelectDinamic
-                                    Name={'FormaDePago'}
-                                    LabelInput={'Forma de pago*'}
-                                    Placeholder={'Selecciona'}
+                                    Name={"FormaDePago"}
+                                    LabelInput={"Forma de pago*"}
+                                    Placeholder={"Selecciona"}
                                     SelectOption={FormadePago}
                                     OnChange={(e) => handleChangeNombre(e)}
                                 //Value={det.SubCategoria || ""}
@@ -335,18 +384,23 @@ export const NewLab = () => {
                                     OnChange={(e) => handleChangeNombre(e)}
                                     value={""}
                                 />
-                                <div className='ContainerCheck'>
-                                    <label className='labelInputCheck'>
+                                <div className="ContainerCheck">
+                                    <label className="labelInputCheck">
                                         <input
-                                            className='checkbookInput'
-                                            type='checkbox' name='PagarTodo'
+                                            className="checkbookInput"
+                                            type="checkbox"
+                                            name="PagarTodo"
                                             onChange={(e) => handleChangeNombre(e)}
                                         />
                                         Pagar todo
                                     </label>
                                     <div className="spaceRow10" />
-                                    <label className='labelInputCheck'>
-                                        <input className='checkbookInput' type='checkbox' name='Cotizacion' value='Cotización'
+                                    <label className="labelInputCheck">
+                                        <input
+                                            className="checkbookInput"
+                                            type="checkbox"
+                                            name="Cotizacion"
+                                            value="Cotización"
                                             onChange={(e) => handleChangeNombre(e)}
                                         />
                                         Registrar como cotización
@@ -361,7 +415,6 @@ export const NewLab = () => {
                                     OnClick={_onSubmit}
                                 />
                             </div>
-
                         </div>
                     </div>
                 </div>
