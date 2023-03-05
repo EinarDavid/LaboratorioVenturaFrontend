@@ -156,7 +156,7 @@ export const ViewExa = ({ callback }) => {
                             <div className='containerButtonRight'>
                                 <ButtonDelete Nombre={'ELIMINAR'}
                                 //Disabled={disableButtonDelete} 
-                                //OnClick={_handleDelete} 
+                                //OnClick={_handleDelete}
                                 />
                             </div>
 

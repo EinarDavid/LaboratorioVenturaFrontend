@@ -64,7 +64,7 @@ export const RegistroExamen2 = ({
                     LabelInput={'Nombre*'}
                     Placeholder={'Ej. Hepatitis B'}
                     OnChange={(e) => handleChangeCabecera(e)}
-                    Value={cabecera.Nombre || ""}
+                    Value={cabecera?.Nombre || ""}
                 />
                 <div className='spaceRow25' />
 
@@ -74,7 +74,7 @@ export const RegistroExamen2 = ({
                     Placeholder={'Selecciona la Categoría'}
                     SelectOption={Categoria}
                     OnChange={(e) => handleChangeCabecera(e)}
-                    Value={cabecera.Categoria || ""}
+                    Value={cabecera?.Categoria || ""}
                 />
                 <div className='spaceRow25' />
 
@@ -83,7 +83,7 @@ export const RegistroExamen2 = ({
                     LabelInput={'Método'}
                     Placeholder={'Ej. Cromatografia'}
                     OnChange={(e) => handleChangeCabecera(e)}
-                    Value={cabecera.Metodo || ""}
+                    Value={cabecera?.Metodo || ""}
 
                 />
             </div>
@@ -95,7 +95,7 @@ export const RegistroExamen2 = ({
                     LabelInput={'Recipiente'}
                     Placeholder={'Ej. Tubo Gris'}
                     OnChange={(e) => handleChangeCabecera(e)}
-                    Value={cabecera.Recipiente || ""}
+                    Value={cabecera?.Recipiente || ""}
 
                 />
                 <div className='spaceRow25' />
@@ -104,7 +104,7 @@ export const RegistroExamen2 = ({
                     LabelInput={'Muestra'}
                     Placeholder={'Ej. Suero'}
                     OnChange={(e) => handleChangeCabecera(e)}
-                    Value={cabecera.Muestra || ""}
+                    Value={cabecera?.Muestra || ""}
 
                 />
                 <div className='spaceRow25' />
@@ -114,7 +114,7 @@ export const RegistroExamen2 = ({
                     LabelInput={'Gastos de Insumo'}
                     Placeholder={'Ej. 20%'}
                     OnChange={(e) => handleChangeCabecera(e)}
-                    Value={cabecera.Gastos || ""}
+                    Value={cabecera?.Gastos || ""}
                 />
             </div>
             <div className='spaceVer15' />
@@ -125,7 +125,7 @@ export const RegistroExamen2 = ({
                     LabelInput={'Precio del Laboratorio'}
                     Placeholder={'Ej. 10'}
                     OnChange={(e) => handleChangeCabecera(e)}
-                    Value={cabecera.Precio || ""}
+                    Value={cabecera?.Precio || ""}
                 />
                 <div className='spaceRow25' />
                 <TextInputDinamic
@@ -133,7 +133,7 @@ export const RegistroExamen2 = ({
                     LabelInput={'Información clínica'}
                     Placeholder={'Ej. Suero'}
                     OnChange={(e) => handleChangeCabecera(e)}
-                    Value={cabecera.InformacionClinica || ""}
+                    Value={cabecera?.InformacionClinica || ""}
                 />
 
             </div>

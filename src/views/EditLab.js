@@ -198,11 +198,11 @@ export const EditLab = () => {
                                                 Name={campo._id}
                                                 State={val[campo._id]}
                                                 LabelInput={campo.Nombre + ' "' + campo.SubCategoria + '"'}
-                                                Placeholder={'Valor de referencia: ' + campo.ValorReferencia}
+                                                Placeholder={'Valor de referencia: ' + 'campo.ValorReferencia'}
                                                 OnChange={(e) => handleChangeCabecera(e)}
                                                 Value={laboratorio.ExamenesRealizados.find(ab => ab._id === examen._id).Resultados.find(ba => ba.Id_Campo === campo._id)?.Valor}
                                             />
-                                            <p className='parrafoStyle'>{campo.ValorReferencia + ' ' + campo.Concentracion}</p>
+                                            <p className='parrafoStyle'>{'campo.ValorReferencia' + ' ' + campo.Concentracion}</p>
                                         </div>
 
 

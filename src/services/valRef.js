@@ -1,13 +1,18 @@
 const num = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".", ","]
+export function identificar() {
+    
+}
 export function esTexto(valRef) {
-    let rang = valRef.split("-")
-        .map(a => a.trim());
-    if (isNaN(rang[0]))
-        return true
-    else
-        return false
+    console.log("---------------", valRef); return false;
+    // let rang = valRef.split("-")
+    //     .map(a => a.trim());
+    // if (isNaN(rang[0]))
+    //     return true
+    // else
+    //     return false
 }
 export function valRef(valRef, n = 0) {
+    console.log("---------------", valRef)
     let rang = valRef.split("-")
         .map(a => a.trim());
     if (isNaN(rang[0]))

@@ -90,26 +90,29 @@ export const GestionUsuarios = () => {
                 </div>
                 <div className='containerPadre'>
                     <div className='containerHijo'>
-                        <h1 className='titleStyle'>Gestion de pacientes</h1>
-                        <div className='spaceVer10' />
-                        <ButtonIcon Image={Images.ADDBLUE} Nombre={'Añadir nuevo paciente'} OnClick={() => setModalShow(true)} />
 
-                        <div className='spaceVer10' />
-                        <div className='containerFiltro'>
-                            <ButtonFilter
-                                Nombre={'Filtros'}
-                                OnClick={() => { setActiveButton(!activeButton) }}
-                                Active={activeButton}
-                            />
-                            <div className='spaceRow15' />
+                        <div className='headerTableSection'>
+                            <h1 className='titleStyle'>Gestion de pacientes</h1>
+                            <div className='spaceVer10' />
+                            <ButtonIcon Image={Images.ADDBLUE} Nombre={'Añadir nuevo paciente'} OnClick={() => setModalShow(true)} />
 
-                            <SelectFilter
-                                Name={'ord'}
-                                Placeholder={'Ordenar Por'}
-                                SelectOption={FilterOrder}
-                                OnChange={(e) => handleChangeSearch(e)}
-                            />
-                            <div className='spaceRow25' />
+                            <div className='spaceVer10' />
+                            <div className='containerFiltro'>
+                                <ButtonFilter
+                                    Nombre={'Filtros'}
+                                    OnClick={() => { setActiveButton(!activeButton) }}
+                                    Active={activeButton}
+                                />
+                                <div className='spaceRow15' />
+
+                                <SelectFilter
+                                    Name={'ord'}
+                                    Placeholder={'Ordenar Por'}
+                                    SelectOption={FilterOrder}
+                                    OnChange={(e) => handleChangeSearch(e)}
+                                />
+                                <div className='spaceRow25' />
+                            </div>
                         </div>
                         <div className='spaceVer20' />
                         <div className='tablePadreContainer'>
@@ -182,7 +185,7 @@ export const GestionUsuarios = () => {
                                         Name={'Page'}
                                         LabelInput={'Filas por pagina'}
                                         SelectOption={RowsForPage}
-                                        OnChange={(e) => {setCantidadPagina( Number(e.target.value))}}
+                                        OnChange={(e) => { setCantidadPagina(Number(e.target.value)) }}
                                         Value={cantidadPagina || ""}
                                     />
                                     <div className='spaceRow20' />
@@ -190,7 +193,7 @@ export const GestionUsuarios = () => {
                                         setLaboratorios={setPacientes}
                                         laboratoriosOriginal={pacientesOriginal}
                                         cantidadPagina={cantidadPagina}
-                                        getLaboratorioCant ={getPacienteCant}
+                                        getLaboratorioCant={getPacienteCant}
                                     />
                                 </div>
 
