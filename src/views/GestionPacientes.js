@@ -1,3 +1,5 @@
+
+
 import React, { useEffect, useState } from 'react';
 import { MainNavigator } from '../navigation/MainNavigator';
 
@@ -15,9 +17,10 @@ import { postPacienteBuscar, postPacienteEliminar } from '../services/pacienteSe
 import { useNavigate } from 'react-router-dom';
 import { PaginationTable } from '../components/Table/PaginationTable';
 import { RowsSelect } from '../components/Input/RowsSelect';
-import { RegUsuario } from '../components/Modal/ModalRegUsuario';
 
-export const GestionUsuarios = () => {
+
+
+export const GestionPacientes = () => {
     const navigate = useNavigate();
     const [modalShow, setModalShow] = useState(false);
     const [activeButton, setActiveButton] = useState(false);
@@ -78,9 +81,8 @@ export const GestionUsuarios = () => {
         id_option: 3
     }]
 
-
-  return (
-    <>
+    return (
+        <>
             <div className="App">
                 <div className='mainNav'>
                     <MainNavigator></MainNavigator>
@@ -90,9 +92,9 @@ export const GestionUsuarios = () => {
                     <div className='containerHijo'>
 
                         <div className='headerTableSection'>
-                            <h1 className='titleStyle'>Gestion de usuarios</h1>
+                            <h1 className='titleStyle'>Gestion de pacientes</h1>
                             <div className='spaceVer10' />
-                            <ButtonIcon Image={Images.ADDBLUE} Nombre={'Añadir nuevo usuario'} OnClick={() => setModalShow(true)} />
+                            <ButtonIcon Image={Images.ADDBLUE} Nombre={'Añadir nuevo paciente'} OnClick={() => setModalShow(true)} />
 
                             <div className='spaceVer10' />
                             <div className='containerFiltro'>
@@ -142,14 +144,12 @@ export const GestionUsuarios = () => {
                                             <tr >
                                                 <th ></th>
                                                 <th className='titleTable'>Nro</th>
+                                                <th className='titleTable'>Codigo</th>
                                                 <th className='titleTable'>C.I.</th>
                                                 <th className='titleTable'>Nombres</th>
                                                 <th className='titleTable'>Primer Apellido</th>
                                                 <th className='titleTable'>Segundo Apellido</th>
                                                 <th className='titleTable'>Edad</th>
-                                                <th className='titleTable'>Cargo</th>
-                                                <th className='titleTable'>Teléfono</th>
-                                                <th className='titleTable'>Dirección</th>
                                             </tr>
 
                                         </thead>
@@ -207,7 +207,7 @@ export const GestionUsuarios = () => {
                 </div>
 
             </div>
-            <RegUsuario modal={modalShow} SetModal={setModalShow} ></RegUsuario>
+            <ModalRegPaciente modal={modalShow} SetModal={setModalShow} ></ModalRegPaciente>
         </>
-  )
+    )
 }

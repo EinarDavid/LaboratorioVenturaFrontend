@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import Images from '../../config/Images'
 import { RegUsuario } from './ModalRegUsuario';
+import { useNavigate } from 'react-router-dom';
+
+import Images from '../../config/Images'
 
 export const OptionUser = () => {
-
+    const navigate = useNavigate();
     const [open, setOpen] = useState(false);
     const [modalShowRegUser, setModalShowRegUser] = useState(false);
 
@@ -26,7 +28,7 @@ export const OptionUser = () => {
                             <button>Menu 1</button>
                         </li>
                         <li className="menu-item">
-                            <button>Menu 2</button>
+                            <button onClick={() => navigate("/gestionUsuarios")}>Gestion de usuarios</button>
                         </li>
                         <li className="menu-item">
                             <button onClick={() => setModalShowRegUser(true)}>Registrar usuario</button>
