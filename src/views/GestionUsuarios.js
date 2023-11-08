@@ -3,19 +3,18 @@ import { MainNavigator } from '../navigation/MainNavigator';
 
 import Images from '../config/Images';
 
-import { ModalRegPaciente } from '../components/Modal/ModalRegPaciente';
 import { ButtonFilter } from '../components/Button/ButtonFilter';
 import { SelectFilter } from '../components/Input/SelectFilter';
 import { calcularEdad } from '../services/calcEdad';
 import { ButtonIcon } from '../components/Button/ButtonIcon';
 
-import { getPacienteCant, getPacientesNombres } from '../services/pacienteService';
 import { SectionFilterPac } from '../components/Section/SectionFilterPac';
 import { postPacienteBuscar, postPacienteEliminar } from '../services/pacienteService';
 import { useNavigate } from 'react-router-dom';
 import { PaginationTable } from '../components/Table/PaginationTable';
 import { RowsSelect } from '../components/Input/RowsSelect';
 import { RegUsuario } from '../components/Modal/ModalRegUsuario';
+import { getUsuarioCant, getUsuarioNombres, postUsuarioBuscar } from '../services/usuarioService';
 
 export const GestionUsuarios = () => {
     const navigate = useNavigate();
@@ -24,13 +23,14 @@ export const GestionUsuarios = () => {
     const [search, setSearch] = useState({ Nombre: "", CI: "", CodigoPaciente: "", PrimerApellido: "", SegundoApellido: "", ord: "" });
     const [pacientes, setPacientes] = useState([]);
     const [pacientesOriginal, setPacientesOriginal] = useState([])
-    const [cantidadPagina, setCantidadPagina] = useState(5)
+    const [cantidadPagina, setCantidadPagina] = useState(10)
 
 
     useEffect(() => {
-        getPacientesNombres().then(({ data }) => setPacientesOriginal(data))
-    }, [])
+        getUsuarioNombres().then(({ data }) => setPacientesOriginal(data))
 
+    }, [])
+console.log(pacientesOriginal)
 
 
     useEffect(() => console.log(cantidadPagina), [cantidadPagina])
@@ -41,7 +41,7 @@ export const GestionUsuarios = () => {
     }
 
     useEffect(() => {
-        postPacienteBuscar(search).then(({ data }) => setPacientesOriginal(data))
+        postUsuarioBuscar(search).then(({ data }) => setPacientesOriginal(data))
     }, [search])
 
 
@@ -87,7 +87,7 @@ export const GestionUsuarios = () => {
 
                 </div>
                 <div className='containerPadre'>
-                    <div className='containerHijo'>
+                    
 
                         <div className='headerTableSection'>
                             <h1 className='titleStyle'>Gestion de usuarios</h1>
@@ -149,7 +149,8 @@ export const GestionUsuarios = () => {
                                                 <th className='titleTable'>Edad</th>
                                                 <th className='titleTable'>Cargo</th>
                                                 <th className='titleTable'>Teléfono</th>
-                                                <th className='titleTable'>Dirección</th>
+                                                <th className='titleTable'>Sucursal</th>
+                                                <th className='titleTable'>Activo</th>
                                             </tr>
 
                                         </thead>
@@ -159,18 +160,20 @@ export const GestionUsuarios = () => {
                                                 <tbody key={i}>
                                                     <tr >
                                                         <td >
-                                                            <button className='buttonPrint' onClick={() => navigate("/view/paciente/" + pac._id)}>
+                                                            <button className='buttonPrint' onClick={() => navigate("/view/user/" + pac?._id)}>
                                                                 <img src={Images.VIEW} width={'25'} alt={'View'} />
                                                             </button>
                                                         </td>
                                                         <td className='containerTable'>{i + 1}</td>
-
-                                                        <td className='containerTable'>{pac.CodigoPaciente}</td>
-                                                        <td className='containerTable'>{pac.CI}</td>
-                                                        <td className='containerTable'>{pac.Nombres}</td>
-                                                        <td className='containerTable'>{pac.PrimerApellido}</td>
-                                                        <td className='containerTable'>{pac.SegundoApellido}</td>
-                                                        <td className='containerTable'>{calcularEdad(pac.Fecha_de_Nacimiento)}</td>
+                                                        <td className='containerTable'>{pac?.CI}</td>
+                                                        <td className='containerTable'>{pac?.Nombres}</td>
+                                                        <td className='containerTable'>{pac?.PrimerApellido}</td>
+                                                        <td className='containerTable'>{pac?.SegundoApellido}</td>
+                                                        <td className='containerTable'>{calcularEdad(pac?.Fecha_de_Nacimiento)}</td>
+                                                        <td className='containerTable'>{pac?.Cargo}</td>
+                                                        <td className='containerTable'>{pac?.Telefono}</td>
+                                                        <td className='containerTable'>{pac?.Sucursal}</td>
+                                                        <td className='containerTable'>{pac?.Activo}</td>
 
                                                     </tr>
                                                 </tbody>
@@ -193,7 +196,7 @@ export const GestionUsuarios = () => {
                                         setLaboratorios={setPacientes}
                                         laboratoriosOriginal={pacientesOriginal}
                                         cantidadPagina={cantidadPagina}
-                                        getLaboratorioCant={getPacienteCant}
+                                        getLaboratorioCant={getUsuarioCant}
                                     />
                                 </div>
 
@@ -203,7 +206,7 @@ export const GestionUsuarios = () => {
 
 
 
-                    </div>
+                    
                 </div>
 
             </div>

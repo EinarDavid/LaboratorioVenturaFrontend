@@ -89,7 +89,7 @@ export const GestionPacientes = () => {
 
                 </div>
                 <div className='containerPadre'>
-                    <div className='containerHijo'>
+                    
 
                         <div className='headerTableSection'>
                             <h1 className='titleStyle'>Gestion de pacientes</h1>
@@ -201,9 +201,6 @@ export const GestionPacientes = () => {
                         </div>
 
 
-
-
-                    </div>
                 </div>
 
             </div>

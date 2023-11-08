@@ -11,3 +11,12 @@ export async function getUsuarioTodos() {
 export async function postLogin(usuario) {
     return await axios.post(api+"usuario/login",usuario);
 }
+export async function getUsuarioCant() {
+    return await axios.get(api + "usuario/cant");
+}
+export async function getUsuarioNombres() {
+    return await axios.get(api+"usuario/leerNombres");
+}
+export async function postUsuarioBuscar(filtros) {
+    return await axios.post(api + "usuario/buscar", filtros);
+}

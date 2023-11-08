@@ -5,15 +5,17 @@ import { ButtonIcon } from "../components/Button/ButtonIcon";
 import { RowsSelect } from "../components/Input/RowsSelect";
 import { SearchInput } from "../components/Input/SearchInput";
 import { SelectFilter } from "../components/Input/SelectFilter";
-import { ModalRegTest } from "../components/Modal/ModalRegTest";
+
 import { SectionFilterPac } from "../components/Section/SectionFilterPac";
 import { PaginationTable } from "../components/Table/PaginationTable";
 import Images from "../config/Images";
 import { MainNavigator } from "../navigation/MainNavigator";
 import { getExamenCant, getExamenTodos } from "../services/examenService";
+import { ModalRegProduct } from "../components/Modal/ModalRegProduct";
 
-export const GestionTest = () => {
-  const navigate = useNavigate();
+export const GestionProduct = () => {
+
+    const navigate = useNavigate();
 
   const [modalShow, setModalShow] = useState(false);
   const [activeButton, setActiveButton] = useState(false);
@@ -73,16 +75,15 @@ export const GestionTest = () => {
     //console.log(event.target.value)
     setSearch({ ...search, [event.target.name]: event.target.value });
   };
-
   return (
     <>
-      <div className="App">
+<div className="App">
         <div className="mainNav">
           <MainNavigator />
         </div>
         <div className="containerPadre">
           <div className="headerTableSection">
-            <h1 className="titleStyle">Gestion de Examenes</h1>
+            <h1 className="titleStyle">Gestion de Productos</h1>
             <div className="spaceVer10" />
             <ButtonIcon
               Image={Images.ADDBLUE}
@@ -190,7 +191,7 @@ export const GestionTest = () => {
           </div>
         </div>
       </div>
-      <ModalRegTest modal={modalShow} SetModal={setModalShow}></ModalRegTest>
+      <ModalRegProduct modal={modalShow} SetModal={setModalShow}></ModalRegProduct>
     </>
-  );
-};
+  )
+}

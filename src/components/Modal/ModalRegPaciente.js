@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import Images from '../../config/Images';
 import { postAgregarPaciente } from '../../services/pacienteService';
-import { ButtonPrimary } from '../Button/ButtonPrimary';
+
 import { RegistroPaciente } from '../Forms/RegistroPaciente';
-import { PasswordInput } from '../Input/PasswordInput';
-import { Select } from '../Input/Select';
-import { TextInput } from '../Input/TextInput';
+
 
 export const ModalRegPaciente = ({ SetModal, modal, callback }) => {
 
@@ -18,7 +16,6 @@ export const ModalRegPaciente = ({ SetModal, modal, callback }) => {
     });
 
     const onSubmit = (data, e) => {
-        //Deshabilitas boton
         try {
             setDisableButton(true)
             postAgregarPaciente(data).then(({ data }) => {

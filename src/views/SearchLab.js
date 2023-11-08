@@ -61,7 +61,9 @@ export const SearchLab = () => {
                     <MainNavigator />
                 </div>
                 <div className='containerPadre'>
-                    <div className='containerHijo'>
+
+                    <div className='headerTableSection'>
+                    
                         <h1 className='titleStyle'>Evaluación de laboratorios</h1>
                         <div className='spaceVer20' />
                         <div className='containerFiltro'>
@@ -79,6 +81,7 @@ export const SearchLab = () => {
                                 OnChange={(e) => handleChangeSearch(e)}
                             />
                             <div className='spaceRow25' />
+                        </div>
                         </div>
                         <div className='spaceVer20' />
                         <div className='tablePadreContainer'>
@@ -189,7 +192,7 @@ export const SearchLab = () => {
                             </div>
                         </div>
 
-                    </div>
+                    
                 </div>
             </div>
 

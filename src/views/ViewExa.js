@@ -66,7 +66,7 @@ export const ViewExa = ({ callback }) => {
                 if (callback) callback()
                 //limpiar cajas, cerrar modal y avisar que fue añadido con exito
                 alert(data.mensaje);
-                navigate('/gesionTest');
+                navigate('/gestionTest');
             })
 
         } catch (error) {
@@ -144,7 +144,7 @@ export const ViewExa = ({ callback }) => {
                 
                 //Rediriges al menu de examens 
                 alert(data.mensaje)
-                navigate('/gesionTest');
+                navigate('/gestionTest');
                 setDisableButtonDelete(false);
             })
             else{
@@ -172,7 +172,7 @@ export const ViewExa = ({ callback }) => {
                         <div className='containerHeaderButtons'>
                             <div className='navTitleContainer'>
                                 <button className="button_close"
-                                    onClick={() => navigate('/gesionTest')}>
+                                    onClick={() => navigate('/gestionTest')}>
                                     {
                                         <img src={Images.ARROWLEFT} width={30} alt='icon' ></img>
                                     }

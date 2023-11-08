@@ -64,7 +64,17 @@ export const MainNavigator = () => {
 
                     <div className='spaceVer30' />
                     <NavLink
-                        to={'/gesionTest'}
+                        to={'/gestionTest'}
+                    >
+
+                        {({ isActive }) => (
+                            isActive ? (<NavButton Image={Images.NEWEXAMPLEW} />) : (<NavButtonUnSelect Image={Images.NEWEXAMPLEB} />)
+                        )
+                        }
+                    </NavLink>
+                    <div className='spaceVer30' />
+                    <NavLink
+                        to={'/gestionProduct'}
                     >
 
                         {({ isActive }) => (
