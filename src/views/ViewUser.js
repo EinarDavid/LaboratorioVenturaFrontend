@@ -12,13 +12,20 @@ import {
   postPacienteModificar,
 } from "../services/pacienteService";
 
-export const ViewUser = () => {
+import {
+  getUsuarioUno,
+  postUsuarioEliminar,
+  postUsuarioModificar,
+} from "../services/usuarioService";
+
+export const ViewUser = ({ callback }) => {
   const navigate = useNavigate();
-  let { idPaciente } = useParams();
+  let { idUser } = useParams();
+  //console.log("ID", idUser);
 
   const [disableButton, setDisableButton] = useState(false);
   const [disableButtonDelete, setDisableButtonDelete] = useState(false);
-  const [paciente, setPaciente] = useState({});
+  const [data, setData] = useState({});
 
   const {
     register,
@@ -29,38 +36,66 @@ export const ViewUser = () => {
     mode: "all",
   });
 
-  const llamarPaciente = () =>
-    getPacienteUno(idPaciente).then(({ data }) => setPaciente(data));
+  const llamarPaciente = () => {
+    try {
+      console.log("Entro aqui");
+      getUsuarioUno(idUser).then(({ data }) => {
+        console.log("Data-----", data);
+        setData(data);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     llamarPaciente();
-    console.log("llamandooo", paciente);
+
+    console.log("llamandooo", data);
   }, []);
 
   //const [cabecera, setCabecera] = useState({});
   const handleChangeForm = (event) => {
-    setPaciente({ ...paciente, [event.target.name]: event.target.value });
+    setData({ ...data, [event.target.name]: event.target.value });
   };
 
   const onSubmit = () => {
-    console.log("Datos Enviados", paciente);
-    setDisableButton(true);
-    postPacienteModificar(idPaciente, paciente).then(({ data }) => {
-      console.log("Datos BD", data);
-      alert(data.mensaje);
-      navigate("/gestionUsuarios");
-      setDisableButton(false);
-    });
+    try {
+      console.log("Datos Enviados", data);
+      setDisableButton(true);
+
+      postUsuarioModificar(idUser, data).then(({ data }) => {
+        console.log("Datos BD", data);
+       
+        
+        setDisableButton(false);
+        if (callback) callback()
+
+        alert(data.mensaje);
+        navigate("/gestionUsuarios");
+
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const _handleDelete = () => {
-    setDisableButtonDelete(true);
-    postPacienteEliminar(idPaciente).then(({ data }) => {
+    try {
+      setDisableButtonDelete(true);
+    postUsuarioEliminar(idUser).then(({ data }) => {
       //console.log(data)
+      
+      setDisableButtonDelete(true);
+
+      if (callback) callback()
+
       alert(data.mensaje);
       navigate("/gestionUsuarios");
-      setDisableButtonDelete(true);
     });
+    } catch (error) {
+      console.log(error)
+    }
   };
   return (
     <>
@@ -91,7 +126,7 @@ export const ViewUser = () => {
             <div className="spaceVer20" />
 
             <RegistroUsuario
-              paciente={paciente}
+              user={data}
               handleSubmit={handleSubmit}
               onSubmit={onSubmit}
               register={register}

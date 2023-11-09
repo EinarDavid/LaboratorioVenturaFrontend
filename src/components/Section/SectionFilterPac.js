@@ -3,13 +3,13 @@ import Images from '../../config/Images';
 
 import { TextInputDinamic } from '../Input/TextInputDinamic';
 
-export const SectionFilterPac = ({ SearchCodigoPac, SearchCI, SearchNombre, SearchPrimerApellido, SearchSegundoApellido }) => {
+export const SectionFilterPac = ({ handleChangeSearch }) => {
 
     const [searchCodigo, setSearchCodigo] = useState(true);
-    const [searchCI, setSearchCI] = useState(false);
-    const [searchNombre, setSearchNombre] = useState(false);
+    const [searchCI, setSearchCI] = useState(true);
+    const [searchNombre, setSearchNombre] = useState(true);
     const [searchPrimerApellido, setSearchPrimerApellido] = useState(false);
-    const [searchSegundoApellido, setSearchSegundoApellido] = useState(false)
+    const [searchSegundoApellido, setSearchSegundoApellido] = useState(false);
 
     return (
         <>
@@ -35,7 +35,7 @@ export const SectionFilterPac = ({ SearchCodigoPac, SearchCI, SearchNombre, Sear
                                 Name={'CodigoPaciente'}
                                 //LabelInput={'Buscar por Código Paciente'}
                                 Placeholder={'Escribe el Código'}
-                                OnChange={(e) => { SearchCodigoPac(e) }} />
+                                OnChange={(e) => { handleChangeSearch(e) }} />
 
                         </>) : (<></>)
                     }
@@ -61,7 +61,7 @@ export const SectionFilterPac = ({ SearchCodigoPac, SearchCI, SearchNombre, Sear
                             <TextInputDinamic Name={'CI'}
                                 //LabelInput={'Buscar por CI'} 
                                 Placeholder={'Escribe el CI'}
-                                OnChange={(e) => { SearchCI(e) }} />
+                                OnChange={(e) => { handleChangeSearch(e) }} />
                         </>) : (<></>)
                     }
                 </div>
@@ -87,7 +87,7 @@ export const SectionFilterPac = ({ SearchCodigoPac, SearchCI, SearchNombre, Sear
                                 Name={'Nombre'}
                                 //LabelInput={'Buscar por Nombre'}
                                 Placeholder={'Escribe el Nombre'}
-                                OnChange={(e) => { SearchNombre(e) }} />
+                                OnChange={(e) => { handleChangeSearch(e) }} />
 
                         </>) : (<></>)
                     }
@@ -113,7 +113,7 @@ export const SectionFilterPac = ({ SearchCodigoPac, SearchCI, SearchNombre, Sear
                                 Name={'PrimerApellido'}
                                 //LabelInput={'Buscar por Nombre'}
                                 Placeholder={'Escribe el Primer Apellido'}
-                                OnChange={(e) => { SearchPrimerApellido(e) }} />
+                                OnChange={(e) => { handleChangeSearch(e) }} />
 
 
                         </>) : (<></>)
@@ -141,7 +141,7 @@ export const SectionFilterPac = ({ SearchCodigoPac, SearchCI, SearchNombre, Sear
                                 Name={'SegundoApellido'}
                                 //LabelInput={'Buscar por Nombre'}
                                 Placeholder={'Escribe el Segundo Apellido'}
-                                OnChange={(e) => { SearchSegundoApellido(e) }} />
+                                OnChange={(e) => { handleChangeSearch(e) }} />
 
 
                         </>) : (<></>)

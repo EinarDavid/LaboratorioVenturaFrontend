@@ -12,6 +12,7 @@ import Images from "../config/Images";
 import { MainNavigator } from "../navigation/MainNavigator";
 import { getExamenCant, getExamenTodos } from "../services/examenService";
 import { ModalRegProduct } from "../components/Modal/ModalRegProduct";
+import { SectionFilterProduct } from "../components/Section/SectionFilterProduct";
 
 export const GestionProduct = () => {
 
@@ -87,7 +88,7 @@ export const GestionProduct = () => {
             <div className="spaceVer10" />
             <ButtonIcon
               Image={Images.ADDBLUE}
-              Nombre={"Añadir nuevo examen"}
+              Nombre={"Añadir nuevo producto"}
               OnClick={() => setModalShow(true)}
             />
             <div className="spaceVer10" />
@@ -115,7 +116,7 @@ export const GestionProduct = () => {
             {activeButton ? (
               <>
                 <div className="containerFiltros">
-                  <SectionFilterPac
+                  <SectionFilterProduct
                     SearchCI={handleChangeSearch}
                     SearchCodigoPac={handleChangeSearch}
                     SearchNombre={handleChangeSearch}
@@ -135,13 +136,15 @@ export const GestionProduct = () => {
                     <tr>
                       <th></th>
                       <th className="titleTable">Nro</th>
+                      <th className="titleTable">Código</th>
                       <th className="titleTable">Nombre</th>
-                      <th className="titleTable">Categoría</th>
-                      <th className="titleTable">Método</th>
-                      <th className="titleTable">Recipiente</th>
-                      <th className="titleTable">Muestra</th>
-                      <th className="titleTable">Gastos de Insumo</th>
-                      <th className="titleTable">Precio de Laboratorio</th>
+                      <th className="titleTable">Unid. de med.</th>
+                      <th className="titleTable">Precio Compra</th>
+                      <th className="titleTable">Precio Venta</th>
+                      <th className="titleTable">Descripción</th>
+                      <th className="titleTable">Inventario actual</th>
+                      <th className="titleTable">Grupo Familia</th>
+                      <th className="titleTable">SubGrupo</th>
                     </tr>
                   </thead>
                   {examenes.map((exa, i) => (

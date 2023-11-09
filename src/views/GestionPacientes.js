@@ -122,11 +122,7 @@ export const GestionPacientes = () => {
                                         <div className='containerFiltros'>
 
                                             <SectionFilterPac
-                                                SearchCI={handleChangeSearch}
-                                                SearchCodigoPac={handleChangeSearch}
-                                                SearchNombre={handleChangeSearch}
-                                                SearchPrimerApellido={handleChangeSearch}
-                                                SearchSegundoApellido={handleChangeSearch}
+                                                handleChangeSearch={handleChangeSearch}
                                             />
                                         </div>
                                         <div className='spaceRow15' /></>

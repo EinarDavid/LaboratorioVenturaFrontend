@@ -20,3 +20,12 @@ export async function getUsuarioNombres() {
 export async function postUsuarioBuscar(filtros) {
     return await axios.post(api + "usuario/buscar", filtros);
 }
+export async function getUsuarioUno(id) {
+    return await axios.get(api + "usuario/leeruno/" + id);
+}
+export async function postUsuarioModificar(id, datos) {
+    return await axios.post(api + "usuario/modificar/" + id, datos);
+}
+export async function postUsuarioEliminar(id) {
+    return await axios.post(api + "usuario/eliminar", {id});
+}

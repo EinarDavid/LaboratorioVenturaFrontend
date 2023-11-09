@@ -419,6 +419,7 @@
 .row3-Inputs {
   display: flex;
   align-items: flex-end;
+  gap: 20px;
 }
 
 .row-Dinamic {
@@ -487,8 +488,8 @@
   font-family: 'Plus Jakarta Sans';
   font-style: normal;
   font-weight: 600;
-  font-size: 16px;
-  line-height: 18px;
+  font-size: 14px;
+  line-height: 16px;
   display: flex;
   align-items: center;
 
