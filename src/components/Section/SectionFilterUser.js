@@ -5,11 +5,11 @@ import Images from "../../config/Images";
 import { TextInputDinamic } from "../Input/TextInputDinamic";
 
 export const SectionFilterUser = ({ handleChangeSearch }) => {
-  const [searchCodigo, setSearchCodigo] = useState(true);
-  const [searchCI, setSearchCI] = useState(true);
-  const [searchNombre, setSearchNombre] = useState(true);
-  const [searchPrimerApellido, setSearchPrimerApellido] = useState(true);
-  const [searchSegundoApellido, setSearchSegundoApellido] = useState(true);
+ 
+  const [searchOne, setSearchOne] = useState(true);
+  const [searchTwo, setSearchTwo] = useState(true);
+  const [searchThree, setSearchThree] = useState(true);
+  const [searchFour, setSearchFour] = useState(true);
 
   return (
     <>
@@ -23,9 +23,9 @@ export const SectionFilterUser = ({ handleChangeSearch }) => {
             <h3 className="titleStyleH3">CI</h3>
             <button
               className="buttonPrint"
-              onClick={() => setSearchCI(!searchCI)}
+              onClick={() => setSearchOne(!searchOne)}
             >
-              {searchCI ? (
+              {searchOne ? (
                 <>
                   <img src={Images.ARROWDOWN} width={"25"} alt={"ArrowDown"} />
                 </>
@@ -36,7 +36,7 @@ export const SectionFilterUser = ({ handleChangeSearch }) => {
               )}
             </button>
           </div>
-          {searchCI ? (
+          {searchOne ? (
             <>
               {/* <div className='spaceVer5' /> */}
               <TextInputDinamic
@@ -60,9 +60,9 @@ export const SectionFilterUser = ({ handleChangeSearch }) => {
             <h3 className="titleStyleH3">NOMBRE</h3>
             <button
               className="buttonPrint"
-              onClick={() => setSearchNombre(!searchNombre)}
+              onClick={() => setSearchTwo(!searchTwo)}
             >
-              {searchNombre ? (
+              {searchTwo ? (
                 <>
                   <img src={Images.ARROWDOWN} width={"25"} alt={"ArrowDown"} />
                 </>
@@ -73,7 +73,7 @@ export const SectionFilterUser = ({ handleChangeSearch }) => {
               )}
             </button>
           </div>
-          {searchNombre ? (
+          {searchTwo ? (
             <>
               {/* <div className='spaceVer5' /> */}
               <TextInputDinamic
@@ -97,9 +97,9 @@ export const SectionFilterUser = ({ handleChangeSearch }) => {
             <h3 className="titleStyleH3">PRIMER APELLIDO</h3>
             <button
               className="buttonPrint"
-              onClick={() => setSearchPrimerApellido(!searchPrimerApellido)}
+              onClick={() => setSearchThree(!searchThree)}
             >
-              {searchPrimerApellido ? (
+              {searchThree ? (
                 <>
                   <img src={Images.ARROWDOWN} width={"25"} alt={"ArrowDown"} />
                 </>
@@ -110,7 +110,7 @@ export const SectionFilterUser = ({ handleChangeSearch }) => {
               )}
             </button>
           </div>
-          {searchPrimerApellido ? (
+          {searchThree ? (
             <>
               <TextInputDinamic
                 Name={"PrimerApellido"}
@@ -134,9 +134,9 @@ export const SectionFilterUser = ({ handleChangeSearch }) => {
             <h3 className="titleStyleH3">SEGUNDO APELLIDO</h3>
             <button
               className="buttonPrint"
-              onClick={() => setSearchSegundoApellido(!searchSegundoApellido)}
+              onClick={() => setSearchFour(!searchFour)}
             >
-              {searchSegundoApellido ? (
+              {searchFour ? (
                 <>
                   <img src={Images.ARROWDOWN} width={"25"} alt={"ArrowDown"} />
                 </>
@@ -147,7 +147,7 @@ export const SectionFilterUser = ({ handleChangeSearch }) => {
               )}
             </button>
           </div>
-          {searchSegundoApellido ? (
+          {searchFour ? (
             <>
               <TextInputDinamic
                 Name={"SegundoApellido"}

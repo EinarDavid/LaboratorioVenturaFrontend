@@ -11,6 +11,7 @@ import { PaginationTable } from "../components/Table/PaginationTable";
 import Images from "../config/Images";
 import { MainNavigator } from "../navigation/MainNavigator";
 import { getExamenCant, getExamenTodos } from "../services/examenService";
+import { SectionFilterTest } from "../components/Section/SectionFilterTest";
 
 export const GestionTest = () => {
   const navigate = useNavigate();
@@ -82,7 +83,7 @@ export const GestionTest = () => {
         </div>
         <div className="containerPadre">
           <div className="headerTableSection">
-            <h1 className="titleStyle">Gestion de Examenes</h1>
+            <h1 className="titleStyle">Gestión de Examenes</h1>
             <div className="spaceVer10" />
             <ButtonIcon
               Image={Images.ADDBLUE}
@@ -114,12 +115,8 @@ export const GestionTest = () => {
             {activeButton ? (
               <>
                 <div className="containerFiltros">
-                  <SectionFilterPac
-                    SearchCI={handleChangeSearch}
-                    SearchCodigoPac={handleChangeSearch}
-                    SearchNombre={handleChangeSearch}
-                    SearchPrimerApellido={handleChangeSearch}
-                    SearchSegundoApellido={handleChangeSearch}
+                  <SectionFilterTest
+                    handleChangeSearch={handleChangeSearch}
                   />
                 </div>
                 <div className="spaceRow15" />

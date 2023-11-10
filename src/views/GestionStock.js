@@ -9,12 +9,12 @@ import { SelectFilter } from "../components/Input/SelectFilter";
 import { PaginationTable } from "../components/Table/PaginationTable";
 import Images from "../config/Images";
 import { MainNavigator } from "../navigation/MainNavigator";
-
+import { getExamenCant, getExamenTodos } from "../services/examenService";
 import { ModalRegProduct } from "../components/Modal/ModalRegProduct";
 import { SectionFilterProduct } from "../components/Section/SectionFilterProduct";
-import { getProductCant, getProductTodos } from "../services/productService";
+import { ModalRegStock } from "../components/Modal/ModalRegStock";
 
-export const GestionProduct = () => {
+export const GestionStock = () => {
   const navigate = useNavigate();
 
   const [modalShow, setModalShow] = useState(false);
@@ -32,7 +32,7 @@ export const GestionProduct = () => {
   console.log("datos search", search);
 
   useEffect(() => {
-    getProductTodos().then(({ data }) => setDataOriginal(data));
+    getExamenTodos().then(({ data }) => setDataOriginal(data));
   }, []);
 
   useEffect(() => console.log("Exámenes: ", datos), [datos]);
@@ -74,11 +74,11 @@ export const GestionProduct = () => {
         </div>
         <div className="containerPadre">
           <div className="headerTableSection">
-            <h1 className="titleStyle">Gestion de Productos</h1>
+            <h1 className="titleStyle">Gestion de Inventarios</h1>
             <div className="spaceVer10" />
             <ButtonIcon
               Image={Images.ADDBLUE}
-              Nombre={"Añadir nuevo producto"}
+              Nombre={"Añadir nuevo inventario"}
               OnClick={() => setModalShow(true)}
             />
             <div className="spaceVer10" />
@@ -145,15 +145,13 @@ export const GestionProduct = () => {
                         </td>
                         <td className="containerTable">{i + 1}</td>
 
-                        <td className="containerTable">{exa.Codigo}</td>
                         <td className="containerTable">{exa.Nombre}</td>
-                        <td className="containerTable">{exa.UnidadMedida}</td>
-                        <td className="containerTable">{exa.PrecioCompra}</td>
-                        <td className="containerTable">{exa.PrecioVenta}</td>
-                        <td className="containerTable">{exa.Descripcion}</td>
-                        <td className="containerTable">{exa.InventarioActual}</td>
-                        <td className="containerTable">{exa.GrupoFamilia}</td>
-                        <td className="containerTable">{exa.SubGrupo}</td>
+                        <td className="containerTable">{exa.Categoria}</td>
+                        <td className="containerTable">{exa.Metodo}</td>
+                        <td className="containerTable">{exa.Recipiente}</td>
+                        <td className="containerTable">{exa.Muestra}</td>
+                        <td className="containerTable">{exa.Gastos}</td>
+                        <td className="containerTable">{exa.Precio}</td>
                       </tr>
                     </tbody>
                   ))}
@@ -174,17 +172,17 @@ export const GestionProduct = () => {
                   setLaboratorios={setDatos}
                   laboratoriosOriginal={dataOriginal}
                   cantidadPagina={cantidadPagina}
-                  getLaboratorioCant={getProductCant}
+                  getLaboratorioCant={getExamenCant}
                 />
               </div>
             </div>
           </div>
         </div>
       </div>
-      <ModalRegProduct
+      <ModalRegStock
         modal={modalShow}
         SetModal={setModalShow}
-      ></ModalRegProduct>
+      ></ModalRegStock>
     </>
   );
 };

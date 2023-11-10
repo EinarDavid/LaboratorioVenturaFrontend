@@ -22,10 +22,11 @@ export const RegUsuario = ({ SetModal, modal, callback }) => {
     mode: "all",
   });
 
-  const onSubmit = (data, e) => {
+  const onSubmit = ( e) => {
     try {
       setDisableButton(true)
-      postAgregarUsuario(data).then(({ data }) => {
+      console.log(user)
+      postAgregarUsuario(user).then(({ data }) => {
         console.log(data);
         reset();
 
@@ -33,7 +34,7 @@ export const RegUsuario = ({ SetModal, modal, callback }) => {
         SetModal(false);
         if (callback) callback()
 
-        alert(data.message);
+        alert(data.mensaje);
         setUser({});
         //limpiar cajas, cerrar modal y avisar que fue añadido con exito
       });

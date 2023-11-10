@@ -4,10 +4,9 @@ import Images from '../../config/Images';
 import { postAgregarPaciente } from '../../services/pacienteService';
 
 import { RegistroProducto } from '../Forms/RegistroProducto';
-import { postAgregarProducto } from '../../services/productService';
+import { RegistroStock } from '../Forms/RegistroStock';
 
-export const ModalRegProduct = ({ SetModal, modal, callback }) => {
-
+export const ModalRegStock = ({ SetModal, modal, callback }) => {
     const [disableButton, setDisableButton] = useState(false);
     const [product, setProduct] = useState({});
 
@@ -15,12 +14,10 @@ export const ModalRegProduct = ({ SetModal, modal, callback }) => {
         mode: 'all'
     });
 
-    const onSubmit = ( e) => {
+    const onSubmit = (data, e) => {
         try {
-            console.log(product);
-            setDisableButton(true);
-
-            postAgregarProducto(product).then(({ data }) => {
+            setDisableButton(true)
+            postAgregarPaciente(data).then(({ data }) => {
                 console.log(data);
                 reset();
                 //Habilitas boton
@@ -41,7 +38,6 @@ export const ModalRegProduct = ({ SetModal, modal, callback }) => {
     const handleChangeForm = (event) => {
         console.log(event.target.name, event.target.value)
         setProduct({ ...product, [event.target.name]: event.target.value })
-    
     }   
 
     useEffect(() => {
@@ -56,14 +52,14 @@ export const ModalRegProduct = ({ SetModal, modal, callback }) => {
             <div className='popup_container'>
                 <div className='popup_itself'>
                     <div className='popup_button_container'>
-                        <h1 className='titleStyle'>Registro de producto</h1>
+                        <h1 className='titleStyle'>Registro de inventario</h1>
                         <button className="button_close" onClick={() => SetModal(false)}>{
                             <img src={Images.CLOSE} width={30} alt='icon' ></img>
                         } </button>
                     </div>
                     <div className='spaceVer20' />
 
-                    <RegistroProducto
+                    <RegistroStock
 
                         product={product}
                         handleSubmit={handleSubmit}

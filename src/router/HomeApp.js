@@ -11,6 +11,7 @@ import { ViewPac } from "../views/ViewPac";
 import { GestionUsuarios } from "../views/GestionUsuarios";
 import { ViewUser } from "../views/ViewUser";
 import { GestionProduct } from "../views/GestionProduct";
+import { GestionStock } from "../views/GestionStock";
 
 export const HomeApp = () => {
   return (
@@ -29,6 +30,7 @@ export const HomeApp = () => {
         <Route path="/view/user/:idUser" element={<ViewUser />} />
         
         <Route path="/gestionProduct" element={<GestionProduct />} />
+        <Route path="/gestionStock" element={<GestionStock />} />
 
         <Route path="/*" element={<Navigate to="/dashboard" />} />
       </Routes>

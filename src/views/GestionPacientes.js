@@ -125,7 +125,7 @@ export const GestionPacientes = () => {
                                                 handleChangeSearch={handleChangeSearch}
                                             />
                                         </div>
-                                        <div className='spaceRow15' /></>
+                                       </>
                                 ) : (
                                     <></>
                                 )

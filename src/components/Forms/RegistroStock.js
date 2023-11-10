@@ -3,23 +3,23 @@ import { ButtonPrimary } from "../Button/ButtonPrimary";
 import { TextInput } from "../Input/TextInput";
 import { Select } from "../Input/Select";
 
-export const RegistroProducto = ({
+export const RegistroStock = ({
   product = {
-    Codigo: '',
-    Nombre: '',
-    UnidadMedida: '',
-    Descripcion: '',
-    Proveedor: '',
-    CodigoBarras: '',
-    GrupoFamilia: '',
-    SubGrupo: '',
-    Ubicacion: '',
-    PrecioCompra: '',
-    Utilidad: '',
-    PrecioVenta: '',
-    InventarioMinimo: '',
-    InventarioActual: '',
-    FechaVencimiento: '',
+    Codigo: "",
+    Nombre: "",
+    UnidadMedida: "",
+    Descripcion: "",
+    Proveedor: "",
+    CodigoBarras: "",
+    GrupoFamilia: "",
+    SubGrupo: "",
+    Ubicacion: "",
+    PrecioCompra: "",
+    Utilidad: "",
+    PrecioVenta: "",
+    InventarioMinimo: "",
+    InventarioActual: "",
+    FechaVencimiento: "",
   },
   handleSubmit,
   onSubmit,
@@ -30,11 +30,11 @@ export const RegistroProducto = ({
 }) => {
   const Proveedor = [
     {
-      option: "Proveedor_1",
+      option: "Proveedor 1",
       id_option: 1,
     },
     {
-      option: "Proveedor_2",
+      option: "Proveedor 2",
       id_option: 2,
     },
   ];
@@ -52,19 +52,7 @@ export const RegistroProducto = ({
 
   return (
     <>
-      <div className="row3-Inputs">
-        <TextInput
-          Name={"Codigo"}
-          LabelInput={"Código para identificar el producto*"}
-          Placeholder={"Ej ED123"}
-          Register={register("Codigo", {
-            //required: "El campo es requerido",
-          })}
-          ErrorInput={errors.Codigo?.message}
-          OnChange={(e) => handleChangeForm(e)}
-          Value={product?.Codigo || ""}
-        />
-
+      <div className="row2-Inputs">
         <TextInput
           Name={"Nombre"}
           LabelInput={"Nombre del producto*"}
@@ -81,16 +69,17 @@ export const RegistroProducto = ({
           Value={product?.Nombre || ""}
         />
 
-        <TextInput
-          Name={"UnidadMedida"}
-          LabelInput={"Unidad de Medida*"}
-          Placeholder={"Ej gramos"}
-          Register={register("UnidadMedida", {
-            required: "El campo es requerido",
+        <Select
+          Name={"Proveedor"}
+          LabelInput={"Proveedor*"}
+          Placeholder={"Selecciona el Proveedor"}
+          SelectOption={Proveedor}
+          Register={register("Proveedor", {
+            //required: "El campo es requerido",
           })}
-          ErrorInput={errors.UnidadMedida?.message}
+          ErrorInput={errors.Proveedor?.message}
           OnChange={(e) => handleChangeForm(e)}
-          Value={product?.UnidadMedida || ""}
+          Value={product?.Proveedor}
         />
       </div>
       <div className="spaceVer30" />
@@ -103,19 +92,6 @@ export const RegistroProducto = ({
           ErrorInput={errors.Descripcion?.message}
           OnChange={(e) => handleChangeForm(e)}
           Value={product?.Descripcion || ""}
-        />
-
-        <Select
-          Name={"Proveedor"}
-          LabelInput={"Proveedor*"}
-          Placeholder={"Selecciona el Proveedor"}
-          SelectOption={Proveedor}
-          Register={register("Proveedor", {
-            //required: "El campo es requerido",
-          })}
-          ErrorInput={errors.Proveedor?.message}
-          OnChange={(e) => handleChangeForm(e)}
-          Value={product?.Proveedor}
         />
 
         <TextInput

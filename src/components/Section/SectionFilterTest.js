@@ -3,7 +3,7 @@ import Images from "../../config/Images";
 
 import { TextInputDinamic } from "../Input/TextInputDinamic";
 
-export const SectionFilterProduct = ({ handleChangeSearch }) => {
+export const SectionFilterTest = ({handleChangeSearch}) => {
   const [searchOne, setSearchOne] = useState(true);
   const [searchTwo, setSearchTwo] = useState(true);
   const [searchThree, setSearchThree] = useState(true);
@@ -17,7 +17,7 @@ export const SectionFilterProduct = ({ handleChangeSearch }) => {
         <div className="spaceVer5" />
         <div>
           <div className="titleFilter">
-            <h3 className="titleStyleH3">CÓDIGO</h3>
+            <h3 className="titleStyleH3">NOMBRE</h3>
             <button
               className="buttonPrint"
               onClick={() => setSearchOne(!searchOne)}
@@ -37,7 +37,7 @@ export const SectionFilterProduct = ({ handleChangeSearch }) => {
             <>
               {/* <div className='spaceVer5' /> */}
               <TextInputDinamic
-                Name={"Codigo"}
+                Name={"Nombre"}
                 //LabelInput={'Buscar por Código Paciente'}
                 Placeholder={"Escribe aquí"}
                 OnChange={(e) => {
@@ -54,7 +54,7 @@ export const SectionFilterProduct = ({ handleChangeSearch }) => {
         <div className="spaceVer5" />
         <div>
           <div className="titleFilter">
-            <h3 className="titleStyleH3">NOMBRE</h3>
+            <h3 className="titleStyleH3">CATEGORÍA</h3>
             <button
               className="buttonPrint"
               onClick={() => setSearchTwo(!searchTwo)}
@@ -74,7 +74,7 @@ export const SectionFilterProduct = ({ handleChangeSearch }) => {
             <>
               {/* <div className='spaceVer5' /> */}
               <TextInputDinamic
-                Name={"Nombre"}
+                Name={"Categoria"}
                 //LabelInput={'Buscar por CI'}
                 Placeholder={"Escribe aquí"}
                 OnChange={(e) => {

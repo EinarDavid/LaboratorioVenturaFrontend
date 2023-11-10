@@ -21,6 +21,10 @@ const Images = {
     EVALUATIONWHITE: require('../assets/evaluationWhite.png'),
     NEWLABBLACK: require('../assets/newLabBlack.png'),
     NEWLABWHITE: require('../assets/newLabWhite.png'),
+    PRODUCTBLACK: require('../assets/box.png'),
+    PRODUCTWHITE: require('../assets/box_White.png'),
+    STOCKWHITE: require('../assets/document-cube_White.png'),
+    STOCKBLACK: require('../assets/document-cube.png'),
 
     USEROPTIONIN: require('../assets/userOptionInactive.png'),
     USEROPTIONAC: require('../assets/userOptionActive.png'),

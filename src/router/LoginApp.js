@@ -46,16 +46,21 @@ export const LoginApp = () => {
 
 
                             <TextInput
-                                Name={'CI'}
-                                LabelInput={'Documento de Identidad*'}
-                                Placeholder={'Ej 9456123'}
-                                Register={register("CI", {
+                                Name={'Email'}
+                                LabelInput={'Correo electronico*'}
+                                Placeholder={'Ej einar@gmail.com'}
+                                Register={register("Email", {
                                     required: 'El campo es requerido',
+                                    pattern: {
+                                        value:
+                                          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                                        message: "Correo electrónico incorrecto",
+                                      },
 
                                 })}
-                                ErrorInput={errors.CI?.message}
+                                ErrorInput={errors.Email?.message}
                                 OnChange={(e) => handleChangeForm(e)}
-                                Value={form.CI || ''}
+                                Value={form.Email || ''}
 
                             />
                             <div className='spaceVer30' />

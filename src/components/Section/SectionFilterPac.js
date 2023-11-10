@@ -5,11 +5,11 @@ import { TextInputDinamic } from '../Input/TextInputDinamic';
 
 export const SectionFilterPac = ({ handleChangeSearch }) => {
 
-    const [searchCodigo, setSearchCodigo] = useState(true);
-    const [searchCI, setSearchCI] = useState(true);
-    const [searchNombre, setSearchNombre] = useState(true);
-    const [searchPrimerApellido, setSearchPrimerApellido] = useState(false);
-    const [searchSegundoApellido, setSearchSegundoApellido] = useState(false);
+    const [searchOne, setSearchOne] = useState(true);
+    const [searchTwo, setSearchTwo] = useState(true);
+    const [searchThree, setSearchThree] = useState(true);
+    const [searchFour, setSearchFour] = useState(false);
+    const [searchFive, setSearchFive] = useState(false);
 
     return (
         <>
@@ -19,9 +19,9 @@ export const SectionFilterPac = ({ handleChangeSearch }) => {
                 <div>
                     <div className='titleFilter'>
                         <h3 className='titleStyleH3'>CÓDIGO</h3>
-                        <button className='buttonPrint' onClick={() => setSearchCodigo(!searchCodigo)}>
+                        <button className='buttonPrint' onClick={() => setSearchOne(!searchOne)}>
                             {
-                                (searchCodigo) ? (<>
+                                (searchOne) ? (<>
                                     <img src={Images.ARROWDOWN} width={'25'} alt={'ArrowDown'} />
                                 </>) : (<>
                                     <img src={Images.ARROWUP} width={'25'} alt={'ArrowUp'} /></>)
@@ -29,7 +29,7 @@ export const SectionFilterPac = ({ handleChangeSearch }) => {
                         </button>
                     </div>
                     {
-                        (searchCodigo) ? (<>
+                        (searchOne) ? (<>
                             {/* <div className='spaceVer5' /> */}
                             <TextInputDinamic
                                 Name={'CodigoPaciente'}
@@ -46,9 +46,9 @@ export const SectionFilterPac = ({ handleChangeSearch }) => {
                 <div>
                     <div className='titleFilter'>
                         <h3 className='titleStyleH3'>CI</h3>
-                        <button className='buttonPrint' onClick={() => setSearchCI(!searchCI)}>
+                        <button className='buttonPrint' onClick={() => setSearchTwo(!searchTwo)}>
                             {
-                                (searchCI) ? (<>
+                                (searchTwo) ? (<>
                                     <img src={Images.ARROWDOWN} width={'25'} alt={'ArrowDown'}/>
                                 </>) : (<>
                                     <img src={Images.ARROWUP} width={'25'} alt={'ArrowUp'}/></>)
@@ -56,7 +56,7 @@ export const SectionFilterPac = ({ handleChangeSearch }) => {
                         </button>
                     </div>
                     {
-                        (searchCI) ? (<>
+                        (searchTwo) ? (<>
                             {/* <div className='spaceVer5' /> */}
                             <TextInputDinamic Name={'CI'}
                                 //LabelInput={'Buscar por CI'} 
@@ -71,9 +71,9 @@ export const SectionFilterPac = ({ handleChangeSearch }) => {
                 <div>
                     <div className='titleFilter'>
                         <h3 className='titleStyleH3'>NOMBRE</h3>
-                        <button className='buttonPrint' onClick={() => setSearchNombre(!searchNombre)}>
+                        <button className='buttonPrint' onClick={() => setSearchThree(!searchThree)}>
                             {
-                                (searchNombre) ? (<>
+                                (searchThree) ? (<>
                                     <img src={Images.ARROWDOWN} width={'25'} alt={'ArrowDown'} />
                                 </>) : (<>
                                     <img src={Images.ARROWUP} width={'25'} alt={'ArrowUp'}/></>)
@@ -81,7 +81,7 @@ export const SectionFilterPac = ({ handleChangeSearch }) => {
                         </button>
                     </div>
                     {
-                        (searchNombre) ? (<>
+                        (searchThree) ? (<>
                             {/* <div className='spaceVer5' /> */}
                             <TextInputDinamic
                                 Name={'Nombre'}
@@ -98,9 +98,9 @@ export const SectionFilterPac = ({ handleChangeSearch }) => {
                 <div>
                     <div className='titleFilter'>
                         <h3 className='titleStyleH3'>PRIMER APELLIDO</h3>
-                        <button className='buttonPrint' onClick={() => setSearchPrimerApellido(!searchPrimerApellido)}>
+                        <button className='buttonPrint' onClick={() => setSearchFour(!searchFour)}>
                             {
-                                (searchPrimerApellido) ? (<>
+                                (searchFour) ? (<>
                                     <img src={Images.ARROWDOWN} width={'25'} alt={'ArrowDown'} />
                                 </>) : (<>
                                     <img src={Images.ARROWUP} width={'25'} alt={'ArrowUp'}/></>)
@@ -108,7 +108,7 @@ export const SectionFilterPac = ({ handleChangeSearch }) => {
                         </button>
                     </div>
                     {
-                        (searchPrimerApellido) ? (<>
+                        (searchFour) ? (<>
                             <TextInputDinamic
                                 Name={'PrimerApellido'}
                                 //LabelInput={'Buscar por Nombre'}
@@ -126,9 +126,9 @@ export const SectionFilterPac = ({ handleChangeSearch }) => {
                 <div>
                     <div className='titleFilter'>
                         <h3 className='titleStyleH3'>SEGUNDO APELLIDO</h3>
-                        <button className='buttonPrint' onClick={() => setSearchSegundoApellido(!searchSegundoApellido)}>
+                        <button className='buttonPrint' onClick={() => setSearchFive(!searchFive)}>
                             {
-                                (searchSegundoApellido) ? (<>
+                                (searchFive) ? (<>
                                     <img src={Images.ARROWDOWN} width={'25'} alt={'ArrowDown'}/>
                                 </>) : (<>
                                     <img src={Images.ARROWUP} width={'25'} alt={'ArrowUp'} /></>)
@@ -136,7 +136,7 @@ export const SectionFilterPac = ({ handleChangeSearch }) => {
                         </button>
                     </div>
                     {
-                        (searchSegundoApellido) ? (<>
+                        (searchFive) ? (<>
                             <TextInputDinamic
                                 Name={'SegundoApellido'}
                                 //LabelInput={'Buscar por Nombre'}

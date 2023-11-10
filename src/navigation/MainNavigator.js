@@ -26,7 +26,6 @@ export const MainNavigator = () => {
 
                     </NavLink>
 
-                    <div className='spaceVer30' />
                     <NavLink
                         to={'/newLab'}
                     >
@@ -37,7 +36,6 @@ export const MainNavigator = () => {
                         }
                     </NavLink>
 
-                    <div className='spaceVer30' />
                     <NavLink
                         to={'/searchLab'}
                     >
@@ -50,7 +48,6 @@ export const MainNavigator = () => {
 
 
 
-                    <div className='spaceVer30' />
 
                     <NavLink
                         to={'/gestionUser'}
@@ -62,7 +59,6 @@ export const MainNavigator = () => {
                         }
                     </NavLink>
 
-                    <div className='spaceVer30' />
                     <NavLink
                         to={'/gestionTest'}
                     >
@@ -72,13 +68,21 @@ export const MainNavigator = () => {
                         )
                         }
                     </NavLink>
-                    <div className='spaceVer30' />
                     <NavLink
                         to={'/gestionProduct'}
                     >
 
                         {({ isActive }) => (
-                            isActive ? (<NavButton Image={Images.NEWEXAMPLEW} />) : (<NavButtonUnSelect Image={Images.NEWEXAMPLEB} />)
+                            isActive ? (<NavButton Image={Images.PRODUCTWHITE} />) : (<NavButtonUnSelect Image={Images.PRODUCTBLACK} />)
+                        )
+                        }
+                    </NavLink>
+                    <NavLink
+                        to={'/gestionStock'}
+                    >
+
+                        {({ isActive }) => (
+                            isActive ? (<NavButton Image={Images.STOCKWHITE} />) : (<NavButtonUnSelect Image={Images.STOCKBLACK} />)
                         )
                         }
                     </NavLink>
