@@ -41,7 +41,7 @@ export const GestionUsuarios = () => {
   useEffect(() => {
     getUsuarioNombres().then(({ data }) => setPacientesOriginal(data));
   }, []);
-  console.log(pacientesOriginal);
+  //console.log(pacientesOriginal);
 
   useEffect(() => console.log(cantidadPagina), [cantidadPagina]);
 

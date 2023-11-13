@@ -9,7 +9,6 @@ import Images from "../../config/Images";
 import { RegistroUsuario } from "../Forms/RegistroUsuario";
 
 export const RegUsuario = ({ SetModal, modal, callback }) => {
- 
   const [disableButton, setDisableButton] = useState(false);
   const [user, setUser] = useState({});
   const {
@@ -22,17 +21,17 @@ export const RegUsuario = ({ SetModal, modal, callback }) => {
     mode: "all",
   });
 
-  const onSubmit = ( e) => {
+  const onSubmit = (e) => {
     try {
-      setDisableButton(true)
-      console.log(user)
+      setDisableButton(true);
+      console.log(user);
       postAgregarUsuario(user).then(({ data }) => {
         console.log(data);
         reset();
 
-        setDisableButton(false)
+        setDisableButton(false);
         SetModal(false);
-        if (callback) callback()
+        if (callback) callback();
 
         alert(data.mensaje);
         setUser({});
@@ -48,12 +47,8 @@ export const RegUsuario = ({ SetModal, modal, callback }) => {
     setUser({ ...user, [event.target.name]: event.target.value });
   };
   //console.log('Error', errors)
-  useEffect(() => {
-    if (formState.isSubmitSuccessful) {
-      //console.log("Entro a reset");
-      //reset();
-    }
-  }, [formState, reset]);
+
+  
 
   return modal ? (
     <>
@@ -74,6 +69,7 @@ export const RegUsuario = ({ SetModal, modal, callback }) => {
             register={register}
             errors={errors}
             disableButton={disableButton}
+            setDisableButton={setDisableButton}
             handleChangeForm={handleChangeForm}
           />
         </div>

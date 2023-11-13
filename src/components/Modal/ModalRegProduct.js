@@ -40,6 +40,7 @@ export const ModalRegProduct = ({ SetModal, modal, callback }) => {
     
     const handleChangeForm = (event) => {
         console.log(event.target.name, event.target.value)
+        
         setProduct({ ...product, [event.target.name]: event.target.value })
     
     }   
