@@ -7,9 +7,12 @@ import {
 import { useForm } from "react-hook-form";
 import Images from "../../config/Images";
 import { RegistroUsuario } from "../Forms/RegistroUsuario";
+import { ModalConfirmation } from "./ModalConfirmation";
 
 export const RegUsuario = ({ SetModal, modal, callback }) => {
+  const [modalConfirmation, setModalConfirmation] = useState(false);
   const [disableButton, setDisableButton] = useState(false);
+  const [disableButtonConfirmation, setDisableButtonConfirmation] = useState(false);
   const [user, setUser] = useState({});
   const {
     register,
@@ -22,33 +25,45 @@ export const RegUsuario = ({ SetModal, modal, callback }) => {
   });
 
   const onSubmit = (e) => {
+    setDisableButtonConfirmation(true);
     try {
-      setDisableButton(true);
-      console.log(user);
+      console.log("entro a Submit", user);
       postAgregarUsuario(user).then(({ data }) => {
         console.log(data);
         reset();
 
         setDisableButton(false);
+        setDisableButtonConfirmation(false);
         SetModal(false);
+
         if (callback) callback();
 
         alert(data.mensaje);
         setUser({});
-        //limpiar cajas, cerrar modal y avisar que fue añadido con exito
+
       });
     } catch (error) {
       console.log("----", error);
     }
   };
-  
+
+  const onConfirmation = () => {
+    setDisableButton(true);
+    console.log("entro a Confirmation");
+    setModalConfirmation(true);
+
+  }
+
+  const onCancel = () => {
+    console.log("entro a cancel");
+    setModalConfirmation(false);
+    SetModal(false);
+  }
 
   const handleChangeForm = (event) => {
     setUser({ ...user, [event.target.name]: event.target.value });
   };
   //console.log('Error', errors)
-
-  
 
   return modal ? (
     <>
@@ -65,15 +80,23 @@ export const RegUsuario = ({ SetModal, modal, callback }) => {
           <RegistroUsuario
             user={user}
             handleSubmit={handleSubmit}
-            onSubmit={onSubmit}
+            onSubmit={onConfirmation}
             register={register}
             errors={errors}
             disableButton={disableButton}
-            setDisableButton={setDisableButton}
             handleChangeForm={handleChangeForm}
           />
         </div>
       </div>
+
+      <ModalConfirmation
+        ModalConfirmation={modalConfirmation}
+        
+        ValueText={"¿Estas seguro de que quieres registrar al usuario?"}
+        OnCancel={onCancel}
+        OnSubmit={onSubmit}
+        DisableButtonConfirmation={disableButtonConfirmation}
+      />
     </>
   ) : (
     ""

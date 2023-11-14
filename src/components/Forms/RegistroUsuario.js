@@ -25,7 +25,7 @@ export const RegistroUsuario = ({
   errors,
   disableButton,
   handleChangeForm,
-  setDisableButton,
+  
 }) => {
   const Sex = [
     {
@@ -61,7 +61,7 @@ export const RegistroUsuario = ({
     },
     {
       option: "Cliente",
-      id: 5,
+      id: 6,
     },
   ];
 
@@ -70,30 +70,6 @@ export const RegistroUsuario = ({
     { option: "Sucursal 2", id: 222 },
   ];
 
-  /*useEffect(() => {
-    if (
-      user.CI !== "" &&
-      user.CI !== undefined &&
-      user.Nombres !== "" &&
-      user.Nombres !== undefined &&
-      user.PrimerApellido !== "" &&
-      user.PrimerApellido !== undefined &&
-      user.Fecha_de_Nacimiento !== "" &&
-      user.Fecha_de_Nacimiento !== undefined &&
-      user.Genero !== "" &&
-      user.Genero !== undefined &&
-      user.Telefono !== "" &&
-      user.Telefono !== undefined
-    ) {
-      console.log("Entro a IF ", user.CI);
-      setDisableButton(false);
-    } else {
-      console.log("ElSE", user);
-      setDisableButton(true);
-    }
-
-    console.log("state button:", disableButton, user);
-  }, [user]); */
 
   return (
     <>
@@ -297,7 +273,7 @@ export const RegistroUsuario = ({
 
         <div className="container-Button-Modal">
           <button
-            onClick={onSubmit}
+            //onClick={onSubmit}
             className="ButtonPrimary"
             type="submit"
             disabled={disableButton}
@@ -309,3 +285,29 @@ export const RegistroUsuario = ({
     </>
   );
 };
+
+
+  /*useEffect(() => {
+    if (
+      user.CI !== "" &&
+      user.CI !== undefined &&
+      user.Nombres !== "" &&
+      user.Nombres !== undefined &&
+      user.PrimerApellido !== "" &&
+      user.PrimerApellido !== undefined &&
+      user.Fecha_de_Nacimiento !== "" &&
+      user.Fecha_de_Nacimiento !== undefined &&
+      user.Genero !== "" &&
+      user.Genero !== undefined &&
+      user.Telefono !== "" &&
+      user.Telefono !== undefined
+    ) {
+      console.log("Entro a IF ", user.CI);
+      setDisableButton(false);
+    } else {
+      console.log("ElSE", user);
+      setDisableButton(true);
+    }
+
+    console.log("state button:", disableButton, user);
+  }, [user]); */

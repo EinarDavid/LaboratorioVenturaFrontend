@@ -1,6 +1,6 @@
 import React from "react";
 
-export const ButtonPrimary100 = ({ Disabled, Nombre, OnClick }) => {
+export const ButtonSecondary100 = ({ Disabled, Nombre, OnClick }) => {
   return (
     <>
       <div className="container-Button-Modal">
@@ -14,7 +14,7 @@ export const ButtonPrimary100 = ({ Disabled, Nombre, OnClick }) => {
           </button>
         ) : (
           <button
-            className="ButtonPrimary100"
+            className="ButtonSecondary100"
             type="submit"
             disabled={Disabled}
             onClick={OnClick}

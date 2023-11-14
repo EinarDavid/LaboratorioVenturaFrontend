@@ -49,6 +49,13 @@ export const GestionUsuarios = () => {
     //console.log(event.target.value)
     setSearch({ ...search, [event.target.name]: event.target.value });
   };
+  const cargarDatos = () => {
+    try {
+      postUsuarioBuscar(search).then(({ data }) => setPacientesOriginal(data));
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   useEffect(() => {
     postUsuarioBuscar(search).then(({ data }) => setPacientesOriginal(data));
@@ -202,7 +209,7 @@ export const GestionUsuarios = () => {
           </div>
         </div>
       </div>
-      <RegUsuario modal={modalShow} SetModal={setModalShow}></RegUsuario>
+      <RegUsuario modal={modalShow} SetModal={setModalShow} callback={() => cargarDatos()} ></RegUsuario>
     </>
   );
 };
