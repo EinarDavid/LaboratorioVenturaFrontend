@@ -412,19 +412,21 @@
 
 /* Rows Container */
 .row2-Inputs {
-  display: flex;
   width: 66%;
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
 }
 
 .row3-Inputs {
   display: flex;
-  align-items: flex-end;
-  gap: 20px;
+  align-items: flex-start;
+  gap: 25px;
 }
 
 .row-Dinamic {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;

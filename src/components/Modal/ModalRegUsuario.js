@@ -13,11 +13,10 @@ export const RegUsuario = ({ SetModal, modal, callback }) => {
   const [modalConfirmation, setModalConfirmation] = useState(false);
   const [disableButton, setDisableButton] = useState(false);
   const [disableButtonConfirmation, setDisableButtonConfirmation] = useState(false);
-  const [user, setUser] = useState({});
+  const [datos, setDatos] = useState({});
   const {
     register,
-    formState,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors },
     reset,
     handleSubmit,
   } = useForm({
@@ -27,9 +26,9 @@ export const RegUsuario = ({ SetModal, modal, callback }) => {
   const onSubmit = (e) => {
     setDisableButtonConfirmation(true);
     try {
-      console.log("entro a Submit", user);
-      postAgregarUsuario(user).then(({ data }) => {
-        console.log(data);
+      console.log("entro a Submit", datos);
+      postAgregarUsuario(datos).then(({ data }) => {
+        //console.log(data);
         reset();
 
         setDisableButton(false);
@@ -39,7 +38,7 @@ export const RegUsuario = ({ SetModal, modal, callback }) => {
         if (callback) callback();
 
         alert(data.mensaje);
-        setUser({});
+        setDatos({});
 
       });
     } catch (error) {
@@ -47,9 +46,12 @@ export const RegUsuario = ({ SetModal, modal, callback }) => {
     }
   };
 
-  const onConfirmation = () => {
+  const onConfirmation = (data) => {
+    //console.log("Datos", data)
+    setDatos(data)
     setDisableButton(true);
     console.log("entro a Confirmation");
+
     setModalConfirmation(true);
 
   }
@@ -58,11 +60,12 @@ export const RegUsuario = ({ SetModal, modal, callback }) => {
     console.log("entro a cancel");
     setModalConfirmation(false);
     SetModal(false);
+    reset();
   }
 
-  const handleChangeForm = (event) => {
+  /*const handleChangeForm = (event) => {
     setUser({ ...user, [event.target.name]: event.target.value });
-  };
+  };*/
   //console.log('Error', errors)
 
   return modal ? (
@@ -78,13 +81,13 @@ export const RegUsuario = ({ SetModal, modal, callback }) => {
           <div className="spaceVer20" />
 
           <RegistroUsuario
-            user={user}
+            
             handleSubmit={handleSubmit}
             onSubmit={onConfirmation}
             register={register}
             errors={errors}
             disableButton={disableButton}
-            handleChangeForm={handleChangeForm}
+            
           />
         </div>
       </div>

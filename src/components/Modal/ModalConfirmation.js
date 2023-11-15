@@ -14,7 +14,7 @@ export const ModalConfirmation = ({ DisableButtonConfirmation, ModalConfirmation
               <h1 className="titleStyle2">{ValueText}</h1>
               
               <div className='buttons_footer'>
-              <ButtonPrimary100 Nombre={"Guardar"} OnClick={OnSubmit} Disabled={DisableButtonConfirmation}/>
+              <ButtonPrimary100 Nombre={"Aceptar"} OnClick={OnSubmit} Disabled={DisableButtonConfirmation}/>
               <ButtonSecondary100 Nombre={"Cancelar"} OnClick={OnCancel} />
               </div>
               

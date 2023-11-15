@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const PasswordInput = ({ LabelInput, Placeholder, ErrorInput, Register, Name, Value = '', Onchange }) => {
+export const PasswordInput = ({ LabelInput, Placeholder, ErrorInput, Register, Name, Value = '', Onchange, Validation }) => {
     return (
         <>
             <div className='containerTextInput'>
@@ -8,9 +8,9 @@ export const PasswordInput = ({ LabelInput, Placeholder, ErrorInput, Register, N
                 <input type='password' className='textInput'
                     name={Name}
                     placeholder={Placeholder}
-                    {...Register}
-                    value={Value}
-                    onChange={Onchange}
+                    {...Register(Name, Validation)}
+                    //value={Value}
+                    //onChange={Onchange}
                 ></input>
                 <label className='labelInputError'>{ErrorInput}</label>
             </div>

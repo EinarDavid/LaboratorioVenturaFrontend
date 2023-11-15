@@ -16,7 +16,7 @@ export const LoginApp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm({
         mode: 'all'
     });
-    const onSubmit = data => {
+    const onSubmit = (data) => {
         /*postLogin(data).then(({ data }) => {
             console.log(data)
             //limpiar cajas, cerrar modal y avisar que fue añadido con exito

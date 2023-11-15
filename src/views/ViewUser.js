@@ -17,84 +17,136 @@ import {
   postUsuarioEliminar,
   postUsuarioModificar,
 } from "../services/usuarioService";
+import { ModalConfirmation } from "../components/Modal/ModalConfirmation";
 
 export const ViewUser = ({ callback }) => {
   const navigate = useNavigate();
   let { idUser } = useParams();
   //console.log("ID", idUser);
-
+  const [modalConfirmation, setModalConfirmation] = useState(false);
+  const [modalConfirmationDelete, setModalConfirmationDelete] = useState(false);
   const [disableButton, setDisableButton] = useState(false);
   const [disableButtonDelete, setDisableButtonDelete] = useState(false);
-  const [data, setData] = useState({});
+  const [disableButtonConfirmation, setDisableButtonConfirmation] = useState(false);
+  const [disableButtonConfirmationDelete, setDisableButtonConfirmationDelete] = useState(false);
+  const [datos, setDatos] = useState({});
 
   const {
     register,
-    formState,
     formState: { errors },
+    reset,
     handleSubmit,
+    setValue,
+    watch,
   } = useForm({
     mode: "all",
+    
   });
+  
+  useEffect(() => {
+    cargarDatos();
+  }, []);
 
-  const llamarPaciente = () => {
+  const cargarDatos = () => {
     try {
-      console.log("Entro aqui");
+      //console.log("Entro aqui");
       getUsuarioUno(idUser).then(({ data }) => {
-        console.log("Data-----", data);
-        setData(data);
+        //console.log("Data-----", data);
+        setDatos(data);
+        setValue("CI",data?.CI);
+        setValue("Nombres",data?.Nombres);
+        setValue("PrimerApellido",data?.PrimerApellido);
+        setValue("SegundoApellido",data?.SegundoApellido);
+        setValue("Fecha_de_Nacimiento",data?.Fecha_de_Nacimiento);
+        setValue("Genero",data?.Genero);
+        setValue("Telefono",data?.Telefono);
+        setValue("Direccion",data?.Direccion);
+        setValue("Cargo",data?.Cargo);
+        setValue("Email",data?.Email);
+        setValue("Password",data?.Password);
+        setValue("Sucursal",data?.Sucursal);
+        
       });
     } catch (error) {
       console.log(error);
     }
   };
 
-  useEffect(() => {
-    llamarPaciente();
+  const onConfirmation = (data) => {
+    console.log("Datos", data)
+    setDatos(data)
+    setDisableButton(true);
+    console.log("entro a Confirmation");
 
-    console.log("llamandooo", data);
-  }, []);
+    setModalConfirmation(true);
 
-  //const [cabecera, setCabecera] = useState({});
-  const handleChangeForm = (event) => {
-    setData({ ...data, [event.target.name]: event.target.value });
-  };
+  }
+  const onCancel = () => {
+    console.log("entro a cancel");
+    setModalConfirmation(false);
+    
+    reset();
+    navigate("/gestionUsuarios");
+  }
+
+  const onConfirmationDelete = () => {
+    //console.log("Datos", data)
+    
+    setDisableButtonDelete(true);
+    console.log("entro a Confirmation");
+
+    setModalConfirmationDelete(true);
+
+  }
+  const onCancelDelete = () => {
+    console.log("entro a cancel Delete");
+    setDisableButtonDelete(false);
+    setModalConfirmationDelete(false);
+    //reset();
+    //navigate("/gestionUsuarios");
+  }
 
   const onSubmit = () => {
+    setDisableButtonConfirmation(true);
     try {
-      console.log("Datos Enviados", data);
-      setDisableButton(true);
-
-      postUsuarioModificar(idUser, data).then(({ data }) => {
+      console.log("Datos Enviados", datos);
+      postUsuarioModificar(idUser, datos).then(({ data }) => {
         console.log("Datos BD", data);
-       
-        
+        reset();
+
         setDisableButton(false);
-        if (callback) callback()
+        setDisableButtonConfirmation(false);
+
+        if (callback) callback();
+
+        alert(data.mensaje);
+        setDatos({});
+        navigate("/gestionUsuarios");
+        
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleDelete = () => {
+    setDisableButtonConfirmationDelete(true);
+    try {
+      
+      postUsuarioEliminar(idUser).then(({ data }) => {
+        console.log(data)
+        reset();
+
+        setDisableButtonDelete(false)
+        setDisableButtonConfirmationDelete(false);
+
+        if (callback) callback();
 
         alert(data.mensaje);
         navigate("/gestionUsuarios");
-
       });
     } catch (error) {
       console.log(error);
-    }
-  };
-
-  const _handleDelete = () => {
-    try {
-      setDisableButtonDelete(true);
-    postUsuarioEliminar(idUser).then(({ data }) => {
-      //console.log(data)
-      
-      setDisableButtonDelete(true);
-
-      if (callback) callback()
-
-      alert(data.mensaje);
-      navigate("/gestionUsuarios");
-    });
-    } catch (error) {
-      console.log(error)
     }
   };
   return (
@@ -118,7 +170,7 @@ export const ViewUser = ({ callback }) => {
                 <ButtonDelete
                   Nombre={"ELIMINAR"}
                   Disabled={disableButtonDelete}
-                  OnClick={_handleDelete}
+                  OnClick={onConfirmationDelete}
                 />
               </div>
             </div>
@@ -126,17 +178,36 @@ export const ViewUser = ({ callback }) => {
             <div className="spaceVer20" />
 
             <RegistroUsuario
-              user={data}
+              //user={datos}
               handleSubmit={handleSubmit}
-              onSubmit={onSubmit}
+              onSubmit={onConfirmation}
               register={register}
               errors={errors}
               disableButton={disableButton}
-              handleChangeForm={handleChangeForm}
+              //handleChangeForm={handleChangeForm}
+              //watch={watch}
             />
+
+            
           </div>
         </div>
       </div>
+      <ModalConfirmation
+        ModalConfirmation={modalConfirmation}
+        
+        ValueText={"¿Estas seguro de que quieres modificar al usuario?"}
+        OnCancel={onCancel}
+        OnSubmit={onSubmit}
+        DisableButtonConfirmation={disableButtonConfirmation}
+      />
+      <ModalConfirmation
+        ModalConfirmation={modalConfirmationDelete}
+        
+        ValueText={"¿Estas seguro de que quieres eliminar al usuario?"}
+        OnCancel={onCancelDelete}
+        OnSubmit={handleDelete}
+        DisableButtonConfirmation={disableButtonConfirmationDelete}
+      />
     </>
   );
 };
