@@ -73,7 +73,7 @@ export const RegUsuario = ({ SetModal, modal, callback }) => {
       <div className="popup_container">
         <div className="popup_itself">
           <div className="popup_button_container">
-            <h1 className="titleStyle">Registro de usuarios</h1>
+            <h1 className="titleStyle">Registro de usuario</h1>
             <button className="button_close" onClick={() => SetModal(false)}>
               {<img src={Images.CLOSE} width={30} alt="icon"></img>}{" "}
             </button>
@@ -81,7 +81,6 @@ export const RegUsuario = ({ SetModal, modal, callback }) => {
           <div className="spaceVer20" />
 
           <RegistroUsuario
-            
             handleSubmit={handleSubmit}
             onSubmit={onConfirmation}
             register={register}

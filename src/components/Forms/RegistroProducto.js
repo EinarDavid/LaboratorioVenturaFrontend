@@ -5,21 +5,21 @@ import { Select } from "../Input/Select";
 
 export const RegistroProducto = ({
   product = {
-    Codigo: '',
-    Nombre: '',
-    UnidadMedida: '',
-    Descripcion: '',
-    Proveedor: '',
-    CodigoBarras: '',
-    GrupoFamilia: '',
-    SubGrupo: '',
-    Ubicacion: '',
-    PrecioCompra: '',
-    Utilidad: '',
-    PrecioVenta: '',
-    InventarioMinimo: '',
-    InventarioActual: '',
-    FechaVencimiento: '',
+    Codigo: "",
+    Nombre: "",
+    UnidadMedida: "",
+    Descripcion: "",
+    Proveedor: "",
+    CodigoBarras: "",
+    GrupoFamilia: "",
+    SubGrupo: "",
+    Ubicacion: "",
+    PrecioCompra: "",
+    Utilidad: "",
+    PrecioVenta: "",
+    InventarioMinimo: "",
+    InventarioActual: "",
+    FechaVencimiento: "",
   },
   handleSubmit,
   onSubmit,
@@ -31,66 +31,60 @@ export const RegistroProducto = ({
   const Proveedor = [
     {
       option: "Proveedor_1",
-      id_option: 1,
+      id: 11,
     },
     {
       option: "Proveedor_2",
-      id_option: 2,
+      id: 22,
     },
   ];
 
   const GrupoFamilia = [
     {
       option: "ALFA",
-      id_option: 1,
+      id: 1,
     },
     {
       option: "ASOFAR",
-      id_option: 2,
+      id: 2,
     },
   ];
 
   return (
     <>
+    <form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
       <div className="row3-Inputs">
         <TextInput
           Name={"Codigo"}
-          LabelInput={"Código para identificar el producto*"}
+          LabelInput={"Código para identificar el producto"}
           Placeholder={"Ej ED123"}
-          Register={register("Codigo", {
-            //required: "El campo es requerido",
-          })}
+          Register={register}
+          //Validation={{ required: "El campo es requerido" }}
           ErrorInput={errors.Codigo?.message}
-          OnChange={(e) => handleChangeForm(e)}
-          Value={product?.Codigo || ""}
         />
 
         <TextInput
           Name={"Nombre"}
           LabelInput={"Nombre del producto*"}
           Placeholder={"Ej. Amoxicilina"}
-          Register={register("Nombre", {
+          Register={register}
+          Validation={{
             required: "El campo es requerido",
             pattern: {
               value: /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$/,
               message: "Solo se permiten letras",
             },
-          })}
+          }}
           ErrorInput={errors.Nombre?.message}
-          OnChange={(e) => handleChangeForm(e)}
-          Value={product?.Nombre || ""}
         />
 
         <TextInput
           Name={"UnidadMedida"}
           LabelInput={"Unidad de Medida*"}
           Placeholder={"Ej gramos"}
-          Register={register("UnidadMedida", {
-            required: "El campo es requerido",
-          })}
+          Register={register}
+          Validation={{ required: "El campo es requerido" }}
           ErrorInput={errors.UnidadMedida?.message}
-          OnChange={(e) => handleChangeForm(e)}
-          Value={product?.UnidadMedida || ""}
         />
       </div>
       <div className="spaceVer30" />
@@ -99,10 +93,10 @@ export const RegistroProducto = ({
           Name={"Descripcion"}
           LabelInput={"Descripción"}
           Placeholder={"Ej. Tomar cada 8 horas"}
-          Register={register("Descripcion", {})}
+          Register={register}
+          //Validation={{ required: "El campo es requerido" }}
           ErrorInput={errors.Descripcion?.message}
-          OnChange={(e) => handleChangeForm(e)}
-          Value={product?.Descripcion || ""}
+          
         />
 
         <Select
@@ -110,22 +104,19 @@ export const RegistroProducto = ({
           LabelInput={"Proveedor*"}
           Placeholder={"Selecciona el Proveedor"}
           SelectOption={Proveedor}
-          Register={register("Proveedor", {
-            //required: "El campo es requerido",
-          })}
+          Register={register}
+          //Validation={{ required: "El campo es requerido" }}
           ErrorInput={errors.Proveedor?.message}
-          OnChange={(e) => handleChangeForm(e)}
-          Value={product?.Proveedor}
+          
         />
 
         <TextInput
           Name={"CodigoBarras"}
           LabelInput={"Código de Barras"}
           Placeholder={"Ej. 2342123532"}
-          Register={register("CodigoBarras")}
+          Register={register}
+          //Validation={{ required: "El campo es requerido" }}
           ErrorInput={errors.CodigoBarras?.message}
-          OnChange={(e) => handleChangeForm(e)}
-          Value={product?.CodigoBarras || ""}
         />
       </div>
 
@@ -136,12 +127,9 @@ export const RegistroProducto = ({
           LabelInput={"Grupo o Familia"}
           Placeholder={"Selecciona el Grupo o Familia"}
           SelectOption={GrupoFamilia}
-          Register={register("GrupoFamilia", {
-            //required: "El campo es requerido",
-          })}
+          Register={register}
+          //Validation={{ required: "El campo es requerido" }}
           ErrorInput={errors.GrupoFamilia?.message}
-          OnChange={(e) => handleChangeForm(e)}
-          Value={product?.GrupoFamilia}
         />
 
         <Select
@@ -149,22 +137,19 @@ export const RegistroProducto = ({
           LabelInput={"Subgrupo"}
           Placeholder={"Selecciona el Subgrupo"}
           SelectOption={GrupoFamilia}
-          Register={register("SubGrupo", {
-            //required: "El campo es requerido",
-          })}
+          Register={register}
+          //Validation={{ required: "El campo es requerido" }}
           ErrorInput={errors.SubGrupo?.message}
-          OnChange={(e) => handleChangeForm(e)}
-          Value={product?.SubGrupo}
         />
 
         <TextInput
           Name={"Ubicacion"}
           LabelInput={"Ubicación del producto"}
           Placeholder={"Ej. Vitrina H Sección 2"}
-          Register={register("Ubicacion")}
+          Register={register}
+          //Validation={{ required: "El campo es requerido" }}
           ErrorInput={errors.Ubicacion?.message}
-          OnChange={(e) => handleChangeForm(e)}
-          Value={product?.Ubicacion || ""}
+          
         />
       </div>
       <div className="spaceVer30" />
@@ -173,48 +158,48 @@ export const RegistroProducto = ({
           Name={"PrecioCompra"}
           LabelInput={"Precio de compra*"}
           Placeholder={"Ej. 10 Bs"}
-          Register={register("PrecioCompra", {
+          Register={register}
+          Validation={{
             required: "El campo es requerido",
             pattern: {
               value: /^[0-9]+$/,
               message: "Solo se permiten números",
             },
-          })}
+          }}
           ErrorInput={errors.PrecioCompra?.message}
-          OnChange={(e) => handleChangeForm(e)}
-          Value={product?.PrecioCompra || ""}
+          
         />
 
         <TextInput
           Name={"Utilidad"}
           LabelInput={"% Utilidad de ganancia*"}
           Placeholder={"Ej. 20 %"}
-          Register={register("Utilidad", {
+          Register={register}
+          Validation={{
             required: "El campo es requerido",
             pattern: {
               value: /^[0-9]+$/,
               message: "Solo se permiten números",
             },
-          })}
+          }}
           ErrorInput={errors.Utilidad?.message}
-          OnChange={(e) => handleChangeForm(e)}
-          Value={product?.Utilidad || ""}
+          
         />
 
         <TextInput
           Name={"PrecioVenta"}
           LabelInput={"Precio de Venta*"}
           Placeholder={"Ej. 12 Bs"}
-          Register={register("PrecioVenta", {
+          Register={register}
+          Validation={{
             required: "El campo es requerido",
             pattern: {
               value: /^[0-9]+$/,
               message: "Solo se permiten números",
             },
-          })}
+          }}
           ErrorInput={errors.PrecioVenta?.message}
-          OnChange={(e) => handleChangeForm(e)}
-          Value={product?.PrecioVenta || ""}
+
         />
       </div>
       <div className="spaceVer30" />
@@ -224,58 +209,64 @@ export const RegistroProducto = ({
           Name={"InventarioMinimo"}
           LabelInput={"Inventario minimo"}
           Placeholder={"Ej. 0"}
-          Register={register("InventarioMinimo", {
+          Register={register}
+          Validation={{
             //required: "El campo es requerido",
             pattern: {
               value: /^[0-9]+$/,
               message: "Solo se permiten números",
             },
-          })}
+          }}
           ErrorInput={errors.InventarioMinimo?.message}
-          OnChange={(e) => handleChangeForm(e)}
-          Value={product?.InventarioMinimo || ""}
+
         />
 
         <TextInput
           Name={"InventarioActual"}
           LabelInput={"Inventario actual*"}
           Placeholder={"Ej. 20"}
-          Register={register("InventarioActual", {
+          Register={register}
+          Validation={{
             required: "El campo es requerido",
             pattern: {
               value: /^[0-9]+$/,
               message: "Solo se permiten números",
             },
-          })}
+          }}
           ErrorInput={errors.InventarioActual?.message}
-          OnChange={(e) => handleChangeForm(e)}
-          Value={product?.InventarioActual || ""}
+
         />
 
         <TextInput
           Name={"FechaVencimiento"}
           LabelInput={"Fecha de Vencimiento"}
           Placeholder={"Ej. 07/07/2024"}
-          Register={register("FechaVencimiento", {
-            //required: "El campo es requerido",
+          Register={register}
+          Validation={{
             pattern: {
               value:
                 /^(?:(?:(?:0?[1-9]|1\d|2[0-8])[/](?:0?[1-9]|1[0-2])|(?:29|30)[/](?:0?[13-9]|1[0-2])|31[/](?:0?[13578]|1[02]))[/](?:0{2,3}[1-9]|0{1,2}[1-9]\d|0?[1-9]\d{2}|[1-9]\d{3})|29[/]0?2[/](?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$/,
               message: "El formato debe ser DD/MM/AAAA",
             },
-          })}
+          }}
+
           ErrorInput={errors.FechaVencimiento?.message}
-          OnChange={(e) => handleChangeForm(e)}
-          Value={product?.FechaVencimiento || ""}
+
         />
       </div>
       <div className="spaceVer20" />
+      <div className="container-Button-Modal">
+          <button
+            //onClick={onSubmit}
+            className="ButtonPrimary"
+            type="submit"
+            disabled={disableButton}
+          >
+            GUARDAR
+          </button>
+        </div>
 
-      <ButtonPrimary
-        Nombre={"GUARDAR"}
-        Disabled={disableButton}
-        OnClick={onSubmit}
-      />
+        </form>
     </>
   );
 };

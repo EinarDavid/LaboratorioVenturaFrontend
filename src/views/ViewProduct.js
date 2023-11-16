@@ -7,14 +7,14 @@ import { RegistroUsuario } from "../components/Forms/RegistroUsuario";
 
 import Images from "../config/Images";
 
-import {
-  getUsuarioUno,
-  postUsuarioEliminar,
-  postUsuarioModificar,
-} from "../services/usuarioService";
 import { ModalConfirmation } from "../components/Modal/ModalConfirmation";
+import {
+  getProductUno,
+  postProductEliminar,
+  postProductModificar,
+} from "../services/productService";
 
-export const ViewUser = ({ callback }) => {
+export const ViewProduct = ({ callback }) => {
   const navigate = useNavigate();
   let { id } = useParams();
   //console.log("ID", id);
@@ -45,21 +45,23 @@ export const ViewUser = ({ callback }) => {
   const cargarDatos = () => {
     try {
       //console.log("Entro aqui");
-      getUsuarioUno(id).then(({ data }) => {
+      getProductUno(id).then(({ data }) => {
         //console.log("Data-----", data);
         setDatos(data);
-        setValue("CI", data?.CI);
-        setValue("Nombres", data?.Nombres);
-        setValue("PrimerApellido", data?.PrimerApellido);
-        setValue("SegundoApellido", data?.SegundoApellido);
-        setValue("Fecha_de_Nacimiento", data?.Fecha_de_Nacimiento);
-        setValue("Genero", data?.Genero);
-        setValue("Telefono", data?.Telefono);
-        setValue("Direccion", data?.Direccion);
-        setValue("Cargo", data?.Cargo);
-        setValue("Email", data?.Email);
-        setValue("Password", data?.Password);
-        setValue("Sucursal", data?.Sucursal);
+        setValue("Codigo", data?.Codigo);
+        setValue("Nombre", data?.Nombre);
+        setValue("UnidadMedida", data?.UnidadMedida);
+        setValue("Descripcion", data?.Descripcion);
+        setValue("Proveedor", data?.Proveedor);
+        setValue("CodigoBarras", data?.CodigoBarras);
+        setValue("GrupoFamilia", data?.GrupoFamilia);
+        setValue("SubGrupo", data?.SubGrupo);
+        setValue("Ubicacion", data?.Ubicacion);
+        setValue("PrecioCompra", data?.PrecioCompra);
+        setValue("Utilidad", data?.Utilidad);
+        setValue("PrecioVenta", data?.PrecioVenta);
+        setValue("InventarioMinimo", data?.InventarioMinimo);
+        setValue("FechaVencimiento", data?.FechaVencimiento);
       });
     } catch (error) {
       console.log(error);
@@ -102,7 +104,7 @@ export const ViewUser = ({ callback }) => {
     setDisableButtonConfirmation(true);
     try {
       console.log("Datos Enviados", datos);
-      postUsuarioModificar(id, datos).then(({ data }) => {
+      postProductModificar(id, datos).then(({ data }) => {
         console.log("Datos BD", data);
         reset();
 
@@ -123,7 +125,7 @@ export const ViewUser = ({ callback }) => {
   const handleDelete = () => {
     setDisableButtonConfirmationDelete(true);
     try {
-      postUsuarioEliminar(id).then(({ data }) => {
+      postProductEliminar(id).then(({ data }) => {
         console.log(data);
         reset();
 
@@ -139,6 +141,7 @@ export const ViewUser = ({ callback }) => {
       console.log(error);
     }
   };
+
   return (
     <>
       <div className="App">
@@ -154,7 +157,7 @@ export const ViewUser = ({ callback }) => {
                   {<img src={Images.ARROWLEFT} width={30} alt="icon"></img>}
                 </button>
                 <div className="spaceRow10" />
-                <h1 className="titleStyle">Información del usuario</h1>
+                <h1 className="titleStyle">Información del producto</h1>
               </div>
               <div className="containerButtonRight">
                 <ButtonDelete

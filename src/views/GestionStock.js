@@ -13,6 +13,7 @@ import { getExamenCant, getExamenTodos } from "../services/examenService";
 import { ModalRegProduct } from "../components/Modal/ModalRegProduct";
 import { SectionFilterProduct } from "../components/Section/SectionFilterProduct";
 import { ModalRegStock } from "../components/Modal/ModalRegStock";
+import { getStockCant, getStockTodos, postStockBuscar } from "../services/stockService";
 
 export const GestionStock = () => {
   const navigate = useNavigate();
@@ -22,20 +23,31 @@ export const GestionStock = () => {
   const [search, setSearch] = useState({
     Codigo: "",
     Nombre: "",
-
     ord: "",
   });
   const [datos, setDatos] = useState([]);
   const [dataOriginal, setDataOriginal] = useState([]);
   const [cantidadPagina, setCantidadPagina] = useState(5);
 
-  console.log("datos search", search);
-
   useEffect(() => {
-    getExamenTodos().then(({ data }) => setDataOriginal(data));
+    getStockTodos().then(({ data }) => setDataOriginal(data));
   }, []);
 
-  useEffect(() => console.log("Exámenes: ", datos), [datos]);
+  const handleChangeSearch = (event) => {
+    //console.log(event.target.value)
+    setSearch({ ...search, [event.target.name]: event.target.value });
+  };
+
+  const cargarDatos = () => {
+    try {
+      postStockBuscar(search).then(({ data }) => setDataOriginal(data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    cargarDatos()
+  }, [search]);
 
   const FilterOrder = [
     {
@@ -61,11 +73,6 @@ export const GestionStock = () => {
       id_option: 3,
     },
   ];
-
-  const handleChangeSearch = (event) => {
-    //console.log(event.target.value)
-    setSearch({ ...search, [event.target.name]: event.target.value });
-  };
   return (
     <>
       <div className="App">
@@ -172,7 +179,7 @@ export const GestionStock = () => {
                   setLaboratorios={setDatos}
                   laboratoriosOriginal={dataOriginal}
                   cantidadPagina={cantidadPagina}
-                  getLaboratorioCant={getExamenCant}
+                  getLaboratorioCant={getStockCant}
                 />
               </div>
             </div>
@@ -182,6 +189,7 @@ export const GestionStock = () => {
       <ModalRegStock
         modal={modalShow}
         SetModal={setModalShow}
+        callback={() => cargarDatos()}
       ></ModalRegStock>
     </>
   );

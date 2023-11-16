@@ -8,23 +8,20 @@ import { SelectFilter } from "../components/Input/SelectFilter";
 import { calcularEdad } from "../services/calcEdad";
 import { ButtonIcon } from "../components/Button/ButtonIcon";
 
-import {
-  postPacienteBuscar,
-  postPacienteEliminar,
-} from "../services/pacienteService";
 import { useNavigate } from "react-router-dom";
 import { PaginationTable } from "../components/Table/PaginationTable";
 import { RowsSelect } from "../components/Input/RowsSelect";
 import { RegUsuario } from "../components/Modal/ModalRegUsuario";
+import { SectionFilterUser } from "../components/Section/SectionFilterUser";
 import {
   getUsuarioCant,
   getUsuarioNombres,
   postUsuarioBuscar,
 } from "../services/usuarioService";
-import { SectionFilterUser } from "../components/Section/SectionFilterUser";
 
 export const GestionUsuarios = () => {
   const navigate = useNavigate();
+
   const [modalShow, setModalShow] = useState(false);
   const [activeButton, setActiveButton] = useState(false);
   const [search, setSearch] = useState({
@@ -32,37 +29,33 @@ export const GestionUsuarios = () => {
     CI: "",
     PrimerApellido: "",
     SegundoApellido: "",
-    ord: ""
+    ord: "",
   });
-  const [pacientes, setPacientes] = useState([]);
-  const [pacientesOriginal, setPacientesOriginal] = useState([]);
-  const [cantidadPagina, setCantidadPagina] = useState(10);
+  const [datos, setDatos] = useState([]);
+  const [dataOriginal, setDataOriginal] = useState([]);
+  const [cantidadPagina, setCantidadPagina] = useState(20);
 
   useEffect(() => {
-    getUsuarioNombres().then(({ data }) => setPacientesOriginal(data));
+    getUsuarioNombres().then(({ data }) => setDataOriginal(data));
   }, []);
-  //console.log(pacientesOriginal);
-
-  useEffect(() => console.log(cantidadPagina), [cantidadPagina]);
 
   const handleChangeSearch = (event) => {
-    //console.log(event.target.value)
     setSearch({ ...search, [event.target.name]: event.target.value });
   };
+
   const cargarDatos = () => {
     try {
-      postUsuarioBuscar(search).then(({ data }) => setPacientesOriginal(data));
+      postUsuarioBuscar(search).then(({ data }) => setDataOriginal(data));
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
-    postUsuarioBuscar(search).then(({ data }) => setPacientesOriginal(data));
+    cargarDatos()
   }, [search]);
 
   const FilterOrder = [
-    
     {
       option: "Edad Ascendente",
       id_option: 1,
@@ -75,15 +68,15 @@ export const GestionUsuarios = () => {
 
   const RowsForPage = [
     {
-      option: 5,
+      option: 20,
       id_option: 1,
     },
     {
-      option: 10,
+      option: 40,
       id_option: 2,
     },
     {
-      option: 30,
+      option: 60,
       id_option: 3,
     },
   ];
@@ -148,13 +141,14 @@ export const GestionUsuarios = () => {
                       <th className="titleTable">Primer Apellido</th>
                       <th className="titleTable">Segundo Apellido</th>
                       <th className="titleTable">Edad</th>
+                      <th className="titleTable">Correo</th>
                       <th className="titleTable">Cargo</th>
                       <th className="titleTable">Teléfono</th>
                       <th className="titleTable">Sucursal</th>
                       <th className="titleTable">Activo</th>
                     </tr>
                   </thead>
-                  {pacientes.map((pac, i) => (
+                  {datos.map((pac, i) => (
                     <tbody key={i}>
                       <tr>
                         <td>
@@ -177,6 +171,7 @@ export const GestionUsuarios = () => {
                         <td className="containerTable">
                           {calcularEdad(pac?.Fecha_de_Nacimiento)}
                         </td>
+                        <td className="containerTable">{pac?.Email}</td>
                         <td className="containerTable">{pac?.Cargo}</td>
                         <td className="containerTable">{pac?.Telefono}</td>
                         <td className="containerTable">{pac?.Sucursal}</td>
@@ -199,8 +194,8 @@ export const GestionUsuarios = () => {
                 />
                 <div className="spaceRow20" />
                 <PaginationTable
-                  setLaboratorios={setPacientes}
-                  laboratoriosOriginal={pacientesOriginal}
+                  setLaboratorios={setDatos}
+                  laboratoriosOriginal={dataOriginal}
                   cantidadPagina={cantidadPagina}
                   getLaboratorioCant={getUsuarioCant}
                 />
@@ -209,7 +204,11 @@ export const GestionUsuarios = () => {
           </div>
         </div>
       </div>
-      <RegUsuario modal={modalShow} SetModal={setModalShow} callback={() => cargarDatos()} ></RegUsuario>
+      <RegUsuario
+        modal={modalShow}
+        SetModal={setModalShow}
+        callback={() => cargarDatos()}
+      ></RegUsuario>
     </>
   );
 };

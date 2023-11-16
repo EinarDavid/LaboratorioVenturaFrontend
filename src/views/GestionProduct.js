@@ -12,7 +12,11 @@ import { MainNavigator } from "../navigation/MainNavigator";
 
 import { ModalRegProduct } from "../components/Modal/ModalRegProduct";
 import { SectionFilterProduct } from "../components/Section/SectionFilterProduct";
-import { getProductCant, getProductTodos } from "../services/productService";
+import {
+  getProductCant,
+  getProductTodos,
+  postProductoBuscar,
+} from "../services/productService";
 
 export const GestionProduct = () => {
   const navigate = useNavigate();
@@ -22,20 +26,30 @@ export const GestionProduct = () => {
   const [search, setSearch] = useState({
     Codigo: "",
     Nombre: "",
-
     ord: "",
   });
   const [datos, setDatos] = useState([]);
   const [dataOriginal, setDataOriginal] = useState([]);
-  const [cantidadPagina, setCantidadPagina] = useState(5);
-
-  console.log("datos search", search);
+  const [cantidadPagina, setCantidadPagina] = useState(20);
 
   useEffect(() => {
     getProductTodos().then(({ data }) => setDataOriginal(data));
   }, []);
 
-  useEffect(() => console.log("Exámenes: ", datos), [datos]);
+  const handleChangeSearch = (event) => {
+    setSearch({ ...search, [event.target.name]: event.target.value });
+  };
+
+  const cargarDatos = () => {
+    try {
+      postProductoBuscar(search).then(({ data }) => setDataOriginal(data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    cargarDatos()
+  }, [search]);
 
   const FilterOrder = [
     {
@@ -49,23 +63,19 @@ export const GestionProduct = () => {
   ];
   const RowsForPage = [
     {
-      option: 5,
+      option: 20,
       id_option: 1,
     },
     {
-      option: 10,
+      option: 40,
       id_option: 2,
     },
     {
-      option: 30,
+      option: 60,
       id_option: 3,
     },
   ];
 
-  const handleChangeSearch = (event) => {
-    //console.log(event.target.value)
-    setSearch({ ...search, [event.target.name]: event.target.value });
-  };
   return (
     <>
       <div className="App">
@@ -74,7 +84,7 @@ export const GestionProduct = () => {
         </div>
         <div className="containerPadre">
           <div className="headerTableSection">
-            <h1 className="titleStyle">Gestion de Productos</h1>
+            <h1 className="titleStyle">Gestion de productos</h1>
             <div className="spaceVer10" />
             <ButtonIcon
               Image={Images.ADDBLUE}
@@ -138,7 +148,7 @@ export const GestionProduct = () => {
                         <td>
                           <button
                             className="buttonPrint"
-                            onClick={() => navigate("/view/examen/" + exa._id)}
+                            onClick={() => navigate("/view/product/" + exa._id)}
                           >
                             <img src={Images.VIEW} width={"25"} alt={"View"} />
                           </button>
@@ -151,7 +161,9 @@ export const GestionProduct = () => {
                         <td className="containerTable">{exa.PrecioCompra}</td>
                         <td className="containerTable">{exa.PrecioVenta}</td>
                         <td className="containerTable">{exa.Descripcion}</td>
-                        <td className="containerTable">{exa.InventarioActual}</td>
+                        <td className="containerTable">
+                          {exa.InventarioActual}
+                        </td>
                         <td className="containerTable">{exa.GrupoFamilia}</td>
                         <td className="containerTable">{exa.SubGrupo}</td>
                       </tr>
@@ -184,6 +196,7 @@ export const GestionProduct = () => {
       <ModalRegProduct
         modal={modalShow}
         SetModal={setModalShow}
+        callback={() => cargarDatos()}
       ></ModalRegProduct>
     </>
   );

@@ -12,6 +12,7 @@ import { GestionUsuarios } from "../views/GestionUsuarios";
 import { ViewUser } from "../views/ViewUser";
 import { GestionProduct } from "../views/GestionProduct";
 import { GestionStock } from "../views/GestionStock";
+import { ViewProduct } from "../views/ViewProduct";
 
 export const HomeApp = () => {
   return (
@@ -27,9 +28,11 @@ export const HomeApp = () => {
         <Route path="/view/examen/:idExamen" element={<ViewExa />} />
 
         <Route path="/gestionUsuarios" element={<GestionUsuarios />} />
-        <Route path="/view/user/:idUser" element={<ViewUser />} />
+        <Route path="/view/user/:id" element={<ViewUser />} />
         
         <Route path="/gestionProduct" element={<GestionProduct />} />
+        <Route path="/view/product/:id" element={<ViewProduct />} />
+
         <Route path="/gestionStock" element={<GestionStock />} />
 
         <Route path="/*" element={<Navigate to="/dashboard" />} />
