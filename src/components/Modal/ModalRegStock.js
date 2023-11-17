@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useFieldArray, useForm } from "react-hook-form";
 import Images from "../../config/Images";
 import { postAgregarPaciente } from "../../services/pacienteService";
 
@@ -15,14 +15,34 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
     useState(false);
   const [datos, setDatos] = useState({});
 
+  const [detalle, setDetalle] = useState([
+    {
+        id: -1,
+        Nombre: '', SubCategoria: '', ValorReferencia: [{
+            id: -1,
+            EdadMinima: '',
+            EdadMaxima: '',
+            Concentracion: '',
+            ValoresReferenciaHombre: '',
+            ValoresReferenciaMujer: '',
+        }]
+    },
+]);
+
   const {
     register,
     formState: { errors },
     reset,
     handleSubmit,
+    control
   } = useForm({
     mode: "all",
   });
+
+  const {fields, append, remove} = useFieldArray({
+    name: "Codigo",
+    control,
+  })
 
   const onSubmit = () => {
     setDisableButtonConfirmation(true);
@@ -63,6 +83,14 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
     reset();
   };
 
+  const handleChangeDetail = (event, index) => {
+
+    let campos = [...detalle]
+    campos[index][event.target.name] = event.target.value;
+
+    setDetalle(campos);
+}
+
   return modal ? (
     <>
       <div className="popup_container">
@@ -81,6 +109,10 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
             register={register}
             errors={errors}
             disableButton={disableButton}
+
+            fields={fields}
+        append={append}
+        remove={remove}
           />
         </div>
       </div>
@@ -90,6 +122,8 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
         OnCancel={onCancel}
         OnSubmit={onSubmit}
         DisableButtonConfirmation={disableButtonConfirmation}
+
+        
       />
     </>
   ) : (
