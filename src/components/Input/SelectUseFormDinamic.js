@@ -10,7 +10,7 @@ export const SelectUseFormDinamic = ({ LabelInput, Placeholder, SelectOption, Er
                     className='textInput'
                     name={Name}
 
-                    {...Register(`${Name}.${index}.number`, Validation)}
+                    {...Register(`${Name}.${index}.Codigo`, Validation)}
                 >
                     <option value='' hidden> {Placeholder}</option>
                     {

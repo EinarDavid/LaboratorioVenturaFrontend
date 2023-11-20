@@ -17,37 +17,41 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
 
   const [detalle, setDetalle] = useState([
     {
-        id: -1,
-        Nombre: '', SubCategoria: '', ValorReferencia: [{
-            id: -1,
-            EdadMinima: '',
-            EdadMaxima: '',
-            Concentracion: '',
-            ValoresReferenciaHombre: '',
-            ValoresReferenciaMujer: '',
-        }]
+      id: -1,
+      Nombre: "",
+      SubCategoria: "",
+      ValorReferencia: [
+        {
+          id: -1,
+          EdadMinima: "",
+          EdadMaxima: "",
+          Concentracion: "",
+          ValoresReferenciaHombre: "",
+          ValoresReferenciaMujer: "",
+        },
+      ],
     },
-]);
+  ]);
 
   const {
     register,
     formState: { errors },
     reset,
     handleSubmit,
-    control
+    control,
+    watch
   } = useForm({
     mode: "all",
   });
 
-  const {fields, append, remove} = useFieldArray({
-    name: "Codigo",
+  const { fields, append, remove } = useFieldArray({
+    name: "Detalle",
     control,
-  })
+  });
 
   const onSubmit = () => {
     setDisableButtonConfirmation(true);
     try {
- 
       postAgregarStock(datos).then(({ data }) => {
         console.log(data);
         reset();
@@ -68,7 +72,7 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
   };
 
   const onConfirmation = (data) => {
-    //console.log("Datos", data)
+    console.log("Datos", data)
     setDatos(data);
     setDisableButton(true);
     console.log("entro a Confirmation");
@@ -84,12 +88,11 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
   };
 
   const handleChangeDetail = (event, index) => {
-
-    let campos = [...detalle]
+    let campos = [...detalle];
     campos[index][event.target.name] = event.target.value;
 
     setDetalle(campos);
-}
+  };
 
   return modal ? (
     <>
@@ -109,10 +112,10 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
             register={register}
             errors={errors}
             disableButton={disableButton}
-
             fields={fields}
-        append={append}
-        remove={remove}
+            append={append}
+            remove={remove}
+            watch={watch}
           />
         </div>
       </div>
@@ -122,8 +125,6 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
         OnCancel={onCancel}
         OnSubmit={onSubmit}
         DisableButtonConfirmation={disableButtonConfirmation}
-
-        
       />
     </>
   ) : (

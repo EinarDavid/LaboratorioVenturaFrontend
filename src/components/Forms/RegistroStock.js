@@ -30,6 +30,7 @@ export const RegistroStock = ({
   errors,
   disableButton,
   handleChangeForm,
+  watch,
 
   fields,
   append,
@@ -56,24 +57,25 @@ export const RegistroStock = ({
       id: 2,
     },
   ];
-  //console.log(append)
+  //console.log("------",errors.Codigo[0].firstName.message)
 
   return (
     <>
       <form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
         <div className="row2-Inputs">
           <TextInput
-            Disabled={true}
+            //Disabled={true}
             Name={"MontoTotal"}
             LabelInput={"Sumatoria Total*"}
             Placeholder={"Ej. 200 Bs"}
             Register={register}
+            Validation={{required: "El campo es requerido",}}
             ErrorInput={errors.MontoTotal?.message}
           />
 
           <Select
             Name={"Proveedor"}
-            LabelInput={"Proveedor*"}
+            LabelInput={"Proveedor"}
             Placeholder={"Selecciona el Proveedor"}
             SelectOption={Proveedor}
             Register={register}
@@ -82,6 +84,7 @@ export const RegistroStock = ({
           />
         </div>
         <div className="spaceVer30" />
+
         {fields?.map((field, index) => {
           return (
             <div key={field.id}>
@@ -95,16 +98,25 @@ export const RegistroStock = ({
                   >
                     <img src={Images.REMOVE} width={26} alt="remove"></img>
                   </button>
+                  <input {...register(`Detalle.${index}.firstName`, {
+                    required : "Ell camposasd"
+                  } )} />
+                  {
+                    (errors.Detalle !== undefined)? (<>
+                    <label className='labelInputError'>{errors?.Detalle[index]?.firstName?.message}</label>
+                    </>): (<>no</>)
+                  }
 
-                  <SelectUseFormDinamic
+                  <input {...register(`Detalle.${index}.lastname`)} />
+                  {/* <SelectUseFormDinamic
                     Name={"Codigo"}
                     LabelInput={"Código del producto*"}
                     Placeholder={"Selecciona el Código"}
                     SelectOption={Producto}
                     Register={register}
-                    ErrorInput={errors.Codigo?.message}
+                    //ErrorInput={errors.Codigo?.message}
                     index={index}
-                  />
+                  /> */}
                   <TexInputUseFormDinamic
                     Name={"CantidadTotal"}
                     LabelInput={"Cantidad Total*"}
@@ -117,10 +129,11 @@ export const RegistroStock = ({
                         message: "Solo se permiten números",
                       },
                     }}
-                    ErrorInput={errors.CantidadTotal?.message}
+                    
+                    ErrorInput={errors}
                     index={index}
                   />
-                  <TexInputUseFormDinamic
+                  {/* <TexInputUseFormDinamic
                     Name={"PrecioCompra"}
                     LabelInput={"Precio compra del producto*"}
                     Placeholder={"Ej 231"}
@@ -132,12 +145,12 @@ export const RegistroStock = ({
                         message: "Solo se permiten números",
                       },
                     }}
-                    ErrorInput={errors.PrecioCompra?.message}
+                    //ErrorInput={errors.PrecioCompra?.message}
                     index={index}
-                  />
+                  /> */}
                 </div>
                 <div className="row3-Inputs">
-                  <TexInputUseFormDinamic
+                  {/* <TexInputUseFormDinamic
                     Name={"FechaVencimiento"}
                     LabelInput={"Fecha de vencimiento"}
                     Placeholder={"Ej 20/12/2024"}
@@ -150,7 +163,7 @@ export const RegistroStock = ({
                         message: "El formato debe ser DD/MM/AAAA",
                       },
                     }}
-                    ErrorInput={errors.FechaVencimiento?.message}
+                    //ErrorInput={errors.FechaVencimiento?.message}
                     index={index}
                   />
                   <TexInputUseFormDinamic
@@ -165,9 +178,9 @@ export const RegistroStock = ({
                         message: "Solo se permiten números",
                       },
                     }}
-                    ErrorInput={errors.Lote?.message}
+                    //ErrorInput={errors.Lote?.message}
                     index={index}
-                  />
+                  /> */}
                 </div>
               </div>
             </div>
@@ -178,7 +191,7 @@ export const RegistroStock = ({
           <button
             className="buttonAddForm"
             type="button"
-            onClick={() => append({ number: "" })}
+            onClick={() => append()}
           >
             <img src={Images.ADDBLUE2} width={30} alt="add" />
             Añadir campo
@@ -187,11 +200,18 @@ export const RegistroStock = ({
 
         <div className="spaceVer20" />
 
-        <ButtonPrimary
-          Nombre={"GUARDAR"}
-          Disabled={disableButton}
-          OnClick={onSubmit}
-        />
+        <div className="container-Button-Modal">
+          <button
+            //onClick={onSubmit}
+            className="ButtonPrimary"
+            type="submit"
+            disabled={disableButton}
+          >
+            GUARDAR
+          </button>
+        </div>
+
+         <pre>{JSON.stringify(watch(), null, 2)} </pre>
       </form>
     </>
   );
