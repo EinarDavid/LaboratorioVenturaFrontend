@@ -1,31 +1,33 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { ButtonFilter } from "../components/Button/ButtonFilter";
-import { ButtonIcon } from "../components/Button/ButtonIcon";
-import { RowsSelect } from "../components/Input/RowsSelect";
-import { SearchInput } from "../components/Input/SearchInput";
-import { SelectFilter } from "../components/Input/SelectFilter";
-
-import { PaginationTable } from "../components/Table/PaginationTable";
-import Images from "../config/Images";
 import { MainNavigator } from "../navigation/MainNavigator";
 
-import { ModalRegProduct } from "../components/Modal/ModalRegProduct";
-import { SectionFilterProduct } from "../components/Section/SectionFilterProduct";
+import Images from "../config/Images";
+
+import { ButtonFilter } from "../components/Button/ButtonFilter";
+import { SelectFilter } from "../components/Input/SelectFilter";
+import { calcularEdad } from "../services/calcEdad";
+import { ButtonIcon } from "../components/Button/ButtonIcon";
+
+import { useNavigate } from "react-router-dom";
+import { PaginationTable } from "../components/Table/PaginationTable";
+import { RowsSelect } from "../components/Input/RowsSelect";
+import { RegUsuario } from "../components/Modal/ModalRegUsuario";
+import { SectionFilterUser } from "../components/Section/SectionFilterUser";
 import {
-  getProductCant,
-  getProductTodos,
-  postProductoBuscar,
-} from "../services/productService";
+  getUsuarioCant,
+  getUsuarioNombres,
+  postUsuarioBuscar,
+} from "../services/usuarioService";
 
-export const GestionProduct = () => {
+export const GestionSale = () => {
   const navigate = useNavigate();
-
   const [modalShow, setModalShow] = useState(false);
   const [activeButton, setActiveButton] = useState(false);
   const [search, setSearch] = useState({
-    Codigo: "",
     Nombre: "",
+    CI: "",
+    PrimerApellido: "",
+    SegundoApellido: "",
     ord: "",
   });
   const [datos, setDatos] = useState([]);
@@ -33,10 +35,7 @@ export const GestionProduct = () => {
   const [cantidadPagina, setCantidadPagina] = useState(20);
 
   useEffect(() => {
-    getProductTodos().then(({ data }) => {
-      setDataOriginal(data);
-      console.log("datos", data);
-    });
+    getUsuarioNombres().then(({ data }) => setDataOriginal(data));
   }, []);
 
   const handleChangeSearch = (event) => {
@@ -45,27 +44,27 @@ export const GestionProduct = () => {
 
   const cargarDatos = () => {
     try {
-      postProductoBuscar(search).then(({ data }) => {
-        setDataOriginal(data);
-      });
+      postUsuarioBuscar(search).then(({ data }) => setDataOriginal(data));
     } catch (error) {
       console.log(error);
     }
   };
+
   useEffect(() => {
     cargarDatos();
   }, [search]);
 
   const FilterOrder = [
     {
-      option: "A - Z",
+      option: "Edad Ascendente",
       id_option: 1,
     },
     {
-      option: "Z - A",
+      option: "Edad Descendente",
       id_option: 2,
     },
   ];
+
   const RowsForPage = [
     {
       option: 20,
@@ -85,17 +84,18 @@ export const GestionProduct = () => {
     <>
       <div className="App">
         <div className="mainNav">
-          <MainNavigator />
+          <MainNavigator></MainNavigator>
         </div>
         <div className="containerPadre">
           <div className="headerTableSection">
-            <h1 className="titleStyle">Gestion de productos</h1>
+            <h1 className="titleStyle">Gestion de ventas</h1>
             <div className="spaceVer10" />
             <ButtonIcon
               Image={Images.ADDBLUE}
-              Nombre={"Añadir nuevo producto"}
-              OnClick={() => setModalShow(true)}
+              Nombre={"Añadir nueva venta"}
+              OnClick={() => navigate("/newSale")}
             />
+
             <div className="spaceVer10" />
             <div className="containerFiltro">
               <ButtonFilter
@@ -121,14 +121,13 @@ export const GestionProduct = () => {
             {activeButton ? (
               <>
                 <div className="containerFiltros">
-                  <SectionFilterProduct
-                    handleChangeSearch={handleChangeSearch}
-                  />
+                  <SectionFilterUser handleChangeSearch={handleChangeSearch} />
                 </div>
               </>
             ) : (
               <></>
             )}
+
             <div className="cardBodyEvaluation">
               <div className="divTable">
                 <table className="tableContainer">
@@ -136,46 +135,52 @@ export const GestionProduct = () => {
                     <tr>
                       <th></th>
                       <th className="titleTable">Nro</th>
-                      <th className="titleTable">Código</th>
-                      <th className="titleTable">Nombre</th>
-                      <th className="titleTable">Unid. de med.</th>
-                      <th className="titleTable">Precio Compra</th>
-                      <th className="titleTable">Precio Venta</th>
-                      <th className="titleTable">Descripción</th>
-                      <th className="titleTable">Inventario actual</th>
-                      <th className="titleTable">Grupo Familia</th>
-                      <th className="titleTable">SubGrupo</th>
+                      <th className="titleTable">Num. Doc.</th>
+                      <th className="titleTable">Sucursal</th>
+                      <th className="titleTable">Cliente</th>
+                      <th className="titleTable">Razón social</th>
+                      <th className="titleTable">NIT</th>
+                      <th className="titleTable">Fecha - Hora</th>
+                      <th className="titleTable">Total</th>
+                      <th className="titleTable">Tipo de Pago</th>
+                      <th className="titleTable">Usuario</th>
+                      <th className="titleTable">Activo</th>
                     </tr>
                   </thead>
-                  {datos.map((exa, i) => (
+                  {datos.map((pac, i) => (
                     <tbody key={i}>
                       <tr>
                         <td>
                           <button
                             className="buttonPrint"
-                            onClick={() => navigate("/view/product/" + exa._id)}
+                            onClick={() => navigate("/view/user/" + pac?._id)}
                           >
                             <img src={Images.VIEW} width={"25"} alt={"View"} />
                           </button>
                         </td>
                         <td className="containerTable">{i + 1}</td>
-
-                        <td className="containerTable">{exa.Codigo}</td>
-                        <td className="containerTable">{exa.Nombre}</td>
-                        <td className="containerTable">{exa.UnidadMedida}</td>
-                        <td className="containerTable">{exa.PrecioCompra}</td>
-                        <td className="containerTable">{exa.PrecioVenta}</td>
-                        <td className="containerTable">{exa.Descripcion}</td>
+                        <td className="containerTable">{pac?.CI}</td>
+                        <td className="containerTable">{pac?.Nombres}</td>
                         <td className="containerTable">
-                          {exa.InventarioActual}
+                          {pac?.PrimerApellido}
                         </td>
-                        <td className="containerTable">{exa.GrupoFamilia}</td>
-                        <td className="containerTable">{exa.SubGrupo}</td>
+                        <td className="containerTable">
+                          {pac?.SegundoApellido}
+                        </td>
+                        <td className="containerTable">
+                          {calcularEdad(pac?.Fecha_de_Nacimiento)}
+                        </td>
+                        <td className="containerTable">{pac?.Email}</td>
+                        <td className="containerTable">{pac?.Cargo}</td>
+                        <td className="containerTable">{pac?.Telefono}</td>
+                        <td className="containerTable">{pac?.Sucursal}</td>
+                        <td className="containerTable">{pac?.Activo}</td>
                       </tr>
                     </tbody>
                   ))}
                 </table>
               </div>
+
               <div className="footerTable">
                 <RowsSelect
                   Name={"Page"}
@@ -191,18 +196,18 @@ export const GestionProduct = () => {
                   setLaboratorios={setDatos}
                   laboratoriosOriginal={dataOriginal}
                   cantidadPagina={cantidadPagina}
-                  getLaboratorioCant={getProductCant}
+                  getLaboratorioCant={getUsuarioCant}
                 />
               </div>
             </div>
           </div>
         </div>
       </div>
-      <ModalRegProduct
+      <RegUsuario
         modal={modalShow}
         SetModal={setModalShow}
         callback={() => cargarDatos()}
-      ></ModalRegProduct>
+      ></RegUsuario>
     </>
   );
 };

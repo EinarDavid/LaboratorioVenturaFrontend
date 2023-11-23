@@ -86,6 +86,15 @@ export const MainNavigator = () => {
                         )
                         }
                     </NavLink>
+                    <NavLink
+                        to={'/gestionSale'}
+                    >
+
+                        {({ isActive }) => (
+                            isActive ? (<NavButton Image={Images.STOCKWHITE} />) : (<NavButtonUnSelect Image={Images.STOCKBLACK} />)
+                        )
+                        }
+                    </NavLink>
                 </div>
                 <OptionUser />
             </div>

@@ -14,6 +14,7 @@ import { ModalRegProduct } from "../components/Modal/ModalRegProduct";
 import { SectionFilterProduct } from "../components/Section/SectionFilterProduct";
 import { ModalRegStock } from "../components/Modal/ModalRegStock";
 import { getStockCant, getStockTodos, postStockBuscar } from "../services/stockService";
+import { convertDate } from "../services/convertDate";
 
 export const GestionStock = () => {
   const navigate = useNavigate();
@@ -128,15 +129,10 @@ export const GestionStock = () => {
                     <tr>
                       <th></th>
                       <th className="titleTable">Nro</th>
-                      <th className="titleTable">Código</th>
-                      <th className="titleTable">Nombre</th>
-                      <th className="titleTable">Unid. de med.</th>
-                      <th className="titleTable">Precio Compra</th>
-                      <th className="titleTable">Precio Venta</th>
-                      <th className="titleTable">Descripción</th>
-                      <th className="titleTable">Inventario actual</th>
-                      <th className="titleTable">Grupo Familia</th>
-                      <th className="titleTable">SubGrupo</th>
+                      <th className="titleTable">Proveedor</th>
+                      <th className="titleTable">Fecha - hora</th>
+                      <th className="titleTable">Monto Total</th>
+                      
                     </tr>
                   </thead>
                   {datos.map((exa, i) => (
@@ -152,13 +148,10 @@ export const GestionStock = () => {
                         </td>
                         <td className="containerTable">{i + 1}</td>
 
-                        <td className="containerTable">{exa.Nombre}</td>
-                        <td className="containerTable">{exa.Categoria}</td>
-                        <td className="containerTable">{exa.Metodo}</td>
-                        <td className="containerTable">{exa.Recipiente}</td>
-                        <td className="containerTable">{exa.Muestra}</td>
-                        <td className="containerTable">{exa.Gastos}</td>
-                        <td className="containerTable">{exa.Precio}</td>
+                        <td className="containerTable">{exa.Proveedor}</td>
+                        <td className="containerTable">{convertDate(exa.Fecha)}</td>
+                        <td className="containerTable">{exa.MontoTotal}</td>
+                        
                       </tr>
                     </tbody>
                   ))}

@@ -35,11 +35,13 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
 
   const {
     register,
-    formState: { errors },
+    formState: { errors, touchedFields },
     reset,
     handleSubmit,
     control,
-    watch
+    watch,
+    getValues,
+    setValue,
   } = useForm({
     mode: "all",
   });
@@ -58,6 +60,7 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
         //Habilitas boton
         setDisableButton(false);
         setDisableButtonConfirmation(false);
+        setModalConfirmation(false);
         SetModal(false);
 
         if (callback) callback();
@@ -72,7 +75,10 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
   };
 
   const onConfirmation = (data) => {
-    console.log("Datos", data)
+    SumTotal();
+
+    data.MontoTotal = SumaTotal;
+    console.log("Datos", data);
     setDatos(data);
     setDisableButton(true);
     console.log("entro a Confirmation");
@@ -87,12 +93,41 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
     reset();
   };
 
-  const handleChangeDetail = (event, index) => {
-    let campos = [...detalle];
-    campos[index][event.target.name] = event.target.value;
+  //console.log("Valores",getValues("Detalle"))
+  var Detail;
+  var SumaTotal = 0;
+  const SumTotal = () => {
+    Detail = getValues("Detalle");
 
-    setDetalle(campos);
+    /*if (Detail !== undefined) {
+      for (var i = 0; i < Detail.length; i++) {
+        if (Detail[i] !== undefined) {
+          console.log(Detail);
+
+
+          Detail.map(({  CantidadTotal, PrecioCompra }) => {
+            var precio = CantidadTotal * PrecioCompra;
+            SumaTotal += precio;
+
+            console.log(i, "Precio:", precio, "SumTotal:", SumaTotal);
+          });
+        }
+      }
+    }*/
+    if (Detail !== undefined) {
+      Detail.map(({  CantidadTotal, PrecioCompra }) => {
+        var precio = CantidadTotal * PrecioCompra;
+        SumaTotal += precio;
+
+        console.log( "Precio:", precio, "SumTotal:", SumaTotal);
+      });
+      //setValue("MontoTotal", SumaTotal);
+    }
+
+    
   };
+
+  //console.log("Touch",touchedFields)
 
   return modal ? (
     <>

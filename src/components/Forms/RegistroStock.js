@@ -62,8 +62,8 @@ export const RegistroStock = ({
   return (
     <>
       <form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
-        <div className="row2-Inputs">
-          <TextInput
+        <div className="row3-Inputs">
+          {/* <TextInput
             //Disabled={true}
             Name={"MontoTotal"}
             LabelInput={"Sumatoria Total*"}
@@ -71,7 +71,7 @@ export const RegistroStock = ({
             Register={register}
             Validation={{required: "El campo es requerido",}}
             ErrorInput={errors.MontoTotal?.message}
-          />
+          /> */}
 
           <Select
             Name={"Proveedor"}
@@ -92,13 +92,12 @@ export const RegistroStock = ({
                 <div className="row3-Inputs">
                   <button
                     className="buttonRemoveRow"
-                    style={{ marginLeft: "5px" }}
                     type="button"
                     onClick={() => remove(index)}
                   >
                     <img src={Images.REMOVE} width={26} alt="remove"></img>
                   </button>
-                  <input {...register(`Detalle.${index}.firstName`, {
+                  {/* <input {...register(`Detalle.${index}.firstName`, {
                     required : "Ell camposasd"
                   } )} />
                   {
@@ -107,16 +106,21 @@ export const RegistroStock = ({
                     </>): (<>no</>)
                   }
 
-                  <input {...register(`Detalle.${index}.lastname`)} />
-                  {/* <SelectUseFormDinamic
+                  <input {...register(`Detalle.${index}.lastname`)} /> */}
+
+                  <SelectUseFormDinamic
                     Name={"Codigo"}
                     LabelInput={"Código del producto*"}
                     Placeholder={"Selecciona el Código"}
                     SelectOption={Producto}
                     Register={register}
-                    //ErrorInput={errors.Codigo?.message}
+                    Validation={{
+                      required: "El campo es requerido",
+                    }}
+                    ErrorInput={errors}
                     index={index}
-                  /> */}
+                  />
+
                   <TexInputUseFormDinamic
                     Name={"CantidadTotal"}
                     LabelInput={"Cantidad Total*"}
@@ -133,24 +137,10 @@ export const RegistroStock = ({
                     ErrorInput={errors}
                     index={index}
                   />
-                  {/* <TexInputUseFormDinamic
-                    Name={"PrecioCompra"}
-                    LabelInput={"Precio compra del producto*"}
-                    Placeholder={"Ej 231"}
-                    Register={register}
-                    Validation={{
-                      required: "El campo es requerido",
-                      pattern: {
-                        value: /^[0-9]+$/,
-                        message: "Solo se permiten números",
-                      },
-                    }}
-                    //ErrorInput={errors.PrecioCompra?.message}
-                    index={index}
-                  /> */}
+                  
                 </div>
                 <div className="row3-Inputs">
-                  {/* <TexInputUseFormDinamic
+                  <TexInputUseFormDinamic
                     Name={"FechaVencimiento"}
                     LabelInput={"Fecha de vencimiento"}
                     Placeholder={"Ej 20/12/2024"}
@@ -163,26 +153,27 @@ export const RegistroStock = ({
                         message: "El formato debe ser DD/MM/AAAA",
                       },
                     }}
-                    //ErrorInput={errors.FechaVencimiento?.message}
+                    ErrorInput={errors}
                     index={index}
                   />
                   <TexInputUseFormDinamic
-                    Name={"Lote"}
-                    LabelInput={"Numero de lote del producto"}
-                    Placeholder={"Ej 10"}
+                    Name={"PrecioCompra"}
+                    LabelInput={"Precio compra del producto*"}
+                    Placeholder={"Ej 231"}
                     Register={register}
                     Validation={{
-                      //required: "El campo es requerido",
+                      required: "El campo es requerido",
                       pattern: {
                         value: /^[0-9]+$/,
                         message: "Solo se permiten números",
                       },
                     }}
-                    //ErrorInput={errors.Lote?.message}
+                    ErrorInput={errors}
                     index={index}
-                  /> */}
+                  />
                 </div>
               </div>
+              <div className="spaceVer20" />
             </div>
           );
         })}
@@ -211,7 +202,7 @@ export const RegistroStock = ({
           </button>
         </div>
 
-         <pre>{JSON.stringify(watch(), null, 2)} </pre>
+         {/* <pre>{JSON.stringify(watch(), null, 2)} </pre> */}
       </form>
     </>
   );

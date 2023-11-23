@@ -13,6 +13,8 @@ import { ViewUser } from "../views/ViewUser";
 import { GestionProduct } from "../views/GestionProduct";
 import { GestionStock } from "../views/GestionStock";
 import { ViewProduct } from "../views/ViewProduct";
+import { GestionSale } from "../views/GestionSale";
+import { NewSale } from "../views/NewSale";
 
 export const HomeApp = () => {
   return (
@@ -34,6 +36,9 @@ export const HomeApp = () => {
         <Route path="/view/product/:id" element={<ViewProduct />} />
 
         <Route path="/gestionStock" element={<GestionStock />} />
+
+        <Route path="/gestionSale" element={<GestionSale />} />
+        <Route path="/newSale" element={<NewSale />} />
 
         <Route path="/*" element={<Navigate to="/dashboard" />} />
       </Routes>
