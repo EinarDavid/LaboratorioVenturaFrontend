@@ -35,7 +35,7 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
 
   const {
     register,
-    formState: { errors, touchedFields },
+    formState: { errors },
     reset,
     handleSubmit,
     control,
@@ -127,7 +127,7 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
     
   };
 
-  //console.log("Touch",touchedFields)
+
 
   return modal ? (
     <>

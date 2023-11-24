@@ -89,9 +89,9 @@ export const SectionFilterProduct = ({ handleChangeSearch }) => {
         <div className="spaceVer5" />
         <hr className="lineFilter" />
         <div className="spaceVer5" />
-        {/* <div>
+        <div>
           <div className="titleFilter">
-            <h3 className="titleStyleH3">NOMBRE</h3>
+            <h3 className="titleStyleH3">PRECIO COMPRA</h3>
             <button
               className="buttonPrint"
               onClick={() => setSearchThree(!searchThree)}
@@ -111,7 +111,7 @@ export const SectionFilterProduct = ({ handleChangeSearch }) => {
             <>
               
               <TextInputDinamic
-                Name={"Nombre"}
+                Name={"PrecioCompra"}
                 //LabelInput={'Buscar por Nombre'}
                 Placeholder={"Escribe aquí"}
                 OnChange={(e) => {
@@ -128,7 +128,7 @@ export const SectionFilterProduct = ({ handleChangeSearch }) => {
         <div className="spaceVer5" />
         <div>
           <div className="titleFilter">
-            <h3 className="titleStyleH3">PRIMER APELLIDO</h3>
+            <h3 className="titleStyleH3">PRECIO VENTA</h3>
             <button
               className="buttonPrint"
               onClick={() => setSearchFour(!searchFour)}
@@ -147,7 +147,7 @@ export const SectionFilterProduct = ({ handleChangeSearch }) => {
           {searchFour ? (
             <>
               <TextInputDinamic
-                Name={"PrimerApellido"}
+                Name={"PrecioVenta"}
                 //LabelInput={'Buscar por Nombre'}
                 Placeholder={"Escribe aquí"}
                 OnChange={(e) => {
@@ -165,7 +165,7 @@ export const SectionFilterProduct = ({ handleChangeSearch }) => {
         <div className="spaceVer5" />
         <div>
           <div className="titleFilter">
-            <h3 className="titleStyleH3">SEGUNDO APELLIDO</h3>
+            <h3 className="titleStyleH3">INVENTARIO ACTUAL</h3>
             <button
               className="buttonPrint"
               onClick={() => setSearchFive(!searchFive)}
@@ -184,7 +184,7 @@ export const SectionFilterProduct = ({ handleChangeSearch }) => {
           {searchFive ? (
             <>
               <TextInputDinamic
-                Name={"SegundoApellido"}
+                Name={"InventarioActual"}
                 //LabelInput={'Buscar por Nombre'}
                 Placeholder={"Escribe aquí"}
                 OnChange={(e) => {
@@ -197,7 +197,7 @@ export const SectionFilterProduct = ({ handleChangeSearch }) => {
           )}
         </div>
         <div className="spaceVer5" />
-        <hr className="lineFilter" /> */}
+        <hr className="lineFilter" />
       </div>
     </>
   );

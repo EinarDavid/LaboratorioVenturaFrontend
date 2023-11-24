@@ -26,6 +26,10 @@ export const GestionProduct = () => {
   const [search, setSearch] = useState({
     Codigo: "",
     Nombre: "",
+    PrecioCompra:"",
+    PrecioVenta:"",
+    InventarioActual:"",
+    
     ord: "",
   });
   const [datos, setDatos] = useState([]);

@@ -15,6 +15,7 @@ import { GestionStock } from "../views/GestionStock";
 import { ViewProduct } from "../views/ViewProduct";
 import { GestionSale } from "../views/GestionSale";
 import { NewSale } from "../views/NewSale";
+import { ViewStock } from "../views/ViewStock";
 
 export const HomeApp = () => {
   return (
@@ -36,6 +37,7 @@ export const HomeApp = () => {
         <Route path="/view/product/:id" element={<ViewProduct />} />
 
         <Route path="/gestionStock" element={<GestionStock />} />
+        <Route path="/view/stock/:id" element={<ViewStock />} />
 
         <Route path="/gestionSale" element={<GestionSale />} />
         <Route path="/newSale" element={<NewSale />} />

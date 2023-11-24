@@ -141,7 +141,7 @@ export const GestionStock = () => {
                         <td>
                           <button
                             className="buttonPrint"
-                            onClick={() => navigate("/view/examen/" + exa._id)}
+                            onClick={() => navigate("/view/stock/" + exa._id)}
                           >
                             <img src={Images.VIEW} width={"25"} alt={"View"} />
                           </button>

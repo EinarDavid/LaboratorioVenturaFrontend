@@ -1331,12 +1331,12 @@
   width: 100%;
 }
 
-@media only screen and (max-height: 900px) {
+/* @media only screen and (max-height: 900px) {
   .tablePadreContainer {
-    /* height: 61vh; */
-    /* background: #0078b8; */
+    height: 61vh; 
+     background: #0078b8; 
   }
-}
+} */
 
 
 .titleTable {
