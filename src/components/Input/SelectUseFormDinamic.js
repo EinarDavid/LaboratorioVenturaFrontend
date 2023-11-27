@@ -10,6 +10,7 @@ export const SelectUseFormDinamic = ({
   Validation,
   index,
 }) => {
+  console.log("-------------", SelectOption)
   return (
     <>
       <div className="containerTextInput">
@@ -21,14 +22,19 @@ export const SelectUseFormDinamic = ({
           {...Register(`Detalle.${index}.${Name}`, Validation)}
         >
           <option value="" hidden>
-            
             {Placeholder}
           </option>
-          {SelectOption.map(({ option, id }) => (
-            <option key={id} value={option}>
-              {option}
-            </option>
-          ))}
+          {SelectOption !== undefined ? (
+            <>
+              {SelectOption?.map(({ _id, Nombre }) => (
+                <option key={_id} value={_id}>
+                  {Nombre}
+                </option>
+              ))}
+            </>
+          ) : (
+            <></>
+          )}
         </select>
 
         {ErrorInput.Detalle !== undefined ? (
@@ -48,7 +54,6 @@ export const SelectUseFormDinamic = ({
         ) : (
           <></>
         )}
-
       </div>
     </>
   );

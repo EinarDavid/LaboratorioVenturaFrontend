@@ -182,7 +182,7 @@ export const GestionStock = () => {
       <ModalRegStock
         modal={modalShow}
         SetModal={setModalShow}
-        callback={() => cargarDatos()}
+        callback={() => {cargarDatos(); console.log("Entro a cargar datos")}}
       ></ModalRegStock>
     </>
   );

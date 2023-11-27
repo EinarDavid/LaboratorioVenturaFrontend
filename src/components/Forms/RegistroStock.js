@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ButtonPrimary } from "../Button/ButtonPrimary";
 import { TextInput } from "../Input/TextInput";
 import { Select } from "../Input/Select";
 import Images from "../../config/Images";
 import { TexInputUseFormDinamic } from "../Input/TexInputUseFormDinamic";
 import { SelectUseFormDinamic } from "../Input/SelectUseFormDinamic";
+import { getProductTodos } from "../../services/productService";
 
 export const RegistroStock = ({
   product = {
@@ -35,29 +36,19 @@ export const RegistroStock = ({
   fields,
   append,
   remove,
+
+  producto
 }) => {
   const Proveedor = [
     {
-      option: "Proveedor 1",
-      id: 1,
+      Nombre: "Proveedor 1",
+      _id: 111,
     },
     {
-      option: "Proveedor 2",
-      id: 2,
+      Nombre: "Proveedor 2",
+      _id: 222,
     },
   ];
-
-  const Producto = [
-    {
-      option: "ALFA",
-      id: 1,
-    },
-    {
-      option: "ASOFAR",
-      id: 2,
-    },
-  ];
-  //console.log("------",errors.Codigo[0].firstName.message)
 
   return (
     <>
@@ -112,7 +103,7 @@ export const RegistroStock = ({
                     Name={"Codigo"}
                     LabelInput={"Código del producto*"}
                     Placeholder={"Selecciona el Código"}
-                    SelectOption={Producto}
+                    SelectOption={producto}
                     Register={register}
                     Validation={{
                       required: "El campo es requerido",

@@ -16,6 +16,7 @@ import { calcularEdad } from "../services/calcEdad";
 import { EmptySearch } from "../components/Empty/EmptySearch";
 import { SelectDinamic } from "../components/Input/SelectDinamic";
 import { ButtonPrimary100 } from "../components/Button/ButtonPrimary100";
+import { getProductTodos } from "../services/productService";
 
 export const NewSale = () => {
     const navigate = useNavigate();
@@ -23,7 +24,7 @@ export const NewSale = () => {
   const [disableButton, setDisableButton] = useState(false);
   const [pacientes, setPacientes] = useState([]);
   const [pacienteFinded, setPacienteFinded] = useState({});
-  const [examenes, setExamenes] = useState([]);
+  const [examenes, setProducto] = useState([]);
   const [examenFinded, setExamenFinded] = useState([]);
   const [exameneSelected, setExameneSelected] = useState([]);
   const [pacienteSelected, setPacienteSelected] = useState([]);
@@ -38,7 +39,7 @@ export const NewSale = () => {
   const llamarPacientes = () =>
     getPacientesNombres().then(({ data }) => setPacientes(data));
   const llamarExamenes = () =>
-    getExamenTodos().then(({ data }) => setExamenes(data));
+    getProductTodos().then(({ data }) => setProducto(data));
   useEffect(() => {
     llamarPacientes();
     llamarExamenes();

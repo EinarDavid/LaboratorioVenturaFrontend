@@ -15,6 +15,7 @@ import {
 } from "../services/stockService";
 import { RegistroStock } from "../components/Forms/RegistroStock";
 import { convertDate } from "../services/convertDate";
+import { getProductTodos } from "../services/productService";
 
 export const ViewStock = ({ callback }) => {
   const navigate = useNavigate();
@@ -29,6 +30,7 @@ export const ViewStock = ({ callback }) => {
   const [disableButtonConfirmationDelete, setDisableButtonConfirmationDelete] =
     useState(false);
   const [datos, setDatos] = useState({});
+  const [producto, setProducto] = useState()
 
   const {
     register,
@@ -151,6 +153,14 @@ export const ViewStock = ({ callback }) => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    getProductTodos().then(({data})=>{
+      //console.log(data)
+      setProducto(data)
+    })
+  }, [])
+
   return (
     <>
       <div className="App">
@@ -193,6 +203,7 @@ export const ViewStock = ({ callback }) => {
               append={append}
               remove={remove}
               watch={watch}
+              producto={producto}
             />
           </div>
         </div>

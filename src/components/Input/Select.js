@@ -17,10 +17,10 @@ export const Select = ({ LabelInput, Placeholder, SelectOption, ErrorInput, Regi
                 >
                     <option value='' hidden> {Placeholder}</option>
                     {
-                        SelectOption.map(({ option, id }) => (
-                            <option key={id}
-                                value={option}
-                            >{option}</option>
+                        SelectOption?.map(({ Nombre, _id }) => (
+                            <option key={_id}
+                                value={_id}
+                            >{Nombre}</option>
                         ))
                     }
                 </select>

@@ -7,6 +7,7 @@ import { RegistroProducto } from "../Forms/RegistroProducto";
 import { RegistroStock } from "../Forms/RegistroStock";
 import { postAgregarStock } from "../../services/stockService";
 import { ModalConfirmation } from "./ModalConfirmation";
+import { getProductTodos } from "../../services/productService";
 
 export const ModalRegStock = ({ SetModal, modal, callback }) => {
   const [modalConfirmation, setModalConfirmation] = useState(false);
@@ -14,6 +15,7 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
   const [disableButtonConfirmation, setDisableButtonConfirmation] =
     useState(false);
   const [datos, setDatos] = useState({});
+  const [producto, setProducto] = useState({})
 
   const [detalle, setDetalle] = useState([
     {
@@ -98,22 +100,6 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
   var SumaTotal = 0;
   const SumTotal = () => {
     Detail = getValues("Detalle");
-
-    /*if (Detail !== undefined) {
-      for (var i = 0; i < Detail.length; i++) {
-        if (Detail[i] !== undefined) {
-          console.log(Detail);
-
-
-          Detail.map(({  CantidadTotal, PrecioCompra }) => {
-            var precio = CantidadTotal * PrecioCompra;
-            SumaTotal += precio;
-
-            console.log(i, "Precio:", precio, "SumTotal:", SumaTotal);
-          });
-        }
-      }
-    }*/
     if (Detail !== undefined) {
       Detail.map(({  CantidadTotal, PrecioCompra }) => {
         var precio = CantidadTotal * PrecioCompra;
@@ -127,6 +113,12 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
     
   };
 
+  useEffect(() => {
+    getProductTodos().then(({data})=>{
+      //console.log(data)
+      setProducto(data)
+    })
+  }, [])
 
 
   return modal ? (
@@ -135,7 +127,7 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
         <div className="popup_itself">
           <div className="popup_button_container">
             <h1 className="titleStyle">Registro de inventario</h1>
-            <button className="button_close" onClick={() => SetModal(false)}>
+            <button className="button_close" onClick={() => {SetModal(false); reset()}}>
               {<img src={Images.CLOSE} width={30} alt="icon"></img>}{" "}
             </button>
           </div>
@@ -151,6 +143,7 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
             append={append}
             remove={remove}
             watch={watch}
+            producto={producto}
           />
         </div>
       </div>
