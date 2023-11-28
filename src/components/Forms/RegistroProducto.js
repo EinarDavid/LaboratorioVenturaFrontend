@@ -30,23 +30,23 @@ export const RegistroProducto = ({
 }) => {
   const Proveedor = [
     {
-      option: "Proveedor_1",
-      id: 11,
+      Nombre: "Proveedor_1",
+      _id: 11,
     },
     {
-      option: "Proveedor_2",
-      id: 22,
+      Nombre: "Proveedor_2",
+      _id: 22,
     },
   ];
 
   const GrupoFamilia = [
     {
-      option: "ALFA",
-      id: 1,
+      Nombre: "ALFA",
+      _id: 1,
     },
     {
-      option: "ASOFAR",
-      id: 2,
+      Nombre: "ASOFAR",
+      _id: 2,
     },
   ];
 

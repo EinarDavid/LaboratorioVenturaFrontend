@@ -1407,6 +1407,7 @@
 
 .containerResultados {
   position: absolute;
+  z-index: 1;
   background: var(--bs-white);
   box-shadow: 5px 5px 10px rgb(0 0 0 / 30%);
   padding: 10px 10px 10px 10px;

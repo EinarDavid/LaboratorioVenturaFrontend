@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { SearchInput } from "../components/Input/SearchInput";
-import { ModalRegPaciente } from "../components/Modal/ModalRegPaciente";
+import { ModalRegProduct } from "../components/Modal/ModalRegProduct";
 import { MainNavigator } from "../navigation/MainNavigator";
 import { getPacientesNombres } from "../services/pacienteService";
 import { getExamenTodos } from "../services/examenService";
 import { postAgregarLaboratorio } from "../services/laboratorioService";
 
 import { TextInputDinamic } from "../components/Input/TextInputDinamic";
-import { ModalRegTest } from "../components/Modal/ModalRegTest";
+import { ModalRegPaciente } from "../components/Modal/ModalRegPaciente";
 
 import Images from "../config/Images";
 import { ButtonPrimary } from "../components/Button/ButtonPrimary";
@@ -19,7 +19,7 @@ import { ButtonPrimary100 } from "../components/Button/ButtonPrimary100";
 import { getProductTodos } from "../services/productService";
 
 export const NewSale = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [disableButton, setDisableButton] = useState(false);
   const [pacientes, setPacientes] = useState([]);
@@ -31,6 +31,7 @@ export const NewSale = () => {
   const [modalShow, setModalShow] = useState(false);
   const [modalShowRegtest, setModalShowRegtest] = useState(false);
   const [detalle, setDataDetalle] = useState();
+  const [sumTotal, setSumTotal] = useState([]);
 
   const [render, setRender] = useState(true);
 
@@ -98,13 +99,27 @@ export const NewSale = () => {
       id_option: 4,
     },
   ];
+  const _CalcularTotal = (PrecioVenta, id, e) => {
+    console.log(PrecioVenta, e.target.value, e.target.name);
+    var Total = PrecioVenta * Number(e.target.value);
+    
+
+    const nuevoArreglo = exameneSelected.map(elemento => {
+      if (elemento._id === id) {
+        return { ...elemento, Total: Total, Cantidad: e.target.value, PrecioVenta: PrecioVenta };
+      }
+      return elemento;
+    });
+
+    setExameneSelected(nuevoArreglo);
+  };
+  
 
   return (
     <>
-<div className="App" key={render}>
+      <div className="App" key={render}>
         <div className="mainNav">
           <MainNavigator />
-
         </div>
         <div className="containerPadre">
           <div className="sections">
@@ -163,7 +178,6 @@ export const NewSale = () => {
                     <div className="spaceVer10" />
                     {pacienteSelected.length !== 0 ? (
                       <section className="information">
-                        {console.log("pacienteeeeee", pacienteSelected)}
                         <p className="labelInput">
                           <strong>Código</strong>:{" "}
                           {pacienteSelected.CodigoPaciente}
@@ -223,6 +237,7 @@ export const NewSale = () => {
                             if (
                               !exameneSelected.find((a) => a._id === ex._id)
                             ) {
+
                               setExameneSelected([...exameneSelected, ex]);
                               setExamenFinded([]);
                             }
@@ -237,11 +252,11 @@ export const NewSale = () => {
 
                           <p className="labelInput">Nombre: {ex.Nombre}</p>
                           <div className="spaceRow10" />
-                          <p className="labelInput">
-                            Categoria: {ex.Categoria}
-                          </p>
+                          <p className="labelInput">Código: {ex.Codigo}</p>
                           <div className="spaceRow10" />
-                          <p className="labelInput">Método: {ex.Metodo}</p>
+                          <p className="labelInput">
+                            Proveedor: {ex.Proveedor}
+                          </p>
                           <div className="spaceRow10" />
                         </button>
                       </div>
@@ -262,8 +277,10 @@ export const NewSale = () => {
                             <tr>
                               <th className="titleTable">Nro</th>
                               <th className="titleTable">Nombre</th>
-                              <th className="titleTable">Categoria</th>
-                              <th className="titleTable">Metodo</th>
+                              <th className="titleTable">Codigo</th>
+                              <th className="titleTable">Precio Unitario</th>
+                              <th className="titleTable">Cantidad</th>
+                              <th className="titleTable">Total (Bs)</th>
                             </tr>
                           </thead>
 
@@ -272,10 +289,24 @@ export const NewSale = () => {
                               <tr key={i} className="trTable">
                                 <td className="containerTable">{i + 1}</td>
                                 <td className="containerTable">{ex.Nombre}</td>
+                                <td className="containerTable">{ex.Codigo}</td>
                                 <td className="containerTable">
-                                  {ex.Categoria}
+                                  <input
+                                    type="text"
+                                    value={ex.PrecioVenta}
+                                  ></input>
                                 </td>
-                                <td className="containerTable">{ex.Metodo}</td>
+                                <td className="containerTable">
+                                  <input
+                                    name="Cantidad"
+                                    type="text"
+                                    onChange={(e) =>
+                                      _CalcularTotal(ex.PrecioVenta,ex._id, e)
+                                    }
+                                    defaultValue={1}
+                                  ></input>
+                                </td>
+                                <td className="containerTable"> Total: {ex.Total}</td>
                                 <td>
                                   <button
                                     className="buttonDeleteTable"
@@ -314,30 +345,6 @@ export const NewSale = () => {
               </div>
             </div>
             <div className="section2Lab">
-              <div className="containerLab2">
-                <h2 className="titleStyleH2">Datos adicionales</h2>
-                <div className="spaceVer10" />
-                <TextInputDinamic
-                  Name={"FechaDeEntrega"}
-                  LabelInput={"Fecha de entrega"}
-                  Placeholder={"Ej. 10/10/2023"}
-                  OnChange={(e) => handleChangeNombre(e)}
-                  value={""}
-                />
-                <div className="spaceVer10" />
-                <TextInputDinamic
-                  Name={"Motivo"}
-                  LabelInput={"Motivo"}
-                  Placeholder={"Ej. Examen anual"}
-                  OnChange={(e) => handleChangeNombre(e)}
-                  value={""}
-                />
-              </div>
-
-              <div className="spaceVer10" />
-              <hr className="lineFilterWhite" />
-              <div className="spaceVer10" />
-
               <div className="containerLab2">
                 <h2 className="titleStyleH2">Método de pago</h2>
                 <div className="spaceVer10" />
@@ -379,7 +386,7 @@ export const NewSale = () => {
                   LabelInput={"Total pagado"}
                   Placeholder={"Ej. 100 Bs"}
                   OnChange={(e) => handleChangeNombre(e)}
-                  value={""}
+                  Value={""}
                 />
                 <div className="ContainerCheck">
                   <label className="labelInputCheck">
@@ -397,7 +404,7 @@ export const NewSale = () => {
                       className="checkbookInput"
                       type="checkbox"
                       name="Cotizacion"
-                      value="Cotización"
+                      defaultValue="Cotización"
                       onChange={(e) => handleChangeNombre(e)}
                     />
                     Registrar como cotización
@@ -407,7 +414,7 @@ export const NewSale = () => {
                 <div className="spaceVer15" />
 
                 <ButtonPrimary100
-                  Nombre={"REGISTRAR"}
+                  Nombre={"REALIZAR VENTA"}
                   Disabled={disableButton}
                   OnClick={_onSubmit}
                 />
@@ -421,11 +428,12 @@ export const NewSale = () => {
         SetModal={setModalShow}
         callback={llamarPacientes}
       ></ModalRegPaciente>
-      <ModalRegTest
+
+      <ModalRegProduct
         modal={modalShowRegtest}
         SetModal={setModalShowRegtest}
         callback={llamarExamenes}
       />
     </>
-  )
-}
+  );
+};

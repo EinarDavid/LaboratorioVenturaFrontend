@@ -10,7 +10,7 @@ export const SearchInput = ({ Image, onClick, LabelInput, Placeholder, Data, Key
                 a[Key].substring(0, e.target.value.length).toLowerCase() == (e.target.value).toLowerCase()
             )
             Find(finded)
-            console.log('---', finded)
+            //console.log('---', finded)
         }
         else
         {
