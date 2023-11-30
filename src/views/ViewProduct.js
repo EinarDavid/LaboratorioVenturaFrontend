@@ -13,6 +13,7 @@ import {
   postProductEliminar,
   postProductModificar,
 } from "../services/productService";
+import { RegistroProducto } from "../components/Forms/RegistroProducto";
 
 export const ViewProduct = ({ callback }) => {
   const navigate = useNavigate();
@@ -61,6 +62,7 @@ export const ViewProduct = ({ callback }) => {
         setValue("Utilidad", data?.Utilidad);
         setValue("PrecioVenta", data?.PrecioVenta);
         setValue("InventarioMinimo", data?.InventarioMinimo);
+        setValue("InventarioActual", data?.InventarioActual)
         setValue("FechaVencimiento", data?.FechaVencimiento);
       });
     } catch (error) {
@@ -81,7 +83,7 @@ export const ViewProduct = ({ callback }) => {
     setModalConfirmation(false);
 
     reset();
-    navigate("/gestionUsuarios");
+    navigate("/gestionProduct");
   };
 
   const onConfirmationDelete = () => {
@@ -97,7 +99,7 @@ export const ViewProduct = ({ callback }) => {
     setDisableButtonDelete(false);
     setModalConfirmationDelete(false);
     //reset();
-    //navigate("/gestionUsuarios");
+    //navigate("/gestionProduct");
   };
 
   const onSubmit = () => {
@@ -115,7 +117,7 @@ export const ViewProduct = ({ callback }) => {
 
         alert(data.mensaje);
         setDatos({});
-        navigate("/gestionUsuarios");
+        navigate("/gestionProduct");
       });
     } catch (error) {
       console.log(error);
@@ -135,7 +137,7 @@ export const ViewProduct = ({ callback }) => {
         if (callback) callback();
 
         alert(data.mensaje);
-        navigate("/gestionUsuarios");
+        navigate("/gestionProduct");
       });
     } catch (error) {
       console.log(error);
@@ -152,7 +154,7 @@ export const ViewProduct = ({ callback }) => {
               <div className="navTitleContainer">
                 <button
                   className="button_close"
-                  onClick={() => navigate("/gestionUsuarios")}
+                  onClick={() => navigate("/gestionProduct")}
                 >
                   {<img src={Images.ARROWLEFT} width={30} alt="icon"></img>}
                 </button>
@@ -170,7 +172,7 @@ export const ViewProduct = ({ callback }) => {
 
             <div className="spaceVer20" />
 
-            <RegistroUsuario
+            <RegistroProducto
               handleSubmit={handleSubmit}
               onSubmit={onConfirmation}
               register={register}
@@ -182,14 +184,14 @@ export const ViewProduct = ({ callback }) => {
       </div>
       <ModalConfirmation
         ModalConfirmation={modalConfirmation}
-        ValueText={"¿Estas seguro de que quieres modificar al usuario?"}
+        ValueText={"¿Estas seguro de que quieres modificar el Producto?"}
         OnCancel={onCancel}
         OnSubmit={onSubmit}
         DisableButtonConfirmation={disableButtonConfirmation}
       />
       <ModalConfirmation
         ModalConfirmation={modalConfirmationDelete}
-        ValueText={"¿Estas seguro de que quieres eliminar al usuario?"}
+        ValueText={"¿Estas seguro de que quieres eliminar el Producto?"}
         OnCancel={onCancelDelete}
         OnSubmit={handleDelete}
         DisableButtonConfirmation={disableButtonConfirmationDelete}

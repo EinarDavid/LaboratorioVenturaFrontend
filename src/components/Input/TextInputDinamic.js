@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const TextInputDinamic = ({ LabelInput, Placeholder, ErrorInput, OnChange, Value, Name, State }) => {
+export const TextInputDinamic = ({ LabelInput, Placeholder, ErrorInput, OnChange, Value, Name, State, Disabled }) => {
   
   return (
     <>
@@ -8,6 +8,7 @@ export const TextInputDinamic = ({ LabelInput, Placeholder, ErrorInput, OnChange
         <div className='containerTextInput'>
           <label className='labelInput'>{LabelInput}</label>
           <input type='text' className='textInputError' placeholder={Placeholder}
+          disabled={Disabled}
             name={Name}
             onChange={OnChange}
             defaultValue={Value}
@@ -18,6 +19,7 @@ export const TextInputDinamic = ({ LabelInput, Placeholder, ErrorInput, OnChange
           <div className='containerTextInput'>
             <label className='labelInput'>{LabelInput}</label>
             <input type='text' className='textInput' placeholder={Placeholder}
+              disabled={Disabled}
               name={Name}
               onChange={OnChange}
               defaultValue={Value}

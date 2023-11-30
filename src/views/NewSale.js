@@ -4,7 +4,7 @@ import { ModalRegProduct } from "../components/Modal/ModalRegProduct";
 import { MainNavigator } from "../navigation/MainNavigator";
 import { getPacientesNombres } from "../services/pacienteService";
 import { getExamenTodos } from "../services/examenService";
-import { postAgregarLaboratorio } from "../services/laboratorioService";
+import { postAgregarVenta } from "../services/saleService";
 
 import { TextInputDinamic } from "../components/Input/TextInputDinamic";
 import { ModalRegPaciente } from "../components/Modal/ModalRegPaciente";
@@ -17,6 +17,7 @@ import { EmptySearch } from "../components/Empty/EmptySearch";
 import { SelectDinamic } from "../components/Input/SelectDinamic";
 import { ButtonPrimary100 } from "../components/Button/ButtonPrimary100";
 import { getProductTodos } from "../services/productService";
+import { ModalConfirmation } from "../components/Modal/ModalConfirmation";
 
 export const NewSale = () => {
   const navigate = useNavigate();
@@ -24,15 +25,18 @@ export const NewSale = () => {
   const [disableButton, setDisableButton] = useState(false);
   const [pacientes, setPacientes] = useState([]);
   const [pacienteFinded, setPacienteFinded] = useState({});
-  const [examenes, setProducto] = useState([]);
+  const [producto, setProducto] = useState([]);
   const [examenFinded, setExamenFinded] = useState([]);
-  const [exameneSelected, setExameneSelected] = useState([]);
+  const [productSelect, setExameneSelected] = useState([]);
   const [pacienteSelected, setPacienteSelected] = useState([]);
   const [modalShow, setModalShow] = useState(false);
   const [modalShowRegtest, setModalShowRegtest] = useState(false);
-  const [detalle, setDataDetalle] = useState();
+  const [dataFacturacion, setDataFacturacion] = useState();
   const [sumTotal, setSumTotal] = useState([]);
-
+  const [descuento, setDescuento] = useState([]);
+  const [modalConfirmation, setModalConfirmation] = useState(false);
+  const [disableButtonConfirmation, setDisableButtonConfirmation] =useState(false);
+  
   const [render, setRender] = useState(true);
 
   // console.log("PAC:", pacienteSelected);
@@ -40,7 +44,9 @@ export const NewSale = () => {
   const llamarPacientes = () =>
     getPacientesNombres().then(({ data }) => setPacientes(data));
   const llamarExamenes = () =>
-    getProductTodos().then(({ data }) => setProducto(data));
+    getProductTodos().then(({ data }) => {
+      setProducto(data);
+    });
   useEffect(() => {
     llamarPacientes();
     llamarExamenes();
@@ -53,15 +59,19 @@ export const NewSale = () => {
   const fechaActual = `${d}-${m}-${a}`;
 
   const _onSubmit = () => {
-    if (pacienteSelected && exameneSelected[0]) {
-      setDisableButton(true);
-      let laboratorio = {
-        examenes: exameneSelected,
-        paciente: pacienteSelected,
-        motivo: detalle?.Motivo,
+    if (pacienteSelected && productSelect[0]) {
+      //setDisableButton(true);
+      
+      let datos = {
+        Producto: productSelect,
+        Cliente: pacienteSelected,
+        Descuento_Ganancia: descuento,
         Fecha: fechaActual,
+        PrecioTotal: sumTotal,
+        Facturacion: dataFacturacion
       };
-      postAgregarLaboratorio(laboratorio).then(({ data }) => {
+      console.log(datos)
+      postAgregarVenta(datos).then(({ data }) => {
         console.log(data);
         alert(data.mensaje);
         setRender(!render);
@@ -70,15 +80,16 @@ export const NewSale = () => {
         setExameneSelected([]);
         setPacienteSelected([]);
         setDisableButton(false);
-
+        setDisableButtonConfirmation(false);
+        setModalConfirmation(false);
         //limpiar cajas, cerrar modal y avisar que fue añadido con exito
       });
     } else {
-      alert("Selecciona un paciente y examenes a realizar");
+      alert("Selecciona un paciente y producto a realizar");
     }
   };
   const handleChangeNombre = (event) => {
-    setDataDetalle({ ...detalle, [event.target.name]: event.target.value });
+    setDataFacturacion({ ...dataFacturacion, [event.target.name]: event.target.value });
   };
 
   const FormadePago = [
@@ -99,21 +110,87 @@ export const NewSale = () => {
       id_option: 4,
     },
   ];
-  const _CalcularTotal = (PrecioVenta, id, e) => {
-    console.log(PrecioVenta, e.target.value, e.target.name);
-    var Total = PrecioVenta * Number(e.target.value);
-    
+  const _CalcularTotal = (PrecioVenta, id, e, Invetario) => {
+    //console.log('as', e.target.value, Invetario);
+    var ErrorMessage = "";
 
-    const nuevoArreglo = exameneSelected.map(elemento => {
+    if(Number(e.target.value) > Invetario){
+      ErrorMessage = "Tu invetario actual es de: " + Invetario
+    }
+    var Total = PrecioVenta * Number(e.target.value);
+
+    const nuevoArreglo = productSelect.map((elemento) => {
       if (elemento._id === id) {
-        return { ...elemento, Total: Total, Cantidad: e.target.value, PrecioVenta: PrecioVenta };
+        return {
+          ...elemento,
+          Total: Total,
+          Cantidad: e.target.value,
+          PrecioVenta: PrecioVenta,
+          ErrorMessage: ErrorMessage
+        };
       }
       return elemento;
     });
 
     setExameneSelected(nuevoArreglo);
   };
-  
+  const _CalcularTotal2 = (Cantidad, id, e) => {
+    //console.log( e.target)
+    //console.log('cantidad',Cantidad, e.target.value);
+
+    var Total = Cantidad * Number(e.target.value);
+
+    const nuevoArreglo = productSelect.map((elemento) => {
+      if (elemento._id === id) {
+        return {
+          ...elemento,
+          Total: Total,
+          Cantidad: Cantidad,
+          PrecioVenta: e.target.value,
+        };
+      }
+      return elemento;
+    });
+    setExameneSelected(nuevoArreglo);
+  };
+
+  const _Sumtotal = () => {
+    var suma = 0;
+    productSelect.map((data) => {
+      suma = suma + Number(data?.Total);
+      //console.log(data)
+    });
+    setSumTotal(suma);
+  };
+  useEffect(() => {
+    _Sumtotal();
+    _DescuentoTotal();
+  }, [productSelect]);
+
+  const _DescuentoTotal = () => {
+    var descuento = 0;
+    productSelect.map((data) => {
+      descuento += Number(data?.PrecioVenta) - Number(data?.PrecioOriginal);
+      //console.log(data?.PrecioOriginal, data?.PrecioVenta, descuento);
+      //descuento = descuento * -1
+      //console.log(data)
+    });
+    setDescuento(descuento);
+  };
+  const onConfirmation = (data) => {
+    //console.log("Datos", data)
+    //setDatos(data);
+    setDisableButton(true);
+    console.log("entro a Confirmation");
+
+    setModalConfirmation(true);
+  };
+
+  const onCancel = () => {
+    console.log("entro a cancel");
+    setModalConfirmation(false);
+    
+  };
 
   return (
     <>
@@ -152,6 +229,12 @@ export const NewSale = () => {
                             <button
                               className="buttonTable"
                               onClick={() => {
+                                var facturacion = {
+                                  RazonSocial: ex.RazonSocial,
+                                  NIT: ex.NIT,
+                                  Email: ex.Email
+                                }
+                                setDataFacturacion(facturacion)
                                 setPacienteSelected(ex);
                                 setPacienteFinded([]);
                               }}
@@ -220,7 +303,7 @@ export const NewSale = () => {
                   Placeholder={"Ej. Paracetamol"}
                   Image={Images.ADD}
                   onClick={() => setModalShowRegtest(true)}
-                  Data={examenes}
+                  Data={producto}
                   Key={"Nombre"}
                   Find={(finded) => {
                     setExamenFinded(finded);
@@ -234,11 +317,16 @@ export const NewSale = () => {
                         <button
                           className="buttonTable"
                           onClick={() => {
-                            if (
-                              !exameneSelected.find((a) => a._id === ex._id)
-                            ) {
-
-                              setExameneSelected([...exameneSelected, ex]);
+                            if (!productSelect.find((a) => a._id === ex._id)) {
+                              setExameneSelected([
+                                ...productSelect,
+                                {
+                                  ...ex,
+                                  Total: ex.PrecioVenta,
+                                  PrecioOriginal: ex.PrecioVenta,
+                                  Cantidad: 1
+                                },
+                              ]);
                               setExamenFinded([]);
                             }
                           }}
@@ -255,6 +343,10 @@ export const NewSale = () => {
                           <p className="labelInput">Código: {ex.Codigo}</p>
                           <div className="spaceRow10" />
                           <p className="labelInput">
+                            Precio de Venta: {ex.PrecioVenta}
+                          </p>
+                          <div className="spaceRow10" />
+                          <p className="labelInput">
                             Proveedor: {ex.Proveedor}
                           </p>
                           <div className="spaceRow10" />
@@ -268,7 +360,7 @@ export const NewSale = () => {
               </div>
 
               <div className="cardBody">
-                {exameneSelected.length !== 0 ? (
+                {productSelect.length !== 0 ? (
                   <>
                     <div className="cardBodyEvaluation">
                       <div className="divTable">
@@ -285,34 +377,47 @@ export const NewSale = () => {
                           </thead>
 
                           <tbody>
-                            {exameneSelected.map((ex, i) => (
+                            {productSelect.map((ex, i) => (
                               <tr key={i} className="trTable">
                                 <td className="containerTable">{i + 1}</td>
                                 <td className="containerTable">{ex.Nombre}</td>
                                 <td className="containerTable">{ex.Codigo}</td>
                                 <td className="containerTable">
-                                  <input
-                                    type="text"
-                                    value={ex.PrecioVenta}
-                                  ></input>
+                                  <TextInputDinamic
+                                    Placeholder={"Precio Unitario"}
+                                    OnChange={(e) => {
+                                      _CalcularTotal2(
+                                        ex.Cantidad ? ex.Cantidad : 1,
+                                        ex._id,
+                                        e
+                                      );
+                                    }}
+                                    Value={ex.PrecioVenta}
+                                  />
+                                  Precio Original: {ex.PrecioOriginal}
                                 </td>
                                 <td className="containerTable">
-                                  <input
-                                    name="Cantidad"
-                                    type="text"
-                                    onChange={(e) =>
-                                      _CalcularTotal(ex.PrecioVenta,ex._id, e)
+                                  <TextInputDinamic
+                                    Name={"Cantidad"}
+                                    //LabelInput={"Cantidad"}
+                                    Placeholder={"Ej. 1"}
+                                    OnChange={(e) =>
+                                      _CalcularTotal(ex.PrecioVenta, ex._id, e, ex.InventarioActual)
                                     }
-                                    defaultValue={1}
-                                  ></input>
+                                    Value={1}
+                                    ErrorInput = {ex.ErrorMessage}
+                                  />
                                 </td>
-                                <td className="containerTable"> Total: {ex.Total}</td>
+                                <td className="containerTable">
+                                  {" "}
+                                  Total: {ex.Total}
+                                </td>
                                 <td>
                                   <button
                                     className="buttonDeleteTable"
                                     onClick={() => {
                                       setExameneSelected(
-                                        exameneSelected.filter(
+                                        productSelect.filter(
                                           (a) => a._id !== ex._id
                                         )
                                       );
@@ -346,78 +451,71 @@ export const NewSale = () => {
             </div>
             <div className="section2Lab">
               <div className="containerLab2">
-                <h2 className="titleStyleH2">Método de pago</h2>
-                <div className="spaceVer10" />
-                <h3 className="titleStyleH3">Datos de facturación</h3>
-                <div className="spaceVer10" />
-                {
-                  <>
-                    <p className="labelInputSPadding">
-                      <strong>Razón social</strong>:{" "}
-                      {pacienteSelected.RazonSocial}
-                    </p>
-                    <div className="spaceVer5" />
-                    <p className="labelInputSPadding">
-                      <strong>Email</strong>: {pacienteSelected.Email}
-                    </p>
-                    <div className="spaceVer5" />
-                    <p className="labelInputSPadding">
-                      <strong>NIT</strong>: {pacienteSelected.NIT}
-                    </p>
-                  </>
-                }
-                <div className="spaceVer10" />
-                <div className="SaldoTotal">
-                  <p className="titleStyleH3">Saldo</p>
-                  <p className="BSFacturacion">Bs. 20</p>
-                </div>
-                <div className="spaceVer10" />
-                <SelectDinamic
-                  Name={"FormaDePago"}
-                  LabelInput={"Forma de pago*"}
-                  Placeholder={"Selecciona"}
-                  SelectOption={FormadePago}
-                  OnChange={(e) => handleChangeNombre(e)}
-                  //Value={det.SubCategoria || ""}
-                />
-                <div className="spaceVer10" />
-                <TextInputDinamic
-                  Name={"TotalPagado"}
-                  LabelInput={"Total pagado"}
-                  Placeholder={"Ej. 100 Bs"}
-                  OnChange={(e) => handleChangeNombre(e)}
-                  Value={""}
-                />
-                <div className="ContainerCheck">
-                  <label className="labelInputCheck">
-                    <input
-                      className="checkbookInput"
-                      type="checkbox"
-                      name="PagarTodo"
-                      onChange={(e) => handleChangeNombre(e)}
-                    />
-                    Pagar todo
-                  </label>
-                  <div className="spaceRow10" />
-                  <label className="labelInputCheck">
-                    <input
-                      className="checkbookInput"
-                      type="checkbox"
-                      name="Cotizacion"
-                      defaultValue="Cotización"
-                      onChange={(e) => handleChangeNombre(e)}
-                    />
-                    Registrar como cotización
-                  </label>
+                <div className="Facturacion">
+                  <h3 className="titleStyleH2">Datos de facturación</h3>
+
+                  {
+                    <div className="Datos">
+                      <TextInputDinamic
+                      Name={"RazonSocial"}
+                      LabelInput={"Razón social"}
+                      Placeholder={"Ej. Villarroel"}
+                      OnChange={(e)=> handleChangeNombre(e)}
+                      Value={pacienteSelected.RazonSocial}
+                      />
+                      <TextInputDinamic
+                      Name={"Email"}
+                      LabelInput={"Correo electrónico"}
+                      Placeholder={"Ej. Villarroel@gmail.com"}
+                      OnChange={(e)=> handleChangeNombre(e)}
+                      Value={pacienteSelected.Email}
+                      />
+                      <TextInputDinamic
+                      Name={"NIT"}
+                      LabelInput={"NIT"}
+                      Placeholder={"Ej. 9367493"}
+                      OnChange={(e)=> handleChangeNombre(e)}
+                      Value={pacienteSelected.NIT}
+                      />
+
+                      {/* <p className="labelInputSPadding">
+                        <strong>Razón social</strong>:{" "}
+                        {pacienteSelected.RazonSocial}
+                      </p>
+                      <div className="spaceVer5" />
+                      <p className="labelInputSPadding">
+                        <strong>Email</strong>: {pacienteSelected.Email}
+                      </p>
+                      <div className="spaceVer5" />
+                      <p className="labelInputSPadding">
+                        <strong>NIT</strong>: {pacienteSelected.NIT}
+                      </p> */}
+                    </div>
+                  }
+                  <h2 className="titleStyleH2">Método de pago</h2>
+
+                  <div className="SaldoTotal">
+                    <p className="titleStyleH3">Total</p>
+                    <p className="BSFacturacion">Bs. {sumTotal}</p>
+                  </div>
+
+                  <TextInputDinamic
+                    Disabled={true}
+                    Name={"Descuento_Ganancia"}
+                    LabelInput={"Descuento/Ganancia"}
+                    Placeholder={"Ej. 10 Bs"}
+                    //OnChange={(e) => handleChangeNombre(e)}
+                    Value={descuento}
+                  />
                 </div>
 
-                <div className="spaceVer15" />
-
-                <ButtonPrimary100
-                  Nombre={"REALIZAR VENTA"}
-                  Disabled={disableButton}
-                  OnClick={_onSubmit}
-                />
+                <div className="FooterButton">
+                  <ButtonPrimary100
+                    Nombre={"REALIZAR VENTA"}
+                    Disabled={disableButton}
+                    OnClick={onConfirmation}
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -433,6 +531,14 @@ export const NewSale = () => {
         modal={modalShowRegtest}
         SetModal={setModalShowRegtest}
         callback={llamarExamenes}
+      />
+
+      <ModalConfirmation
+      ModalConfirmation={modalConfirmation}
+      ValueText={"¿Estas seguro de que quieres reaizar la venta?"}
+      OnCancel={onCancel}
+      OnSubmit={_onSubmit}
+      DisableButtonConfirmation={disableButtonConfirmation}
       />
     </>
   );

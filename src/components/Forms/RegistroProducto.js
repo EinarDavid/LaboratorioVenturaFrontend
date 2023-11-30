@@ -4,23 +4,7 @@ import { TextInput } from "../Input/TextInput";
 import { Select } from "../Input/Select";
 
 export const RegistroProducto = ({
-  product = {
-    Codigo: "",
-    Nombre: "",
-    UnidadMedida: "",
-    Descripcion: "",
-    Proveedor: "",
-    CodigoBarras: "",
-    GrupoFamilia: "",
-    SubGrupo: "",
-    Ubicacion: "",
-    PrecioCompra: "",
-    Utilidad: "",
-    PrecioVenta: "",
-    InventarioMinimo: "",
-    InventarioActual: "",
-    FechaVencimiento: "",
-  },
+  
   handleSubmit,
   onSubmit,
   register,

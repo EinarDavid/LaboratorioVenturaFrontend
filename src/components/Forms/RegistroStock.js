@@ -100,7 +100,7 @@ export const RegistroStock = ({
                   <input {...register(`Detalle.${index}.lastname`)} /> */}
 
                   <SelectUseFormDinamic
-                    Name={"Codigo"}
+                    Name={"_idProducto"}
                     LabelInput={"Código del producto*"}
                     Placeholder={"Selecciona el Código"}
                     SelectOption={producto}
