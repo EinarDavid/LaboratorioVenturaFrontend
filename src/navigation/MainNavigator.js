@@ -91,7 +91,7 @@ export const MainNavigator = () => {
                     >
 
                         {({ isActive }) => (
-                            isActive ? (<NavButton Image={Images.STOCKWHITE} />) : (<NavButtonUnSelect Image={Images.STOCKBLACK} />)
+                            isActive ? (<NavButton Image={Images.CARTWHITE} />) : (<NavButtonUnSelect Image={Images.CARTBLACK} />)
                         )
                         }
                     </NavLink>

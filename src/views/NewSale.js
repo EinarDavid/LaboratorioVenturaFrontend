@@ -98,16 +98,20 @@ export const NewSale = () => {
       id_option: 1,
     },
     {
-      option: "Tarjeta Debito/Crédito",
+      option: "Qr",
       id_option: 2,
     },
     {
-      option: "Transferencia",
+      option: "Tarjeta Debito/Crédito",
       id_option: 3,
     },
     {
-      option: "Cheque",
+      option: "Transferencia",
       id_option: 4,
+    },
+    {
+      option: "Cheque",
+      id_option: 5,
     },
   ];
   const _CalcularTotal = (PrecioVenta, id, e, Invetario) => {
@@ -507,6 +511,14 @@ export const NewSale = () => {
                     //OnChange={(e) => handleChangeNombre(e)}
                     Value={descuento}
                   />
+                  <SelectDinamic
+                  Name={"FormaDePago"}
+                  LabelInput={"Forma de pago*"}
+                  Placeholder={"Selecciona"}
+                  SelectOption={FormadePago}
+                  OnChange={(e) => handleChangeNombre(e)}
+                  //Value={det.SubCategoria || ""}
+                />
                 </div>
 
                 <div className="FooterButton">

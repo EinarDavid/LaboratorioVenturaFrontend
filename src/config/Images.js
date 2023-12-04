@@ -42,6 +42,8 @@ const Images = {
     PAGELEFT: require('../assets/PageLeft.png'),
     PAGERIGHT: require('../assets/PageRight.png'),
     FIRSTPAGE: require('../assets/firstPage.png'),
-    LASTPAGE: require('../assets/lastPage.png')
+    LASTPAGE: require('../assets/lastPage.png'),
+    CARTBLACK: require('../assets/cart.png'),
+    CARTWHITE: require('../assets/cart-white.png'),
 }
 export default Images;
