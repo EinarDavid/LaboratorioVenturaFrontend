@@ -10,7 +10,7 @@ export const SelectUseFormDinamic = ({
   Validation,
   index,
 }) => {
-  console.log("-------------", SelectOption)
+  //console.log("-------------", SelectOption)
   return (
     <>
       <div className="containerTextInput">

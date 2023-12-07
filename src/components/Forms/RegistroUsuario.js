@@ -5,20 +5,7 @@ import { Select } from "../Input/Select";
 import { PasswordInput } from "../Input/PasswordInput";
 
 export const RegistroUsuario = ({
-  user = {
-    CI: "",
-    Nombres: "",
-    PrimerApellido: "",
-    SegundoApellido: "",
-    Fecha_de_Nacimiento: "",
-    Genero: "",
-    Telefono: "",
-    Direccion: "",
-    RazonSocial: "",
-    NIT: "",
-    Email: "",
-    Password: "",
-  },
+  
   handleSubmit,
   onSubmit,
   register,
@@ -29,45 +16,45 @@ export const RegistroUsuario = ({
 }) => {
   const Sex = [
     {
-      option: "Masculino",
-      id: 11,
+      Nombre: "Masculino",
+      _id: 11,
     },
     {
-      option: "Femenino",
-      id: 22,
+      Nombre: "Femenino",
+      _id: 22,
     },
   ];
 
   const Cargo = [
     {
-      option: "Administrador_General",
-      id: 1,
+      Nombre: "Administrador_General",
+      _id: 1,
     },
     {
-      option: "Administrador_Farmacia",
-      id: 2,
+      Nombre: "Administrador_Farmacia",
+      _id: 2,
     },
     {
-      option: "Administrador_laboratorio",
-      id: 3,
+      Nombre: "Administrador_Laboratorio",
+      _id: 3,
     },
     {
-      option: "Empleado_Farmacia",
-      id: 4,
+      Nombre: "Empleado_Farmacia",
+      _id: 4,
     },
     {
-      option: "Empleado_Laboratorio",
-      id: 5,
+      Nombre: "Empleado_Laboratorio",
+      _id: 5,
     },
     {
-      option: "Cliente",
-      id: 6,
+      Nombre: "Cliente",
+      _id: 6,
     },
   ];
 
   const Sucursal = [
-    { option: "Sucursal 1", id: 111 },
-    { option: "Sucursal 2", id: 222 },
+    { Nombre: "Sucursal 1", _id: 111 },
+    { Nombre: "Sucursal 2", _id: 222 },
   ];
   //console.log("rEGISTERRRR: " , register)
 

@@ -3,8 +3,6 @@ import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { ButtonDelete } from "../components/Button/ButtonDelete";
 
-import { RegistroUsuario } from "../components/Forms/RegistroUsuario";
-
 import Images from "../config/Images";
 
 import { ModalConfirmation } from "../components/Modal/ModalConfirmation";

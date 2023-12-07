@@ -16,6 +16,12 @@ import { ViewProduct } from "../views/ViewProduct";
 import { GestionSale } from "../views/GestionSale";
 import { NewSale } from "../views/NewSale";
 import { ViewStock } from "../views/ViewStock";
+import { GestionProveedor } from "../views/GestionProveedor";
+import { ViewProveedor } from "../views/ViewProveedor";
+import { GestionGrupo } from "../views/GestionGrupo";
+import { GestionSubGrupo } from "../views/GestionSubGrupo";
+import { ViewGrupo } from "../views/ViewGrupo";
+import { ViewSubGrupo } from "../views/ViewSubGrupo";
 
 export const HomeApp = () => {
   return (
@@ -32,15 +38,26 @@ export const HomeApp = () => {
 
         <Route path="/gestionUsuarios" element={<GestionUsuarios />} />
         <Route path="/view/user/:id" element={<ViewUser />} />
+
+        <Route path="/gestionProveedor" element={<GestionProveedor/>} />
+        <Route path="/view/proveedor/:id" element={<ViewProveedor />} />
         
         <Route path="/gestionProduct" element={<GestionProduct />} />
         <Route path="/view/product/:id" element={<ViewProduct />} />
+
+        <Route path="/gestionGrupo" element={<GestionGrupo />} />
+        <Route path="/view/grupo/:id" element={<ViewGrupo />} />
+
+        <Route path="/gestionSubgrupo" element={<GestionSubGrupo />} />
+        <Route path="/view/subgrupo/:id" element={<ViewSubGrupo />} />
 
         <Route path="/gestionStock" element={<GestionStock />} />
         <Route path="/view/stock/:id" element={<ViewStock />} />
 
         <Route path="/gestionSale" element={<GestionSale />} />
         <Route path="/newSale" element={<NewSale />} />
+
+
 
         <Route path="/*" element={<Navigate to="/dashboard" />} />
       </Routes>

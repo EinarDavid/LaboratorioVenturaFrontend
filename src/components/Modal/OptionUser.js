@@ -18,20 +18,23 @@ export const OptionUser = () => {
             <div>
                 <button className='user' onClick={handleOpen}>
                     <img src={Images.USEROPTIONIN} width={80} alt='icon' ></img>
-                    <img src={Images.IMGUSER} alt='user' className="imgUser"></img>
+                    {/* <img src={Images.IMGUSER} alt='user' className="imgUser"></img> */}
 
                 </button>
 
                 {open ? (
                     <ul className="menu">
                         <li className="menu-item">
-                            <button>Menu 1</button>
+                            <button onClick={() => navigate("/gestionUsuarios")}>Gestión de usuarios</button>
                         </li>
                         <li className="menu-item">
-                            <button onClick={() => navigate("/gestionUsuarios")}>Gestion de usuarios</button>
+                            <button onClick={() => navigate("/gestionProveedor")}>Gestión de proveedores</button>
                         </li>
                         <li className="menu-item">
-                            <button onClick={() => setModalShowRegUser(true)}>Registrar usuario</button>
+                            <button onClick={() => navigate("/gestionGrupo")}>Gestión de grupos</button>
+                        </li>
+                        <li className="menu-item">
+                            <button onClick={() => navigate("/gestionSubgrupo")}>Gestión de subgrupos</button>
                         </li>
                         <li className="menu-item">
                             <button>Cerrar Sesión</button>

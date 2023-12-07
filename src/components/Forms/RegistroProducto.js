@@ -1,27 +1,19 @@
 import React from "react";
-import { ButtonPrimary } from "../Button/ButtonPrimary";
+
 import { TextInput } from "../Input/TextInput";
 import { Select } from "../Input/Select";
 
 export const RegistroProducto = ({
-  
   handleSubmit,
   onSubmit,
   register,
   errors,
   disableButton,
   handleChangeForm,
+  _Price,
+  Proveedor
 }) => {
-  const Proveedor = [
-    {
-      Nombre: "Proveedor_1",
-      _id: 11,
-    },
-    {
-      Nombre: "Proveedor_2",
-      _id: 22,
-    },
-  ];
+  
 
   const GrupoFamilia = [
     {
@@ -61,7 +53,23 @@ export const RegistroProducto = ({
             }}
             ErrorInput={errors.Nombre?.message}
           />
-
+          <TextInput
+            Name={"NombreGenerico"}
+            LabelInput={"Nombre generico del producto*"}
+            Placeholder={"Ej. Paracetamol"}
+            Register={register}
+            Validation={{
+              required: "El campo es requerido",
+              pattern: {
+                value: /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$/,
+                message: "Solo se permiten letras",
+              },
+            }}
+            ErrorInput={errors.NombreGenerico?.message}
+          />
+        </div>
+        <div className="spaceVer30" />
+        <div className="row3-Inputs">
           <TextInput
             Name={"UnidadMedida"}
             LabelInput={"Unidad de Medida*"}
@@ -70,9 +78,15 @@ export const RegistroProducto = ({
             Validation={{ required: "El campo es requerido" }}
             ErrorInput={errors.UnidadMedida?.message}
           />
-        </div>
-        <div className="spaceVer30" />
-        <div className="row3-Inputs">
+
+          <TextInput
+            Name={"RegistroSanitario"}
+            LabelInput={"Registro Sanitario"}
+            Placeholder={"Ej 12312ad12"}
+            Register={register}
+            //Validation={{ required: "El campo es requerido" }}
+            ErrorInput={errors.RegistroSanitario?.message}
+          />
           <TextInput
             Name={"Descripcion"}
             LabelInput={"Descripción"}
@@ -81,7 +95,10 @@ export const RegistroProducto = ({
             //Validation={{ required: "El campo es requerido" }}
             ErrorInput={errors.Descripcion?.message}
           />
+        </div>
 
+        <div className="spaceVer30" />
+        <div className="row3-Inputs">
           <Select
             Name={"Proveedor"}
             LabelInput={"Proveedor*"}
@@ -100,8 +117,22 @@ export const RegistroProducto = ({
             //Validation={{ required: "El campo es requerido" }}
             ErrorInput={errors.CodigoBarras?.message}
           />
-        </div>
 
+          <TextInput
+            Name={"FechaVencimiento"}
+            LabelInput={"Fecha de Vencimiento"}
+            Placeholder={"Ej. 07/07/2024"}
+            Register={register}
+            Validation={{
+              pattern: {
+                value:
+                  /^(?:(?:(?:0?[1-9]|1\d|2[0-8])[/](?:0?[1-9]|1[0-2])|(?:29|30)[/](?:0?[13-9]|1[0-2])|31[/](?:0?[13578]|1[02]))[/](?:0{2,3}[1-9]|0{1,2}[1-9]\d|0?[1-9]\d{2}|[1-9]\d{3})|29[/]0?2[/](?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$/,
+                message: "El formato debe ser DD/MM/AAAA",
+              },
+            }}
+            ErrorInput={errors.FechaVencimiento?.message}
+          />
+        </div>
         <div className="spaceVer30" />
         <div className="row3-Inputs">
           <Select
@@ -113,7 +144,6 @@ export const RegistroProducto = ({
             //Validation={{ required: "El campo es requerido" }}
             ErrorInput={errors.GrupoFamilia?.message}
           />
-
           <Select
             Name={"SubGrupo"}
             LabelInput={"Subgrupo"}
@@ -134,6 +164,7 @@ export const RegistroProducto = ({
           />
         </div>
         <div className="spaceVer30" />
+
         <div className="row3-Inputs">
           <TextInput
             Name={"PrecioCompra"}
@@ -146,11 +177,12 @@ export const RegistroProducto = ({
                 value: /^[0-9]+$/,
                 message: "Solo se permiten números",
               },
+              onChange: (e) => _Price(e),
             }}
             ErrorInput={errors.PrecioCompra?.message}
           />
-
           <TextInput
+            Disabled={true}
             Name={"Utilidad"}
             LabelInput={"% Utilidad de ganancia*"}
             Placeholder={"Ej. 20 %"}
@@ -161,6 +193,7 @@ export const RegistroProducto = ({
                 value: /^[0-9]+$/,
                 message: "Solo se permiten números",
               },
+              onChange: (e) => _Price(e),
             }}
             ErrorInput={errors.Utilidad?.message}
           />
@@ -176,17 +209,17 @@ export const RegistroProducto = ({
                 value: /^[0-9]+$/,
                 message: "Solo se permiten números",
               },
+              onChange: (e) => _Price(e),
             }}
             ErrorInput={errors.PrecioVenta?.message}
           />
         </div>
         <div className="spaceVer30" />
-
         <div className="row3-Inputs">
           <TextInput
             Name={"InventarioMinimo"}
             LabelInput={"Inventario minimo"}
-            Placeholder={"Ej. 0"}
+            Placeholder={"Ej. 5"}
             Register={register}
             Validation={{
               //required: "El campo es requerido",
@@ -197,35 +230,20 @@ export const RegistroProducto = ({
             }}
             ErrorInput={errors.InventarioMinimo?.message}
           />
-
           <TextInput
+            //Disabled={true}
             Name={"InventarioActual"}
             LabelInput={"Inventario actual*"}
             Placeholder={"Ej. 20"}
             Register={register}
             Validation={{
-              required: "El campo es requerido",
+              //required: "El campo es requerido",
               pattern: {
                 value: /^[0-9]+$/,
                 message: "Solo se permiten números",
               },
             }}
             ErrorInput={errors.InventarioActual?.message}
-          />
-
-          <TextInput
-            Name={"FechaVencimiento"}
-            LabelInput={"Fecha de Vencimiento"}
-            Placeholder={"Ej. 07/07/2024"}
-            Register={register}
-            Validation={{
-              pattern: {
-                value:
-                  /^(?:(?:(?:0?[1-9]|1\d|2[0-8])[/](?:0?[1-9]|1[0-2])|(?:29|30)[/](?:0?[13-9]|1[0-2])|31[/](?:0?[13578]|1[02]))[/](?:0{2,3}[1-9]|0{1,2}[1-9]\d|0?[1-9]\d{2}|[1-9]\d{3})|29[/]0?2[/](?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$/,
-                message: "El formato debe ser DD/MM/AAAA",
-              },
-            }}
-            ErrorInput={errors.FechaVencimiento?.message}
           />
         </div>
         <div className="spaceVer20" />

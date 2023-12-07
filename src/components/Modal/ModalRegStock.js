@@ -15,25 +15,9 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
   const [disableButtonConfirmation, setDisableButtonConfirmation] =
     useState(false);
   const [datos, setDatos] = useState({});
-  const [producto, setProducto] = useState({})
-
-  const [detalle, setDetalle] = useState([
-    {
-      id: -1,
-      Nombre: "",
-      SubCategoria: "",
-      ValorReferencia: [
-        {
-          id: -1,
-          EdadMinima: "",
-          EdadMaxima: "",
-          Concentracion: "",
-          ValoresReferenciaHombre: "",
-          ValoresReferenciaMujer: "",
-        },
-      ],
-    },
-  ]);
+  const [producto, setProducto] = useState({});
+  const [total, setTotal] = useState(0);
+  const [stateRender, setStateRender] = useState(0)
 
   const {
     register,
@@ -77,9 +61,8 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
   };
 
   const onConfirmation = (data) => {
-    SumTotal();
-
-    data.MontoTotal = SumaTotal;
+    //SumTotal();
+    data.MontoTotal = total;
     console.log("Datos", data);
     setDatos(data);
     setDisableButton(true);
@@ -100,25 +83,44 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
   var SumaTotal = 0;
   const SumTotal = () => {
     Detail = getValues("Detalle");
+
     if (Detail !== undefined) {
-      Detail.map(({  CantidadTotal, PrecioCompra }) => {
-        var precio = CantidadTotal * PrecioCompra;
+      Detail.map(({ CantidadTotal, PrecioCompra }) => {
+        //console.log("Cantidad:", CantidadTotal)
+        var Cantidad = 1;
+        if(CantidadTotal !== 0 && CantidadTotal !== ""){
+          var Cantidad = CantidadTotal
+        } 
+        var precio = Cantidad * PrecioCompra;
         SumaTotal += precio;
 
-        console.log( "Precio:", precio, "SumTotal:", SumaTotal);
+        //console.log("Precio:", precio, "SumTotal:", SumaTotal);
       });
+      setTotal(SumaTotal);
       //setValue("MontoTotal", SumaTotal);
     }
-
-    
   };
 
+  
+
   useEffect(() => {
-    getProductTodos().then(({data})=>{
+    getProductTodos().then(({ data }) => {
       //console.log(data)
-      setProducto(data)
-    })
-  }, [])
+      setProducto(data);
+      append()
+    });
+  }, []);
+
+  const _ProductSelect = (e, index) => {
+    
+    var filter = producto.find((element) => element._id == e.target.value)
+    //console.log(filter)
+
+    setValue("Detalle." + index + ".Inventario", filter.InventarioActual);
+    setStateRender(stateRender+1)
+    
+    //console.log(getValues("Detalle." + index + ".Inventario"), stateRender)
+  }
 
 
   return modal ? (
@@ -127,7 +129,13 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
         <div className="popup_itself">
           <div className="popup_button_container">
             <h1 className="titleStyle">Registro de inventario</h1>
-            <button className="button_close" onClick={() => {SetModal(false); reset()}}>
+            <button
+              className="button_close"
+              onClick={() => {
+                SetModal(false);
+                reset();
+              }}
+            >
               {<img src={Images.CLOSE} width={30} alt="icon"></img>}{" "}
             </button>
           </div>
@@ -144,7 +152,13 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
             remove={remove}
             watch={watch}
             producto={producto}
+            STotal={SumTotal}
+            total={total}
+            _ProductSelect= {_ProductSelect}
+            getValues={getValues}
+            stateRender={stateRender}
           />
+
         </div>
       </div>
       <ModalConfirmation
@@ -154,7 +168,7 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
         OnSubmit={onSubmit}
         DisableButtonConfirmation={disableButtonConfirmation}
       />
-    </>
+          </>
   ) : (
     ""
   );
