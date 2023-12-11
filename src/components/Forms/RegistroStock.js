@@ -26,22 +26,13 @@ export const RegistroStock = ({
   fecha,
   _ProductSelect,
   getValues,
-  stateRender
+  stateRender,
+  Proveedor
 }) => {
   const [motivo, setMotivo] = useState([]);
   const [compra, setCompra] = useState(false);
   const [factura, setFactura] = useState(false);
 
-  const Proveedor = [
-    {
-      Nombre: "Proveedor 1",
-      _id: 111,
-    },
-    {
-      Nombre: "Proveedor 2",
-      _id: 222,
-    },
-  ];
 
   const TipoMovimiento = [
     {
@@ -281,8 +272,8 @@ export const RegistroStock = ({
 
                   <SelectUseFormDinamic
                     Name={"_idProducto"}
-                    LabelInput={"Código del producto*"}
-                    Placeholder={"Selecciona el Código"}
+                    LabelInput={"Nombre del producto*"}
+                    Placeholder={"Selecciona el producto"}
                     SelectOption={producto}
                     Register={register}
                     Validation={{
@@ -336,9 +327,10 @@ export const RegistroStock = ({
                     ErrorInput={errors}
                     index={index}
                   />
-                  <div key={stateRender}>
+                  {/* <div key={stateRender}>
+                   {console.log("Get Values------", getValues("Detalle"))} 
                     <p className="labelInputError"> Inventario actual: {getValues("Detalle." + index + ".Inventario")} </p>
-                  </div>
+                  </div> */}
                   </div>
                   <TexInputUseFormDinamic
                     Name={"PrecioCompra"}

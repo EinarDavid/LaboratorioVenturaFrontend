@@ -6,6 +6,8 @@ import { RegistroProducto } from "../Forms/RegistroProducto";
 import { postAgregarProducto } from "../../services/productService";
 import { ModalConfirmation } from "./ModalConfirmation";
 import { getProveedorTodos } from "../../services/proveedorService";
+import { getGrupoTodos } from "../../services/grupoService";
+import { getSubGrupoTodos } from "../../services/subgrupoService";
 
 export const ModalRegProduct = ({ SetModal, modal, callback }) => {
   const [modalConfirmation, setModalConfirmation] = useState(false);
@@ -14,6 +16,8 @@ export const ModalRegProduct = ({ SetModal, modal, callback }) => {
     useState(false);
   const [datos, setDatos] = useState({});
   const [proveedor, setProveedor] = useState();
+  const [grupo, setGrupo] = useState();
+  const [subGrupo, setSubGrupo] = useState();
 
   const {
     register,
@@ -82,6 +86,12 @@ export const ModalRegProduct = ({ SetModal, modal, callback }) => {
     getProveedorTodos().then(({ data }) => {
       setProveedor(data);
     });
+    getGrupoTodos().then(({data})=>{
+      setGrupo(data);
+    });
+    getSubGrupoTodos().then(({data})=>{
+      setSubGrupo(data);
+    });
   }, []);
 
   return modal ? (
@@ -104,6 +114,8 @@ export const ModalRegProduct = ({ SetModal, modal, callback }) => {
             disableButton={disableButton}
             _Price={_Price}
             Proveedor = {proveedor}
+            Grupo = {grupo}
+            Subgrupo = {subGrupo}
           />
         </div>
       </div>

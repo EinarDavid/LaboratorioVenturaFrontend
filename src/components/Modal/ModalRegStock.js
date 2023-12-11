@@ -8,6 +8,7 @@ import { RegistroStock } from "../Forms/RegistroStock";
 import { postAgregarStock } from "../../services/stockService";
 import { ModalConfirmation } from "./ModalConfirmation";
 import { getProductTodos } from "../../services/productService";
+import { getProveedorTodos } from "../../services/proveedorService";
 
 export const ModalRegStock = ({ SetModal, modal, callback }) => {
   const [modalConfirmation, setModalConfirmation] = useState(false);
@@ -17,7 +18,8 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
   const [datos, setDatos] = useState({});
   const [producto, setProducto] = useState({});
   const [total, setTotal] = useState(0);
-  const [stateRender, setStateRender] = useState(0)
+  const [stateRender, setStateRender] = useState(0);
+  const [proveedor, setProveedor] = useState();
 
   const {
     register,
@@ -122,6 +124,12 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
     //console.log(getValues("Detalle." + index + ".Inventario"), stateRender)
   }
 
+  useEffect(() => {
+    getProveedorTodos().then(({ data }) => {
+      setProveedor(data);
+    });
+  }, []);
+
 
   return modal ? (
     <>
@@ -157,6 +165,7 @@ export const ModalRegStock = ({ SetModal, modal, callback }) => {
             _ProductSelect= {_ProductSelect}
             getValues={getValues}
             stateRender={stateRender}
+            Proveedor={proveedor}
           />
 
         </div>

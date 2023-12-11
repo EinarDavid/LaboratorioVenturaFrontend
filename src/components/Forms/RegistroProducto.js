@@ -11,7 +11,9 @@ export const RegistroProducto = ({
   disableButton,
   handleChangeForm,
   _Price,
-  Proveedor
+  Proveedor,
+  Grupo,
+  Subgrupo,
 }) => {
   
 
@@ -139,7 +141,7 @@ export const RegistroProducto = ({
             Name={"GrupoFamilia"}
             LabelInput={"Grupo o Familia"}
             Placeholder={"Selecciona el Grupo o Familia"}
-            SelectOption={GrupoFamilia}
+            SelectOption={Grupo}
             Register={register}
             //Validation={{ required: "El campo es requerido" }}
             ErrorInput={errors.GrupoFamilia?.message}
@@ -148,7 +150,7 @@ export const RegistroProducto = ({
             Name={"SubGrupo"}
             LabelInput={"Subgrupo"}
             Placeholder={"Selecciona el Subgrupo"}
-            SelectOption={GrupoFamilia}
+            SelectOption={Subgrupo}
             Register={register}
             //Validation={{ required: "El campo es requerido" }}
             ErrorInput={errors.SubGrupo?.message}

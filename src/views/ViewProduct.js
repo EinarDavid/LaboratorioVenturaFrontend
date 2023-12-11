@@ -12,6 +12,10 @@ import {
   postProductModificar,
 } from "../services/productService";
 import { RegistroProducto } from "../components/Forms/RegistroProducto";
+import { getProveedorTodos } from "../services/proveedorService";
+import { getGrupoTodos } from "../services/grupoService";
+import { getSubGrupoTodos } from "../services/subgrupoService";
+
 
 export const ViewProduct = ({ callback }) => {
   const navigate = useNavigate();
@@ -26,6 +30,9 @@ export const ViewProduct = ({ callback }) => {
   const [disableButtonConfirmationDelete, setDisableButtonConfirmationDelete] =
     useState(false);
   const [datos, setDatos] = useState({});
+  const [proveedor, setProveedor] = useState();
+  const [grupo, setGrupo] = useState();
+  const [subGrupo, setSubGrupo] = useState();
 
   const {
     register,
@@ -142,6 +149,18 @@ export const ViewProduct = ({ callback }) => {
     }
   };
 
+  useEffect(() => {
+    getProveedorTodos().then(({ data }) => {
+      setProveedor(data);
+    });
+    getGrupoTodos().then(({data})=>{
+      setGrupo(data);
+    });
+    getSubGrupoTodos().then(({data})=>{
+      setSubGrupo(data);
+    });
+  }, []);
+
   return (
     <>
       <div className="App">
@@ -176,6 +195,9 @@ export const ViewProduct = ({ callback }) => {
               register={register}
               errors={errors}
               disableButton={disableButton}
+              Proveedor = {proveedor}
+              Grupo = {grupo}
+              Subgrupo = {subGrupo}
             />
           </div>
         </div>

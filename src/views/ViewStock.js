@@ -16,6 +16,7 @@ import {
 import { RegistroStock } from "../components/Forms/RegistroStock";
 import { convertDate } from "../services/convertDate";
 import { getProductTodos } from "../services/productService";
+import { getProveedorTodos } from "../services/proveedorService";
 
 export const ViewStock = ({ callback }) => {
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ export const ViewStock = ({ callback }) => {
   const [producto, setProducto] = useState();
   const [total, setTotal] = useState(0);
   const [fecha, setFecha] = useState();
+  const [proveedor, setProveedor] = useState();
 
   const {
     register,
@@ -73,11 +75,11 @@ export const ViewStock = ({ callback }) => {
         remove();
         data.Detalle.map((det, i) => {
           console.log(i);
-          setValue("Detalle." + i + "._idProducto", det._idProducto);
-          setValue("Detalle." + i + ".Lote", det.Lote);
-          setValue("Detalle." + i + ".CantidadTotal", det.CantidadTotal);
-          setValue("Detalle." + i + ".FechaVencimiento", det.FechaVencimiento);
-          setValue("Detalle." + i + ".PrecioCompra", det.PrecioCompra);
+          setValue("Detalle." + i + "._idProducto", det?._idProducto);
+          setValue("Detalle." + i + ".Lote", det?.Lote);
+          setValue("Detalle." + i + ".CantidadTotal", det?.CantidadTotal);
+          setValue("Detalle." + i + ".FechaVencimiento", det?.FechaVencimiento);
+          setValue("Detalle." + i + ".PrecioCompra", det?.PrecioCompra);
         });
       });
     } catch (error) {
@@ -183,8 +185,10 @@ export const ViewStock = ({ callback }) => {
 
   useEffect(() => {
     getProductTodos().then(({ data }) => {
-      //console.log(data)
       setProducto(data);
+    });
+    getProveedorTodos().then(({ data }) => {
+      setProveedor(data);
     });
   }, []);
 
@@ -231,6 +235,7 @@ export const ViewStock = ({ callback }) => {
               STotal={SumTotal}
               total={total}
               fecha = {fecha}
+              Proveedor={proveedor}
             />
           </div>
         </div>
