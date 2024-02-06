@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { RegUsuario } from './ModalRegUsuario';
 import { useNavigate } from 'react-router-dom';
 
+import { Logout } from '../../services/login';
+
 import Images from '../../config/Images'
 
 export const OptionUser = () => {
@@ -11,7 +13,14 @@ export const OptionUser = () => {
 
     const handleOpen = () => {
         setOpen(!open);
-    };
+    }
+
+    const LogoutSesion = () => {
+        Logout().then(()=>{
+            console.log("Sesion cerrada")
+            navigate("/")
+        })
+    }
 
     return (
         <>
@@ -37,7 +46,10 @@ export const OptionUser = () => {
                             <button onClick={() => navigate("/gestionSubgrupo")}>Gestión de subgrupos</button>
                         </li>
                         <li className="menu-item">
-                            <button>Cerrar Sesión</button>
+                            <button onClick={() => navigate("/gestionSucursales")}>Gestión de sucursales</button>
+                        </li>
+                        <li className="menu-item">
+                            <button onClick={LogoutSesion} >Cerrar Sesión</button>
                         </li>
                     </ul>
                 ) : null}

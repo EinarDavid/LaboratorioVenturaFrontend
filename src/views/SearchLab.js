@@ -180,6 +180,7 @@ export const SearchLab = () => {
 
                                 </table>
                                 </div>
+                                
                                 <div className='containerTextInput'>
                                     
                                     <PaginationTable

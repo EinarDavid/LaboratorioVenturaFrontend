@@ -9,7 +9,7 @@ export async function getUsuarioTodos() {
     return await axios.get(api+"usuario/leertodo");
 }
 export async function postLogin(usuario) {
-    return await axios.post(api+"usuario/login",usuario);
+    return await axios.post(api+"login",usuario);
 }
 export async function getUsuarioCant() {
     return await axios.get(api + "usuario/cant");

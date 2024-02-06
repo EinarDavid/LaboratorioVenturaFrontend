@@ -22,6 +22,7 @@ import { GestionGrupo } from "../views/GestionGrupo";
 import { GestionSubGrupo } from "../views/GestionSubGrupo";
 import { ViewGrupo } from "../views/ViewGrupo";
 import { ViewSubGrupo } from "../views/ViewSubGrupo";
+import { GestionSucursales } from "../views/GestionSucursales";
 
 export const HomeApp = () => {
   return (
@@ -35,6 +36,8 @@ export const HomeApp = () => {
         <Route path="/edit/examen/:labo/:exa" element={<EditLab />} />
         <Route path="/view/paciente/:idPaciente" element={<ViewPac />} />
         <Route path="/view/examen/:idExamen" element={<ViewExa />} />
+
+        <Route path="/gestionSucursales" element={<GestionSucursales />} />
 
         <Route path="/gestionUsuarios" element={<GestionUsuarios />} />
         <Route path="/view/user/:id" element={<ViewUser />} />

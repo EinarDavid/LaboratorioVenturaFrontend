@@ -12,6 +12,7 @@ export const LoginApp = () => {
   const onLogin = () => {
     navigate("/*");
   };
+  
   const {
     register,
     formState: { errors },
@@ -20,18 +21,21 @@ export const LoginApp = () => {
     mode: "all",
   });
   const onSubmit = (data) => {
-    /*postLogin(data).then(({ data }) => {
+
+    console.log(data)
+    postLogin(data).then(({ data }) => {
             console.log(data)
-            //limpiar cajas, cerrar modal y avisar que fue añadido con exito
-        })*/
-    navigate("/*", {
-      replace: true,
-    });
+
+            navigate("/*", {
+              replace: true,
+            });
+        })
+        .catch(()=>{
+          alert("Error")
+        })
+    
   };
 
-  const handleChangeForm = (event) => {
-    setForm({ ...form, [event.target.name]: event.target.value });
-  };
 
   return (
     <>

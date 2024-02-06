@@ -134,6 +134,7 @@ export const ViewSubGrupo = ({ callback }) => {
 
   useEffect(() => {
     getGrupoTodos().then(({data}) => {
+      console.log("Grupo---", data)
         setGrupo(data);
     })
   }, [])

@@ -17,11 +17,11 @@ export const RegistroUsuario = ({
   const Sex = [
     {
       Nombre: "Masculino",
-      _id: 11,
+      _id: "Masculino",
     },
     {
       Nombre: "Femenino",
-      _id: 22,
+      _id: "Femenino",
     },
   ];
 

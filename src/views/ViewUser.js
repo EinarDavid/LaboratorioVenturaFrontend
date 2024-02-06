@@ -46,7 +46,7 @@ export const ViewUser = ({ callback }) => {
     try {
       //console.log("Entro aqui");
       getUsuarioUno(id).then(({ data }) => {
-        //console.log("Data-----", data);
+        console.log("Data-----", data);
         setDatos(data);
         setValue("CI", data?.CI);
         setValue("Nombres", data?.Nombres);
