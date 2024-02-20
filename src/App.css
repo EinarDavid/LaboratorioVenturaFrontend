@@ -1256,7 +1256,6 @@
   border-radius: 10px;
   margin-left: 20px;
   position: absolute;
-
 }
 
 .cardBody::-webkit-scrollbar-thumb {
@@ -1646,7 +1645,8 @@
   flex-direction: column;
   gap: 2px;
 }
-.row100{
+
+.row100 {
   display: flex;
   justify-content: space-between;
 }
@@ -1660,5 +1660,243 @@
   line-height: 21px;
   margin-bottom: auto;
   margin-top: auto;
-  
+
 }
+
+.Container_KPI {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.KPI {
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  gap: 8px;
+  flex: 1 0 0;
+  border-radius: 16px;
+  background: var(--bs-backgroudCard);
+}
+
+.KPI_Icon {
+  display: flex;
+  padding: 10px;
+  align-items: flex-start;
+  border-radius: 16px;
+  background: var(--bs-white);
+}
+
+.KPI_Description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  flex: 1 0 0;
+}
+
+.KPI_Number {
+  font-family: 'Gotham';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 103%;
+  display: flex;
+  align-items: center;
+
+  color: var(--bs-black);
+  margin: 0 0 0 0;
+}
+
+.KPI_Description {
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--bs-textInputPlaceholder);
+  margin: 0 0 0 0;
+}
+
+.KPI_Unidad {
+  color: var(--bs-black);
+  font-family: "Plus Jakarta Sans";
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 103%;
+  margin: 0 0 0 0;
+}
+
+.ContainerDataKPI {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  align-self: stretch;
+}
+
+.ContainerCardData {
+  display: flex;
+  height: 88%;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  flex-shrink: 0;
+
+  overflow-y: scroll;
+}
+
+.ContainerCardData::-webkit-scrollbar {
+  width: 10px;
+  border: none;
+  /* box-shadow: inset 0 0 6px rgba(0, 0, 0, .3); */
+  border-radius: 10px;
+  margin-left: 20px;
+  position: absolute;
+}
+
+.ContainerCardData::-webkit-scrollbar-thumb {
+  background-color: var(--bs-scroll);
+  border-radius: 10px;
+}
+
+.Card_25 {
+  display: flex;
+  /* width: 25%; */
+  height: 350px;
+  padding: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1 0;
+
+  border-radius: 16px;
+  background: var(--bs-backgroudCard);
+}
+
+.CardData {
+  display: flex;
+  width: 100%;
+  padding: 12px 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+
+  border-radius: 16px;
+  background: var(--bs-white);
+}
+
+.CardDataProduct{
+  display: flex;
+  width: 100%;
+  padding: 12px 16px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+
+  border-radius: 16px;
+  background: var(--bs-white);
+}
+
+.TextCard {
+  border-radius: var(--Radius-md, 16px);
+  color: var(--bs-black);
+  font-family: "Gotham";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 103%;
+  margin: 0;
+}
+
+.DescriptionCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+}
+
+.DescriptionCardProduct{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+}
+
+.Desc {
+  align-self: stretch;
+  color: var(--bs-textInputPlaceholder);
+  font-family: "Plus Jakarta Sans";
+  font-size: 12px;
+  font-style: normal;
+
+  line-height: 103%;
+  margin: 0;
+  text-align: start;
+}
+
+.FontWeight400 {
+  font-weight: 400;
+}
+
+.FontWeight700 {
+  font-weight: 700;
+}
+
+.Colortext{
+  color: var(--bs-danger);
+}
+
+.ContainerSectionOne {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  gap: 16px;
+}
+.ContainerSectionTwo {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.Card_50 {
+  display: flex;
+  width: 50%;
+  height: 350px;
+  padding: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  flex-shrink: 0;
+
+  border-radius: 16px;
+  background: var(--bs-backgroudCard);
+}
+.CardResposive{
+  display: flex;
+  height: 300px;
+  padding: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1 0;
+
+  border-radius: 16px;
+  background: var(--bs-backgroudCard);
+}
+
+.DashboardContent{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+

@@ -314,7 +314,7 @@ export const NewLab = () => {
             <div className="section2Lab">
               <div className="containerLab2">
                 <h2 className="titleStyleH2">Datos adicionales</h2>
-                <div className="spaceVer10" />
+                
                 <TextInputDinamic
                   Name={"FechaDeEntrega"}
                   LabelInput={"Fecha de entrega"}
@@ -322,7 +322,7 @@ export const NewLab = () => {
                   OnChange={(e) => handleChangeNombre(e)}
                   value={""}
                 />
-                <div className="spaceVer10" />
+                
                 <TextInputDinamic
                   Name={"Motivo"}
                   LabelInput={"Motivo"}
@@ -332,15 +332,15 @@ export const NewLab = () => {
                 />
               </div>
 
-              <div className="spaceVer10" />
+              
               <hr className="lineFilterWhite" />
-              <div className="spaceVer10" />
+              
 
               <div className="containerLab2">
                 <h2 className="titleStyleH2">Método de pago</h2>
-                <div className="spaceVer10" />
+                
                 <h3 className="titleStyleH3">Datos de facturación</h3>
-                <div className="spaceVer10" />
+                
                 {
                   <>
                     <p className="labelInputSPadding">
@@ -357,12 +357,12 @@ export const NewLab = () => {
                     </p>
                   </>
                 }
-                <div className="spaceVer10" />
+                
                 <div className="SaldoTotal">
                   <p className="titleStyleH3">Saldo</p>
                   <p className="BSFacturacion">Bs. 20</p>
                 </div>
-                <div className="spaceVer10" />
+                
                 <SelectDinamic
                   Name={"FormaDePago"}
                   LabelInput={"Forma de pago*"}
@@ -371,7 +371,7 @@ export const NewLab = () => {
                   OnChange={(e) => handleChangeNombre(e)}
                   //Value={det.SubCategoria || ""}
                 />
-                <div className="spaceVer10" />
+                
                 <TextInputDinamic
                   Name={"TotalPagado"}
                   LabelInput={"Total pagado"}
