@@ -7,7 +7,102 @@ import { KPI } from "../components/Cards/KPI";
 import { CardData } from "../components/Cards/CardData";
 import { CardProduct } from "../components/Cards/CardProduct";
 
+import {
+  ResponsiveContainer,
+  LineChart,
+  Line,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  BarChart,
+  Bar,
+} from "recharts";
+
 export const Dashboard = () => {
+  const data = [
+    {
+      label: "Membros Ativos",
+      data: 12,
+      backgroundColor: "rgba(54, 162, 235, 0.6)",
+      borderWidth: 1,
+    },
+    {
+      label: "Membros Inativos",
+      data: 2,
+      backgroundColor: "rgba(255, 99, 132, 0.6)",
+      borderWidth: 1,
+    },
+    {
+      label: "Novos Membros",
+      data: 5,
+      backgroundColor: "rgba(75, 192, 192, 0.6)",
+      borderWidth: 1,
+    },
+    {
+      label: "Membros Ativos",
+      data: 12,
+      backgroundColor: "rgba(54, 162, 235, 0.6)",
+      borderWidth: 1,
+    },
+    {
+      label: "Membros Inativos",
+      data: 2,
+      backgroundColor: "rgba(255, 99, 132, 0.6)",
+      borderWidth: 1,
+    },
+    {
+      label: "Novos Membros",
+      data: 5,
+      backgroundColor: "rgba(75, 192, 192, 0.6)",
+      borderWidth: 1,
+    },
+    {
+      label: "Membros Ativos",
+      data: 12,
+      backgroundColor: "rgba(54, 162, 235, 0.6)",
+      borderWidth: 1,
+    },
+    {
+      label: "Membros Inativos",
+      data: 2,
+      backgroundColor: "rgba(255, 99, 132, 0.6)",
+      borderWidth: 1,
+    },
+    {
+      label: "Novos Membros",
+      data: 5,
+      backgroundColor: "rgba(75, 192, 192, 0.6)",
+      borderWidth: 1,
+    },
+    {
+      label: "Membros Ativos",
+      data: 12,
+      backgroundColor: "rgba(54, 162, 235, 0.6)",
+      borderWidth: 1,
+    },
+    {
+      label: "Membros Inativos",
+      data: 2,
+      backgroundColor: "rgba(255, 99, 132, 0.6)",
+      borderWidth: 1,
+    },
+    {
+      label: "Novos Membros",
+      data: 5,
+      backgroundColor: "rgba(75, 192, 192, 0.6)",
+      borderWidth: 1,
+    },
+  ];
+
+  const options = {
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+  };
+
   return (
     <>
       <div className="App">
@@ -59,7 +154,7 @@ export const Dashboard = () => {
                         </div> */}
               <div className="ContainerSectionOne">
                 <div className="Card_25">
-                  <h2 class="titleStyleH2">Ventas recientes</h2>
+                  <h2 className="titleStyleH2">Ventas recientes</h2>
                   <div className="ContainerCardData">
                     <CardData
                       Number={"1"}
@@ -95,10 +190,24 @@ export const Dashboard = () => {
                 </div>
 
                 <div className="Card_50">
-                  <h2 class="titleStyleH2">Ventas</h2>
+                  <h2 className="titleStyleH2">Ventas</h2>
+                  <ResponsiveContainer width="100%" height={280}>
+                    <BarChart
+                      data={data}
+                      //margin={{ top: 10, right: 30, bottom: 10, left: 0 }}
+                      //width={500} height={300}
+                      margin={{ top: 0, right: 0, bottom: 0, left: -30 }}
+                    >
+                      <CartesianGrid stroke="#E1F1FF" strokeDasharray="3 3" />
+                      <XAxis dataKey="label" />
+                      <YAxis />
+                      <Tooltip />
+                      <Bar dataKey="data" fill="#5C34EC" />
+                    </BarChart>
+                  </ResponsiveContainer>
                 </div>
                 <div className="Card_25">
-                  <h2 class="titleStyleH2">Clientes frecuentes</h2>
+                  <h2 className="titleStyleH2">Clientes frecuentes</h2>
                   <div className="ContainerCardData">
                     <CardData
                       Number={"1"}
@@ -135,7 +244,7 @@ export const Dashboard = () => {
               </div>
               <div className="ContainerSectionTwo">
                 <div className="CardResposive">
-                  <h2 class="titleStyleH2">Productos más vendidos</h2>
+                  <h2 className="titleStyleH2">Productos más vendidos</h2>
                   <div className="ContainerCardData">
                     <CardProduct
                       Number={"1"}
@@ -160,7 +269,9 @@ export const Dashboard = () => {
                   </div>
                 </div>
                 <div className="CardResposive">
-                  <h2 class="titleStyleH2">Productos con inventario mínimo</h2>
+                  <h2 className="titleStyleH2">
+                    Productos con inventario mínimo
+                  </h2>
                   <div className="ContainerCardData">
                     <CardProduct
                       Number={"1"}
@@ -185,7 +296,7 @@ export const Dashboard = () => {
                   </div>
                 </div>
                 <div className="CardResposive">
-                  <h2 class="titleStyleH2">Productos prontos a vencer</h2>
+                  <h2 className="titleStyleH2">Productos prontos a vencer</h2>
                   <div className="ContainerCardData">
                     <CardProduct
                       Number={"1"}
