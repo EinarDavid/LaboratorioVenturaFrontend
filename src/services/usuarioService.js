@@ -8,9 +8,9 @@ export async function postAgregarUsuario(usuario) {
 export async function getUsuarioTodos() {
     return await axios.get(api+"usuario/leertodo");
 }
-export async function postLogin(usuario) {
-    return await axios.post(api+"login",usuario);
-}
+
+
+
 export async function getUsuarioCant() {
     return await axios.get(api + "usuario/cant");
 }
@@ -28,4 +28,13 @@ export async function postUsuarioModificar(id, datos) {
 }
 export async function postUsuarioEliminar(id) {
     return await axios.post(api + "usuario/eliminar", {id});
+}
+
+
+//Login
+export async function postLogin(usuario) {
+    return await axios.post(api+"login",usuario);
+}
+export async function getUser() {
+    return await axios.get(api + "getUser");
 }

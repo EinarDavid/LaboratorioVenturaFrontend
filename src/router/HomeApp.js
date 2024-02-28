@@ -24,7 +24,20 @@ import { ViewGrupo } from "../views/ViewGrupo";
 import { ViewSubGrupo } from "../views/ViewSubGrupo";
 import { GestionSucursales } from "../views/GestionSucursales";
 
+import { useNavigate } from 'react-router-dom';
+import { Sesion } from "../services/Sesion";
+
+
 export const HomeApp = () => {
+
+  const navigate = useNavigate();
+
+  const Inicio = () =>{
+    navigate("/")
+  }
+
+  Sesion(Inicio);
+
   return (
     <>
       <Routes>

@@ -16,10 +16,13 @@ export const OptionUser = () => {
     }
 
     const LogoutSesion = () => {
-        Logout().then(()=>{
-            console.log("Sesion cerrada")
-            navigate("/")
-        })
+        localStorage.removeItem('token');
+        console.log("Sesion cerrada")
+        navigate("/")
+
+        /*Logout().then(()=>{
+            
+        })*/
     }
 
     return (

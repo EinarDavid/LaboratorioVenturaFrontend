@@ -18,6 +18,8 @@ import {
   BarChart,
   Bar,
 } from "recharts";
+import { getUser } from "../services/usuarioService";
+import { Collapse } from "bootstrap";
 
 export const Dashboard = () => {
   const data = [
@@ -112,13 +114,15 @@ export const Dashboard = () => {
         <div className="containerPadre">
           <div className="containerHijo">
             <h1 className="titleStyle">Dashboard</h1>
-            {/* <button
+            <button
               onClick={() => {
-                getLaboratorioCant();
+                getUser().then(({data})=>{
+                  console.log(data)
+                });
               }}
             >
               Cantidad
-            </button> */}
+            </button>
             <div className="spaceVer20" />
             <div className="DashboardContent">
               <div className="Container_KPI">

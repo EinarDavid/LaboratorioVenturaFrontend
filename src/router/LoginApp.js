@@ -3,15 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { PasswordInput } from "../components/Input/PasswordInput";
 import { useForm } from "react-hook-form";
 import { TextInput } from "../components/Input/TextInput";
-import { postLogin } from "../services/usuarioService";
+import { getUser, postLogin } from "../services/usuarioService";
+import axios from "axios";
 
 export const LoginApp = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({});
 
-  const onLogin = () => {
-    navigate("/*");
-  };
   
   const {
     register,
@@ -20,11 +18,19 @@ export const LoginApp = () => {
   } = useForm({
     mode: "all",
   });
+
   const onSubmit = (data) => {
 
     console.log(data)
     postLogin(data).then(({ data }) => {
             console.log(data)
+            localStorage.setItem('token', data.token);
+            
+            axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
+
+            getUser().then(({data})=>{
+              console.log(data)
+            })
 
             navigate("/*", {
               replace: true,
