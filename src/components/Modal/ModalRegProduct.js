@@ -75,8 +75,9 @@ export const ModalRegProduct = ({ SetModal, modal, callback }) => {
     //console.log("data", data);
 
     if (data?.PrecioCompra !== "" && data?.PrecioVenta !== "") {
+      var Ganancia = (Number(data?.PrecioVenta) - Number(data?.PrecioCompra));
       var Utilidad =
-        (Number(data?.PrecioVenta) - Number(data?.PrecioCompra)) * 10;
+        100 / (Number(data?.PrecioCompra)/Ganancia);
 
       setValue("Utilidad", Utilidad);
     }

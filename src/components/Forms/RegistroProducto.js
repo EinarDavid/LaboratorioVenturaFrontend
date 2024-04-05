@@ -176,7 +176,7 @@ export const RegistroProducto = ({
             Validation={{
               required: "El campo es requerido",
               pattern: {
-                value: /^[0-9]+$/,
+                value: /^\d*\.?\d+$/,
                 message: "Solo se permiten números",
               },
               onChange: (e) => _Price(e),
@@ -192,7 +192,7 @@ export const RegistroProducto = ({
             Validation={{
               required: "El campo es requerido",
               pattern: {
-                value: /^[0-9]+$/,
+                value: /^\d*\.?\d+$/,
                 message: "Solo se permiten números",
               },
               onChange: (e) => _Price(e),
@@ -208,7 +208,7 @@ export const RegistroProducto = ({
             Validation={{
               required: "El campo es requerido",
               pattern: {
-                value: /^[0-9]+$/,
+                value: /^\d*\.?\d+$/,
                 message: "Solo se permiten números",
               },
               onChange: (e) => _Price(e),
