@@ -1,0 +1,113 @@
+[{
+  "_id": {
+    "$oid": "64050ecf8fc9a1bf5b1fc7f9"
+  },
+  "IdPaciente": "63c42df9b2f2d4974351ed99",
+  "Fecha": "5-3-2023",
+  "ExamenesRealizados": [
+    {
+      "IdExamen": "64050e278fc9a1bf5b1fc795",
+      "Estado": "Pendiente",
+      "_id": {
+        "$oid": "64050ecf8fc9a1bf5b1fc7fa"
+      },
+      "Resultados": []
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6408e8f5db6ee0955f38d361"
+  },
+  "IdPaciente": "63c42e12b2f2d4974351ed9c",
+  "Fecha": "8-3-2023",
+  "ExamenesRealizados": [
+    {
+      "IdExamen": "64050e278fc9a1bf5b1fc795",
+      "Estado": "Pendiente",
+      "_id": {
+        "$oid": "6408e8f5db6ee0955f38d362"
+      },
+      "Resultados": []
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64090115db6ee0955f38d3ad"
+  },
+  "IdPaciente": "63c42df9b2f2d4974351ed99",
+  "Fecha": "8-3-2023",
+  "ExamenesRealizados": [
+    {
+      "IdExamen": "640900b1db6ee0955f38d37e",
+      "Estado": "Realizado",
+      "Resultados": [
+        {
+          "Valor": "0.5",
+          "Id_Campo": "640900b1db6ee0955f38d37f",
+          "_id": {
+            "$oid": "6409023bdb6ee0955f38d4d9"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "64090115db6ee0955f38d3ae"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "640902eedb6ee0955f38d554"
+  },
+  "IdPaciente": "63cd6b7a41bf56efa275a479",
+  "Fecha": "8-3-2023",
+  "ExamenesRealizados": [
+    {
+      "IdExamen": "640902dedb6ee0955f38d546",
+      "Estado": "Realizado",
+      "Resultados": [
+        {
+          "Valor": "POSITIVO",
+          "Id_Campo": "640902dedb6ee0955f38d547",
+          "_id": {
+            "$oid": "6409035edb6ee0955f38d616"
+          }
+        },
+        {
+          "Valor": "Sangre",
+          "Id_Campo": "Materia",
+          "_id": {
+            "$oid": "6409035edb6ee0955f38d617"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "640902eedb6ee0955f38d555"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64090542db6ee0955f38d8f6"
+  },
+  "IdPaciente": "63c42df9b2f2d4974351ed99",
+  "Fecha": "8-3-2023",
+  "ExamenesRealizados": [
+    {
+      "IdExamen": "640902dedb6ee0955f38d546",
+      "Estado": "Pendiente",
+      "_id": {
+        "$oid": "64090542db6ee0955f38d8f7"
+      },
+      "Resultados": []
+    }
+  ],
+  "__v": 0
+}]

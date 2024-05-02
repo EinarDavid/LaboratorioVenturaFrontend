@@ -1,0 +1,304 @@
+[{
+  "_id": {
+    "$oid": "63c42df9b2f2d4974351ed99"
+  },
+  "CI": "6848234",
+  "Nombres": "Erick Rodrigo",
+  "PrimerApellido": "Aranibar",
+  "SegundoApellido": "Arias",
+  "Fecha_de_Nacimiento": "06/12/2000",
+  "Genero": "Masculino",
+  "Telefono": null,
+  "Direccion": "Tadeo Aenke Y Villavicencio",
+  "RazonSocial": "Vendedor de Acerrín",
+  "NIT": "4353554",
+  "Email": "aranibarerick@gmail.com",
+  "Password": "ASD13434",
+  "__v": 0,
+  "CodigoPaciente": "0020"
+},
+{
+  "_id": {
+    "$oid": "63c42e12b2f2d4974351ed9c"
+  },
+  "CI": "9367493",
+  "Nombres": "Einar David",
+  "PrimerApellido": "Villarroel",
+  "SegundoApellido": "Vargas",
+  "Fecha_de_Nacimiento": "06/07/1999",
+  "Genero": "",
+  "Telefono": 63949159,
+  "Direccion": "",
+  "RazonSocial": "Einar David Villarroel Vargas",
+  "NIT": "9367493",
+  "Email": "einardavidvillarroel@gmail.com",
+  "Password": "",
+  "__v": 0,
+  "CodigoPaciente": "0025"
+},
+{
+  "_id": {
+    "$oid": "63c5c8fd81b6352e621dbf2b"
+  },
+  "CI": "562321",
+  "Nombres": "Emanuel",
+  "PrimerApellido": "Gomez",
+  "SegundoApellido": "",
+  "Fecha_de_Nacimiento": "06/06/1999",
+  "Genero": "Masculino",
+  "Telefono": null,
+  "Direccion": "",
+  "RazonSocial": "",
+  "NIT": "",
+  "Email": "",
+  "Password": "",
+  "__v": 0,
+  "CodigoPaciente": "0022"
+},
+{
+  "_id": {
+    "$oid": "63c742748ac47aac29a9a336"
+  },
+  "CodigoPaciente": "0002",
+  "CI": "34523244",
+  "Nombres": "Jeronimo",
+  "PrimerApellido": "Rios",
+  "SegundoApellido": "",
+  "Fecha_de_Nacimiento": "07/09/2000",
+  "Genero": "",
+  "Telefono": null,
+  "Direccion": "",
+  "RazonSocial": "",
+  "NIT": "",
+  "Email": "",
+  "Password": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "63c743e98ac47aac29a9a372"
+  },
+  "CodigoPaciente": "0008",
+  "CI": "82732",
+  "Nombres": "Ana",
+  "PrimerApellido": "Villca",
+  "SegundoApellido": "",
+  "Fecha_de_Nacimiento": "03/05/1893",
+  "Genero": "",
+  "Telefono": null,
+  "Direccion": "",
+  "RazonSocial": "",
+  "NIT": "",
+  "Email": "",
+  "Password": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "63cd6b1941bf56efa275a460"
+  },
+  "CodigoPaciente": "0017",
+  "CI": "823422",
+  "Nombres": "Jose Luis",
+  "PrimerApellido": "Rodriguez",
+  "SegundoApellido": "Peredo",
+  "Fecha_de_Nacimiento": "03/02/1998",
+  "Genero": "",
+  "Telefono": null,
+  "Direccion": "",
+  "RazonSocial": "",
+  "NIT": "",
+  "Email": "",
+  "Password": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "63cd6b7a41bf56efa275a479"
+  },
+  "CodigoPaciente": "0018",
+  "CI": "67123",
+  "Nombres": "Isaac",
+  "PrimerApellido": "Herrera",
+  "SegundoApellido": "",
+  "Fecha_de_Nacimiento": "05/12/2000",
+  "Genero": "",
+  "Telefono": null,
+  "Direccion": "",
+  "RazonSocial": "",
+  "NIT": "",
+  "Email": "",
+  "Password": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "63cd6c1141bf56efa275a4bd"
+  },
+  "CodigoPaciente": "002312",
+  "CI": "91345",
+  "Nombres": "Rene",
+  "PrimerApellido": "Rocha",
+  "SegundoApellido": "",
+  "Fecha_de_Nacimiento": "04/12/2002",
+  "Genero": "",
+  "Telefono": null,
+  "Direccion": "",
+  "RazonSocial": "",
+  "NIT": "",
+  "Email": "",
+  "Password": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "63e7b51b5341cf2ef57a1436"
+  },
+  "CodigoPaciente": "",
+  "CI": "89121",
+  "Nombres": "David",
+  "PrimerApellido": "Villa",
+  "SegundoApellido": "",
+  "Fecha_de_Nacimiento": "06/06/2000",
+  "Genero": "",
+  "Telefono": null,
+  "Direccion": "",
+  "RazonSocial": "",
+  "NIT": "",
+  "Email": "",
+  "Password": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "63ea4b1ca8efaccd2f436801"
+  },
+  "CodigoPaciente": "00122",
+  "CI": "587921",
+  "Nombres": "Oscar",
+  "PrimerApellido": "Ibañez",
+  "SegundoApellido": "",
+  "Fecha_de_Nacimiento": "03/05/2000",
+  "Genero": "Masculino",
+  "Telefono": null,
+  "Direccion": "",
+  "RazonSocial": "",
+  "NIT": "",
+  "Email": "",
+  "Password": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "63ea4cb9a8efaccd2f436809"
+  },
+  "CodigoPaciente": "00023",
+  "CI": "345484",
+  "Nombres": "Jesus",
+  "PrimerApellido": "Vargas",
+  "SegundoApellido": "Vida",
+  "Fecha_de_Nacimiento": "02/12/1999",
+  "Genero": "Masculino",
+  "Telefono": null,
+  "Direccion": "",
+  "RazonSocial": "",
+  "NIT": "",
+  "Email": "",
+  "Password": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "63ea4f35a8efaccd2f436819"
+  },
+  "CodigoPaciente": "0056",
+  "CI": "6545221",
+  "Nombres": "Rene",
+  "PrimerApellido": "Fernandez",
+  "SegundoApellido": "",
+  "Fecha_de_Nacimiento": "03/12/1995",
+  "Genero": "Masculino",
+  "Telefono": null,
+  "Direccion": "",
+  "RazonSocial": "",
+  "NIT": "",
+  "Email": "",
+  "Password": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "63ea4f62a8efaccd2f43681b"
+  },
+  "CodigoPaciente": "",
+  "CI": "234545",
+  "Nombres": "Julio",
+  "PrimerApellido": "Melgar",
+  "SegundoApellido": "",
+  "Fecha_de_Nacimiento": "05/11/1995",
+  "Genero": "Masculino",
+  "Telefono": null,
+  "Direccion": "",
+  "RazonSocial": "",
+  "NIT": "",
+  "Email": "",
+  "Password": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "63ea4f7fa8efaccd2f43681d"
+  },
+  "CodigoPaciente": "",
+  "CI": "54861",
+  "Nombres": "Maria",
+  "PrimerApellido": "Magdalena",
+  "SegundoApellido": "",
+  "Fecha_de_Nacimiento": "02/09/1992",
+  "Genero": "Femenino",
+  "Telefono": null,
+  "Direccion": "",
+  "RazonSocial": "",
+  "NIT": "",
+  "Email": "",
+  "Password": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "63ea4fd0a8efaccd2f43681f"
+  },
+  "CodigoPaciente": "00124",
+  "CI": "56461|",
+  "Nombres": "Raquel",
+  "PrimerApellido": "Antezana",
+  "SegundoApellido": "",
+  "Fecha_de_Nacimiento": "02/12/1995",
+  "Genero": "",
+  "Telefono": null,
+  "Direccion": "",
+  "RazonSocial": "",
+  "NIT": "",
+  "Email": "",
+  "Password": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "63ea4ff2a8efaccd2f436821"
+  },
+  "CodigoPaciente": "00124",
+  "CI": "123544",
+  "Nombres": "Remberto",
+  "PrimerApellido": "Rojas",
+  "SegundoApellido": "",
+  "Fecha_de_Nacimiento": "05/8/1992",
+  "Genero": "Masculino",
+  "Telefono": null,
+  "Direccion": "",
+  "RazonSocial": "",
+  "NIT": "",
+  "Email": "",
+  "Password": "",
+  "__v": 0
+}]

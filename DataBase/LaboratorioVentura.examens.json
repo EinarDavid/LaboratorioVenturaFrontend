@@ -1,0 +1,128 @@
+[{
+  "_id": {
+    "$oid": "64050e278fc9a1bf5b1fc795"
+  },
+  "Nombre": "Glicemia",
+  "Categoria": "Química Sanguínea",
+  "Metodo": "None",
+  "Recipiente": "Tubo Gris",
+  "Muestra": "Sangre",
+  "Gastos": "20%",
+  "Precio": "10",
+  "InformacionClinica": "none",
+  "Campos": [
+    {
+      "Nombre": "Glicemia",
+      "ValorReferencia": [
+        {
+          "EdadMinima": "",
+          "EdadMaxima": "",
+          "Concentracion": "mg/dl",
+          "ValoresReferenciaHombre": "70 - 105",
+          "ValoresReferenciaMujer": "70 - 105",
+          "_id": {
+            "$oid": "64050e278fc9a1bf5b1fc797"
+          }
+        }
+      ],
+      "SubCategoria": "",
+      "_id": {
+        "$oid": "64050e278fc9a1bf5b1fc796"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "640900b1db6ee0955f38d37e"
+  },
+  "Nombre": "Creatinina",
+  "Categoria": "Química Sanguínea",
+  "Metodo": "Cinetico",
+  "Recipiente": "tubo seco",
+  "Muestra": "SUERO",
+  "Gastos": "5",
+  "Precio": "25",
+  "Campos": [
+    {
+      "Nombre": "Creatinina",
+      "ValorReferencia": [
+        {
+          "EdadMinima": "1",
+          "EdadMaxima": "10",
+          "Concentracion": "mg/dl",
+          "ValoresReferenciaHombre": "0.6 - 1.4",
+          "ValoresReferenciaMujer": "0.6 - 1.4",
+          "_id": {
+            "$oid": "640900b1db6ee0955f38d380"
+          }
+        },
+        {
+          "EdadMinima": "11",
+          "EdadMaxima": "20",
+          "Concentracion": "mg/dl",
+          "ValoresReferenciaHombre": "0.6 - 1.4",
+          "ValoresReferenciaMujer": "0.6 - 1.4",
+          "_id": {
+            "$oid": "640900b1db6ee0955f38d381"
+          }
+        },
+        {
+          "EdadMinima": "21",
+          "EdadMaxima": "50",
+          "Concentracion": "mg/dl",
+          "ValoresReferenciaHombre": "0.1 - 1.4",
+          "ValoresReferenciaMujer": "0.6 - 1.4",
+          "_id": {
+            "$oid": "640900b1db6ee0955f38d382"
+          }
+        }
+      ],
+      "SubCategoria": "SERIE ROJA",
+      "_id": {
+        "$oid": "640900b1db6ee0955f38d37f"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "640902dedb6ee0955f38d546"
+  },
+  "Nombre": "Tipo de sangre",
+  "Categoria": "Hematología",
+  "Campos": [
+    {
+      "Nombre": "Tipo de sangre",
+      "ValorReferencia": [
+        {
+          "EdadMinima": "",
+          "EdadMaxima": "",
+          "Concentracion": "",
+          "ValoresReferenciaHombre": "POSITIVO - NEGATIVO",
+          "ValoresReferenciaMujer": "POSITIVO- NEGATIVO - ASD",
+          "_id": {
+            "$oid": "640902dedb6ee0955f38d548"
+          }
+        },
+        {
+          "EdadMinima": "",
+          "EdadMaxima": "",
+          "Concentracion": "",
+          "ValoresReferenciaHombre": "O - AB - B",
+          "ValoresReferenciaMujer": "O - AB - B",
+          "_id": {
+            "$oid": "6409052cdb6ee0955f38d85b"
+          }
+        }
+      ],
+      "SubCategoria": "",
+      "_id": {
+        "$oid": "640902dedb6ee0955f38d547"
+      }
+    }
+  ],
+  "__v": 0
+}]

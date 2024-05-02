@@ -1,0 +1,1360 @@
+[{
+  "_id": {
+    "$oid": "66184a3e125a748b6865d248"
+  },
+  "Nombre": "ACEITE",
+  "Grupo": "661831f47f8550a324cc5176",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3e125a748b6865d24a"
+  },
+  "Nombre": "AEROSOL",
+  "Grupo": "661831f57f8550a324cc518a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3e125a748b6865d24c"
+  },
+  "Nombre": "AEROCAMARA",
+  "Grupo": "661831fa7f8550a324cc5278",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3e125a748b6865d24e"
+  },
+  "Nombre": "AMPOLLA",
+  "Grupo": "661831f47f8550a324cc5150",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3e125a748b6865d250"
+  },
+  "Nombre": "AGUJAS",
+  "Grupo": "661831f97f8550a324cc5248",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3e125a748b6865d252"
+  },
+  "Nombre": "ALGODON",
+  "Grupo": "661831f57f8550a324cc51a4",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3e125a748b6865d254"
+  },
+  "Nombre": "AMPOLLAS",
+  "Grupo": "661831f47f8550a324cc515c",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3e125a748b6865d256"
+  },
+  "Nombre": "ANALGESICO DENTAL",
+  "Grupo": "661831fb7f8550a324cc52b8",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3e125a748b6865d258"
+  },
+  "Nombre": "AMPOLLAS BEBIBLES",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3e125a748b6865d25a"
+  },
+  "Nombre": "ATOMIZADOR",
+  "Grupo": "661831f47f8550a324cc5160",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3e125a748b6865d25c"
+  },
+  "Nombre": "BARBIJO",
+  "Grupo": "661831f67f8550a324cc51c0",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3e125a748b6865d25e"
+  },
+  "Nombre": "BARRA",
+  "Grupo": "661831f57f8550a324cc5186",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3e125a748b6865d260"
+  },
+  "Nombre": "BLOQUEADOR SOLAR",
+  "Grupo": "661831f47f8550a324cc515c",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3e125a748b6865d262"
+  },
+  "Nombre": "BIBERON",
+  "Grupo": "661831f37f8550a324cc5148",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3f125a748b6865d264"
+  },
+  "Nombre": "BRANULA",
+  "Grupo": "661831f97f8550a324cc5248",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3f125a748b6865d266"
+  },
+  "Nombre": "CAPSULA",
+  "Grupo": "661831f47f8550a324cc514e",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3f125a748b6865d268"
+  },
+  "Nombre": "ASPIRADOR NASAL",
+  "Grupo": "661831f37f8550a324cc5148",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3f125a748b6865d26a"
+  },
+  "Nombre": "CAPSULAS BLANDAS",
+  "Grupo": "661831f47f8550a324cc5160",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3f125a748b6865d26c"
+  },
+  "Nombre": "CEPILLO DE SILICONA",
+  "Grupo": "661831f37f8550a324cc5148",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3f125a748b6865d26e"
+  },
+  "Nombre": "CAPSULAS",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3f125a748b6865d270"
+  },
+  "Nombre": "CEPILLO INTERDENTAL",
+  "Grupo": "661831f57f8550a324cc51a4",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3f125a748b6865d272"
+  },
+  "Nombre": "CEPILLO DENTAL",
+  "Grupo": "661831f37f8550a324cc5148",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3f125a748b6865d274"
+  },
+  "Nombre": "BOTIQUIN",
+  "Grupo": "661831f67f8550a324cc51d6",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3f125a748b6865d276"
+  },
+  "Nombre": "CHUPON",
+  "Grupo": "661831f47f8550a324cc5170",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3f125a748b6865d278"
+  },
+  "Nombre": "CHUPON PARA FRUTAS",
+  "Grupo": "661831f67f8550a324cc51ca",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3f125a748b6865d27a"
+  },
+  "Nombre": "CHUPON DE DISTRACCION",
+  "Grupo": "661831f37f8550a324cc5148",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3f125a748b6865d27c"
+  },
+  "Nombre": "COMPRESAS",
+  "Grupo": "661831fa7f8550a324cc5276",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3f125a748b6865d27e"
+  },
+  "Nombre": "COMPRIMIDO DE LIBERACION RETARDADA",
+  "Grupo": "661831f47f8550a324cc515c",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a3f125a748b6865d280"
+  },
+  "Nombre": "COMPRIMIDO",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a40125a748b6865d282"
+  },
+  "Nombre": "COMPRIMIDO SUBLINGUAL",
+  "Grupo": "661831f47f8550a324cc5154",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a40125a748b6865d284"
+  },
+  "Nombre": "COMPRIMIDOS",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a40125a748b6865d286"
+  },
+  "Nombre": "COMPRIMIDOS BUCODISPERSABLES",
+  "Grupo": "661831f47f8550a324cc515c",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a40125a748b6865d288"
+  },
+  "Nombre": "COMPRIMIDOS DISPERSABLES",
+  "Grupo": "661831f67f8550a324cc51bc",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a40125a748b6865d28a"
+  },
+  "Nombre": "COMPRIMIDOS DE LIBERACION PROLONGADA",
+  "Grupo": "661831f47f8550a324cc515c",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a40125a748b6865d28c"
+  },
+  "Nombre": "COMPRIMIDO RECUBIERTO",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a40125a748b6865d28e"
+  },
+  "Nombre": "COMPRIMIDOS RANURADOS",
+  "Grupo": "661831f57f8550a324cc5180",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a40125a748b6865d290"
+  },
+  "Nombre": "COMPRIMIDOS MASTICABLES",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a40125a748b6865d292"
+  },
+  "Nombre": "COMPRIMIDOS RECUBIERTOS",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a40125a748b6865d294"
+  },
+  "Nombre": "CONDON",
+  "Grupo": "661831f77f8550a324cc51f4",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a40125a748b6865d296"
+  },
+  "Nombre": "COTONETE",
+  "Grupo": "661831f57f8550a324cc519e",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a40125a748b6865d298"
+  },
+  "Nombre": "CREMA",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a40125a748b6865d29a"
+  },
+  "Nombre": "CREMA DERMICA",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a40125a748b6865d29c"
+  },
+  "Nombre": "CREMA DENTAL",
+  "Grupo": "661831fa7f8550a324cc5278",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a40125a748b6865d29e"
+  },
+  "Nombre": "CREMA VAGINAL",
+  "Grupo": "661831f57f8550a324cc518a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a41125a748b6865d2a0"
+  },
+  "Nombre": "CREMA FACIAL",
+  "Grupo": "661831f47f8550a324cc515c",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a41125a748b6865d2a2"
+  },
+  "Nombre": "DENTRIFICO",
+  "Grupo": "661831fa7f8550a324cc5278",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a41125a748b6865d2a4"
+  },
+  "Nombre": "DESCONGESTIONANTE NASAL",
+  "Grupo": "661831f77f8550a324cc51f0",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a41125a748b6865d2a6"
+  },
+  "Nombre": "DESODORANTE",
+  "Grupo": "661831fa7f8550a324cc5284",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a41125a748b6865d2a8"
+  },
+  "Nombre": "EMULSION",
+  "Grupo": "661831f77f8550a324cc51e0",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a41125a748b6865d2aa"
+  },
+  "Nombre": "EDULCORANTE LIQUIDO",
+  "Grupo": "661831fa7f8550a324cc5276",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a41125a748b6865d2ac"
+  },
+  "Nombre": "EFERVESCENTE",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a41125a748b6865d2ae"
+  },
+  "Nombre": "ENEMA",
+  "Grupo": "661831f77f8550a324cc51f6",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a41125a748b6865d2b0"
+  },
+  "Nombre": "EQUIPO DE SUERO",
+  "Grupo": "661831f97f8550a324cc5248",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a41125a748b6865d2b2"
+  },
+  "Nombre": "ENJUAGUE BUCAL",
+  "Grupo": "661831f47f8550a324cc5178",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a41125a748b6865d2b4"
+  },
+  "Nombre": "FORMULA",
+  "Grupo": "661831f77f8550a324cc51f0",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a41125a748b6865d2b6"
+  },
+  "Nombre": "EXTRACTOR DE LECHE",
+  "Grupo": "661831f37f8550a324cc5148",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a41125a748b6865d2b8"
+  },
+  "Nombre": "GEL DE HIGIENE",
+  "Grupo": "661831f77f8550a324cc51e0",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a41125a748b6865d2ba"
+  },
+  "Nombre": "GEL",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a41125a748b6865d2bc"
+  },
+  "Nombre": "FAJA DE TOCUYO",
+  "Grupo": "661831f87f8550a324cc522c",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a42125a748b6865d2be"
+  },
+  "Nombre": "GEL DE CABELLO",
+  "Grupo": "661831f47f8550a324cc515e",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a42125a748b6865d2c0"
+  },
+  "Nombre": "GEL DENTAL",
+  "Grupo": "661831f87f8550a324cc5232",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a42125a748b6865d2c2"
+  },
+  "Nombre": "GEL DERMICO",
+  "Grupo": "661831f57f8550a324cc5180",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a42125a748b6865d2c4"
+  },
+  "Nombre": "GOTA ORALES",
+  "Grupo": "661831f47f8550a324cc5150",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a42125a748b6865d2c6"
+  },
+  "Nombre": "GEL INTIMO",
+  "Grupo": "661831fa7f8550a324cc5278",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a42125a748b6865d2c8"
+  },
+  "Nombre": "GOMITAS",
+  "Grupo": "661831fb7f8550a324cc52a8",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a42125a748b6865d2ca"
+  },
+  "Nombre": "GOTAS",
+  "Grupo": "661831f47f8550a324cc515c",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a42125a748b6865d2cc"
+  },
+  "Nombre": "GOTAS NASALES",
+  "Grupo": "661831fb7f8550a324cc52b8",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a42125a748b6865d2ce"
+  },
+  "Nombre": "GOTAS ORALES",
+  "Grupo": "661831f47f8550a324cc515c",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a42125a748b6865d2d0"
+  },
+  "Nombre": "GRAGEAS",
+  "Grupo": "661831f47f8550a324cc5162",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a42125a748b6865d2d2"
+  },
+  "Nombre": "GRANULADO",
+  "Grupo": "661831f77f8550a324cc51e6",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a42125a748b6865d2d4"
+  },
+  "Nombre": "GRANULOS PARA SUSPENSION",
+  "Grupo": "661831f77f8550a324cc51dc",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a42125a748b6865d2d6"
+  },
+  "Nombre": "INFUSOR",
+  "Grupo": "661831f47f8550a324cc5168",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a42125a748b6865d2d8"
+  },
+  "Nombre": "HIGIENE INTIMA",
+  "Grupo": "661831fa7f8550a324cc5284",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a43125a748b6865d2da"
+  },
+  "Nombre": "HILO DENTAL",
+  "Grupo": "661831f57f8550a324cc51a4",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a43125a748b6865d2dc"
+  },
+  "Nombre": "GOTAS PEDRIATICAS",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a43125a748b6865d2de"
+  },
+  "Nombre": "INYECTABLE",
+  "Grupo": "661831f47f8550a324cc515c",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a43125a748b6865d2e0"
+  },
+  "Nombre": "JALEA",
+  "Grupo": "661831f47f8550a324cc5158",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a43125a748b6865d2e2"
+  },
+  "Nombre": "JABON",
+  "Grupo": "661831f47f8550a324cc515a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a43125a748b6865d2e4"
+  },
+  "Nombre": "INTERDENTAL",
+  "Grupo": "661831fa7f8550a324cc5278",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a43125a748b6865d2e6"
+  },
+  "Nombre": "JERINGA PRELLENADA",
+  "Grupo": "661831f97f8550a324cc5264",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a43125a748b6865d2e8"
+  },
+  "Nombre": "JARABE ADULTOS",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a43125a748b6865d2ea"
+  },
+  "Nombre": "JERINGA",
+  "Grupo": "661831f47f8550a324cc516c",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a43125a748b6865d2ec"
+  },
+  "Nombre": "JARABE",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a43125a748b6865d2ee"
+  },
+  "Nombre": "JARABE INFANTIL",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a43125a748b6865d2f0"
+  },
+  "Nombre": "LABELLO",
+  "Grupo": "661831f77f8550a324cc51f0",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a43125a748b6865d2f2"
+  },
+  "Nombre": "LINTERNA DE DIAGNOSTICO",
+  "Grupo": "661831f47f8550a324cc514a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a43125a748b6865d2f4"
+  },
+  "Nombre": "LECHE DE FORMULA",
+  "Grupo": "661831f47f8550a324cc515c",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a43125a748b6865d2f6"
+  },
+  "Nombre": "LUBRICANTE OCULAR",
+  "Grupo": "661831fa7f8550a324cc5278",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a44125a748b6865d2f8"
+  },
+  "Nombre": "MASCARILLA",
+  "Grupo": "661831f97f8550a324cc526e",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a44125a748b6865d2fa"
+  },
+  "Nombre": "MAQUILLAJE",
+  "Grupo": "661831f77f8550a324cc51f0",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a44125a748b6865d2fc"
+  },
+  "Nombre": "LOCION",
+  "Grupo": "661831f57f8550a324cc518a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a44125a748b6865d2fe"
+  },
+  "Nombre": "MASTICABLES",
+  "Grupo": "661831f47f8550a324cc5154",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a44125a748b6865d300"
+  },
+  "Nombre": "PAÑITOS",
+  "Grupo": "661831fa7f8550a324cc5278",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a44125a748b6865d302"
+  },
+  "Nombre": "PAÑAL",
+  "Grupo": "661831f47f8550a324cc5176",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a44125a748b6865d304"
+  },
+  "Nombre": "MORDEDOR",
+  "Grupo": "661831f37f8550a324cc5148",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a44125a748b6865d306"
+  },
+  "Nombre": "OFTALMICO",
+  "Grupo": "661831fa7f8550a324cc527e",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a44125a748b6865d308"
+  },
+  "Nombre": "OVULO VAGINAL",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a44125a748b6865d30a"
+  },
+  "Nombre": "PARCHE",
+  "Grupo": "661831f77f8550a324cc51f4",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a44125a748b6865d30c"
+  },
+  "Nombre": "PASTA",
+  "Grupo": "661831f57f8550a324cc5182",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a44125a748b6865d30e"
+  },
+  "Nombre": "PASTA DENTAL",
+  "Grupo": "661831f47f8550a324cc5150",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a44125a748b6865d310"
+  },
+  "Nombre": "PASTILLA",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a44125a748b6865d312"
+  },
+  "Nombre": "PARCHE DERMICO",
+  "Grupo": "661831fa7f8550a324cc5278",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a44125a748b6865d314"
+  },
+  "Nombre": "LUBRICANTE",
+  "Grupo": "661831f77f8550a324cc51dc",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a45125a748b6865d316"
+  },
+  "Nombre": "POLVO",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a45125a748b6865d318"
+  },
+  "Nombre": "POLVO PARA INYECTABLE",
+  "Grupo": "661831f47f8550a324cc515c",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a45125a748b6865d31a"
+  },
+  "Nombre": "POLVO PARA SUSPENSION",
+  "Grupo": "661831f47f8550a324cc515c",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a45125a748b6865d31c"
+  },
+  "Nombre": "POLVO PARA SUSPENSION ORAL",
+  "Grupo": "661831f47f8550a324cc515c",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a45125a748b6865d31e"
+  },
+  "Nombre": "POMADA",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a45125a748b6865d320"
+  },
+  "Nombre": "PRESERVATIVO",
+  "Grupo": "661831f47f8550a324cc5174",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a45125a748b6865d322"
+  },
+  "Nombre": "PROTECTOR DE LACTANCIA",
+  "Grupo": "661831f77f8550a324cc520a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a45125a748b6865d324"
+  },
+  "Nombre": "PROTECTOR SOLAR",
+  "Grupo": "661831f47f8550a324cc515c",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a45125a748b6865d326"
+  },
+  "Nombre": "REPELENTE",
+  "Grupo": "661831f67f8550a324cc51c6",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a45125a748b6865d328"
+  },
+  "Nombre": "SACHET",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a45125a748b6865d32a"
+  },
+  "Nombre": "SHAMPOO",
+  "Grupo": "661831f47f8550a324cc515c",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a45125a748b6865d32c"
+  },
+  "Nombre": "SERUM",
+  "Grupo": "661831fa7f8550a324cc5284",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a45125a748b6865d32e"
+  },
+  "Nombre": "SOBRE",
+  "Grupo": "661831f47f8550a324cc5150",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a45125a748b6865d330"
+  },
+  "Nombre": "SOBRES GRANULADO",
+  "Grupo": "661831f57f8550a324cc517e",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a45125a748b6865d332"
+  },
+  "Nombre": "SOLUCION DESINFECTANTE",
+  "Grupo": "661831f77f8550a324cc51e0",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a46125a748b6865d334"
+  },
+  "Nombre": "SOLUCION GOTAS",
+  "Grupo": "661831f57f8550a324cc51a8",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a46125a748b6865d336"
+  },
+  "Nombre": "SOBRES",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a46125a748b6865d338"
+  },
+  "Nombre": "SOLUCION",
+  "Grupo": "661831f47f8550a324cc5156",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a46125a748b6865d33a"
+  },
+  "Nombre": "SOLUCION JABONOSA",
+  "Grupo": "661831f97f8550a324cc5246",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a46125a748b6865d33c"
+  },
+  "Nombre": "SOLUCION OTICA",
+  "Grupo": "661831f57f8550a324cc518a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a46125a748b6865d33e"
+  },
+  "Nombre": "SOLUCION ORAL",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a46125a748b6865d340"
+  },
+  "Nombre": "SOLUCION NASAL",
+  "Grupo": "661831fa7f8550a324cc527e",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a46125a748b6865d342"
+  },
+  "Nombre": "SOLUCION SPRAY",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a46125a748b6865d344"
+  },
+  "Nombre": "SOLUCION PARA NEBULIZAR",
+  "Grupo": "661831f57f8550a324cc51a6",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a46125a748b6865d346"
+  },
+  "Nombre": "SOLUCION TOPICA",
+  "Grupo": "661831f47f8550a324cc515c",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a46125a748b6865d348"
+  },
+  "Nombre": "SONAJERO",
+  "Grupo": "661831f57f8550a324cc518e",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a46125a748b6865d34a"
+  },
+  "Nombre": "SPRAY",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a46125a748b6865d34c"
+  },
+  "Nombre": "STEVIA ",
+  "Grupo": "661831fa7f8550a324cc5278",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a46125a748b6865d34e"
+  },
+  "Nombre": "SUERO",
+  "Grupo": "661831f77f8550a324cc51f0",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a46125a748b6865d350"
+  },
+  "Nombre": "SUPLEMENTO ALIMENTICIO",
+  "Grupo": "661831fa7f8550a324cc529e",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a47125a748b6865d352"
+  },
+  "Nombre": "SUPOSITORIO",
+  "Grupo": "661831f47f8550a324cc5150",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a47125a748b6865d354"
+  },
+  "Nombre": "SUSPENSION EN AEROSOL",
+  "Grupo": "661831f87f8550a324cc5234",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a47125a748b6865d356"
+  },
+  "Nombre": "SUSPENSION",
+  "Grupo": "661831f47f8550a324cc5154",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a47125a748b6865d358"
+  },
+  "Nombre": "SUSPENSION EN GOTAS",
+  "Grupo": "661831f57f8550a324cc51a6",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a47125a748b6865d35a"
+  },
+  "Nombre": "SUSPENSION OFTALMICA",
+  "Grupo": "661831f87f8550a324cc5234",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a47125a748b6865d35c"
+  },
+  "Nombre": "SUSPENSION EXTEMPORANEA",
+  "Grupo": "661831f77f8550a324cc51e0",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a47125a748b6865d35e"
+  },
+  "Nombre": "SUSPENSION EN POLVO",
+  "Grupo": "661831f47f8550a324cc5174",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a47125a748b6865d360"
+  },
+  "Nombre": "SUSPENSION ORAL",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a47125a748b6865d362"
+  },
+  "Nombre": "SUSPENSION NASAL",
+  "Grupo": "661831fa7f8550a324cc527e",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a47125a748b6865d364"
+  },
+  "Nombre": "SUSPENSION PEDIATRICO",
+  "Grupo": "661831f47f8550a324cc5152",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a47125a748b6865d366"
+  },
+  "Nombre": "TABLETA PARA FRICCION",
+  "Grupo": "661831fb7f8550a324cc52a4",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a47125a748b6865d368"
+  },
+  "Nombre": "TABLETA MASTICABLE",
+  "Grupo": "661831f77f8550a324cc51f0",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a47125a748b6865d36a"
+  },
+  "Nombre": "SUSPENSION RECONSTITUIDA",
+  "Grupo": "661831f97f8550a324cc5266",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a47125a748b6865d36c"
+  },
+  "Nombre": "TABLETA RECUBIERTA",
+  "Grupo": "661831f77f8550a324cc51e6",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a47125a748b6865d36e"
+  },
+  "Nombre": "TABLETAS",
+  "Grupo": "661831f47f8550a324cc516a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a47125a748b6865d370"
+  },
+  "Nombre": "TABLETAS CONTRA MOSQUITOS",
+  "Grupo": "661831f47f8550a324cc5176",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a47125a748b6865d372"
+  },
+  "Nombre": "TABLETAS DISPERSABLES",
+  "Grupo": "661831f77f8550a324cc51f0",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a48125a748b6865d374"
+  },
+  "Nombre": "TABLETAS DE LIBERACION RETARDADA",
+  "Grupo": "661831f77f8550a324cc51f0",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a48125a748b6865d376"
+  },
+  "Nombre": "TABLETAS EFERVECENTES",
+  "Grupo": "661831f47f8550a324cc5162",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a48125a748b6865d378"
+  },
+  "Nombre": "TABLETAS RECUBIERTAS",
+  "Grupo": "661831f57f8550a324cc51a2",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a48125a748b6865d37a"
+  },
+  "Nombre": "TALCO",
+  "Grupo": "661831f57f8550a324cc518a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a48125a748b6865d37c"
+  },
+  "Nombre": "TEST DE EMBARAZO",
+  "Grupo": "661831f47f8550a324cc516c",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a48125a748b6865d37e"
+  },
+  "Nombre": "TERMOMETRO",
+  "Grupo": "661831f47f8550a324cc514a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a48125a748b6865d380"
+  },
+  "Nombre": "TE",
+  "Grupo": "661831f47f8550a324cc5168",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a48125a748b6865d382"
+  },
+  "Nombre": "TETINA SILICONADA",
+  "Grupo": "661831f57f8550a324cc519c",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a48125a748b6865d384"
+  },
+  "Nombre": "TOALLAS HUMEDAS",
+  "Grupo": "661831f57f8550a324cc518a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a48125a748b6865d386"
+  },
+  "Nombre": "TOALLAS FEMENINAS",
+  "Grupo": "661831f47f8550a324cc5176",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a48125a748b6865d388"
+  },
+  "Nombre": "UNGÜENTO",
+  "Grupo": "661831f57f8550a324cc518a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a48125a748b6865d38a"
+  },
+  "Nombre": "UNGÜENTO OFTALMICO",
+  "Grupo": "661831fa7f8550a324cc528a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a49125a748b6865d38c"
+  },
+  "Nombre": "UNGUENTO DERMICO",
+  "Grupo": "661831f87f8550a324cc521a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a49125a748b6865d38e"
+  },
+  "Nombre": "UNGUENTO OFTALMOLOGICO",
+  "Grupo": "661831fa7f8550a324cc528a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a49125a748b6865d390"
+  },
+  "Nombre": "USO TOPICO",
+  "Grupo": "661831f97f8550a324cc525c",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a49125a748b6865d392"
+  },
+  "Nombre": "VASO TOMATODO",
+  "Grupo": "661831f67f8550a324cc51ca",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a49125a748b6865d394"
+  },
+  "Nombre": "VENDA DE YESO",
+  "Grupo": "661831f67f8550a324cc51d6",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a49125a748b6865d396"
+  },
+  "Nombre": "VENDA ELASTICA",
+  "Grupo": "661831f57f8550a324cc5188",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a49125a748b6865d398"
+  },
+  "Nombre": "VIA TOPICA",
+  "Grupo": "661831f87f8550a324cc521a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66184a49125a748b6865d39a"
+  },
+  "Nombre": "VIAL",
+  "Grupo": "661831f77f8550a324cc51dc",
+  "__v": 0
+}]

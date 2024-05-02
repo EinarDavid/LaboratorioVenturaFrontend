@@ -1,0 +1,74 @@
+[{
+  "_id": {
+    "$oid": "654aabcc2198b10f0efac5ad"
+  },
+  "CI": "2134234",
+  "Nombres": "Isaac",
+  "PrimerApellido": "Her",
+  "SegundoApellido": "Q",
+  "Fecha_de_Nacimiento": "06/10/2001",
+  "Genero": "Masculino",
+  "Telefono": 53453,
+  "Direccion": "",
+  "Cargo": "Administrador_General",
+  "Email": "isaac@gmail.com",
+  "Password": "23424534ada",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654aad93d579292679e6c669"
+  },
+  "CI": "2134234",
+  "Nombres": "Isaac Limbert",
+  "PrimerApellido": "Her",
+  "SegundoApellido": "Q",
+  "Fecha_de_Nacimiento": "06/10/2001",
+  "Genero": "Masculino",
+  "Telefono": 53453,
+  "Direccion": "",
+  "Cargo": "2",
+  "Email": "isaac@gmail.com",
+  "Password": "23424534ada",
+  "Activo": true,
+  "Sucursal": "111",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65c0f32bd90d43e6a85779a6"
+  },
+  "CI": "9212312",
+  "Nombres": "eASD",
+  "PrimerApellido": "SDA",
+  "SegundoApellido": "",
+  "Fecha_de_Nacimiento": "02/01/1999",
+  "Genero": "Masculino",
+  "Telefono": 1232,
+  "Direccion": "asda",
+  "Cargo": "1",
+  "Email": "ed@g.com",
+  "Password": "123admin",
+  "Activo": true,
+  "Sucursal": "111",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661896826284625ad12595a4"
+  },
+  "CI": "7932804",
+  "Nombres": "Emmanuel",
+  "PrimerApellido": "Gomez",
+  "SegundoApellido": "",
+  "Fecha_de_Nacimiento": "06/02/1992",
+  "Genero": "Masculino",
+  "Telefono": 73750266,
+  "Direccion": "",
+  "Cargo": "1",
+  "Email": "emanuel@gmail.com",
+  "Password": "Admin123",
+  "Activo": true,
+  "Sucursal": "111",
+  "__v": 0
+}]

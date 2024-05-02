@@ -1,0 +1,120 @@
+[{
+  "_id": {
+    "$oid": "655fc78fd1385934a3506dd4"
+  },
+  "MontoTotal": 40,
+  "Proveedor": "111",
+  "Detalle": [
+    {
+      "_idProducto": "654ea344a87ca0cbffdb5e2f",
+      "CantidadTotal": 1,
+      "PrecioCompra": 20,
+      "FechaVencimiento": "",
+      "Lote": "",
+      "_id": {
+        "$oid": "6570d8491daba6c889df9961"
+      }
+    },
+    {
+      "_idProducto": "656f91867a130c44dcf4a473",
+      "CantidadTotal": 2,
+      "PrecioCompra": 10,
+      "FechaVencimiento": "",
+      "Lote": "",
+      "_id": {
+        "$oid": "6570d8491daba6c889df9962"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "655fc81ad1385934a3506df1"
+  },
+  "MontoTotal": 50,
+  "Proveedor": "222",
+  "Detalle": [
+    {
+      "_idProducto": "654ea2a2a87ca0cbffdb5e22",
+      "CantidadTotal": 3,
+      "PrecioCompra": 10,
+      "FechaVencimiento": "",
+      "Lote": "",
+      "_id": {
+        "$oid": "6570d6561daba6c889df97b4"
+      }
+    },
+    {
+      "_idProducto": "654ea2a2a87ca0cbffdb5e22",
+      "CantidadTotal": 2,
+      "PrecioCompra": 10,
+      "FechaVencimiento": "",
+      "Lote": "",
+      "_id": {
+        "$oid": "6570d6561daba6c889df97b5"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "655fc886f5c267a659e3bf73"
+  },
+  "Fecha": "Thu Nov 23 2023 22:47:50 GMT+0100 (Central European Standard Time)",
+  "MontoTotal": 60,
+  "Proveedor": "Proveedor 1",
+  "Detalle": [
+    {
+      "Codigo": "ASOFAR",
+      "CantidadTotal": 5,
+      "PrecioCompra": 10,
+      "FechaVencimiento": "",
+      "_id": {
+        "$oid": "6561177ff5c267a659e3c308"
+      }
+    },
+    {
+      "Codigo": "ASOFAR",
+      "CantidadTotal": 2,
+      "PrecioCompra": 20,
+      "FechaVencimiento": "",
+      "_id": {
+        "$oid": "6561177ff5c267a659e3c309"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6564fe826184284f2facb20d"
+  },
+  "Fecha": "Mon Nov 27 2023 21:39:30 GMT+0100 (Central European Standard Time)",
+  "MontoTotal": 60,
+  "Proveedor": "111",
+  "Detalle": [
+    {
+      "_idProducto": "654ea344a87ca0cbffdb5e2f",
+      "CantidadTotal": 2,
+      "PrecioCompra": 10,
+      "FechaVencimiento": "",
+      "Lote": "",
+      "_id": {
+        "$oid": "6570d8091daba6c889df98a6"
+      }
+    },
+    {
+      "_idProducto": "654ea2a2a87ca0cbffdb5e22",
+      "CantidadTotal": 2,
+      "PrecioCompra": 20,
+      "FechaVencimiento": "",
+      "Lote": "",
+      "_id": {
+        "$oid": "6570d8091daba6c889df98a7"
+      }
+    }
+  ],
+  "__v": 0
+}]

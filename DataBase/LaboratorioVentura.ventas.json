@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "6569060d7a130c44dcf49fce"
+  },
+  "Fecha": "Thu Nov 30 2023 23:00:45 GMT+0100 (Central European Standard Time)",
+  "PrecioTotal": 168,
+  "Descuento_Ganancia": -2,
+  "Cliente": "63c42e12b2f2d4974351ed9c",
+  "Producto": [
+    {
+      "Cantidad": 8,
+      "PrecioVenta": 18,
+      "Total": 144,
+      "_id": {
+        "$oid": "654ea2a2a87ca0cbffdb5e22"
+      }
+    },
+    {
+      "Cantidad": 2,
+      "PrecioVenta": 12,
+      "Total": 24,
+      "_id": {
+        "$oid": "654ea344a87ca0cbffdb5e2f"
+      }
+    }
+  ],
+  "Facturacion": {
+    "RazonSocial": "Einar David Villarroel Vargas",
+    "NIT": "9367493",
+    "Email": "einardavidvillarroel@gmail.com",
+    "_id": {
+      "$oid": "6569060d7a130c44dcf49fd1"
+    }
+  },
+  "__v": 0
+}]

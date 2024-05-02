@@ -1,0 +1,11 @@
+[{
+  "_id": {
+    "$oid": "65721e743337568d8d37fe66"
+  },
+  "Nombre": "Bagó",
+  "RazonSocial": "Bagó",
+  "NIT": "23423",
+  "Direccion": "Cochabamba",
+  "Telefono": "43453453",
+  "__v": 0
+}]

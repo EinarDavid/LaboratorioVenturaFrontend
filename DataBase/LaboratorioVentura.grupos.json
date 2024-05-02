@@ -1,0 +1,1302 @@
+[{
+  "_id": {
+    "$oid": "661831f37f8550a324cc5148"
+  },
+  "Nombre": "ACM",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc514a"
+  },
+  "Nombre": "ADEMAR",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc514c"
+  },
+  "Nombre": "AISAFARMA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc514e"
+  },
+  "Nombre": "ADVANCE",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc5150"
+  },
+  "Nombre": "ALFA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc5152"
+  },
+  "Nombre": "ALCOS",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc5154"
+  },
+  "Nombre": "ALMAGRAN",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc5156"
+  },
+  "Nombre": "ALMARK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc5158"
+  },
+  "Nombre": "ANA MARIA LA JUSTICIA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc515a"
+  },
+  "Nombre": "ARGEBOL",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc515c"
+  },
+  "Nombre": "BAGO",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc515e"
+  },
+  "Nombre": "AYAVIRI",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc5160"
+  },
+  "Nombre": "ASOFAR",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc5162"
+  },
+  "Nombre": "BAGO - BAYER",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc5164"
+  },
+  "Nombre": "BENJO",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc5166"
+  },
+  "Nombre": "BIOSANO",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc5168"
+  },
+  "Nombre": "BONAFIX",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc516a"
+  },
+  "Nombre": "BONAPHARM",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc516c"
+  },
+  "Nombre": "BQS",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc516e"
+  },
+  "Nombre": "BQS PHARMA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc5170"
+  },
+  "Nombre": "BRIANA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc5172"
+  },
+  "Nombre": "BRAINMARK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc5174"
+  },
+  "Nombre": "BRIMEG",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc5176"
+  },
+  "Nombre": "CANCHA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc5178"
+  },
+  "Nombre": "CAMSA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f47f8550a324cc517a"
+  },
+  "Nombre": "CIBELES NUTRILON",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f57f8550a324cc517c"
+  },
+  "Nombre": "COCA COLA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f57f8550a324cc517e"
+  },
+  "Nombre": "COFAR",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f57f8550a324cc5180"
+  },
+  "Nombre": "COFAR - BRESKOT PHARMA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f57f8550a324cc5182"
+  },
+  "Nombre": "COMPANEX",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f57f8550a324cc5184"
+  },
+  "Nombre": "COFARBOL",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f57f8550a324cc5186"
+  },
+  "Nombre": "CONTRA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f57f8550a324cc5188"
+  },
+  "Nombre": "CORMESA ",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f57f8550a324cc518a"
+  },
+  "Nombre": "CRESPAL",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f57f8550a324cc518c"
+  },
+  "Nombre": "DELTA ",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f57f8550a324cc518e"
+  },
+  "Nombre": "DISTRIBUDORA ACM",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f57f8550a324cc5190"
+  },
+  "Nombre": "DISMEDIN",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f57f8550a324cc5192"
+  },
+  "Nombre": "DISTRIBUIDORA FARMACEUTICA QR",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f57f8550a324cc5194"
+  },
+  "Nombre": "DISTRIBUIDORA JA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f57f8550a324cc5196"
+  },
+  "Nombre": "DISTRIBUIDORA JR",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f57f8550a324cc5198"
+  },
+  "Nombre": "DISTRIBUIDORA RM",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f57f8550a324cc519a"
+  },
+  "Nombre": "DISTRIBUIDORA SUAREZ",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f57f8550a324cc519c"
+  },
+  "Nombre": "DÑA FAVIANA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f57f8550a324cc519e"
+  },
+  "Nombre": "DR MEDINAT",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f57f8550a324cc51a0"
+  },
+  "Nombre": "DREAMS",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f57f8550a324cc51a2"
+  },
+  "Nombre": "DROGUERIA INTI",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f57f8550a324cc51a4"
+  },
+  "Nombre": "DULCIFARMA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f57f8550a324cc51a6"
+  },
+  "Nombre": "EFARMA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f57f8550a324cc51a8"
+  },
+  "Nombre": "EFARMA - MINTLAB",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f57f8550a324cc51aa"
+  },
+  "Nombre": "EFARMA - WEXFORD",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f67f8550a324cc51ac"
+  },
+  "Nombre": "EFARME",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f67f8550a324cc51ae"
+  },
+  "Nombre": "ENGELS MERKEL",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f67f8550a324cc51b0"
+  },
+  "Nombre": "ESPECIALIDADES FARMACEUTICAS",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f67f8550a324cc51b2"
+  },
+  "Nombre": "EUCERIN",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f67f8550a324cc51b4"
+  },
+  "Nombre": "EUROFARMA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f67f8550a324cc51b6"
+  },
+  "Nombre": "FABRA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f67f8550a324cc51b8"
+  },
+  "Nombre": "FARCOS",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f67f8550a324cc51ba"
+  },
+  "Nombre": "FARMASHOPPING",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f67f8550a324cc51bc"
+  },
+  "Nombre": "FARMEDICAL",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f67f8550a324cc51be"
+  },
+  "Nombre": "FARMINDUSTRIA S.A",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f67f8550a324cc51c0"
+  },
+  "Nombre": "FOREST",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f67f8550a324cc51c2"
+  },
+  "Nombre": "FRALAK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f67f8550a324cc51c4"
+  },
+  "Nombre": "GADOR",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f67f8550a324cc51c6"
+  },
+  "Nombre": "GALENMARS",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f67f8550a324cc51c8"
+  },
+  "Nombre": "GARDEN BRI",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f67f8550a324cc51ca"
+  },
+  "Nombre": "GHIRAFF",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f67f8550a324cc51cc"
+  },
+  "Nombre": "GLENMAK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f67f8550a324cc51ce"
+  },
+  "Nombre": "GRUPO CADENA SUR",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f67f8550a324cc51d0"
+  },
+  "Nombre": "GUAYAKI",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f67f8550a324cc51d2"
+  },
+  "Nombre": "HAHNEMANN",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f67f8550a324cc51d4"
+  },
+  "Nombre": "HANSA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f67f8550a324cc51d6"
+  },
+  "Nombre": "HELP MEDICAL",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f67f8550a324cc51d8"
+  },
+  "Nombre": "HERSIL",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f67f8550a324cc51da"
+  },
+  "Nombre": "HUGGIES",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc51dc"
+  },
+  "Nombre": "IFA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc51de"
+  },
+  "Nombre": "IFA LABORATORIOS",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc51e0"
+  },
+  "Nombre": "IFARBO",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc51e2"
+  },
+  "Nombre": "IMEXFAR - BABE",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc51e4"
+  },
+  "Nombre": "IMVI",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc51e6"
+  },
+  "Nombre": "INDUFAR",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc51e8"
+  },
+  "Nombre": "INDUSTRIA FARMACEUTICA QR",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc51ea"
+  },
+  "Nombre": "INDUSTRIAS TORRICO ANTELO (ITA)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc51ec"
+  },
+  "Nombre": "INEXCORP - BABE",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc51ee"
+  },
+  "Nombre": "INQUIBOL",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc51f0"
+  },
+  "Nombre": "INTI ",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc51f2"
+  },
+  "Nombre": "INTI - BRAUN",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc51f4"
+  },
+  "Nombre": "INTI - CHINOIN",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc51f6"
+  },
+  "Nombre": "INTI - DR MANN",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc51f8"
+  },
+  "Nombre": "INTI - GALDERMA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc51fa"
+  },
+  "Nombre": "INTI - GARDEN HOUSE",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc51fc"
+  },
+  "Nombre": "INTI - MERCK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc51fe"
+  },
+  "Nombre": "INTI - MERK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc5200"
+  },
+  "Nombre": "INTI - NUTRICIA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc5202"
+  },
+  "Nombre": "INTI - ROEMMERS",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc5204"
+  },
+  "Nombre": "INTI - VIMIN",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc5206"
+  },
+  "Nombre": "ITA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc5208"
+  },
+  "Nombre": "JEM",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc520a"
+  },
+  "Nombre": "JOHNSON & JOHNSON",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f77f8550a324cc520c"
+  },
+  "Nombre": "KADILA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f87f8550a324cc520e"
+  },
+  "Nombre": "KOTEX",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f87f8550a324cc5210"
+  },
+  "Nombre": "KRISHPAR",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f87f8550a324cc5212"
+  },
+  "Nombre": "L&S",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f87f8550a324cc5214"
+  },
+  "Nombre": "LABOFARMA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f87f8550a324cc5216"
+  },
+  "Nombre": "LABORATIOS ALFA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f87f8550a324cc5218"
+  },
+  "Nombre": "LAFAR",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f87f8550a324cc521a"
+  },
+  "Nombre": "LAMOSAN",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f87f8550a324cc521c"
+  },
+  "Nombre": "LAQFAGAL",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f87f8550a324cc521e"
+  },
+  "Nombre": "LATIN MED",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f87f8550a324cc5220"
+  },
+  "Nombre": "LC PHARMA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f87f8550a324cc5222"
+  },
+  "Nombre": "LIOMONT",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f87f8550a324cc5224"
+  },
+  "Nombre": "LKM",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f87f8550a324cc5226"
+  },
+  "Nombre": "LOGMARK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f87f8550a324cc5228"
+  },
+  "Nombre": "LUZA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f87f8550a324cc522a"
+  },
+  "Nombre": "M&E",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f87f8550a324cc522c"
+  },
+  "Nombre": "MAJOVI",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f87f8550a324cc522e"
+  },
+  "Nombre": "MALENA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f87f8550a324cc5230"
+  },
+  "Nombre": "MASON",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f87f8550a324cc5232"
+  },
+  "Nombre": "MAVER",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f87f8550a324cc5234"
+  },
+  "Nombre": "MEGALABS (ROEMMERS, PHARMA INVESTI)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f87f8550a324cc5236"
+  },
+  "Nombre": "MEGAVIT",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f87f8550a324cc5238"
+  },
+  "Nombre": "MEGAVIT - MASON",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f87f8550a324cc523a"
+  },
+  "Nombre": "MINERVA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f87f8550a324cc523c"
+  },
+  "Nombre": "MINTLAB",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc523e"
+  },
+  "Nombre": "NEOFARMACO",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc5240"
+  },
+  "Nombre": "NATURALES GARDEN",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc5242"
+  },
+  "Nombre": "NEW BEBESITOS",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc5244"
+  },
+  "Nombre": "NEOMEDIC",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc5246"
+  },
+  "Nombre": "NEXCORP",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc5248"
+  },
+  "Nombre": "NIPRO MEDICAL CORPORATION",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc524a"
+  },
+  "Nombre": "NORDMARK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc524c"
+  },
+  "Nombre": "NOSOTRAS",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc524e"
+  },
+  "Nombre": "NOVOPHARMA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc5250"
+  },
+  "Nombre": "OLYMPUS PHARMA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc5252"
+  },
+  "Nombre": "OPTIMED",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc5254"
+  },
+  "Nombre": "PACIFIC PHARMA GROUP",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc5256"
+  },
+  "Nombre": "PHARMACIA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc5258"
+  },
+  "Nombre": "PHILIPS AVENT",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc525a"
+  },
+  "Nombre": "POTATO",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc525c"
+  },
+  "Nombre": "PORTUGAL",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc525e"
+  },
+  "Nombre": "PREMIER",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc5260"
+  },
+  "Nombre": "PROCAPS",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc5262"
+  },
+  "Nombre": "PRODEXA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc5264"
+  },
+  "Nombre": "PROMEDICAL - PROCAPS",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc5266"
+  },
+  "Nombre": "PROMEDICAL",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc5268"
+  },
+  "Nombre": "PROMEDICAL-GRUNENTHAL",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc526a"
+  },
+  "Nombre": "QR",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc526c"
+  },
+  "Nombre": "QUIMFA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831f97f8550a324cc526e"
+  },
+  "Nombre": "QUIMIZA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fa7f8550a324cc5270"
+  },
+  "Nombre": "RAICES",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fa7f8550a324cc5272"
+  },
+  "Nombre": "RAICES - GADOR",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fa7f8550a324cc5274"
+  },
+  "Nombre": "RODAMED",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fa7f8550a324cc5276"
+  },
+  "Nombre": "RECALCINE",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fa7f8550a324cc5278"
+  },
+  "Nombre": "SAE",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fa7f8550a324cc527a"
+  },
+  "Nombre": "SAE - CHILE",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fa7f8550a324cc527c"
+  },
+  "Nombre": "SAE - LCH",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fa7f8550a324cc527e"
+  },
+  "Nombre": "SAE - PACIFIC",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fa7f8550a324cc5280"
+  },
+  "Nombre": "SAE CHILE",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fa7f8550a324cc5282"
+  },
+  "Nombre": "SAN FERNANDO",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fa7f8550a324cc5284"
+  },
+  "Nombre": "SANAT",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fa7f8550a324cc5286"
+  },
+  "Nombre": "SANT DRUG",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fa7f8550a324cc5288"
+  },
+  "Nombre": "SANTE",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fa7f8550a324cc528a"
+  },
+  "Nombre": "SAVAL",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fa7f8550a324cc528c"
+  },
+  "Nombre": "SAVANT",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fa7f8550a324cc528e"
+  },
+  "Nombre": "SC JOHNSON",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fa7f8550a324cc5290"
+  },
+  "Nombre": "SAVANT FHARM",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fa7f8550a324cc5292"
+  },
+  "Nombre": "SCHMIDTS PHARMA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fa7f8550a324cc5294"
+  },
+  "Nombre": "SEBASTIAN",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fa7f8550a324cc5296"
+  },
+  "Nombre": "SEDIM",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fa7f8550a324cc5298"
+  },
+  "Nombre": "SIGMA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fa7f8550a324cc529a"
+  },
+  "Nombre": "SIGMA CORP",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fa7f8550a324cc529c"
+  },
+  "Nombre": "SINAI",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fa7f8550a324cc529e"
+  },
+  "Nombre": "SOLQUIFAR",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fb7f8550a324cc52a0"
+  },
+  "Nombre": "SOPHIA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fb7f8550a324cc52a2"
+  },
+  "Nombre": "TECNOFARMA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fb7f8550a324cc52a4"
+  },
+  "Nombre": "TELCHI",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fb7f8550a324cc52a6"
+  },
+  "Nombre": "TERBONOVA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fb7f8550a324cc52a8"
+  },
+  "Nombre": "TERBOL",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fb7f8550a324cc52aa"
+  },
+  "Nombre": "TEXABOL",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fb7f8550a324cc52ac"
+  },
+  "Nombre": "THAIS",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fb7f8550a324cc52ae"
+  },
+  "Nombre": "U SQUARE LIFESCIENCE",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fb7f8550a324cc52b0"
+  },
+  "Nombre": "UNICURE",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fb7f8550a324cc52b2"
+  },
+  "Nombre": "UNIVERSAL PHARMA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fb7f8550a324cc52b4"
+  },
+  "Nombre": "VALENCIA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fb7f8550a324cc52b6"
+  },
+  "Nombre": "VICTORIA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fb7f8550a324cc52b8"
+  },
+  "Nombre": "VITA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661831fb7f8550a324cc52ba"
+  },
+  "Nombre": "VITA LABORATORIOS",
+  "__v": 0
+}]

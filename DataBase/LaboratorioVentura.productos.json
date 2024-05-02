@@ -1,0 +1,128 @@
+[{
+  "_id": {
+    "$oid": "654ea17ba87ca0cbffdb5e1b"
+  },
+  "Codigo": "19",
+  "Nombre": "covid segunda ola",
+  "__v": 0,
+  "CodigoBarras": "covid-19",
+  "Descripcion": "un solo uso para caer medio muerto",
+  "FechaVencimiento": "1/1/2999",
+  "GrupoFamilia": "1",
+  "InventarioActual": "9",
+  "InventarioMinimo": "7",
+  "PrecioCompra": "900",
+  "PrecioVenta": "4000",
+  "Proveedor": "11",
+  "SubGrupo": "1",
+  "Ubicacion": "Sala de cuarentena ",
+  "UnidadMedida": "julios",
+  "Utilidad": "500"
+},
+{
+  "_id": {
+    "$oid": "654ea2a2a87ca0cbffdb5e22"
+  },
+  "Codigo": "20",
+  "Nombre": "ebola",
+  "UnidadMedida": "pascales",
+  "Descripcion": "enfermedad contagiosa",
+  "CodigoBarras": "20",
+  "Ubicacion": "africa",
+  "PrecioCompra": "10",
+  "Utilidad": "100",
+  "PrecioVenta": "20",
+  "InventarioMinimo": "0",
+  "InventarioActual": "9",
+  "FechaVencimiento": "10/10/2024",
+  "__v": 0,
+  "GrupoFamilia": "2",
+  "Proveedor": "11",
+  "SubGrupo": "1"
+},
+{
+  "_id": {
+    "$oid": "654ea344a87ca0cbffdb5e2f"
+  },
+  "Codigo": "21",
+  "Nombre": "zika",
+  "UnidadMedida": "kelvin",
+  "__v": 0,
+  "CodigoBarras": "21",
+  "Descripcion": "enfermedad de transmición sanguinea",
+  "FechaVencimiento": "2/2/3311",
+  "InventarioActual": "8",
+  "InventarioMinimo": "1",
+  "PrecioCompra": "2",
+  "PrecioVenta": "12",
+  "Proveedor": "11",
+  "Utilidad": "2",
+  "GrupoFamilia": "2",
+  "SubGrupo": "1",
+  "Ubicacion": "chapare"
+},
+{
+  "_id": {
+    "$oid": "654ea359a87ca0cbffdb5e35"
+  },
+  "Codigo": "22",
+  "Nombre": "gripe porcina",
+  "__v": 0,
+  "CodigoBarras": "22",
+  "Descripcion": "enfermedad contagiosa",
+  "FechaVencimiento": "7/6/2024",
+  "GrupoFamilia": "2",
+  "InventarioActual": "8",
+  "InventarioMinimo": "4",
+  "PrecioCompra": "2322",
+  "PrecioVenta": "3000",
+  "Proveedor": "11",
+  "SubGrupo": "1",
+  "Ubicacion": "buganvillas",
+  "UnidadMedida": "celcius",
+  "Utilidad": "23"
+},
+{
+  "_id": {
+    "$oid": "6556626ca87ca0cbffdb6425"
+  },
+  "Codigo": "23",
+  "Nombre": "fiebre amarilla",
+  "UnidadMedida": "Kwatt",
+  "Descripcion": "enfermedad del mango",
+  "CodigoBarras": "23",
+  "Ubicacion": "sacaba",
+  "PrecioCompra": "12",
+  "Utilidad": "10",
+  "PrecioVenta": "14",
+  "InventarioMinimo": "4",
+  "InventarioActual": "8",
+  "FechaVencimiento": "7/7/2024",
+  "Proveedor": "11",
+  "GrupoFamilia": "1",
+  "SubGrupo": "2",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656f91867a130c44dcf4a473"
+  },
+  "Codigo": "a121",
+  "Nombre": "Paracetamol",
+  "UnidadMedida": "gramos",
+  "Descripcion": "Tomar cada 8 horas",
+  "CodigoBarras": "1232",
+  "Ubicacion": "Vitrina 2 h",
+  "PrecioCompra": "10",
+  "Utilidad": "20",
+  "PrecioVenta": "12",
+  "InventarioMinimo": "5",
+  "FechaVencimiento": "",
+  "Proveedor": "65721e743337568d8d37fe66",
+  "GrupoFamilia": "657230f58573b1d11c176521",
+  "SubGrupo": "6572383e8573b1d11c1765a5",
+  "__v": 0,
+  "InventarioActual": "10",
+  "NombreGenerico": "Para",
+  "RegistroSanitario": ""
+}]
