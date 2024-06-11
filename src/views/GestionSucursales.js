@@ -89,7 +89,7 @@ export const GestionSucursales = () => {
       <div className="App">
         <div className="mainNav">
           <MainNavigator />
-        </div>sq
+        </div>
         <div className="containerPadre">
           <div className="headerTableSection">
             <h1 className="titleStyle">Gestion de sucursales</h1>

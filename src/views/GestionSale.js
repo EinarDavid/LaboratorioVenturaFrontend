@@ -5,29 +5,31 @@ import Images from "../config/Images";
 
 import { ButtonFilter } from "../components/Button/ButtonFilter";
 import { SelectFilter } from "../components/Input/SelectFilter";
-import { calcularEdad } from "../services/calcEdad";
 import { ButtonIcon } from "../components/Button/ButtonIcon";
 
 import { useNavigate } from "react-router-dom";
 import { PaginationTable } from "../components/Table/PaginationTable";
 import { RowsSelect } from "../components/Input/RowsSelect";
 import { RegUsuario } from "../components/Modal/ModalRegUsuario";
-import { SectionFilterUser } from "../components/Section/SectionFilterUser";
+
+import { SectionFilterSale } from "../components/Section/SectionFilterSale";
 import {
-  getUsuarioCant,
-  getUsuarioNombres,
-  postUsuarioBuscar,
-} from "../services/usuarioService";
+  getVentaCant,
+  getVentaTodos,
+  postVentaBuscar,
+} from "../services/saleService";
+
+import { convertDate } from "../services/convertDate";
 
 export const GestionSale = () => {
   const navigate = useNavigate();
   const [modalShow, setModalShow] = useState(false);
   const [activeButton, setActiveButton] = useState(false);
   const [search, setSearch] = useState({
+    NIT: "",
     Nombre: "",
-    CI: "",
-    PrimerApellido: "",
-    SegundoApellido: "",
+    FechaCompra: "",
+    Total: "",
     ord: "",
   });
   const [datos, setDatos] = useState([]);
@@ -35,7 +37,7 @@ export const GestionSale = () => {
   const [cantidadPagina, setCantidadPagina] = useState(20);
 
   useEffect(() => {
-    getUsuarioNombres().then(({ data }) => setDataOriginal(data));
+    getVentaTodos().then(({ data }) => setDataOriginal(data));
   }, []);
 
   const handleChangeSearch = (event) => {
@@ -44,7 +46,10 @@ export const GestionSale = () => {
 
   const cargarDatos = () => {
     try {
-      postUsuarioBuscar(search).then(({ data }) => setDataOriginal(data));
+      postVentaBuscar(search).then(({ data }) => {
+        setDataOriginal(data);
+        console.log("data", data);
+      });
     } catch (error) {
       console.log(error);
     }
@@ -121,7 +126,7 @@ export const GestionSale = () => {
             {activeButton ? (
               <>
                 <div className="containerFiltros">
-                  <SectionFilterUser handleChangeSearch={handleChangeSearch} />
+                  <SectionFilterSale handleChangeSearch={handleChangeSearch} />
                 </div>
               </>
             ) : (
@@ -135,47 +140,76 @@ export const GestionSale = () => {
                     <tr>
                       <th></th>
                       <th className="titleTable">Nro</th>
-                      <th className="titleTable">Num. Doc.</th>
-                      <th className="titleTable">Sucursal</th>
                       <th className="titleTable">Cliente</th>
                       <th className="titleTable">Razón social</th>
+                      <th className="titleTable">Correo electrónico</th>
+
                       <th className="titleTable">NIT</th>
-                      <th className="titleTable">Fecha - Hora</th>
-                      <th className="titleTable">Total</th>
+                      <th className="titleTable">Fecha de compra</th>
                       <th className="titleTable">Tipo de Pago</th>
-                      <th className="titleTable">Usuario</th>
-                      <th className="titleTable">Activo</th>
+                      <th className="titleTable">Total</th>
                     </tr>
                   </thead>
-                  {datos.map((pac, i) => (
+                  {datos.map((venta, i) => (
                     <tbody key={i}>
-                      <tr>
+                      <tr className="pacTable">
                         <td>
-                          <button
+                          {/* <button
                             className="buttonPrint"
-                            onClick={() => navigate("/view/user/" + pac?._id)}
+                            onClick={() => navigate("/view/user/" + venta?._id)}
                           >
                             <img src={Images.VIEW} width={"25"} alt={"View"} />
-                          </button>
+                          </button> */}
                         </td>
                         <td className="containerTable">{i + 1}</td>
-                        <td className="containerTable">{pac?.CI}</td>
-                        <td className="containerTable">{pac?.Nombres}</td>
+                        <td className="containerTable">{venta?.Cliente}</td>
                         <td className="containerTable">
-                          {pac?.PrimerApellido}
+                          {venta?.Facturacion.RazonSocial}
                         </td>
                         <td className="containerTable">
-                          {pac?.SegundoApellido}
+                          {venta?.Facturacion.Email}
                         </td>
                         <td className="containerTable">
-                          {calcularEdad(pac?.Fecha_de_Nacimiento)}
+                          {venta?.Facturacion.NIT}
                         </td>
-                        <td className="containerTable">{pac?.Email}</td>
-                        <td className="containerTable">{pac?.Cargo}</td>
-                        <td className="containerTable">{pac?.Telefono}</td>
-                        <td className="containerTable">{pac?.Sucursal}</td>
-                        <td className="containerTable">{pac?.Activo}</td>
+                        <td className="containerTable">
+                          {convertDate(venta?.Fecha)}
+                        </td>
+                        <td className="containerTable">{venta?.TipoPago}</td>
+                        <td className="containerTable">{venta?.PrecioTotal}</td>
                       </tr>
+                     
+                      <tr>
+                        <th></th>
+                        <th className="titleTable">Nro</th>
+                        <th className="titleTable">Producto</th>
+                        <th className="titleTable">Cantidad</th>
+                        <th className="titleTable">Precio</th>
+                        <th className="titleTable">Total</th>
+                      </tr>
+                      {venta.Producto ? (
+                        venta.Producto.map((product, i) => (
+                          <>
+                            <tr>
+                              <td></td>
+                              <td className="containerTable">{i + 1}</td>
+                              <td className="containerTable">{product?._id}</td>
+                              <td className="containerTable">
+                                {product?.Cantidad}
+                              </td>
+                              <td className="containerTable">
+                                {product?.PrecioVenta}
+                              </td>
+                              <td className="containerTable">
+                                {product?.Total}
+                              </td>
+                            </tr>
+                          </>
+                        ))
+                      ) : (
+                        <></>
+                      )}
+                    
                     </tbody>
                   ))}
                 </table>
@@ -196,7 +230,7 @@ export const GestionSale = () => {
                   setLaboratorios={setDatos}
                   laboratoriosOriginal={dataOriginal}
                   cantidadPagina={cantidadPagina}
-                  getLaboratorioCant={getUsuarioCant}
+                  getLaboratorioCant={getVentaCant}
                 />
               </div>
             </div>

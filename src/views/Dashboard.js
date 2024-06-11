@@ -124944,13 +124944,13 @@ export const Dashboard = () => {
         <div className="containerPadre">
           <div className="containerHijo">
             <h1 className="titleStyle">Dashboard</h1>
-            <button
+            {/* <button
               onClick={() => {
                 ReadExcel();
               }}
             >
               Cantidad
-            </button>
+            </button> */}
             <div className="spaceVer20" />
             <div className="DashboardContent">
               <div className="Container_KPI">

@@ -26,10 +26,11 @@ export const LoginApp = () => {
             console.log(data)
             localStorage.setItem('token', data.token);
             
-            axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
+
 
             getUser().then(({data})=>{
               console.log(data)
+            
             })
 
             navigate("/*", {

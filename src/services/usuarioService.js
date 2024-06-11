@@ -36,5 +36,6 @@ export async function postLogin(usuario) {
     return await axios.post(api+"login",usuario);
 }
 export async function getUser() {
+    axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
     return await axios.get(api + "getUser");
 }

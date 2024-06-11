@@ -14,7 +14,7 @@ export const RegistroGrupo = ({
       <form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
         <div className="row3-Inputs">
           <TextInput
-            Name={"Nombre"}
+            Name={"Nombre*"}
             LabelInput={"Nombre del grupo*"}
             Placeholder={"Ej ALFA"}
             Register={register}

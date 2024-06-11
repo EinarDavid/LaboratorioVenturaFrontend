@@ -9,5 +9,6 @@ export const NavButton = ({Image, onClick}) => {
             </button>
             {/* <h4 className="NameNav">Nombre</h4> */}
         </div>
+        {/* <h4 className="NameNav">Nombre</h4> */}
     </>);
 };
