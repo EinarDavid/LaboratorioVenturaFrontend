@@ -17,6 +17,7 @@ import {
   getSubGrupoTodos,
   postSubGrupoBuscar,
 } from "../services/subgrupoService";
+import { getGrupoTodos, getGrupoUno, postGrupoBuscar } from "../services/grupoService";
 
 export const GestionSubGrupo = () => {
   const navigate = useNavigate();
@@ -35,13 +36,18 @@ export const GestionSubGrupo = () => {
   const [datos, setDatos] = useState([]);
   const [dataOriginal, setDataOriginal] = useState([]);
   const [cantidadPagina, setCantidadPagina] = useState(20);
+  const [dataGrupo, setDataGrupo] = useState()
 
   useEffect(() => {
-    getSubGrupoTodos().then(({ data }) => {
-      setDataOriginal(data);
-      console.log("datos", data);
-    });
+    getGrupoTodos().then(({data})=>{
+      console.log("Grupo", data);
+      setDataGrupo(data)
+    })
+
+   
   }, []);
+  
+  
 
   const handleChangeSearch = (event) => {
     setSearch({ ...search, [event.target.name]: event.target.value });
@@ -50,6 +56,11 @@ export const GestionSubGrupo = () => {
   const cargarDatos = () => {
     try {
       postSubGrupoBuscar(search).then(({ data }) => {
+        data = data.map ((e)=>{
+          var NewData = dataGrupo?.find((a) => a._id === e.Grupo);
+          //console.log("GrupoRes", NewData, e);
+          return({...e, GrupoText:NewData?.Nombre})
+        })
         setDataOriginal(data);
       });
     } catch (error) {
@@ -58,7 +69,7 @@ export const GestionSubGrupo = () => {
   };
   useEffect(() => {
     cargarDatos();
-  }, [search]);
+  }, [search, dataGrupo]);
 
   const FilterOrder = [
     {
@@ -84,6 +95,20 @@ export const GestionSubGrupo = () => {
       id_option: 3,
     },
   ];
+
+  /*const BuscarGrupo = async (_idGroup) => {
+    let Nombre = "";
+    if (_idGroup !== undefined) {
+      try {
+        const { data } = await getGrupoUno(_idGroup);
+        console.log("DataRes", data.Nombre);
+        Nombre = data.Nombre;
+      } catch (error) {
+        console.error("Error fetching group:", error);
+      }
+    }
+    return Nombre;
+  };*/
   return (
     <>
       <div className="App">
@@ -156,7 +181,7 @@ export const GestionSubGrupo = () => {
                         </td>
                         <td className="containerTable">{i + 1}</td>
                         <td className="containerTable">{exa.Nombre}</td>
-                        <td className="containerTable">{exa.Grupo}</td>
+                        <td className="containerTable">{exa.GrupoText}</td>
                       </tr>
                     </tbody>
                   ))}

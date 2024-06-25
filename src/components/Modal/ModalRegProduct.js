@@ -83,6 +83,14 @@ export const ModalRegProduct = ({ SetModal, modal, callback }) => {
     }
   };
 
+  const _SubGrupo = (e) =>{
+    //console.log("data", e.target.value)
+    var data = subGrupo;
+    data = data.filter((a) => a.Grupo === e.target.value);
+    //console.log("DaTa Res", data, e.target.value);
+    setSubGrupo(data);
+  }
+
   useEffect(() => {
     getProveedorTodos().then(({ data }) => {
       setProveedor(data);
@@ -94,6 +102,11 @@ export const ModalRegProduct = ({ SetModal, modal, callback }) => {
       setSubGrupo(data);
     });
   }, []);
+
+  useEffect(() => {
+    
+  }, [grupo])
+  
 
   return modal ? (
     <>
@@ -114,6 +127,7 @@ export const ModalRegProduct = ({ SetModal, modal, callback }) => {
             errors={errors}
             disableButton={disableButton}
             _Price={_Price}
+            _SubGrupo={_SubGrupo}
             Proveedor = {proveedor}
             Grupo = {grupo}
             Subgrupo = {subGrupo}

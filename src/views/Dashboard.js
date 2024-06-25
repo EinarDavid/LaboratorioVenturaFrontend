@@ -856,7 +856,7 @@ export const Dashboard = () => {
                 ord: "",
               };
               var { data } = await postSubGrupoBuscar(filtroSubGrupo);
-              data = await data.filter((a) => a.Nombre === element.SubGrupo);
+              data = await data.filter((a) => a.Nombre === element.SubGrupo && a.Grupo === idGrupo);
               console.log("SubGrupoRes", data, element.SubGrupo);
               var idSubGrupo = await data[0]._id;
             }
@@ -889,9 +889,52 @@ export const Dashboard = () => {
           console.error("Error", error);
           console.log("Codigo", element.Codigo)
         }
-      }, i*100);
+      }, i*500);
     });
   };
+
+  /*const ReadExcelSubGrupo = () => {
+    const aux = [];
+    dataGroup.forEach(async (element, i) => {
+      setTimeout(async () => {
+        try {
+          if (element.GrupoFamilia !== "") {
+            const filtroGrupo = {
+              Codigo: "",
+              Nombre: element.GrupoFamilia,
+              PrecioCompra: "",
+              PrecioVenta: "",
+              InventarioActual: "",
+              ord: "",
+            };
+            var { data } = await postGrupoBuscar(filtroGrupo);
+            data = await data.filter((a) => a.Nombre === element.GrupoFamilia);
+            //console.log("GrupoRes", data, element.GrupoFamilia);
+
+            var idGrupo = await data[0]._id ;
+            if(element.SubGrupo !== ""){
+              var product = {
+                Nombre: element.SubGrupo,
+                Grupo: idGrupo,
+              };
+              //console.log(product)
+              if(!aux.find(a=>a.Nombre==product.Nombre && a.Grupo==product.Grupo)) {
+                aux.push(product);
+                await postSubGrupoAgregar(product).then(({ data }) => {
+                  console.log(data);
+                });
+              }
+            }
+            
+          }
+          
+        } catch (error) {
+          console.error("Error", error);
+          console.log("Codigo", element.Codigo)
+        }
+      }, i*100);
+    });
+  };*/
 
   return (
     <>

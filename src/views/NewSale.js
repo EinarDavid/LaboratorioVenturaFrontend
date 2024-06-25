@@ -70,7 +70,7 @@ export const NewSale = () => {
         PrecioTotal: sumTotal,
         Facturacion: dataFacturacion
       };
-      console.log(datos)
+      console.log("Datos enviados",datos)
       postAgregarVenta(datos).then(({ data }) => {
         console.log(data);
         alert(data.mensaje);
@@ -85,7 +85,7 @@ export const NewSale = () => {
         //limpiar cajas, cerrar modal y avisar que fue añadido con exito
       });
     } else {
-      alert("Selecciona un paciente y producto a realizar");
+      alert("Selecciona un cliente y producto");
     }
   };
   const handleChangeNombre = (event) => {
@@ -162,10 +162,11 @@ export const NewSale = () => {
     var suma = 0;
     productSelect.map((data) => {
       suma = suma + Number(data?.Total);
-      //console.log(data)
+      console.log(suma)
     });
     setSumTotal(suma);
   };
+
   useEffect(() => {
     _Sumtotal();
     _DescuentoTotal();

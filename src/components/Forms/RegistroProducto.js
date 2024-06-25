@@ -11,6 +11,7 @@ export const RegistroProducto = ({
   disableButton,
   handleChangeForm,
   _Price,
+  _SubGrupo,
   Proveedor,
   Grupo,
   Subgrupo,
@@ -48,10 +49,7 @@ export const RegistroProducto = ({
             Register={register}
             Validation={{
               required: "El campo es requerido",
-              pattern: {
-                value: /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$/,
-                message: "Solo se permiten letras",
-              },
+              
             }}
             ErrorInput={errors.Nombre?.message}
           />
@@ -62,10 +60,7 @@ export const RegistroProducto = ({
             Register={register}
             Validation={{
               required: "El campo es requerido",
-              pattern: {
-                value: /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$/,
-                message: "Solo se permiten letras",
-              },
+              
             }}
             ErrorInput={errors.NombreGenerico?.message}
           />
@@ -143,7 +138,9 @@ export const RegistroProducto = ({
             Placeholder={"Selecciona el Grupo o Familia"}
             SelectOption={Grupo}
             Register={register}
-            //Validation={{ required: "El campo es requerido" }}
+            Validation={{
+              onChange: (e) => _SubGrupo(e),
+            }}
             ErrorInput={errors.GrupoFamilia?.message}
           />
           <Select
