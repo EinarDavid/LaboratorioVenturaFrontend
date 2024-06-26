@@ -18,6 +18,7 @@ import {
   getUsuarioNombres,
   postUsuarioBuscar,
 } from "../services/usuarioService";
+import { RowsForPage } from "../components/Table/RowsForPage";
 
 export const GestionUsuarios = () => {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ export const GestionUsuarios = () => {
   });
   const [datos, setDatos] = useState([]);
   const [dataOriginal, setDataOriginal] = useState([]);
-  const [cantidadPagina, setCantidadPagina] = useState(20);
+  const [cantidadPagina, setCantidadPagina] = useState(50);
 
   useEffect(() => {
     getUsuarioNombres().then(({ data }) => setDataOriginal(data));
@@ -66,20 +67,6 @@ export const GestionUsuarios = () => {
     },
   ];
 
-  const RowsForPage = [
-    {
-      option: 20,
-      id_option: 1,
-    },
-    {
-      option: 40,
-      id_option: 2,
-    },
-    {
-      option: 60,
-      id_option: 3,
-    },
-  ];
 
   return (
     <>
@@ -88,16 +75,17 @@ export const GestionUsuarios = () => {
           <MainNavigator></MainNavigator>
         </div>
         <div className="containerPadre">
+          <div className="container">
           <div className="headerTableSection">
             <h1 className="titleStyle">Gestion de usuarios</h1>
-            <div className="spaceVer10" />
+            
             <ButtonIcon
               Image={Images.ADDBLUE}
               Nombre={"Añadir nuevo usuario"}
               OnClick={() => setModalShow(true)}
             />
 
-            <div className="spaceVer10" />
+            
             <div className="containerFiltro">
               <ButtonFilter
                 Nombre={"Filtros"}
@@ -117,7 +105,7 @@ export const GestionUsuarios = () => {
               <div className="spaceRow25" />
             </div>
           </div>
-          <div className="spaceVer20" />
+          
           <div className="tablePadreContainer">
             {activeButton ? (
               <>
@@ -201,6 +189,7 @@ export const GestionUsuarios = () => {
                 />
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>

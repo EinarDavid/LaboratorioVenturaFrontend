@@ -52,9 +52,9 @@ export const RegistroSurcursal = ({
       <form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
         <div className="row3-Inputs">
           <TextInput
-            Name={"Nombre*"}
-            LabelInput={"Nombre del grupo*"}
-            Placeholder={"Ej ALFA"}
+            Name={"Nombre"}
+            LabelInput={"Nombre de la sucursal*"}
+            Placeholder={"Ej Villa Pagador"}
             Register={register}
             Validation={{
               required: "El campo es requerido",
@@ -64,7 +64,7 @@ export const RegistroSurcursal = ({
           <TextInput
             Name={"Direccion"}
             LabelInput={"Dirección*"}
-            Placeholder={"Ej ALFA"}
+            Placeholder={"Ej Av. Humberto Asin"}
             Register={register}
             Validation={{
               required: "El campo es requerido",
@@ -74,7 +74,7 @@ export const RegistroSurcursal = ({
           <Select
             Name={"Ciudad"}
             LabelInput={"Ciudad*"}
-            Placeholder={"Selecciona el tipo de Movimiento"}
+            Placeholder={"Selecciona la ciudad"}
             SelectOption={Ciudad}
             Register={register}
             Validation={{

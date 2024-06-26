@@ -17,6 +17,7 @@ import {
   getGrupoTodos,
   postGrupoBuscar,
 } from "../services/grupoService";
+import { RowsForPage } from "../components/Table/RowsForPage";
 
 export const GestionGrupo = () => {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ export const GestionGrupo = () => {
   });
   const [datos, setDatos] = useState([]);
   const [dataOriginal, setDataOriginal] = useState([]);
-  const [cantidadPagina, setCantidadPagina] = useState(20);
+  const [cantidadPagina, setCantidadPagina] = useState(50);
 
   useEffect(() => {
     getGrupoTodos().then(({ data }) => {
@@ -70,20 +71,7 @@ export const GestionGrupo = () => {
       id_option: 2,
     },
   ];
-  const RowsForPage = [
-    {
-      option: 20,
-      id_option: 1,
-    },
-    {
-      option: 40,
-      id_option: 2,
-    },
-    {
-      option: 60,
-      id_option: 3,
-    },
-  ];
+
   return (
     <>
       <div className="App">
@@ -91,92 +79,98 @@ export const GestionGrupo = () => {
           <MainNavigator />
         </div>
         <div className="containerPadre">
-          <div className="headerTableSection">
-            <h1 className="titleStyle">Gestion de grupos</h1>
-            <div className="spaceVer10" />
-            <ButtonIcon
-              Image={Images.ADDBLUE}
-              Nombre={"Añadir nuevo grupo"}
-              OnClick={() => setModalShow(true)}
-            />
-            <div className="spaceVer10" />
-            <div className="containerFiltro">
-              <ButtonFilter
-                Nombre={"Filtros"}
-                OnClick={() => {
-                  setActiveButton(!activeButton);
-                }}
-                Active={activeButton}
-              />
-              <div className="spaceRow15" />
+          <div className="container">
+            <div className="headerTableSection">
+              <h1 className="titleStyle">Gestion de grupos</h1>
 
-              <SelectFilter
-                Name={"ord"}
-                Placeholder={"Ordenar Por"}
-                SelectOption={FilterOrder}
-                OnChange={(e) => handleChangeSearch(e)}
+              <ButtonIcon
+                Image={Images.ADDBLUE}
+                Nombre={"Añadir nuevo grupo"}
+                OnClick={() => setModalShow(true)}
               />
-              <div className="spaceRow25" />
+
+              <div className="containerFiltro">
+                <ButtonFilter
+                  Nombre={"Filtros"}
+                  OnClick={() => {
+                    setActiveButton(!activeButton);
+                  }}
+                  Active={activeButton}
+                />
+                <div className="spaceRow15" />
+
+                <SelectFilter
+                  Name={"ord"}
+                  Placeholder={"Ordenar Por"}
+                  SelectOption={FilterOrder}
+                  OnChange={(e) => handleChangeSearch(e)}
+                />
+                <div className="spaceRow25" />
+              </div>
             </div>
-          </div>
-          <div className="spaceVer20" />
-          <div className="tablePadreContainer">
-            {activeButton ? (
-              <>
-                <div className="containerFiltros">
-                  <SectionFilterProduct
-                    handleChangeSearch={handleChangeSearch}
+
+            <div className="tablePadreContainer">
+              {activeButton ? (
+                <>
+                  <div className="containerFiltros">
+                    <SectionFilterProduct
+                      handleChangeSearch={handleChangeSearch}
+                    />
+                  </div>
+                </>
+              ) : (
+                <></>
+              )}
+              <div className="cardBodyEvaluation">
+                <div className="divTable">
+                  <table className="tableContainer">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th className="titleTable">Nro</th>
+                        <th className="titleTable">Nombre</th>
+                      </tr>
+                    </thead>
+                    {datos.map((exa, i) => (
+                      <tbody key={i}>
+                        <tr>
+                          <td>
+                            <button
+                              className="buttonPrint"
+                              onClick={() => navigate("/view/grupo/" + exa._id)}
+                            >
+                              <img
+                                src={Images.VIEW}
+                                width={"25"}
+                                alt={"View"}
+                              />
+                            </button>
+                          </td>
+                          <td className="containerTable">{i + 1}</td>
+                          <td className="containerTable">{exa.Nombre}</td>
+                        </tr>
+                      </tbody>
+                    ))}
+                  </table>
+                </div>
+                <div className="footerTable">
+                  <RowsSelect
+                    Name={"Page"}
+                    LabelInput={"Filas por pagina"}
+                    SelectOption={RowsForPage}
+                    OnChange={(e) => {
+                      setCantidadPagina(Number(e.target.value));
+                    }}
+                    Value={cantidadPagina || ""}
+                  />
+                  <div className="spaceRow20" />
+                  <PaginationTable
+                    setLaboratorios={setDatos}
+                    laboratoriosOriginal={dataOriginal}
+                    cantidadPagina={cantidadPagina}
+                    getLaboratorioCant={getGrupoCant}
                   />
                 </div>
-              </>
-            ) : (
-              <></>
-            )}
-            <div className="cardBodyEvaluation">
-              <div className="divTable">
-                <table className="tableContainer">
-                  <thead>
-                    <tr>
-                      <th></th>
-                      <th className="titleTable">Nro</th>
-                      <th className="titleTable">Nombre</th>
-                    </tr>
-                  </thead>
-                  {datos.map((exa, i) => (
-                    <tbody key={i}>
-                      <tr>
-                        <td>
-                          <button
-                            className="buttonPrint"
-                            onClick={() => navigate("/view/grupo/" + exa._id)}
-                          >
-                            <img src={Images.VIEW} width={"25"} alt={"View"} />
-                          </button>
-                        </td>
-                        <td className="containerTable">{i + 1}</td>
-                        <td className="containerTable">{exa.Nombre}</td>
-                      </tr>
-                    </tbody>
-                  ))}
-                </table>
-              </div>
-              <div className="footerTable">
-                <RowsSelect
-                  Name={"Page"}
-                  LabelInput={"Filas por pagina"}
-                  SelectOption={RowsForPage}
-                  OnChange={(e) => {
-                    setCantidadPagina(Number(e.target.value));
-                  }}
-                  Value={cantidadPagina || ""}
-                />
-                <div className="spaceRow20" />
-                <PaginationTable
-                  setLaboratorios={setDatos}
-                  laboratoriosOriginal={dataOriginal}
-                  cantidadPagina={cantidadPagina}
-                  getLaboratorioCant={getGrupoCant}
-                />
               </div>
             </div>
           </div>

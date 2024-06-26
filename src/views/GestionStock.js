@@ -15,6 +15,7 @@ import { SectionFilterProduct } from "../components/Section/SectionFilterProduct
 import { ModalRegStock } from "../components/Modal/ModalRegStock";
 import { getStockCant, getStockTodos, postStockBuscar } from "../services/stockService";
 import { convertDate } from "../services/convertDate";
+import { RowsForPage } from "../components/Table/RowsForPage";
 
 export const GestionStock = () => {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ export const GestionStock = () => {
   });
   const [datos, setDatos] = useState([]);
   const [dataOriginal, setDataOriginal] = useState([]);
-  const [cantidadPagina, setCantidadPagina] = useState(5);
+  const [cantidadPagina, setCantidadPagina] = useState(50);
 
   useEffect(() => {
     getStockTodos().then(({ data }) => setDataOriginal(data));
@@ -60,20 +61,7 @@ export const GestionStock = () => {
       id_option: 2,
     },
   ];
-  const RowsForPage = [
-    {
-      option: 5,
-      id_option: 1,
-    },
-    {
-      option: 10,
-      id_option: 2,
-    },
-    {
-      option: 30,
-      id_option: 3,
-    },
-  ];
+
   return (
     <>
       <div className="App">
@@ -81,15 +69,16 @@ export const GestionStock = () => {
           <MainNavigator />
         </div>
         <div className="containerPadre">
+        <div className="container">
           <div className="headerTableSection">
             <h1 className="titleStyle">Gestion de Inventarios</h1>
-            <div className="spaceVer10" />
+            
             <ButtonIcon
               Image={Images.ADDBLUE}
               Nombre={"Añadir nuevo inventario"}
               OnClick={() => setModalShow(true)}
             />
-            <div className="spaceVer10" />
+            
             <div className="containerFiltro">
               <ButtonFilter
                 Nombre={"Filtros"}
@@ -109,7 +98,7 @@ export const GestionStock = () => {
               <div className="spaceRow25" />
             </div>
           </div>
-          <div className="spaceVer20" />
+
           <div className="tablePadreContainer">
             {activeButton ? (
               <>
@@ -180,6 +169,7 @@ export const GestionStock = () => {
                 />
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>

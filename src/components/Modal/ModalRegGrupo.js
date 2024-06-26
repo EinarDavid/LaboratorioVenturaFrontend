@@ -15,7 +15,7 @@ export const ModalRegGrupo = ({ SetModal, modal, callback }) => {
   const [datos, setDatos] = useState({});
 
   const {
-    register,
+    register, 
     formState: { errors },
     reset,
     handleSubmit,

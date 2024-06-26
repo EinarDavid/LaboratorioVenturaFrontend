@@ -10,15 +10,16 @@ export const SearchInput = ({
   Find,
 }) => {
   const onChange = (e) => {
-    
     if (e.target.value != "") {
+      //console.log(e.target.value);
       let finded = Data.filter(
         (a) =>
           a[Key].substring(0, e.target.value.length).toLowerCase() ==
           e.target.value.toLowerCase()
       );
+
       Find(finded);
-      console.log("---", finded);
+      //console.log("Filtro--", uniqueCombined);
     } else {
       Find([]);
     }
@@ -29,7 +30,7 @@ export const SearchInput = ({
         <div className="containerTextInput">
           <label className="labelInput">{LabelInput}</label>
           <input
-            type="search"
+            type="input"
             className="textInput"
             placeholder={Placeholder}
             onChange={onChange}

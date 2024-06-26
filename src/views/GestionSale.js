@@ -20,6 +20,7 @@ import {
 } from "../services/saleService";
 
 import { convertDate } from "../services/convertDate";
+import { RowsForPage } from "../components/Table/RowsForPage";
 
 export const GestionSale = () => {
   const navigate = useNavigate();
@@ -61,29 +62,15 @@ export const GestionSale = () => {
 
   const FilterOrder = [
     {
-      option: "Edad Ascendente",
+      option: "Fecha Ascendente",
       id_option: 1,
     },
     {
-      option: "Edad Descendente",
+      option: "Fecha Descendente",
       id_option: 2,
     },
   ];
 
-  const RowsForPage = [
-    {
-      option: 20,
-      id_option: 1,
-    },
-    {
-      option: 40,
-      id_option: 2,
-    },
-    {
-      option: 60,
-      id_option: 3,
-    },
-  ];
 
   return (
     <>
@@ -92,16 +79,17 @@ export const GestionSale = () => {
           <MainNavigator></MainNavigator>
         </div>
         <div className="containerPadre">
+          <div className="container">
           <div className="headerTableSection">
             <h1 className="titleStyle">Gestion de ventas</h1>
-            <div className="spaceVer10" />
+            
             <ButtonIcon
               Image={Images.ADDBLUE}
               Nombre={"Añadir nueva venta"}
               OnClick={() => navigate("/newSale")}
             />
 
-            <div className="spaceVer10" />
+            
             <div className="containerFiltro">
               <ButtonFilter
                 Nombre={"Filtros"}
@@ -121,7 +109,7 @@ export const GestionSale = () => {
               <div className="spaceRow25" />
             </div>
           </div>
-          <div className="spaceVer20" />
+          
           <div className="tablePadreContainer">
             {activeButton ? (
               <>
@@ -175,7 +163,7 @@ export const GestionSale = () => {
                         <td className="containerTable">
                           {convertDate(venta?.Fecha)}
                         </td>
-                        <td className="containerTable">{venta?.TipoPago}</td>
+                        <td className="containerTable">{venta?.FormaDePago}</td>
                         <td className="containerTable">{venta?.PrecioTotal}</td>
                       </tr>
                      
@@ -234,6 +222,7 @@ export const GestionSale = () => {
                 />
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>

@@ -4,8 +4,8 @@ import Images from "../../config/Images";
 
 import { ModalConfirmation } from "./ModalConfirmation";
 
-import { RegistroGrupo } from "../Forms/RegistroGrupo";
 import { postGrupoAgregar } from "../../services/grupoService";
+import { RegistroSurcursal } from "../Forms/RegistroSurcursal";
 
 export const ModalRegSucursal = ({ SetModal, modal, callback }) => {
     const [modalConfirmation, setModalConfirmation] = useState(false);
@@ -79,7 +79,7 @@ export const ModalRegSucursal = ({ SetModal, modal, callback }) => {
               </div>
               <div className="spaceVer20" />
     
-              <RegistroGrupo
+              <RegistroSurcursal
                 handleSubmit={handleSubmit}
                 onSubmit={onConfirmation}
                 register={register}

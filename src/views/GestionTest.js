@@ -12,6 +12,7 @@ import Images from "../config/Images";
 import { MainNavigator } from "../navigation/MainNavigator";
 import { getExamenCant, getExamenTodos } from "../services/examenService";
 import { SectionFilterTest } from "../components/Section/SectionFilterTest";
+import { RowsForPage } from "../components/Table/RowsForPage";
 
 export const GestionTest = () => {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ export const GestionTest = () => {
   });
   const [examenes, setExamenes] = useState([]);
   const [examenesOriginal, setExamenesOriginal] = useState([]);
-  const [cantidadPagina, setCantidadPagina] = useState(5);
+  const [cantidadPagina, setCantidadPagina] = useState(50);
 
   console.log("datos search", search);
 
@@ -55,20 +56,7 @@ export const GestionTest = () => {
       id_option: 4,
     },
   ];
-  const RowsForPage = [
-    {
-      option: 5,
-      id_option: 1,
-    },
-    {
-      option: 10,
-      id_option: 2,
-    },
-    {
-      option: 30,
-      id_option: 3,
-    },
-  ];
+
 
   const handleChangeSearch = (event) => {
     //console.log(event.target.value)
@@ -82,15 +70,16 @@ export const GestionTest = () => {
           <MainNavigator />
         </div>
         <div className="containerPadre">
+          <div className="container">
           <div className="headerTableSection">
             <h1 className="titleStyle">Gestión de Examenes</h1>
-            <div className="spaceVer10" />
+            
             <ButtonIcon
               Image={Images.ADDBLUE}
               Nombre={"Añadir nuevo examen"}
               OnClick={() => setModalShow(true)}
             />
-            <div className="spaceVer10" />
+            
             <div className="containerFiltro">
               <ButtonFilter
                 Nombre={"Filtros"}
@@ -110,7 +99,7 @@ export const GestionTest = () => {
               <div className="spaceRow25" />
             </div>
           </div>
-          <div className="spaceVer20" />
+
           <div className="tablePadreContainer">
             {activeButton ? (
               <>
@@ -184,6 +173,7 @@ export const GestionTest = () => {
                 />
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>

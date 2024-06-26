@@ -17,6 +17,7 @@ import {
   postProveedorBuscar,
 } from "../services/proveedorService";
 import { ModalRegProveedor } from "../components/Modal/ModalRegProveedor";
+import { RowsForPage } from "../components/Table/RowsForPage";
 
 export const GestionProveedor = () => {
   const navigate = useNavigate();
@@ -29,12 +30,11 @@ export const GestionProveedor = () => {
     PrecioCompra: "",
     PrecioVenta: "",
     InventarioActual: "",
-
     ord: "",
   });
   const [datos, setDatos] = useState([]);
   const [dataOriginal, setDataOriginal] = useState([]);
-  const [cantidadPagina, setCantidadPagina] = useState(20);
+  const [cantidadPagina, setCantidadPagina] = useState(50);
 
   useEffect(() => {
     getProveedorTodos().then(({ data }) => {
@@ -70,20 +70,7 @@ export const GestionProveedor = () => {
       id_option: 2,
     },
   ];
-  const RowsForPage = [
-    {
-      option: 20,
-      id_option: 1,
-    },
-    {
-      option: 40,
-      id_option: 2,
-    },
-    {
-      option: 60,
-      id_option: 3,
-    },
-  ];
+
 
   return (
     <>
@@ -92,15 +79,16 @@ export const GestionProveedor = () => {
           <MainNavigator />
         </div>
         <div className="containerPadre">
+          <div className="container">
           <div className="headerTableSection">
             <h1 className="titleStyle">Gestion de proveedores</h1>
-            <div className="spaceVer10" />
+            
             <ButtonIcon
               Image={Images.ADDBLUE}
               Nombre={"Añadir nuevo proveedor"}
               OnClick={() => setModalShow(true)}
             />
-            <div className="spaceVer10" />
+            
             <div className="containerFiltro">
               <ButtonFilter
                 Nombre={"Filtros"}
@@ -120,7 +108,7 @@ export const GestionProveedor = () => {
               <div className="spaceRow25" />
             </div>
           </div>
-          <div className="spaceVer20" />
+          
           <div className="tablePadreContainer">
             {activeButton ? (
               <>
@@ -189,6 +177,7 @@ export const GestionProveedor = () => {
                 />
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>

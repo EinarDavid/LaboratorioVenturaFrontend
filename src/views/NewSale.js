@@ -18,6 +18,7 @@ import { SelectDinamic } from "../components/Input/SelectDinamic";
 import { ButtonPrimary100 } from "../components/Button/ButtonPrimary100";
 import { getProductTodos } from "../services/productService";
 import { ModalConfirmation } from "../components/Modal/ModalConfirmation";
+import { SearchProduct } from "../components/Input/SearchProduct";
 
 export const NewSale = () => {
   const navigate = useNavigate();
@@ -148,9 +149,9 @@ export const NewSale = () => {
       if (elemento._id === id) {
         return {
           ...elemento,
-          Total: Total,
-          Cantidad: Cantidad,
-          PrecioVenta: e.target.value,
+          Total: Number(Total),
+          Cantidad: Number(Cantidad),
+          PrecioVenta: Number(e.target.value),
         };
       }
       return elemento;
@@ -161,8 +162,9 @@ export const NewSale = () => {
   const _Sumtotal = () => {
     var suma = 0;
     productSelect.map((data) => {
+      console.log("Data", data?.Total)
       suma = suma + Number(data?.Total);
-      console.log(suma)
+      console.log("Sum",suma)
     });
     setSumTotal(suma);
   };
@@ -208,7 +210,6 @@ export const NewSale = () => {
             <div className="section1Lab">
               <div className="headerTableSection">
                 <h1 className="titleStyle">Nueva Venta</h1>
-                <div className="spaceVer20" />
                 <div className="containerPacDoc">
                   <div className="selectPac">
                     <SearchInput
@@ -227,6 +228,7 @@ export const NewSale = () => {
                         setPacienteFinded(finded);
                       }}
                     ></SearchInput>
+                    
                     {pacienteFinded.length > 0 ? (
                       <div className="containerResultados">
                         {pacienteFinded.map((ex, i) => (
@@ -263,7 +265,7 @@ export const NewSale = () => {
                     ) : (
                       <></>
                     )}
-                    <div className="spaceVer10" />
+                 
                     {pacienteSelected.length !== 0 ? (
                       <section className="information">
                         <p className="labelInput">
@@ -291,7 +293,7 @@ export const NewSale = () => {
                       />
                     )}
                   </div>
-                  <div className="spaceRow20" />
+                 
                   <div className="selectDoc">
                     <EmptySearch
                       Image={Images.CONTRUCTION}
@@ -300,10 +302,11 @@ export const NewSale = () => {
                     />
                   </div>
                 </div>
-                <div className="spaceVer20" />
-                <h2 className="titleStyleH2">Productos</h2>
-                <div className="spaceVer15" />
-                <SearchInput
+              
+              <div className="SearchProduct">
+              <h2 className="titleStyleH2">Productos</h2>
+              <div className="spaceVer10" />
+                <SearchProduct
                   LabelInput={"Ingresa el nombre del Producto*"}
                   Placeholder={"Ej. Paracetamol"}
                   Image={Images.ADD}
@@ -313,7 +316,7 @@ export const NewSale = () => {
                   Find={(finded) => {
                     setExamenFinded(finded);
                   }}
-                ></SearchInput>
+                ></SearchProduct>
 
                 {examenFinded.length > 0 ? (
                   <div className="containerResultados">
@@ -327,8 +330,9 @@ export const NewSale = () => {
                                 ...productSelect,
                                 {
                                   ...ex,
-                                  Total: ex.PrecioVenta,
-                                  PrecioOriginal: ex.PrecioVenta,
+                                  PrecioVenta:ex.PrecioVenta.replace(',','.'),
+                                  Total: ex.PrecioVenta.replace(',','.'),
+                                  PrecioOriginal: ex.PrecioVenta.replace(',','.'),
                                   Cantidad: 1
                                 },
                               ]);
@@ -355,6 +359,9 @@ export const NewSale = () => {
                             Proveedor: {ex.Proveedor}
                           </p>
                           <div className="spaceRow10" />
+                          <p className="labelInput">
+                            Codigo de Barras: {ex.CodigoBarras}
+                          </p>
                         </button>
                       </div>
                     ))}
@@ -362,6 +369,8 @@ export const NewSale = () => {
                 ) : (
                   <></>
                 )}
+              </div>
+                
               </div>
 
               <div className="cardBody">
@@ -397,7 +406,7 @@ export const NewSale = () => {
                                         e
                                       );
                                     }}
-                                    Value={ex.PrecioVenta}
+                                    Value={Number(ex.PrecioVenta)}
                                   />
                                   Precio Original: {ex.PrecioOriginal}
                                 </td>
